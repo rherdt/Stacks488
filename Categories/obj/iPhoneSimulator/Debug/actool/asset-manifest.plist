@@ -6,13 +6,8 @@
 	<dict>
 		<key>output-files</key>
 		<array>
-<<<<<<< HEAD
-			<string>/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
-			<string>/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
-=======
-			<string>/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
-			<string>/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
->>>>>>> origin/master
+			<string>/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
+			<string>/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
 		</array>
 	</dict>
 </dict>

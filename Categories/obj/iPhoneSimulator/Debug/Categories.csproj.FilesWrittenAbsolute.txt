@@ -1,21 +1,13 @@
-<<<<<<< HEAD
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/optimized/
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/bin/iPhoneSimulator/Debug/Categories.exe
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/Categories.exe
-/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
-=======
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/optimized/
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/bin/iPhoneSimulator/Debug/Categories.exe
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/Categories.exe
-/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
->>>>>>> origin/master
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
+/Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
+/Users/DQ/Desktop/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
+/Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll

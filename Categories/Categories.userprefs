@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Database/CategoryDatabase.cs">
+    <Files>
+      <File FileName="Database/CategoryDatabase.cs" Line="7" Column="2" />
+      <File FileName="Database/ProfileDatabase.cs" Line="1" Column="1" />
+      <File FileName="Database/ImageDatabase.cs" Line="134" Column="14" />
+      <File FileName="RunController.cs" Line="35" Column="4" />
+      <File FileName="Database/SessionDatabase.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7E5D300C-8059-460D-BE74-13B23585E229" />
+</Properties>

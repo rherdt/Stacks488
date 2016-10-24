@@ -14,8 +14,16 @@ namespace Categories
     [Register ("ThirdViewController")]
     partial class ThirdViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton RunButton { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (RunButton != null) {
+                RunButton.Dispose ();
+                RunButton = null;
+            }
         }
     }
 }
