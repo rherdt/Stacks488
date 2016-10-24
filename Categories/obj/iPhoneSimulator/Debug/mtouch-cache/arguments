@@ -1,0 +1,51 @@
+# Version: 10.0.1.10 (cycle8-sr0-xi: ad1cd42)
+# [first argument, ignore] # /Library/Frameworks/Xamarin.iOS.framework/Versions/10.0.1.10/lib/mtouch/mtouch.exe
+/Library/Frameworks/Xamarin.iOS.framework/Versions/10.0.1.10/lib/mtouch/mtouch.exe \
+	--cache \
+<<<<<<< HEAD
+	"/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/mtouch-cache" \
+	--sim \
+	"/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/bin/iPhoneSimulator/Debug/Categories.app" \
+=======
+	/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/mtouch-cache \
+	--sim \
+	/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/bin/iPhoneSimulator/Debug/Categories.app \
+>>>>>>> origin/master
+	--executable \
+	Categories \
+	--fastdev \
+	--debug \
+	--nolink \
+	--sdkroot \
+	/Applications/Xcode.app/Contents/Developer \
+	--sdk \
+	10.0 \
+	--targetver \
+	10.0 \
+	--http-message-handler=HttpClientHandler \
+	--tls-provider=default \
+	--abi=i386 \
+	--symbollist \
+<<<<<<< HEAD
+	"/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/mtouch-symbols.list" \
+=======
+	/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
+>>>>>>> origin/master
+	--dsym=no \
+	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
+	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.dll \
+	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
+	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
+	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
+	--target-framework \
+	"Xamarin.iOS,v1.0" \
+<<<<<<< HEAD
+	"/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/bin/iPhoneSimulator/Debug//Categories.exe" \
+=======
+	/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/bin/iPhoneSimulator/Debug//Categories.exe \
+>>>>>>> origin/master

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.actool.compilation-results</key>
+	<dict>
+		<key>output-files</key>
+		<array>
+<<<<<<< HEAD
+			<string>/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
+			<string>/Users/jesussaldana/Dropbox/EWU/CSCD Senior Project/Project/rherdt/Stacks488.git/Categories/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
+=======
+			<string>/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
+			<string>/Users/DQ/Projects/Categories/rherdt/Stacks488.git/Categories/Categories/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
+>>>>>>> origin/master
+		</array>
+	</dict>
+</dict>
+</plist>
