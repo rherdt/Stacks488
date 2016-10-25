@@ -16,76 +16,67 @@ namespace Categories
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton ButtonAdd { get; set; }
+        UIKit.UITableViewCell ProfileHeaderCell { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton ButtonAddPhoto { get; set; }
+        UIKit.UITableViewCell SessionHeaderCellAdd { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton ButtonDeleteAll { get; set; }
+        UIKit.UITableViewCell SessionHeaderCellName { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField FirstNameInput { get; set; }
+        UIKit.UITableView sessionTable { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton Images { get; set; }
+        UIKit.UITableView tableCategories { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imageView { get; set; }
+        UIKit.UITableView tableProfiles { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField LastNameInput { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView Table { get; set; }
+        UIKit.UITableView tableSessions { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (ButtonAdd != null) {
-                ButtonAdd.Dispose ();
-                ButtonAdd = null;
+            if (ProfileHeaderCell != null) {
+                ProfileHeaderCell.Dispose ();
+                ProfileHeaderCell = null;
             }
 
-            if (ButtonAddPhoto != null) {
-                ButtonAddPhoto.Dispose ();
-                ButtonAddPhoto = null;
+            if (SessionHeaderCellAdd != null) {
+                SessionHeaderCellAdd.Dispose ();
+                SessionHeaderCellAdd = null;
             }
 
-            if (ButtonDeleteAll != null) {
-                ButtonDeleteAll.Dispose ();
-                ButtonDeleteAll = null;
+            if (SessionHeaderCellName != null) {
+                SessionHeaderCellName.Dispose ();
+                SessionHeaderCellName = null;
             }
 
-            if (FirstNameInput != null) {
-                FirstNameInput.Dispose ();
-                FirstNameInput = null;
+            if (sessionTable != null) {
+                sessionTable.Dispose ();
+                sessionTable = null;
             }
 
-            if (Images != null) {
-                Images.Dispose ();
-                Images = null;
+            if (tableCategories != null) {
+                tableCategories.Dispose ();
+                tableCategories = null;
             }
 
-            if (imageView != null) {
-                imageView.Dispose ();
-                imageView = null;
+            if (tableProfiles != null) {
+                tableProfiles.Dispose ();
+                tableProfiles = null;
             }
 
-            if (LastNameInput != null) {
-                LastNameInput.Dispose ();
-                LastNameInput = null;
-            }
-
-            if (Table != null) {
-                Table.Dispose ();
-                Table = null;
+            if (tableSessions != null) {
+                tableSessions.Dispose ();
+                tableSessions = null;
             }
         }
     }

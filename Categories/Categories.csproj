@@ -152,6 +152,10 @@
     <Compile Include="RunController.designer.cs">
       <DependentUpon>RunController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\CustomCellProfiles.cs" />
+    <Compile Include="Controller\CustomCellSessions.cs" />
+    <Compile Include="Controller\TableSourceProfiles.cs" />
+    <Compile Include="Controller\TableSourceSessions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

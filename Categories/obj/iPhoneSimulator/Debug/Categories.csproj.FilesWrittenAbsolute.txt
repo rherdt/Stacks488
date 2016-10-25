@@ -11,3 +11,13 @@
 /Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
 /Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
 /Users/DQ/Desktop/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
+/Users/DQ/Stacks488/Categories/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/DQ/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
+/Users/DQ/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
+/Users/DQ/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
+/Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
+/Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
