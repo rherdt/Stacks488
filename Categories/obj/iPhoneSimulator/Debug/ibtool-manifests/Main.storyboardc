@@ -8,12 +8,42 @@
 	<dict/>
 	<key>com.apple.ibtool.document.warnings</key>
 	<dict>
-		<key>167</key>
+		<key>81</key>
 		<array>
 			<dict>
 				<key>affected-objects</key>
 				<array>
-					<string>167</string>
+					<string>81</string>
+				</array>
+				<key>message</key>
+				<string>Prototype table cells must have reuse identifiers</string>
+				<key>type</key>
+				<string>IBUnsupportedConfiguration</string>
+				<key>type-value</key>
+				<integer>9</integer>
+			</dict>
+		</array>
+		<key>95</key>
+		<array>
+			<dict>
+				<key>affected-objects</key>
+				<array>
+					<string>95</string>
+				</array>
+				<key>message</key>
+				<string>Prototype table cells must have reuse identifiers</string>
+				<key>type</key>
+				<string>IBUnsupportedConfiguration</string>
+				<key>type-value</key>
+				<integer>9</integer>
+			</dict>
+		</array>
+		<key>98</key>
+		<array>
+			<dict>
+				<key>affected-objects</key>
+				<array>
+					<string>98</string>
 				</array>
 				<key>message</key>
 				<string>Prototype table cells must have reuse identifiers</string>

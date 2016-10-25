@@ -40,8 +40,8 @@ namespace Categories
 			SessionDatabase.InsertSession("9/1/2016", 72, 1, 12, 1); //TESTING TO POPULATE SESSIONS
 			SessionDatabase.InsertSession("8/30/2016", 73, 1, 12, 8); //TESTING TO POPULATE SESSIONS
 			SessionDatabase.InsertSession("10/13/2016", 74, 1, 12, 6); //TESTING TO POPULATE SESSIONS
-			SessionDatabase.InsertSession("10/3/2016", 74, 1, 12, 7); //TESTING TO POPULATE SESSIONS*/
-
+			SessionDatabase.InsertSession("10/3/2016", 74, 1, 12, 7); //TESTING TO POPULATE SESSIONS
+*/
 			Profiles = ProfileDatabase.GetAllProfiles();
 			tableProfiles.Source = new TableSourceProfiles(Profiles);
 
@@ -51,7 +51,7 @@ namespace Categories
 			{
 				tableSessions.Hidden = false;
 				SessionHeaderCellAdd.Hidden = false;
-
+				SessionHeaderCellName.Hidden = false;
 				UITableViewCell cell = tableProfiles.Source.GetCell(tableProfiles, tableProfiles.IndexPathForSelectedRow);
 
 				Profiles _profile = ProfileDatabase.getProfile(int.Parse(cell.TextLabel.Text));

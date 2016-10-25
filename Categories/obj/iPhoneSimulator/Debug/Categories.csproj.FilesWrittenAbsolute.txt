@@ -21,3 +21,4 @@
 /Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
 /Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
 /Users/DQ/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
+/Users/DQ/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
