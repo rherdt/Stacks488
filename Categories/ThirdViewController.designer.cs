@@ -16,13 +16,13 @@ namespace Categories
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton RunButton { get; set; }
+        UIKit.UIButton RunSessionButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (RunButton != null) {
-                RunButton.Dispose ();
-                RunButton = null;
+            if (RunSessionButton != null) {
+                RunSessionButton.Dispose ();
+                RunSessionButton = null;
             }
         }
     }

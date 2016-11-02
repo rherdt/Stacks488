@@ -17,11 +17,13 @@ namespace Categories
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.db3");
 	
 
-		public static void InsertImage(UIImage imageToSave, string filename, string attribute, string category)
+		public static void InsertImage(UIImage imageToSave, string attribute, string category)
 		{
 			
-			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);		//application bundle folder.
-			string jpgFilename = System.IO.Path.Combine(documentsDirectory, filename+".jpg"); 			// hardcoded filename for now, need to implement filename generator
+			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);     //application bundle folder.
+			string FileName = GetNextImageID().ToString() + ".jpg";
+
+			string jpgFilename = System.IO.Path.Combine(documentsDirectory, FileName); 			// hardcoded filename for now, need to implement filename generator
 					
 			NSData imgData = imageToSave.AsJPEG(); 														//convert the image to jpeg
 			NSError err = null;
@@ -33,13 +35,13 @@ namespace Categories
 				var db = new SQLiteConnection(dbPath);
 
 				Image image = new Image();
-				image.FileName = jpgFilename;
+				image.FileName = FileName;
 				image.Category = category;
 
 				db.CreateTable<Image>();
 				db.Insert(image);
 
-				AttributeDatabase.InsertAttribute(GetLatestImageID(), attribute);
+				//AttributeDatabase.InsertAttribute(GetLatestImageID(), attribute);
 
 			}
 			else {
@@ -175,7 +177,7 @@ namespace Categories
 
 			}
 		}
-		public static int GetLatestImageID()
+		public static int GetNextImageID()
 		{
 			int id = -1;
 				
@@ -196,9 +198,60 @@ namespace Categories
 			}
 
 
-			return id;
+			return id+1;
 		}
+		public static List<UIImage> GetAllImages()
+		{
+			List<UIImage> Images = new List<UIImage>();
 
+			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Image>();
+			if (db.Table<Image>().Count() == 0)
+			{
+				return null;
+			}
+
+			var table = db.Table<Image>();
+
+
+			foreach (var s in table)
+			{
+				string jpgFilename = System.IO.Path.Combine(documentsDirectory, s.FileName);
+				UIImage img = UIImage.FromFile(jpgFilename);
+				Images.Add(img);
+			}
+
+
+			return Images;
+		}
+		public static List<String> GetAllImageFileNames()
+		{
+			List<String> filenames = new List<String>();
+
+			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Image>();
+			if (db.Table<Image>().Count() == 0)
+			{
+				return null;
+			}
+
+			var table = db.Table<Image>();
+
+
+			foreach (var s in table)
+			{
+				string jpgFilename = System.IO.Path.Combine(documentsDirectory,s.FileName);
+			
+				filenames.Add(jpgFilename);
+			}
+
+
+			return filenames;
+		}
 
 
 

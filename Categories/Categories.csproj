@@ -112,6 +112,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Database\" />
+    <Folder Include="Objects\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -137,17 +138,12 @@
     <Compile Include="ThirdViewController.designer.cs">
       <DependentUpon>ThirdViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profiles.cs" />
     <Compile Include="TableSource.cs" />
     <Compile Include="Database\ProfileDatabase.cs" />
     <Compile Include="Database\ImageDatabase.cs" />
-    <Compile Include="Image.cs" />
     <Compile Include="Database\SessionDatabase.cs" />
-    <Compile Include="Session.cs" />
-    <Compile Include="Category.cs" />
     <Compile Include="Database\CategoryDatabase.cs" />
     <Compile Include="Database\AttributeDatabase.cs" />
-    <Compile Include="Attribute.cs" />
     <Compile Include="RunController.cs" />
     <Compile Include="RunController.designer.cs">
       <DependentUpon>RunController.cs</DependentUpon>
@@ -156,6 +152,11 @@
     <Compile Include="Controller\CustomCellSessions.cs" />
     <Compile Include="Controller\TableSourceProfiles.cs" />
     <Compile Include="Controller\TableSourceSessions.cs" />
+    <Compile Include="Objects\Attribute.cs" />
+    <Compile Include="Objects\Image.cs" />
+    <Compile Include="Objects\Profiles.cs" />
+    <Compile Include="Objects\Session.cs" />
+    <Compile Include="Objects\Category.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

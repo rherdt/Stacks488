@@ -16,22 +16,40 @@ namespace Categories
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView CurrentImageView { get; set; }
+        UIKit.UIButton AddphotoButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIView RunView { get; set; }
+        UIKit.UIButton DeleteImages { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView ImageViewSession { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton RunButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (CurrentImageView != null) {
-                CurrentImageView.Dispose ();
-                CurrentImageView = null;
+            if (AddphotoButton != null) {
+                AddphotoButton.Dispose ();
+                AddphotoButton = null;
             }
 
-            if (RunView != null) {
-                RunView.Dispose ();
-                RunView = null;
+            if (DeleteImages != null) {
+                DeleteImages.Dispose ();
+                DeleteImages = null;
+            }
+
+            if (ImageViewSession != null) {
+                ImageViewSession.Dispose ();
+                ImageViewSession = null;
+            }
+
+            if (RunButton != null) {
+                RunButton.Dispose ();
+                RunButton = null;
             }
         }
     }

@@ -34,14 +34,15 @@ namespace Categories
 
 			Profiles = new List<Profiles>();
 			//ProfileDatabase.DeleteAllProfiles(); //TESTING, DELETE ALL PROFILES
-			//ProfileDatabase.InsertProfile("Jake Millian"); //TESTING TO POPULATE DB
+			//ProfileDatabase.InsertProfile("Jake","Millian"); //TESTING TO POPULATE DB
 			/*SessionDatabase.InsertSession("9/13/2016", 72, 1, 12, 4); //TESTING TO POPULATE SESSIONS
 			SessionDatabase.InsertSession("9/7/2016", 72, 1, 12, 3); //TESTING TO POPULATE SESSIONS
 			SessionDatabase.InsertSession("9/1/2016", 72, 1, 12, 1); //TESTING TO POPULATE SESSIONS
 			SessionDatabase.InsertSession("8/30/2016", 73, 1, 12, 8); //TESTING TO POPULATE SESSIONS
 			SessionDatabase.InsertSession("10/13/2016", 74, 1, 12, 6); //TESTING TO POPULATE SESSIONS
-			SessionDatabase.InsertSession("10/3/2016", 74, 1, 12, 7); //TESTING TO POPULATE SESSIONS
-*/
+			SessionDatabase.InsertSession("10/31//2016", 74, 1, 12, 7); //TESTING TO POPULATE SESSIONS
+			*/
+
 			Profiles = ProfileDatabase.GetAllProfiles();
 			tableProfiles.Source = new TableSourceProfiles(Profiles);
 

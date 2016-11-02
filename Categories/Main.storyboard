@@ -210,33 +210,198 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14" translatesAutoresizingMaskIntoConstraints="NO" text="Custom 3rd Tab test" misplaced="YES">
-                                <rect key="frame" x="209" y="172" width="210" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14" translatesAutoresizingMaskIntoConstraints="NO" text="Custom 3rd Tab test">
+                                <rect key="frame" x="407" y="327" width="210" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <constraints>
-                                    <constraint id="63" firstAttribute="width" constant="210"/>
-                                    <constraint id="64" firstAttribute="height" constant="21"/>
+                                    <constraint id="182" firstAttribute="width" constant="210"/>
+                                    <constraint id="183" firstAttribute="height" constant="21"/>
                                 </constraints>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="184" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="455" y="356" width="114" height="30"/>
+                                <state key="normal" title="Run Session">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="296" destination="190" kind="presentation"/>
+                                </connections>
+                                <constraints>
+                                    <constraint id="329" firstAttribute="width" constant="114"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint id="61" firstItem="11" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="181"/>
-                            <constraint id="62" firstItem="14" firstAttribute="top" secondItem="11" secondAttribute="top" constant="172"/>
+                            <constraint id="180" firstItem="11" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="407"/>
+                            <constraint id="181" firstItem="14" firstAttribute="top" secondItem="11" secondAttribute="top" constant="327"/>
+                            <constraint id="186" firstItem="184" firstAttribute="height" secondItem="14" secondAttribute="height"/>
+                            <constraint id="327" firstItem="11" firstAttribute="trailing" secondItem="184" secondAttribute="trailing" constant="455"/>
+                            <constraint id="328" firstItem="184" firstAttribute="top" secondItem="11" secondAttribute="top" constant="356"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" id="15" title="Tab 3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections/>
+                    <connections>
+                        <outlet property="RunSessionButton" destination="184" id="name-outlet-184"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="1714"/>
+            <point key="canvasLocation" x="1681" y="1721"/>
+        </scene>
+        <scene sceneID="189">
+            <objects>
+                <viewController id="190" sceneMemberID="viewController" customClass="RunController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="187"/>
+                        <viewControllerLayoutGuide type="bottom" id="188"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="191">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="300" translatesAutoresizingMaskIntoConstraints="NO" image="placeholder.jpg">
+                                <rect key="frame" x="235" y="117" width="592" height="430"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <rect key="frame" x="88" y="297" width="592" height="430"/>
+                                    <mask key="constraints">
+                                        <include reference="368"/>
+                                        <include reference="369"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="368" firstAttribute="width" constant="592"/>
+                                    <constraint id="369" firstAttribute="height" constant="430"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="368"/>
+                                        <exclude reference="369"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="330" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="508" y="614" width="46" height="30"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <rect key="frame" x="361" y="871" width="46" height="30"/>
+                                    <mask key="constraints">
+                                        <include reference="372"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="372" firstAttribute="width" constant="46"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="372"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="331" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="74" y="117" width="91" height="30"/>
+                                <state key="normal" title="Add Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <rect key="frame" x="338" y="948" width="91" height="30"/>
+                                    <mask key="constraints">
+                                        <include reference="375"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="375" firstAttribute="width" constant="91"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="375"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="388" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="361" y="986" width="46" height="30"/>
+                                <state key="normal" title="Clear DB">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                    <rect key="frame" x="350" y="918" width="68" height="30"/>
+                                    <mask key="constraints">
+                                        <include reference="399"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="399" firstAttribute="width" constant="68"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="399"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="366" firstItem="191" firstAttribute="bottom" secondItem="300" secondAttribute="bottom" constant="297"/>
+                            <constraint id="367" firstItem="191" firstAttribute="trailing" secondItem="300" secondAttribute="trailing" constant="88"/>
+                            <constraint id="370" firstItem="191" firstAttribute="trailing" secondItem="330" secondAttribute="trailing" constant="361"/>
+                            <constraint id="371" firstItem="191" firstAttribute="bottom" secondItem="330" secondAttribute="bottom" constant="123"/>
+                            <constraint id="373" firstItem="331" firstAttribute="leading" secondItem="191" secondAttribute="leading" constant="338"/>
+                            <constraint id="374" firstItem="191" firstAttribute="bottom" secondItem="331" secondAttribute="bottom" constant="46"/>
+                            <constraint id="397" firstItem="191" firstAttribute="trailing" secondItem="388" secondAttribute="trailing" constant="350"/>
+                            <constraint id="398" firstItem="191" firstAttribute="bottom" secondItem="388" secondAttribute="bottom" constant="13"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="366"/>
+                                <exclude reference="367"/>
+                                <exclude reference="370"/>
+                                <exclude reference="371"/>
+                                <exclude reference="373"/>
+                                <exclude reference="374"/>
+                                <exclude reference="397"/>
+                                <exclude reference="398"/>
+                            </mask>
+                            <mask key="subviews">
+                                <exclude reference="388"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="366"/>
+                                <include reference="367"/>
+                                <include reference="370"/>
+                                <include reference="371"/>
+                                <include reference="373"/>
+                                <include reference="374"/>
+                                <include reference="397"/>
+                                <include reference="398"/>
+                            </mask>
+                            <mask key="subviews">
+                                <include reference="388"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="ImageViewSession" destination="300" id="name-outlet-300"/>
+                        <outlet property="AddphotoButton" destination="331" id="name-outlet-331"/>
+                        <outlet property="RunButton" destination="330" id="name-outlet-330"/>
+                        <outlet property="DeleteImages" destination="388" id="name-outlet-388"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="192" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2983" y="1659"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedScreenMetrics key="destination" type="iPad"/>
-        <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
+        <simulatedOrientationMetrics key="orientation"/>
     </simulatedMetricsContainer>
+    <resources>
+        <image name="placeholder.jpg" width="1809" height="1920"/>
+    </resources>
 </document>
