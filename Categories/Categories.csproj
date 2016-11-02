@@ -126,28 +126,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="FirstViewController.cs" />
-    <Compile Include="SecondViewController.cs" />
-    <Compile Include="FirstViewController.designer.cs">
-      <DependentUpon>FirstViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecondViewController.designer.cs">
-      <DependentUpon>SecondViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ThirdViewController.cs" />
-    <Compile Include="ThirdViewController.designer.cs">
-      <DependentUpon>ThirdViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TableSource.cs" />
     <Compile Include="Database\ProfileDatabase.cs" />
     <Compile Include="Database\ImageDatabase.cs" />
     <Compile Include="Database\SessionDatabase.cs" />
     <Compile Include="Database\CategoryDatabase.cs" />
     <Compile Include="Database\AttributeDatabase.cs" />
-    <Compile Include="RunController.cs" />
-    <Compile Include="RunController.designer.cs">
-      <DependentUpon>RunController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\CustomCellProfiles.cs" />
     <Compile Include="Controller\CustomCellSessions.cs" />
     <Compile Include="Controller\TableSourceProfiles.cs" />
@@ -157,6 +140,23 @@
     <Compile Include="Objects\Profiles.cs" />
     <Compile Include="Objects\Session.cs" />
     <Compile Include="Objects\Category.cs" />
+    <Compile Include="Controller\FirstViewController.cs" />
+    <Compile Include="Controller\FirstViewController.designer.cs">
+      <DependentUpon>FirstViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\RunController.cs" />
+    <Compile Include="Controller\RunController.designer.cs">
+      <DependentUpon>RunController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\SecondViewController.cs" />
+    <Compile Include="Controller\SecondViewController.designer.cs">
+      <DependentUpon>SecondViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ThirdViewController.cs" />
+    <Compile Include="Controller\ThirdViewController.designer.cs">
+      <DependentUpon>ThirdViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\TableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />
