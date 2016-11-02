@@ -19,11 +19,14 @@ namespace Categories
 
 		public static void InsertImage(UIImage imageToSave, string attribute, string category)
 		{
-			
+			/*
+			 * Insert image from Camera roll and save into the Personal folder in the app bundle
+			 * Image Name is an auto generated Guid
+			 */ 
 			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);     //application bundle folder.
-			string FileName = GetNextImageID().ToString() + ".jpg";
+			string FileName = Guid.NewGuid() + ".jpg";
 
-			string jpgFilename = System.IO.Path.Combine(documentsDirectory, FileName); 			// hardcoded filename for now, need to implement filename generator
+			string jpgFilename = System.IO.Path.Combine(documentsDirectory, FileName); 					// hardcoded filename for now, need to implement filename generator
 					
 			NSData imgData = imageToSave.AsJPEG(); 														//convert the image to jpeg
 			NSError err = null;
