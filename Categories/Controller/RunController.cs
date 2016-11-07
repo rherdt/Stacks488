@@ -15,6 +15,11 @@ namespace Categories
         public RunController (IntPtr handle) : base (handle)
         {
         }
+
+		public RunController()
+		{
+		}
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();

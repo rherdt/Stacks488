@@ -6,15 +6,16 @@ using UIKit;
 
 namespace Categories
 {
-	public class TableSource : UITableViewSource
+	public class TableSourceCategories : UITableViewSource
 	{
 
-		List<string> TableItems;
+		List<Category> TableItems;
 		string CellIdentifier = "TableCell";
 
-		public TableSource(List<string> items)
+		public TableSourceCategories(UITableView tableView)
 		{
-			TableItems = items;
+			TableItems = CategoryDatabase.getAllCategories();
+
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -22,11 +23,16 @@ namespace Categories
 			return TableItems.Count;
 		}
 
+		public override string TitleForHeader(UITableView tableView, nint section)
+		{
+			return "Categories";
+		}
+
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
 			Contract.Ensures(Contract.Result<UITableViewCell>() != null);
 			UITableViewCell cell = tableView.DequeueReusableCell(CellIdentifier);
-			string item = TableItems[indexPath.Row];
+			string item = TableItems[indexPath.Row].CategoryName;
 
 			//---- if there are no cells to reuse, create a new one
 			if (cell == null)
@@ -36,5 +42,6 @@ namespace Categories
 
 			return cell;
 		}
+
 	}
 }

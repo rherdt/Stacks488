@@ -1,10 +1,21 @@
 ﻿using System;
+using UIKit;
+
 namespace Categories
 {
-	public class ImageStackTableViewController
+	public class ImageStackTableViewController : UITableViewController
 	{
-		public ImageStackTableViewController()
+		UITableView table;
+		TestTableSource source;
+
+
+		public ImageStackTableViewController() : base()
 		{
+			table = new UITableView();
+			source = new TestTableSource();
+			View = table;
+			table.Source = source;
+
 		}
 	}
 }

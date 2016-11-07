@@ -1,13 +1,20 @@
 ﻿using System;
+using UIKit;
 namespace Categories
 {
-	public class CategoriesTableViewController
+	public class CategoriesTableViewController : UITableViewController
 	{
 		TableSourceCategories source;
+		UITableView table;
 
-		public CategoriesTableViewController()
+
+		public CategoriesTableViewController() : base()
 		{
-			this.source = new TableSourceCategories();
+			table = new UITableView();
+			source = new TableSourceCategories(table);
+			View = table;
+			table.Source = source;
+
 		}
 	}
 }

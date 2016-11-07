@@ -7,7 +7,7 @@ namespace Categories
 	{
 
 		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
+		public Guid ID { get; set; }
 
 		[Unique]
 		public string CategoryName { get; set; }

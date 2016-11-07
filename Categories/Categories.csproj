@@ -156,7 +156,19 @@
     <Compile Include="Controller\ThirdViewController.designer.cs">
       <DependentUpon>ThirdViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\TableSource.cs" />
+    <Compile Include="Controller\TableSourceCategories.cs" />
+    <Compile Include="Controller\MainTabBarController.cs" />
+    <Compile Include="Controller\MainTabBarController.designer.cs">
+      <DependentUpon>MainTabBarController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\CategoriesSplitViewController.cs" />
+    <Compile Include="Controller\CategoriesSplitViewController.designer.cs">
+      <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ImageStackSplitViewController.cs" />
+    <Compile Include="Controller\CategoriesTableViewController.cs" />
+    <Compile Include="Controller\ImageStackTableViewController.cs" />
+    <Compile Include="Controller\TestTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

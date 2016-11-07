@@ -18,6 +18,11 @@ namespace Categories
 			TableItems = items;
 		}
 
+		public TableSourceProfiles()
+		{
+			
+		}
+
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
 			return TableItems.Count;

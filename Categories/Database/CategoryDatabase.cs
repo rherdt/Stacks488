@@ -18,6 +18,7 @@ namespace Categories
 
 			Category currCategory = new Category();
 			currCategory.CategoryName = categoryName;
+			currCategory.ID = Guid.NewGuid();
 
 			db.CreateTable<Category>();
 			db.Insert(currCategory);
