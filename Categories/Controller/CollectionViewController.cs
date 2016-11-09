@@ -41,17 +41,19 @@ namespace Categories
 
 			List<Image> Images = ImageDatabase.GetAllImagesByOBJ();
 
-			foreach (var s in Images)
+			if (Images != null)
 			{
-				CollectionViewSource.Cells.Add(new ImageCell(s));
+				foreach (var s in Images)
+				{
+					CollectionViewSource.Cells.Add(new ImageCell(s));
+				}
+
+				UICollectionView.ReloadData();
+
+				Add(UICollectionView);
 			}
 
-			UICollectionView.ReloadData();
-
-			Add(UICollectionView);
-
 		}
-
 		public override void DidReceiveMemoryWarning()
 		{
 			base.DidReceiveMemoryWarning();

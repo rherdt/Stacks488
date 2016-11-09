@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
       <File FileName="Controller/MainTabBarController.cs" Line="42" Column="4" />
-      <File FileName="Controller/RunSession.cs" Line="8" Column="2" />
-      <File FileName="Controller/CollectionViewController.cs" Line="8" Column="34" />
+      <File FileName="Controller/RunSession.cs" Line="26" Column="4" />
+      <File FileName="Controller/CollectionViewController.cs" Line="56" Column="4" />
       <File FileName="Objects/CollectionViewImageSource.cs" Line="49" Column="52" />
       <File FileName="Categories Status" />
     </Files>
