@@ -2,6 +2,9 @@ using Foundation;
 using System;
 using UIKit;
 using System.Collections.Generic;
+using Mono;
+using CoreGraphics;
+using System.Drawing;
 
 namespace Categories
 {
@@ -10,14 +13,20 @@ namespace Categories
 		int CurrentImageIndex = 0;
 		List<UIImage> Images;
 		UIImagePickerController imagePicker;
-
+		UIView mainView;
 
         public RunController (IntPtr handle) : base (handle)
         {
         }
 
 		public RunController()
-		{
+		{	
+			RectangleF windowFullFrame = new RectangleF(0, 0, (float)UIScreen.MainScreen.Bounds.Width, (float)UIScreen.MainScreen.Bounds.Height);
+			mainView = new UIView();
+			mainView.Bounds = UIScreen.MainScreen.Bounds;
+			mainView.Frame = windowFullFrame;
+			mainView.BackgroundColor = UIColor.White;
+			this.Add(mainView);
 		}
 
 		public override void ViewDidLoad()
@@ -27,6 +36,7 @@ namespace Categories
 			/*
 			 * Initlialize Gestures for swipes
 			 */
+	
 
 			UISwipeGestureRecognizer SwipeRight = new UISwipeGestureRecognizer(HandleSwipeRight);
 			SwipeRight.Direction = UISwipeGestureRecognizerDirection.Right;
@@ -36,11 +46,27 @@ namespace Categories
 			SwipeLeft.Direction = UISwipeGestureRecognizerDirection.Left;
 			this.View.AddGestureRecognizer(SwipeLeft);
 
+			UIButton RunButton = new UIButton();
+			CGRect ScreenBounds = UIScreen.MainScreen.Bounds;
+			float buttonWidth = (float)ScreenBounds.X / 4;
+			RunButton.Frame = new CGRect(0f, 0f, buttonWidth, 50f);
+			RunButton.SetTitle("Run Button", UIControlState.Normal);
+			RunButton.BackgroundColor = UIColor.Green;
+
+
+
+			mainView.AddSubview(RunButton);
+
+
+
 			//Run Button Handler
 			RunButton.TouchUpInside += (sender, e) => { 
 				//Get Images from ImageDatabase
 				Images = ImageDatabase.GetAllImages();
 			};
+
+
+			/*
 			//Add Photos Handler
 			AddphotoButton.TouchUpInside += (sender, e) => { 
 				// create a new picker controller
@@ -59,13 +85,8 @@ namespace Categories
 				// show the picker
 				this.PresentModalViewController(imagePicker, true);
 			};
+			*/
 
-			//Clear DB Handler
-			DeleteImages.TouchUpInside += (sender, e) => { 
-				//Delete Images from DB
-				//For Testing Purposes
-				ImageDatabase.DeleteAllDatabaseImages();
-			};
 		}
 
 		public void HandleSwipeRight()

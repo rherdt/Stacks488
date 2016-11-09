@@ -15,7 +15,7 @@ namespace Categories
 	public class ImageDatabase
 	{
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.db3");
-	
+		static string DocsDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
 		public static void InsertImage(UIImage imageToSave, string attribute, string category)
 		{
@@ -229,6 +229,30 @@ namespace Categories
 
 			return Images;
 		}
+		public static List<Image> GetAllImagesByOBJ()
+		{
+			List<Image> Images = new List<Image>();
+
+			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Image>();
+			if (db.Table<Image>().Count() == 0)
+			{
+				return null;
+			}
+
+			var table = db.Table<Image>();
+
+
+			foreach (var s in table)
+			{
+				Images.Add(s);
+			}
+
+
+			return Images;
+		}
 		public static List<String> GetAllImageFileNames()
 		{
 			List<String> filenames = new List<String>();
@@ -254,6 +278,17 @@ namespace Categories
 
 
 			return filenames;
+		}
+		public static UIImage GetUIImageFromFileName(string filename)
+		{
+			if (filename != null)
+			{
+				string jpgFilename = System.IO.Path.Combine(DocsDir, filename);
+				return UIImage.FromFile(jpgFilename);
+
+			}
+
+			return null;
 		}
 
 

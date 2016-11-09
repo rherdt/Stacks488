@@ -12,22 +12,29 @@ namespace Categories
 		{
 			PopulateDbIfEmpty();
 
-			UIViewController ProfilesTab, CategoriesTab, ImagesTab;
+			UIViewController ProfilesTab, CategoriesTab, ImagesTab, TestTab, InsertImageView;
 
 			ProfilesTab = new FirstViewController();
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new UIViewController();
+			TestTab = new CollectionViewController();
+			InsertImageView = new RunSession();
+
+
 
 			ProfilesTab.Title = "Profiles";
 			CategoriesTab.Title = "Categories";
 			ImagesTab.Title = "Images";
+			TestTab.Title = "Test UI";
+			InsertImageView.Title = "Add Image";
+
 
 
 			CategoriesTab.View.BackgroundColor = UIColor.Blue;
 
 			var tabs = new UIViewController[]
 			{
-				CategoriesTab, ImagesTab, ProfilesTab
+				CategoriesTab, ImagesTab, ProfilesTab, TestTab, InsertImageView
 			};
 
 

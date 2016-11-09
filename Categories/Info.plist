@@ -35,7 +35,9 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UISupportedInterfaceOrientations</key>
-	<array/>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to photos.</string>
 </dict>

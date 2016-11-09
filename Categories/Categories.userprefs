@@ -1,32 +1,19 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="Controller/CategoriesSplitViewController.cs" Line="22" Column="106" />
-      <File FileName="Controller/ImageStackSplitViewController.cs" Line="16" Column="86" />
-      <File FileName="Controller/CategoriesTableViewController.cs" Line="14" Column="1" />
-      <File FileName="Controller/TableSourceCategories.cs" Line="44" Column="4" />
+      <File FileName="Controller/MainTabBarController.cs" Line="42" Column="4" />
+      <File FileName="Controller/RunSession.cs" Line="8" Column="2" />
+      <File FileName="Controller/CollectionViewController.cs" Line="8" Column="34" />
+      <File FileName="Objects/CollectionViewImageSource.cs" Line="49" Column="52" />
       <File FileName="Categories Status" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Categories" expanded="True">
-            <Node name="Categories" expanded="True">
-              <Node name="Controller" expanded="True">
-                <Node name="TableSourceCategories.cs" selected="True" />
-              </Node>
-              <Node name="Database" expanded="True" />
-              <Node name="Objects" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/DQ/Remote/Stacks488/Categories/RunSession.cs" line="47" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.187F1625-1200-4786-8EAC-AC063E9191A5" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.297FB503-D4ED-49B6-9602-9DFBF40D4576" />
 </Properties>

@@ -117,6 +117,7 @@
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Controller\CollectionViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -144,17 +145,9 @@
     <Compile Include="Controller\FirstViewController.designer.cs">
       <DependentUpon>FirstViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\RunController.cs" />
-    <Compile Include="Controller\RunController.designer.cs">
-      <DependentUpon>RunController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\SecondViewController.cs" />
     <Compile Include="Controller\SecondViewController.designer.cs">
       <DependentUpon>SecondViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\ThirdViewController.cs" />
-    <Compile Include="Controller\ThirdViewController.designer.cs">
-      <DependentUpon>ThirdViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\TableSourceCategories.cs" />
     <Compile Include="Controller\MainTabBarController.cs" />
@@ -169,6 +162,15 @@
     <Compile Include="Controller\CategoriesTableViewController.cs" />
     <Compile Include="Controller\ImageStackTableViewController.cs" />
     <Compile Include="Controller\TestTableSource.cs" />
+    <Compile Include="Controller\RunSession.cs" />
+    <Compile Include="Controller\RunSession.designer.cs">
+      <DependentUpon>RunSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\CollectionViewImageSource.cs" />
+    <Compile Include="Controller\CollectionViewController.cs" />
+    <Compile Include="Controller\CollectionViewController.designer.cs">
+      <DependentUpon>CollectionViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />
