@@ -171,6 +171,15 @@
     <Compile Include="Controller\CollectionViewController.designer.cs">
       <DependentUpon>CollectionViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ProfilesSplitViewController.cs" />
+    <Compile Include="Controller\ProfilesTableViewController.cs" />
+    <Compile Include="Controller\SessionsSplitViewController.cs" />
+    <Compile Include="Controller\SessionsTableViewController.cs" />
+    <Compile Include="Controller\AttributesSplitViewController.cs" />
+    <Compile Include="Controller\TableSourceAttributes.cs" />
+    <Compile Include="Controller\ImageAttributesTableViewController.cs" />
+    <Compile Include="Controller\AttributesTableViewController.cs" />
+    <Compile Include="Controller\ImageAttributesSplitViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

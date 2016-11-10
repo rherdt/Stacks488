@@ -1,11 +1,26 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/TableSourceAttributes.cs">
     <Files>
-      <File FileName="Controller/MainTabBarController.cs" Line="42" Column="4" />
+      <File FileName="Controller/MainTabBarController.cs" Line="19" Column="52" />
       <File FileName="Controller/RunSession.cs" Line="26" Column="4" />
       <File FileName="Controller/CollectionViewController.cs" Line="56" Column="4" />
       <File FileName="Objects/CollectionViewImageSource.cs" Line="49" Column="52" />
-      <File FileName="Categories Status" />
+      <File FileName="Controller/CategoriesSplitViewController.cs" Line="20" Column="47" />
+      <File FileName="Controller/CategoriesTableViewController.cs" Line="8" Column="3" />
+      <File FileName="Controller/ProfilesSplitViewController.cs" Line="18" Column="102" />
+      <File FileName="Info.plist" />
+      <File FileName="Controller/SessionsSplitViewController.cs" Line="8" Column="20" />
+      <File FileName="Controller/SessionsTableViewController.cs" Line="17" Column="26" />
+      <File FileName="Controller/TableSourceSessions.cs" Line="18" Column="4" />
+      <File FileName="Controller/TableSourceCategories.cs" Line="43" Column="16" />
+      <File FileName="Controller/FirstViewController.cs" Line="68" Column="7" />
+      <File FileName="Controller/AttributesSplitViewController.cs" Line="6" Column="44" />
+      <File FileName="Controller/TableSourceAttributes.cs" Line="36" Column="4" />
+      <File FileName="Controller/ImageAttributesTableViewController.cs" Line="23" Column="1" />
+      <File FileName="Controller/AttributesTableViewController.cs" Line="8" Column="3" />
+      <File FileName="Controller/ImageAttributesSplitViewController.cs" Line="8" Column="28" />
+      <File FileName="Controller/TableSourceProfiles.cs" Line="43" Column="24" />
+      <File FileName="Controller/TestTableSource.cs" Line="33" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
@@ -15,5 +30,5 @@
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.297FB503-D4ED-49B6-9602-9DFBF40D4576" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E4C8DACE-CE00-4938-B1C2-2110F9F12C3B" />
 </Properties>
