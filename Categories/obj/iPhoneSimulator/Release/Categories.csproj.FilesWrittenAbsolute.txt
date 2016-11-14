@@ -1,0 +1,13 @@
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/ibtool/_BundleResourceWithLogicalName.items
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/actool/_PartialAppManifest.items
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/actool/_BundleResourceWithLogicalName.items
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/optimized/
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/bin/iPhoneSimulator/Release/Categories.exe.mdb
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/bin/iPhoneSimulator/Release/Categories.exe
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/Categories.exe
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/obj/iPhoneSimulator/Release/Categories.exe.mdb
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/bin/iPhoneSimulator/Release/SQLitePCLRaw.core.dll
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/bin/iPhoneSimulator/Release/SQLitePCLRaw.provider.sqlite3.dll
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/bin/iPhoneSimulator/Release/SQLitePCLRaw.batteries_green.dll
+/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/bin/iPhoneSimulator/Release/SQLite-net.dll

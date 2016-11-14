@@ -14,9 +14,9 @@ namespace Categories
 
 			UIViewController ProfilesTab, CategoriesTab, ImagesTab, TestTab, InsertImageView;
 
-			ProfilesTab = new FirstViewController();
+			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
-			ImagesTab = new UIViewController();
+			ImagesTab = new AttributesSplitViewController();
 			TestTab = new CollectionViewController();
 			InsertImageView = new RunSession();
 

@@ -23,10 +23,7 @@ namespace Categories
 			return TableItems.Count;
 		}
 
-		public override string TitleForHeader(UITableView tableView, nint section)
-		{
-			return "Categories";
-		}
+
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{

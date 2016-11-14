@@ -1,29 +1,30 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/TableSourceAttributes.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/AttributesSplitViewController.cs">
     <Files>
-      <File FileName="Controller/MainTabBarController.cs" Line="19" Column="52" />
-      <File FileName="Controller/RunSession.cs" Line="26" Column="4" />
-      <File FileName="Controller/CollectionViewController.cs" Line="56" Column="4" />
-      <File FileName="Objects/CollectionViewImageSource.cs" Line="49" Column="52" />
-      <File FileName="Controller/CategoriesSplitViewController.cs" Line="20" Column="47" />
-      <File FileName="Controller/CategoriesTableViewController.cs" Line="8" Column="3" />
-      <File FileName="Controller/ProfilesSplitViewController.cs" Line="18" Column="102" />
-      <File FileName="Info.plist" />
-      <File FileName="Controller/SessionsSplitViewController.cs" Line="8" Column="20" />
-      <File FileName="Controller/SessionsTableViewController.cs" Line="17" Column="26" />
-      <File FileName="Controller/TableSourceSessions.cs" Line="18" Column="4" />
-      <File FileName="Controller/TableSourceCategories.cs" Line="43" Column="16" />
-      <File FileName="Controller/FirstViewController.cs" Line="68" Column="7" />
-      <File FileName="Controller/AttributesSplitViewController.cs" Line="6" Column="44" />
-      <File FileName="Controller/TableSourceAttributes.cs" Line="36" Column="4" />
-      <File FileName="Controller/ImageAttributesTableViewController.cs" Line="23" Column="1" />
-      <File FileName="Controller/AttributesTableViewController.cs" Line="8" Column="3" />
-      <File FileName="Controller/ImageAttributesSplitViewController.cs" Line="8" Column="28" />
-      <File FileName="Controller/TableSourceProfiles.cs" Line="43" Column="24" />
-      <File FileName="Controller/TestTableSource.cs" Line="33" Column="4" />
+      <File FileName="Controller/CategoriesSplitViewController.cs" Line="32" Column="3" />
+      <File FileName="Controller/ImageStackSplitViewController.cs" Line="14" Column="53" />
+      <File FileName="Controller/MasterTableNavigationController.cs" Line="8" Column="10" />
+      <File FileName="AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="Controller/MainTabBarController.cs" Line="1" Column="1" />
+      <File FileName="Controller/CategoriesTableViewController.cs" Line="13" Column="10" />
+      <File FileName="Controller/ProfilesSplitViewController.cs" Line="18" Column="51" />
+      <File FileName="Controller/AttributesSplitViewController.cs" Line="10" Column="4" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Categories" expanded="True">
+            <Node name="Categories" expanded="True">
+              <Node name="Controller" expanded="True">
+                <Node name="AttributesSplitViewController.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/DQ/Remote/Stacks488/Categories/RunSession.cs" line="47" column="1" />

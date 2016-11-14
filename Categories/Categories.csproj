@@ -180,6 +180,7 @@
     <Compile Include="Controller\ImageAttributesTableViewController.cs" />
     <Compile Include="Controller\AttributesTableViewController.cs" />
     <Compile Include="Controller\ImageAttributesSplitViewController.cs" />
+    <Compile Include="Controller\MasterTableNavigationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

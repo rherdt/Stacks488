@@ -65,7 +65,7 @@ namespace Categories
 				Sessions = SessionDatabase.getSessionsByProfile(_profile);
 				//Sessions = SessionsDatabase.GetSessions(lastID);
 				//Sessions = new List<string>(); //ONLY FOR INITIAL EMPTY ARRAY
-				tableSessions.Source = new TableSourceSessions(Sessions);
+				//tableSessions.Source = new TableSourceSessions(Sessions);
 				tableSessions.ReloadData();
 				tableSessions.SetNeedsDisplay();
 

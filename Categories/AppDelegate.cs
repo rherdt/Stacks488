@@ -22,6 +22,10 @@ namespace Categories
 			Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
 			var controller = new MainTabBarController();
+			controller.View.Frame = new CoreGraphics.CGRect(0
+						, UIApplication.SharedApplication.StatusBarFrame.Height
+						, UIScreen.MainScreen.ApplicationFrame.Width
+			            , UIScreen.MainScreen.ApplicationFrame.Height);
 
 			Window.RootViewController = controller;
 
