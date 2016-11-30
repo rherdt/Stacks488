@@ -11,7 +11,7 @@ namespace Categories
 		public ImageAttributesSplitViewController()
 		{
 			imageAttributesTableViewController = new ImageAttributesTableViewController();
-			CollectionView = new CollectionViewController();
+			CollectionView = new AttributesCollectionViewController();
 
 			ViewControllers = new UIViewController[] { CollectionView, imageAttributesTableViewController };
 

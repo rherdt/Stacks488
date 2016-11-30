@@ -132,6 +132,7 @@
     <InterfaceDefinition Include="CollectionView\CollectionViewController.xib" />
     <InterfaceDefinition Include="RunSession\SessionController.xib" />
     <InterfaceDefinition Include="RunSession\Settings\SettingsAlertController.xib" />
+    <InterfaceDefinition Include="AttributesCollectionView\AttributesCollectionViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -201,6 +202,8 @@
     <Compile Include="RunSession\SessionController.cs" />
     <Compile Include="RunSession\Settings\SettingsAlertController.cs" />
     <Compile Include="RunSession\Settings\SettingsAlertController.designer.cs" />
+    <Compile Include="AttributesCollectionView\AttributesCollectionViewController.cs" />
+    <Compile Include="AttributesCollectionView\AttributesCollectionViewController.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

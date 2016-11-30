@@ -15,6 +15,7 @@ namespace Categories
 			imageStackSplitViewController = new ImageStackSplitViewController();
 			IDbContext<Category> categoryDb = new CategoryDatabase();
 			categoriesTableViewController = new CategoriesTableViewController(categoryDb);
+
 			navController = new MasterTableNavigationController(categoriesTableViewController);
 			ViewControllers = new UIViewController[] {navController, imageStackSplitViewController };
 
