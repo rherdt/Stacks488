@@ -6,16 +6,19 @@ using UIKit;
 
 namespace Categories
 {
-	public class TableSourceProfiles : UITableViewSource
+	public class TableSourceProfiles : UITableViewSource, ICustomTableViewSource
 	{
 
-		List<Profiles> TableItems = new List<Profiles>();
-		NSString cellIdentifier = (NSString)"TableCell";
-		public static event EventHandler RowClicked = delegate { };
+		List<Profiles> tableItems;
+		string cellIdentifier = "TableCell";
+		IDbContext<Profiles> dbContext;
+		UITableView tableView;
 
-		public TableSourceProfiles(List<Profiles> items)
+		public TableSourceProfiles(IDbContext<Profiles> context, UITableView view)
 		{
-			TableItems = items;
+			dbContext = context;
+			tableView = view;
+			tableItems = dbContext.GetAll();
 		}
 
 		public TableSourceProfiles()
@@ -25,36 +28,36 @@ namespace Categories
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			return TableItems.Count;
+			return tableItems.Count;
 		}
 
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
-			RowClicked(null, EventArgs.Empty);
-			tableView.DeselectRow(indexPath, true);
+			
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			cellIdentifier = (NSString)indexPath.Row.ToString();
+			Contract.Ensures(Contract.Result<UITableViewCell>() != null);
+			UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
+			string item = tableItems[indexPath.Row].FirstName;
 
-
-
-			var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellProfiles;
+			//---- if there are no cells to reuse, create a new one
 			if (cell == null)
-				cell = new CustomCellProfiles(cellIdentifier, tableView);
+			{ cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
 
-			cell.UpdateCell(TableItems[indexPath.Row].FirstName
-							, TableItems[indexPath.Row].ID);
-
-			cell.TextLabel.Text = TableItems[indexPath.Row].ID.ToString();
-			cell.TextLabel.Hidden = true;
+			cell.TextLabel.Text = item;
 
 			return cell;
 
 
 		}
 
-	
-}
+		public bool UpdateData(string data)
+		{
+			bool success = dbContext.Insert(data);
+			tableItems = dbContext.GetAll();
+			return success;
+		}
+	}
 }

@@ -12,20 +12,18 @@ namespace Categories
 		{
 			PopulateDbIfEmpty();
 
-			UIViewController ProfilesTab, CategoriesTab, ImagesTab, TestTab, InsertImageView;
+			UIViewController ProfilesTab, CategoriesTab, ImagesTab, InsertImageView;
 
-			ProfilesTab = new FirstViewController();
+			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
-			ImagesTab = new UIViewController();
-			TestTab = new CollectionViewController();
-			InsertImageView = new RunSession();
+			ImagesTab = new AttributesSplitViewController();
+			InsertImageView = new SessionController();
 
 
 
 			ProfilesTab.Title = "Profiles";
 			CategoriesTab.Title = "Categories";
 			ImagesTab.Title = "Images";
-			TestTab.Title = "Test UI";
 			InsertImageView.Title = "Add Image";
 
 
@@ -34,23 +32,24 @@ namespace Categories
 
 			var tabs = new UIViewController[]
 			{
-				CategoriesTab, ImagesTab, ProfilesTab, TestTab, InsertImageView
+				ProfilesTab, CategoriesTab, ImagesTab, InsertImageView
 			};
 
 
 			ViewControllers = tabs;
 
-			SelectedViewController = CategoriesTab;
+			SelectedViewController = ProfilesTab;
 
 		}
 
 		private void PopulateDbIfEmpty()
 		{
-			if (CategoryDatabase.getAllCategories() == null)
+			var db = new CategoryDatabase();
+			if (db.GetAll() == null)
 			{
-				CategoryDatabase.InsertCategory("Fruit");
-				CategoryDatabase.InsertCategory("Clothing");
-				CategoryDatabase.InsertCategory("FamilyTree");
+				db.Insert("Fruit");
+				db.Insert("Clothing");
+				db.Insert("FamilyTree");
 
 			}
 

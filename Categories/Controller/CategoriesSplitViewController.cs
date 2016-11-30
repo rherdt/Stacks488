@@ -6,20 +6,17 @@ namespace Categories
 {
     public partial class CategoriesSplitViewController : UISplitViewController
     {
-		//UIViewController testController;
 		ImageStackSplitViewController imageStackSplitViewController;
 		CategoriesTableViewController categoriesTableViewController;
-
-        public CategoriesSplitViewController (IntPtr handle) : base (handle)
-        {
-        }
+		MasterTableNavigationController navController;
 
 		public CategoriesSplitViewController() : base()
 		{
 			imageStackSplitViewController = new ImageStackSplitViewController();
-			categoriesTableViewController = new CategoriesTableViewController();
-
-			ViewControllers = new UIViewController[] {categoriesTableViewController, imageStackSplitViewController };
+			IDbContext<Category> categoryDb = new CategoryDatabase();
+			categoriesTableViewController = new CategoriesTableViewController(categoryDb);
+			navController = new MasterTableNavigationController(categoriesTableViewController);
+			ViewControllers = new UIViewController[] {navController, imageStackSplitViewController };
 
 		}
 
@@ -27,5 +24,6 @@ namespace Categories
 		{
 			return true;
 		}
+
     }
 }	

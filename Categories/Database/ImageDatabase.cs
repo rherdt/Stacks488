@@ -99,38 +99,38 @@ namespace Categories
 
 			return Images;
 		}
-		public static List<UIImage> GetImagesByAttribute(string attribute)
-		{
-			List<UIImage> Images = new List<UIImage>();
+		//public static List<UIImage> GetImagesByAttribute(string attribute)
+		//{
+		//	List<UIImage> Images = new List<UIImage>();
 
-			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+		//	var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Image>();
-			if (db.Table<Image>().Count() == 0)
-			{
-				return null;
-			}
+		//	var db = new SQLiteConnection(dbPath);
+		//	db.CreateTable<Image>();
+		//	if (db.Table<Image>().Count() == 0)
+		//	{
+		//		return null;
+		//	}
 
-			var table = db.Table<Image>();
-			List<Attribute> attributes = AttributeDatabase.getAllAttributes();
-
-
-
-			foreach (var s in attributes)
-			{
-				if (s.ImageAttribute.Equals(attribute))
-				{
-					var image = db.Get<Image>(s.ImageID);
-					string jpgFilename = System.IO.Path.Combine(documentsDirectory, image.FileName + ".jpg");
-					Images.Add(UIImage.FromFile(jpgFilename));
-				}
-
-			}
+		//	var table = db.Table<Image>();
+		//	List<Attribute> attributes = AttributeDatabase.GetAll();
 
 
-			return Images;
-		}
+
+		//	foreach (var s in attributes)
+		//	{
+		//		if (s.Name.Equals(attribute))
+		//		{
+		//			var image = db.Get<Image>(s.ImageID);
+		//			string jpgFilename = System.IO.Path.Combine(documentsDirectory, image.FileName + ".jpg");
+		//			Images.Add(UIImage.FromFile(jpgFilename));
+		//		}
+
+		//	}
+
+
+		//	return Images;
+		//}
 
 
 		public static void DeleteAllDatabaseImages()

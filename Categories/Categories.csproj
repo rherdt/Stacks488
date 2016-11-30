@@ -108,16 +108,30 @@
     <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Second.imageset\vector.pdf" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon2.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="SessionController.xcassets\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Database\" />
     <Folder Include="Objects\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="CategoriesScreen\" />
+    <Folder Include="CategoriesScreen\View\" />
+    <Folder Include="CollectionView\" />
+    <Folder Include="RunSession\" />
+    <Folder Include="RunSession\Settings\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="Controller\CollectionViewController.xib" />
+    <InterfaceDefinition Include="CategoriesScreen\View\ImageCollectionHeaderView.xib" />
+    <InterfaceDefinition Include="CategoriesScreen\View\ImageStackHeaderView.xib" />
+    <InterfaceDefinition Include="CollectionView\CollectionViewController.xib" />
+    <InterfaceDefinition Include="RunSession\SessionController.xib" />
+    <InterfaceDefinition Include="RunSession\Settings\SettingsAlertController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -141,10 +155,6 @@
     <Compile Include="Objects\Profiles.cs" />
     <Compile Include="Objects\Session.cs" />
     <Compile Include="Objects\Category.cs" />
-    <Compile Include="Controller\FirstViewController.cs" />
-    <Compile Include="Controller\FirstViewController.designer.cs">
-      <DependentUpon>FirstViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\SecondViewController.cs" />
     <Compile Include="Controller\SecondViewController.designer.cs">
       <DependentUpon>SecondViewController.cs</DependentUpon>
@@ -167,10 +177,6 @@
       <DependentUpon>RunSession.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\CollectionViewImageSource.cs" />
-    <Compile Include="Controller\CollectionViewController.cs" />
-    <Compile Include="Controller\CollectionViewController.designer.cs">
-      <DependentUpon>CollectionViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\ProfilesSplitViewController.cs" />
     <Compile Include="Controller\ProfilesTableViewController.cs" />
     <Compile Include="Controller\SessionsSplitViewController.cs" />
@@ -180,6 +186,21 @@
     <Compile Include="Controller\ImageAttributesTableViewController.cs" />
     <Compile Include="Controller\AttributesTableViewController.cs" />
     <Compile Include="Controller\ImageAttributesSplitViewController.cs" />
+    <Compile Include="Controller\MasterTableNavigationController.cs" />
+    <Compile Include="Interfaces\IUpdatableTable.cs" />
+    <Compile Include="Interfaces\ICustomTableViewSource.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="CategoriesScreen\View\ImageCollectionHeaderView.designer.cs" />
+    <Compile Include="CategoriesScreen\View\ImageCollectionHeaderView.cs" />
+    <Compile Include="CategoriesScreen\View\ImageStackHeaderView.cs" />
+    <Compile Include="CategoriesScreen\View\ImageStackHeaderView.designer.cs" />
+    <Compile Include="CollectionView\CollectionViewController.cs" />
+    <Compile Include="CollectionView\CollectionViewController.designer.cs" />
+    <Compile Include="RunSession\SessionController.designer.cs" />
+    <Compile Include="RunSession\SessionController.cs" />
+    <Compile Include="RunSession\Settings\SettingsAlertController.cs" />
+    <Compile Include="RunSession\Settings\SettingsAlertController.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

@@ -1,10 +1,22 @@
 ﻿using System;
+using UIKit;
+
+
 namespace Categories
 {
-	public class ImageAttributeSplitView
+	public class ImageAttributesTableViewController : UITableViewController
 	{
-		public ImageAttributeSplitView()
+		TableSourceAttributes source;
+		UITableView table;
+
+
+		public ImageAttributesTableViewController() : base()
 		{
+			table = new UITableView();
+			//source = new TableSourceAttributes();
+			View = table;
+			table.Source = source;
+
 		}
 	}
 }

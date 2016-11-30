@@ -1,26 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Categories;
 using SQLite;
 
 namespace Categories
 {
-	public class AttributeDatabase
+	public class AttributeDatabase : IDbContext<Attribute>
 	{
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Attributes.db3");
 
+	    string IDbContext<Attribute>.dbPath => dbPath;
 
-		public static void InsertAttribute(int imageid, string attribute)
+		public bool Insert(string data)
 		{
-			var db = new SQLiteConnection(dbPath);
+			try
+			{
+				using (var db = new SQLiteConnection(dbPath))
+				{
+					Attribute att = new Attribute();
+					att.Name = data;
 
-			Attribute att = new Attribute();
-			att.ImageID = imageid;
-			att.ImageAttribute = attribute;
+					db.CreateTable<Attribute>();
 
-			db.CreateTable<Attribute>();
-			db.Insert(att);
+					var query = db.Table<Attribute>().Where(v => v.Name.Equals(att.Name));
 
+					if (query.Count() == 0)
+					{
+						db.Insert(att);
+						return true;
+					}
+
+					return false;
+				}
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
 		}
 
 		public static List<Attribute> GetAttributesByImageId(int id)
@@ -34,13 +51,12 @@ namespace Categories
 				return null;
 			}
 
-
 			attributes = new List<Attribute>();
 
 			var table = db.Table<Attribute>();
 			foreach (var s in table)
 			{
-				if (s.ImageID.Equals(id));
+				if(s.ImageID.Equals(id))
 				{
 					attributes.Add(s);
 				}
@@ -49,30 +65,31 @@ namespace Categories
 			return attributes;
 
 		}
-		public static List<Attribute> getAllAttributes()
+
+		public List<Attribute> GetAll()
 		{
-			List<Attribute> attributes;
+			List<Attribute> attributes = new List<Attribute>();
 
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Attribute>();
-			if (db.Table<Attribute>().Count() == 0)
+			using (var db = new SQLiteConnection(dbPath))
 			{
-				return null;
+				db.CreateTable<Attribute>();
+				if (db.Table<Attribute>().Count() == 0)
+				{
+					return attributes;
+				}
+				else
+				{
+
+					var table = db.Table<Attribute>();
+					foreach (var s in table)
+					{
+						attributes.Add(s);
+
+					}
+
+					return attributes;
+				}
 			}
-
-
-			attributes = new List<Attribute>();
-
-			var table = db.Table<Attribute>();
-			foreach (var s in table)
-			{
-				attributes.Add(s);
-				
-			}
-
-			return attributes;
 		}
-
-
 	}
 }

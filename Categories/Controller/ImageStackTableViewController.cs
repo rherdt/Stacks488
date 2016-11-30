@@ -17,5 +17,11 @@ namespace Categories
 			table.Source = source;
 
 		}
+
+		public override void ViewDidLayoutSubviews()
+		{
+			base.ViewDidLayoutSubviews();
+			table.Frame = new CoreGraphics.CGRect(0, 0, table.Frame.Width, table.Frame.Height);
+		}
 	}
 }

@@ -13,9 +13,9 @@ namespace Categories
 		NSString cellIdentifier = (NSString)"TableCell";
 		public static event EventHandler RowClicked = delegate { };
 
-		public TableSourceSessions(List<Session> items)
+		public TableSourceSessions()
 		{
-			TableItems = items;
+			
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)

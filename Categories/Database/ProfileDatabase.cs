@@ -1,26 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Categories;
 using SQLite;
 using UIKit;
 
 namespace Categories
 {
-	public class ProfileDatabase
+	public class ProfileDatabase : IDbContext<Profiles>
 	{
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Profiles.db3");
 
-		public static void InsertProfile(string nameFirst, string nameLast)
+		string IDbContext<Profiles>.dbPath => dbPath;
+
+		public bool Insert(string nameFirst)
 		{
-			var db = new SQLiteConnection(dbPath);
+			try
+			{
+				using (var db = new SQLiteConnection(dbPath))
+				{
+					Profiles Person = new Profiles();
+					Person.FirstName = nameFirst;
+					Person.ID = Guid.NewGuid();
 
-			Profiles Person = new Profiles();
-			Person.FirstName = nameFirst;
-			Person.LastName = nameLast;
-
-			db.CreateTable<Profiles>();
-			db.Insert(Person); 
-
+					db.CreateTable<Profiles>();
+					db.Insert(Person);
+					return true;
+				}
+			}
+			catch(Exception e)
+			{
+				return false;
+			}
 		}
 			
 
@@ -37,7 +48,7 @@ namespace Categories
 			return db.Table<Profiles>().Count();
 		}
 
-		public static List<Profiles> GetAllProfiles()
+		public List<Profiles> GetAll()
 		{
 			List<Profiles> profiles = new List<Profiles>();
 
@@ -45,7 +56,7 @@ namespace Categories
 			db.CreateTable<Profiles>();
 			if (db.Table<Profiles>().Count() == 0)
 			{
-				return null;
+				return profiles;
 			}
 
 			var table = db.Table<Profiles>();
@@ -67,22 +78,23 @@ namespace Categories
 				i++;
 			}
 		}
-		public static int getLastID()
-		{
-			var db = new SQLiteConnection(dbPath);
-			var table = db.Table<Profiles>();
+		//public static int getLastID()
+		//{
+		//	var db = new SQLiteConnection(dbPath);
+		//	var table = db.Table<Profiles>();
 
-			try
-			{
-				Profiles last = table.ElementAt(table.Count() - 1);
-				return last.ID;
-			}
-			catch (Exception e)
-			{
-				return -1;
-			}
+		//	try
+		//	{
+		//		Profiles last = table.ElementAt(table.Count() - 1);
+		//		return last.ID;
+		//	}
+		//	catch (Exception e)
+		//	{
+		//		return -1;
+		//	}
 
-		}
+		//}
+
 		public static Profiles getProfile(int id)
 		{
 			var db = new SQLiteConnection(dbPath);
@@ -103,5 +115,6 @@ namespace Categories
 			var count = db.Delete<Profiles>(id);
 			Console.WriteLine("Rows Affected" + count);
 		}
+
 	}
 }
