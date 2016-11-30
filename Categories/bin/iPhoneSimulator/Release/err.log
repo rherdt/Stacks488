@@ -1,6 +1,68 @@
-dyld: warning: could not load inserted library '/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/monotouch-fixes.dylib' because no suitable image found.  Did find:
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/monotouch-fixes.dylib: required code signature missing for '/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/monotouch-fixes.dylib'
+2016-11-30 15:10:30.935 Categories[21901:206255] Unknown class FirstViewController in Interface Builder file.
+2016-11-30 15:10:31.292 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.292 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.292 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.293 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.293 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.293 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.294 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.294 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.295 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.295 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.295 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.296 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.296 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.296 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.297 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.297 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.298 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.298 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.298 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.299 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:10:31.299 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
+	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
+2016-11-30 15:10:31.299 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
+2016-11-30 15:11:47.891 Categories[21901:206255] Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don't want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don't expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+	(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
+(
+    "<NSAutoresizingMaskLayoutConstraint:0x79732580 h=-&- v=-&- ImageStackHeaderView:0x78f5f0d0.width == UINavigationBar:0x78ee8930.width - 320>",
+    "<NSAutoresizingMaskLayoutConstraint:0x79761610 h=-&- v=--& UINavigationBar:0x78ee8930.width == UILayoutContainerView:0x78ee8640.width - 0.761902>",
+    "<NSLayoutConstraint:0x79761790 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78ee8640(320)]>"
+)
 
-objc[18224]: Class VCWeakObjectHolder is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/GameKitServices.framework/Frameworks/ViceroyTrace.framework/ViceroyTrace (0x12af90f8) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/GameKitServices.framework/Frameworks/AVConference.framework/AVConference (0x12a41074). One of the two will be used. Which one is undefined.
-objc[18224]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x15e7044c) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x158e74d8). One of the two will be used. Which one is undefined.
-2016-11-30 14:07:01.726 Categories[18224:163316] Unknown class FirstViewController in Interface Builder file.
+Will attempt to recover by breaking constraint 
+<NSLayoutConstraint:0x79761790 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78ee8640(320)]>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2016-11-30 15:11:47.893 Categories[21901:206255] Unable to simultaneously satisfy constraints.
+	Probably at least one of the constraints in the following list is one you don't want. 
+	Try this: 
+		(1) look at each constraint and try to figure out which you don't expect; 
+		(2) find the code that added the unwanted constraint or constraints and fix it. 
+	(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
+(
+    "<NSAutoresizingMaskLayoutConstraint:0x790dc140 h=-&- v=-&- ImageCollectionHeaderView:0x791f92c0.width == UINavigationBar:0x78eec720.width - 382>",
+    "<NSAutoresizingMaskLayoutConstraint:0x7977cc00 h=-&- v=--& UINavigationBar:0x78eec720.width == UILayoutContainerView:0x78eec610.width - 0.799988>",
+    "<NSLayoutConstraint:0x79665070 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78eec610(382)]>"
+)
+
+Will attempt to recover by breaking constraint 
+<NSLayoutConstraint:0x79665070 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78eec610(382)]>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.

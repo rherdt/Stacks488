@@ -58,5 +58,13 @@ namespace Categories
 		public MainTabBarController (IntPtr handle) : base (handle)
         {
         }
+		public override bool ShouldAutorotate()
+		{
+			return true;
+		}
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			return UIInterfaceOrientationMask.Landscape;
+		}
     }
 }

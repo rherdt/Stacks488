@@ -27,7 +27,7 @@ namespace Categories
 			 */
 			UICollectionViewFlowLayout layout = new UICollectionViewFlowLayout
 			{
-				SectionInset = new UIEdgeInsets(5, 5, 5, 5),
+				SectionInset = new UIEdgeInsets(1, 1, 1, 1),
 				//MinimumInteritemSpacing = 1,
 				//MinimumLineSpacing = 10,
 				ItemSize = CellSize //new SizeF(110, 110)
@@ -80,7 +80,7 @@ namespace Categories
 		*/
 		public CGSize GetSize()
 		{
-			var screenWidth = this.View.Bounds.Width / 1.85;
+			var screenWidth = this.View.Bounds.Width / 1.9;
 			var cellWidth = screenWidth / 4.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
 			CGSize size = new CGSize(cellWidth, cellWidth);
 

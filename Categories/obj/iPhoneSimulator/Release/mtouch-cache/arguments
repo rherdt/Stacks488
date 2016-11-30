@@ -13,7 +13,7 @@
 	--sdk \
 	10.1 \
 	--targetver \
-	9.3 \
+	9.0 \
 	--http-message-handler=HttpClientHandler \
 	--tls-provider=default \
 	--abi=i386 \

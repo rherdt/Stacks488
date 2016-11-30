@@ -91,5 +91,29 @@ namespace Categories
 				}
 			}
 		}
+		public bool Delete(string attributeName)
+		{
+			try
+			{
+				using (var db = new SQLiteConnection(dbPath))
+				{
+					db.CreateTable<Attribute>();
+
+					var query = db.Table<Attribute>().Where(v => v.Name.Equals(attributeName));
+
+					if (query.Count() > 0)
+					{
+						db.Delete(query.First());
+						return true;
+					}
+
+					return false;
+				}
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
+		}
 	}
 }

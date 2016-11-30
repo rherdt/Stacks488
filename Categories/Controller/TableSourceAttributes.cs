@@ -45,5 +45,29 @@ namespace Categories
 			tableItems = dbContext.GetAll();
 			return success;
 		}
+		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
+		{
+			switch (editingStyle)
+			{
+				case UITableViewCellEditingStyle.Delete:
+					// remove the item from the underlying data source
+					var dbc = dbContext as AttributeDatabase;
+					bool didDelete = dbc.Delete(tableItems[indexPath.Row].Name);
+
+					if (didDelete)
+					{
+						tableItems.RemoveAt(indexPath.Row);
+						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
+
+					}
+					break;
+
+				case UITableViewCellEditingStyle.None:
+					Console.WriteLine("CommitEditingStyle:None called");
+					break;
+			}
+
+		}
+
 	}
 }

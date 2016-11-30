@@ -19,6 +19,8 @@ namespace Categories
 			navController = new MasterTableNavigationController(categoriesTableViewController);
 			ViewControllers = new UIViewController[] {navController, imageStackSplitViewController };
 
+
+
 		}
 
 		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)

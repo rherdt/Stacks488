@@ -1,14 +1,18 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="Controller/MainTabBarController.cs" Line="8" Column="32" />
-      <File FileName="Controller/CategoriesSplitViewController.cs" Line="18" Column="4" />
-      <File FileName="Controller/CategoriesTableViewController.cs" Line="1" Column="1" />
-      <File FileName="Controller/ImageAttributesSplitViewController.cs" Line="16" Column="1" />
+      <File FileName="AttributesCollectionView/AttributesCollectionViewController.cs" Line="30" Column="47" />
+      <File FileName="Controller/AttributesSplitViewController.cs" Line="1" Column="1" />
+      <File FileName="Controller/AttributesTableViewController.cs" Line="1" Column="1" />
+      <File FileName="Controller/ImageAttributesSplitViewController.cs" Line="17" Column="33" />
+      <File FileName="Controller/TableSourceProfiles.cs" Line="84" Column="3" />
+      <File FileName="Controller/TableSourceAttributes.cs" Line="71" Column="3" />
+      <File FileName="Database/ProfileDatabase.cs" Line="135" Column="6" />
+      <File FileName="Database/AttributeDatabase.cs" Line="117" Column="4" />
       <File FileName="Categories Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="/Users/DQ/Remote/Stacks488/Categories/RunSession.cs" line="47" column="1" />

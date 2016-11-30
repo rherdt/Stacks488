@@ -28,12 +28,12 @@ namespace Categories
 					return true;
 				}
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 				return false;
 			}
 		}
-			
+
 
 		public static int GetProfileCount()
 		{
@@ -72,7 +72,7 @@ namespace Categories
 		{
 			var db = new SQLiteConnection(dbPath);
 			int i = 0;
-			while(db.Table<Profiles>().Count()>0)
+			while (db.Table<Profiles>().Count() > 0)
 			{
 				db.Delete<Profiles>(i);
 				i++;
@@ -116,5 +116,30 @@ namespace Categories
 			Console.WriteLine("Rows Affected" + count);
 		}
 
+
+		public bool Delete(string name)
+		{
+			try
+			{
+				using (var db = new SQLiteConnection(dbPath))
+				{
+					db.CreateTable<Profiles>();
+
+					var query = db.Table<Profiles>().Where(v => v.FirstName.Equals(name));
+
+					if (query.Count() > 0)
+					{
+						db.Delete(query.First());
+						return true;
+					}
+
+					return false;
+				}
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
+		}
 	}
 }

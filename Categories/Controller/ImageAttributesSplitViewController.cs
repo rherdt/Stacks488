@@ -14,6 +14,7 @@ namespace Categories
 			CollectionView = new AttributesCollectionViewController();
 
 			ViewControllers = new UIViewController[] { CollectionView, imageAttributesTableViewController };
+			MinimumPrimaryColumnWidth = 700;
 
 		}
 	}

@@ -200,6 +200,14 @@ namespace Categories
 
 
 		}
+		public override bool ShouldAutorotate()
+		{
+			return true;
+		}
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			return UIInterfaceOrientationMask.All;
+		}
 	}
 }
 
