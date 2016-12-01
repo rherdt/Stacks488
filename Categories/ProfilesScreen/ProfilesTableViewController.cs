@@ -13,14 +13,18 @@ namespace Categories
 		ICustomTableViewSource IUpdatableTable.source => source;
 		string IUpdatableTable.TableType => "Profile";
 
-		public ProfilesTableViewController(IDbContext<Profiles> dbContext)
+
+		public ProfilesTableViewController(IDbContext<Profiles> dbContext, SessionsSplitViewController sessionTable)
 		{
 			tableController = new UITableViewController();
 			tableController.Title = "Profiles";
 			table = new UITableView();
-			source = new TableSourceProfiles(dbContext, table);
+			source = new TableSourceProfiles(dbContext, table, sessionTable);
 			table.Source = (UITableViewSource)source;
+
 			tableController.View = table;
 		}
+
+
 	}
 }

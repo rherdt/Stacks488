@@ -12,10 +12,10 @@ namespace Categories
 		List<Session> TableItems = new List<Session>();
 		NSString cellIdentifier = (NSString)"TableCell";
 		public static event EventHandler RowClicked = delegate { };
-
-		public TableSourceSessions()
+		UIViewController ThirdController;
+		public TableSourceSessions(UIViewController third)
 		{
-			
+			ThirdController = third;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -27,6 +27,7 @@ namespace Categories
 		{
 			RowClicked(null, EventArgs.Empty);
 			tableView.DeselectRow(indexPath, true);
+			ThirdController.View.Hidden = !ThirdController.View.Hidden;
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)

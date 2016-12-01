@@ -6,6 +6,7 @@ namespace Categories
 {
 	public partial class SettingsAlertController : UIViewController
 	{
+		UIViewController TopMostParent;
 		public SettingsAlertController() : base("SettingsAlertController", null)
 		{
 		}
@@ -18,9 +19,11 @@ namespace Categories
 
 			/*
 			 * Create the Alert View effect by changeing the background(parent) color and alpha.
-			 */
-			PresentingViewController.View.BackgroundColor = UIColor.Gray;
-			PresentingViewController.View.Alpha = 0.3f;
+			*/
+
+			TopMostParent = PresentingViewController;
+			TopMostParent.View.BackgroundColor = UIColor.Gray;
+			TopMostParent.View.Alpha = 0.3f;
 
 			CancelSessionButton.TouchUpInside += (sender, e) =>
 			{
@@ -29,16 +32,24 @@ namespace Categories
 			 	* as well as close the Modal Presentation controller.
 			 	* 
 			 	*/
-
-
-				this.PresentingViewController.View.BackgroundColor = UIColor.White;
-				this.PresentingViewController.View.Alpha = 1.0f;
-				this.PresentingViewController.DismissModalViewController(true);
+				TopMostParent.View.BackgroundColor = UIColor.White;
+				TopMostParent.View.Alpha = 1.0f;
+				TopMostParent.DismissModalViewController(true);
 
 			};
 			StartSessionButton.TouchUpInside += (sender, e) =>
 			{
-				new UIAlertView("Start", null, null, "Ok", null).Show();
+				//new UIAlertView("Start", null, null, "Ok", null).Show();
+				SessionController RunSession = new SessionController();
+				RunSession.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+				RunSession.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+
+				//parent
+				TopMostParent.DismissModalViewController(true);
+				TopMostParent.View.BackgroundColor = UIColor.White;
+				TopMostParent.View.Alpha = 1.0f;
+				TopMostParent.PresentViewController(RunSession, true, null);
+
 			};
 			DisplayLabelsToggle.ValueChanged += (sender, e) =>
 			{

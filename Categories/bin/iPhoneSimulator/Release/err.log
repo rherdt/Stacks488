@@ -1,68 +1,90 @@
-2016-11-30 15:10:30.935 Categories[21901:206255] Unknown class FirstViewController in Interface Builder file.
-2016-11-30 15:10:31.292 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.292 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.292 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.293 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.293 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.293 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.294 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.294 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.295 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.295 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.295 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.296 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.296 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.296 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.297 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.297 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.298 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.298 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.298 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.299 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:10:31.299 Categories[21901:206255] Error loading /System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib:  dlopen(/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib, 262): no suitable image found.  Did find:
-	/System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin/Contents/MacOS/IOHIDLib: mach-o, but not built for iOS simulator
-2016-11-30 15:10:31.299 Categories[21901:206255] Cannot find function pointer IOHIDLibFactory for factory 13AA9C44-6F1B-11D4-907C-0005028F18D5 in CFBundle/CFPlugIn 0x78e12740 </System/Library/Extensions/IOHIDFamily.kext/Contents/PlugIns/IOHIDLib.plugin> (bundle, not loaded)
-2016-11-30 15:11:47.891 Categories[21901:206255] Unable to simultaneously satisfy constraints.
-	Probably at least one of the constraints in the following list is one you don't want. 
-	Try this: 
-		(1) look at each constraint and try to figure out which you don't expect; 
-		(2) find the code that added the unwanted constraint or constraints and fix it. 
-	(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
-(
-    "<NSAutoresizingMaskLayoutConstraint:0x79732580 h=-&- v=-&- ImageStackHeaderView:0x78f5f0d0.width == UINavigationBar:0x78ee8930.width - 320>",
-    "<NSAutoresizingMaskLayoutConstraint:0x79761610 h=-&- v=--& UINavigationBar:0x78ee8930.width == UILayoutContainerView:0x78ee8640.width - 0.761902>",
-    "<NSLayoutConstraint:0x79761790 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78ee8640(320)]>"
-)
+dyld: warning: could not load inserted library '/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/monotouch-fixes.dylib' because no suitable image found.  Did find:
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/monotouch-fixes.dylib: required code signature missing for '/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/monotouch-fixes.dylib'
 
-Will attempt to recover by breaking constraint 
-<NSLayoutConstraint:0x79761790 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78ee8640(320)]>
+objc[23295]: Class VCWeakObjectHolder is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/GameKitServices.framework/Frameworks/ViceroyTrace.framework/ViceroyTrace (0x12a7f0f8) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/GameKitServices.framework/Frameworks/AVConference.framework/AVConference (0x129c7074). One of the two will be used. Which one is undefined.
+objc[23295]: Class PLBuildVersion is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/AssetsLibraryServices.framework/AssetsLibraryServices (0x15df644c) and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/PhotoLibraryServices (0x1586d4d8). One of the two will be used. Which one is undefined.
+2016-11-30 16:02:55.167 Categories[23295:225475] Unknown class FirstViewController in Interface Builder file.
+2016-11-30 16:02:55.303 Categories[23295:225475] 
+Unhandled Exception:
+System.ArgumentNullException: Value cannot be null.
+Parameter name: rootViewController
+  at UIKit.UINavigationController..ctor (UIKit.UIViewController rootViewController) [0x00016] in <52b3db7f9eff4c2d8b4778c5c32a1354>:0 
+  at Categories.SessionsSplitViewController..ctor () [0x00006] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+  at Categories.ProfilesSplitViewController..ctor () [0x0002c] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+  at Categories.MainTabBarController..ctor () [0x0000c] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+  at Categories.AppDelegate.FinishedLaunching (UIKit.UIApplication application, Foundation.NSDictionary launchOptions) [0x00015] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+--- End of stack trace from previous location where exception was thrown ---
+  at (wrapper managed-to-native) UIKit.UIApplication:UIApplicationMain (int,string[],intptr,intptr)
+  at UIKit.UIApplication.Main (System.String[] args, System.IntPtr principal, System.IntPtr delegate) [0x00005] in <52b3db7f9eff4c2d8b4778c5c32a1354>:0 
+  at UIKit.UIApplication.Main (System.String[] args, System.String principalClassName, System.String delegateClassName) [0x00038] in <52b3db7f9eff4c2d8b4778c5c32a1354>:0 
+  at Categories.Application.Main (System.String[] args) [0x00000] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+2016-11-30 16:02:55.305 Categories[23295:225475] Unhandled managed exception:
+Value cannot be null.
+Parameter name: rootViewController (System.ArgumentNullException)
+  at UIKit.UINavigationController..ctor (UIKit.UIViewController rootViewController) [0x00016] in <52b3db7f9eff4c2d8b4778c5c32a1354>:0 
+  at Categories.SessionsSplitViewController..ctor () [0x00006] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+  at Categories.ProfilesSplitViewController..ctor () [0x0002c] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+  at Categories.MainTabBarController..ctor () [0x0000c] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+  at Categories.AppDelegate.FinishedLaunching (UIKit.UIApplication application, Foundation.NSDictionary launchOptions) [0x00015] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+--- End of stack trace from previous location where exception was thrown ---
+  at (wrapper managed-to-native) UIKit.UIApplication:UIApplicationMain (int,string[],intptr,intptr)
+  at UIKit.UIApplication.Main (System.String[] args, System.IntPtr principal, System.IntPtr delegate) [0x00005] in <52b3db7f9eff4c2d8b4778c5c32a1354>:0 
+  at UIKit.UIApplication.Main (System.String[] args, System.String principalClassName, System.String delegateClassName) [0x00038] in <52b3db7f9eff4c2d8b4778c5c32a1354>:0 
+  at Categories.Application.Main (System.String[] args) [0x00000] in <b7fc812ceee64c7ca2bf02980db3c1c1>:0 
+2016-11-30 16:02:55.305 Categories[23295:225475] critical: Stacktrace:
 
-Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
-The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
-2016-11-30 15:11:47.893 Categories[21901:206255] Unable to simultaneously satisfy constraints.
-	Probably at least one of the constraints in the following list is one you don't want. 
-	Try this: 
-		(1) look at each constraint and try to figure out which you don't expect; 
-		(2) find the code that added the unwanted constraint or constraints and fix it. 
-	(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints) 
-(
-    "<NSAutoresizingMaskLayoutConstraint:0x790dc140 h=-&- v=-&- ImageCollectionHeaderView:0x791f92c0.width == UINavigationBar:0x78eec720.width - 382>",
-    "<NSAutoresizingMaskLayoutConstraint:0x7977cc00 h=-&- v=--& UINavigationBar:0x78eec720.width == UILayoutContainerView:0x78eec610.width - 0.799988>",
-    "<NSLayoutConstraint:0x79665070 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78eec610(382)]>"
-)
+2016-11-30 16:02:55.305 Categories[23295:225475] critical: 
+Native stacktrace:
 
-Will attempt to recover by breaking constraint 
-<NSLayoutConstraint:0x79665070 'UIView-Encapsulated-Layout-Width' H:[UILayoutContainerView:0x78eec610(382)]>
+2016-11-30 16:02:55.349 Categories[23295:225475] critical: 	0   Categories                          0x000efa3d mono_handle_native_sigsegv + 317
+2016-11-30 16:02:55.349 Categories[23295:225475] critical: 	1   Categories                          0x000f93a1 sigabrt_signal_handler + 161
+2016-11-30 16:02:55.349 Categories[23295:225475] critical: 	2   libsystem_platform.dylib            0x0c1e8ebb _sigtramp + 43
+2016-11-30 16:02:55.350 Categories[23295:225475] critical: 	3   ???                                 0xffffffff 0x0 + 4294967295
+2016-11-30 16:02:55.350 Categories[23295:225475] critical: 	4   libsystem_c.dylib                   0x0bf5d11f abort + 141
+2016-11-30 16:02:55.350 Categories[23295:225475] critical: 	5   Categories                          0x0029e64c xamarin_unhandled_exception_handler + 44
+2016-11-30 16:02:55.350 Categories[23295:225475] critical: 	6   Categories                          0x00168f9b mono_invoke_unhandled_exception_hook + 139
+2016-11-30 16:02:55.351 Categories[23295:225475] critical: 	7   Categories                          0x000ef11b mono_handle_exception_internal + 5627
+2016-11-30 16:02:55.351 Categories[23295:225475] critical: 	8   Categories                          0x000edb19 mono_handle_exception + 41
+2016-11-30 16:02:55.351 Categories[23295:225475] critical: 	9   Categories                          0x00085a76 mono_x86_throw_exception + 182
+2016-11-30 16:02:55.352 Categories[23295:225475] critical: 	10  ???                                 0x1c910b57 0x0 + 479267671
+2016-11-30 16:02:55.352 Categories[23295:225475] critical: 	11  Categories                          0x002a1c6a xamarin_invoke_trampoline + 3610
+2016-11-30 16:02:55.352 Categories[23295:225475] critical: 	12  Categories                          0x002a35a5 xamarin_arch_trampoline + 85
+2016-11-30 16:02:55.352 Categories[23295:225475] critical: 	13  Categories                          0x002a39bc xamarin_i386_common_trampoline + 36
+2016-11-30 16:02:55.353 Categories[23295:225475] critical: 	14  UIKit                               0x015e97df -[UIApplication _handleDelegateCallbacksWithOptions:isSuspended:restoreState:] + 296
+2016-11-30 16:02:55.353 Categories[23295:225475] critical: 	15  UIKit                               0x015eb425 -[UIApplication _callInitializationDelegatesForMainScene:transitionContext:] + 4780
+2016-11-30 16:02:55.353 Categories[23295:225475] critical: 	16  UIKit                               0x015f23dc -[UIApplication _runWithMainScene:transitionContext:completion:] + 2004
+2016-11-30 16:02:55.353 Categories[23295:225475] critical: 	17  UIKit                               0x01613a89 __84-[UIApplication _handleApplicationActivationWithScene:transitionContext:completion:]_block_invoke.3127 + 53
+2016-11-30 16:02:55.354 Categories[23295:225475] critical: 	18  UIKit                               0x015eeffa -[UIApplication workspaceDidEndTransaction:] + 172
+2016-11-30 16:02:55.354 Categories[23295:225475] critical: 	19  FrontBoardServices                  0x0c254e85 __37-[FBSWorkspace clientEndTransaction:]_block_invoke_2 + 59
+2016-11-30 16:02:55.354 Categories[23295:225475] critical: 	20  FrontBoardServices                  0x0c2549a5 __40-[FBSWorkspace _performDelegateCallOut:]_block_invoke + 49
+2016-11-30 16:02:55.354 Categories[23295:225475] critical: 	21  FrontBoardServices                  0x0c27e6d4 __FBSSERIALQUEUE_IS_CALLING_OUT_TO_A_BLOCK__ + 23
+2016-11-30 16:02:55.354 Categories[23295:225475] critical: 	22  FrontBoardServices                  0x0c27e535 -[FBSSerialQueue _performNext] + 166
+2016-11-30 16:02:55.355 Categories[23295:225475] critical: 	23  FrontBoardServices                  0x0c27e915 -[FBSSerialQueue _performNextFromRunLoopSource] + 52
+2016-11-30 16:02:55.355 Categories[23295:225475] critical: 	24  FrontBoardServices                  0x0c27dd2f FBSSerialQueueRunLoopSourceHandler + 29
+2016-11-30 16:02:55.355 Categories[23295:225475] critical: 	25  CoreFoundation                      0x0ac4fcbf __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 15
+2016-11-30 16:02:55.355 Categories[23295:225475] critical: 	26  CoreFoundation                      0x0ac33df7 __CFRunLoopDoSources0 + 519
+2016-11-30 16:02:55.356 Categories[23295:225475] critical: 	27  CoreFoundation                      0x0ac33284 __CFRunLoopRun + 1124
+2016-11-30 16:02:55.356 Categories[23295:225475] critical: 	28  CoreFoundation                      0x0ac32bab CFRunLoopRunSpecific + 395
+2016-11-30 16:02:55.356 Categories[23295:225475] critical: 	29  CoreFoundation                      0x0ac32a0b CFRunLoopRunInMode + 123
+2016-11-30 16:02:55.356 Categories[23295:225475] critical: 	30  UIKit                               0x015ed673 -[UIApplication _run] + 542
+2016-11-30 16:02:55.356 Categories[23295:225475] critical: 	31  UIKit                               0x015f432b UIApplicationMain + 148
+2016-11-30 16:02:55.357 Categories[23295:225475] critical: 	32  ???                                 0x1e3e91d8 0x0 + 507417048
+2016-11-30 16:02:55.357 Categories[23295:225475] critical: 	33  ???                                 0x1e3e90ac 0x0 + 507416748
+2016-11-30 16:02:55.357 Categories[23295:225475] critical: 	34  ???                                 0x1e3e7d90 0x0 + 507411856
+2016-11-30 16:02:55.357 Categories[23295:225475] critical: 	35  ???                                 0x1e3e7c24 0x0 + 507411492
+2016-11-30 16:02:55.357 Categories[23295:225475] critical: 	36  ???                                 0x1e3e7cdc 0x0 + 507411676
+2016-11-30 16:02:55.358 Categories[23295:225475] critical: 	37  Categories                          0x000ffe1d mono_jit_runtime_invoke + 1485
+2016-11-30 16:02:55.358 Categories[23295:225475] critical: 	38  Categories                          0x001cda7d do_runtime_invoke + 93
+2016-11-30 16:02:55.358 Categories[23295:225475] critical: 	39  Categories                          0x001d0b76 do_exec_main_checked + 150
+2016-11-30 16:02:55.358 Categories[23295:225475] critical: 	40  Categories                          0x001cfbc9 mono_runtime_run_main_checked + 73
+2016-11-30 16:02:55.359 Categories[23295:225475] critical: 	41  Categories                          0x000851e7 mono_jit_exec + 311
+2016-11-30 16:02:55.359 Categories[23295:225475] critical: 	42  Categories                          0x002a2ec8 xamarin_main + 1416
+2016-11-30 16:02:55.359 Categories[23295:225475] critical: 	43  Categories                          0x003316d1 main + 113
+2016-11-30 16:02:55.359 Categories[23295:225475] critical: 	44  libdyld.dylib                       0x0beb7799 start + 1
+2016-11-30 16:02:55.359 Categories[23295:225475] critical: 
+=================================================================
+Got a SIGABRT while executing native code. This usually indicates
+a fatal error in the mono runtime or one of the native libraries 
+used by your application.
+=================================================================
 
-Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
-The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.

@@ -80,7 +80,7 @@ namespace Categories
 		*/
 		public CGSize GetSize()
 		{
-			var screenWidth = this.View.Bounds.Width / 1.9;
+			var screenWidth = this.View.Bounds.Width / 2;
 			var cellWidth = screenWidth / 4.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
 			CGSize size = new CGSize(cellWidth, cellWidth);
 

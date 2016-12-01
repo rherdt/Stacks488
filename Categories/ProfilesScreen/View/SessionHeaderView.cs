@@ -1,0 +1,29 @@
+using Foundation;
+using System;
+using System.CodeDom.Compiler;
+using UIKit;
+using ObjCRuntime;
+
+namespace Categories
+{
+    public partial class SessionHeaderView : UIView
+    {
+        public SessionHeaderView (IntPtr handle) : base (handle)
+        {
+        }
+
+		public static SessionHeaderView Create()
+		{
+
+			var arr = NSBundle.MainBundle.LoadNib("SessionHeaderView", null, null);
+			var v = Runtime.GetNSObject<SessionHeaderView>(arr.ValueAt(0));
+
+			return v;
+		}
+
+		public UIButton getButton()
+		{
+			return btnAdd;
+		}
+    }
+}

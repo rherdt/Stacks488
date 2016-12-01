@@ -28,10 +28,6 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton SessionSettingsButton { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel StatsLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -49,11 +45,6 @@ namespace Categories
             if (ImageViewSession != null) {
                 ImageViewSession.Dispose ();
                 ImageViewSession = null;
-            }
-
-            if (SessionSettingsButton != null) {
-                SessionSettingsButton.Dispose ();
-                SessionSettingsButton = null;
             }
 
             if (StatsLabel != null) {

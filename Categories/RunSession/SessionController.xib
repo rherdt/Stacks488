@@ -10,7 +10,6 @@
                 <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
                 <outlet property="AddPhotoButton" destination="5" id="name-outlet-5"/>
                 <outlet property="StatsLabel" destination="8" id="name-outlet-8"/>
-                <outlet property="SessionSettingsButton" destination="9" id="name-outlet-9"/>
                 <outlet property="ImageViewSession" destination="10" id="name-outlet-10"/>
                 <outlet property="FinishedButton" destination="37" id="name-outlet-37"/>
             </connections>
@@ -38,16 +37,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="26" y="53" width="85" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Settings">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <constraints>
-                        <constraint id="24" firstAttribute="width" constant="85"/>
-                    </constraints>
-                </button>
                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="10" translatesAutoresizingMaskIntoConstraints="NO" multipleTouchEnabled="YES">
                     <rect key="frame" x="140" y="131" width="320" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,8 +55,6 @@
             <constraints>
                 <constraint id="19" firstItem="5" firstAttribute="top" secondItem="2" secondAttribute="top" constant="20"/>
                 <constraint id="20" firstItem="5" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20"/>
-                <constraint id="22" firstItem="9" firstAttribute="top" secondItem="2" secondAttribute="top" constant="53"/>
-                <constraint id="23" firstItem="9" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="26"/>
                 <constraint id="38" firstItem="10" firstAttribute="top" secondItem="2" secondAttribute="top" constant="131"/>
                 <constraint id="39" firstItem="2" firstAttribute="trailing" secondItem="10" secondAttribute="trailing" constant="140"/>
                 <constraint id="40" firstItem="10" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="140"/>

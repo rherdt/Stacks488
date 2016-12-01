@@ -123,6 +123,7 @@
     <Folder Include="CollectionView\" />
     <Folder Include="RunSession\" />
     <Folder Include="RunSession\Settings\" />
+    <Folder Include="ProfilesScreen\View\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -133,6 +134,7 @@
     <InterfaceDefinition Include="RunSession\SessionController.xib" />
     <InterfaceDefinition Include="RunSession\Settings\SettingsAlertController.xib" />
     <InterfaceDefinition Include="AttributesCollectionView\AttributesCollectionViewController.xib" />
+    <InterfaceDefinition Include="ProfilesScreen\View\SessionHeaderView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -178,10 +180,6 @@
       <DependentUpon>RunSession.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\CollectionViewImageSource.cs" />
-    <Compile Include="Controller\ProfilesSplitViewController.cs" />
-    <Compile Include="Controller\ProfilesTableViewController.cs" />
-    <Compile Include="Controller\SessionsSplitViewController.cs" />
-    <Compile Include="Controller\SessionsTableViewController.cs" />
     <Compile Include="Controller\AttributesSplitViewController.cs" />
     <Compile Include="Controller\TableSourceAttributes.cs" />
     <Compile Include="Controller\ImageAttributesTableViewController.cs" />
@@ -204,6 +202,12 @@
     <Compile Include="RunSession\Settings\SettingsAlertController.designer.cs" />
     <Compile Include="AttributesCollectionView\AttributesCollectionViewController.cs" />
     <Compile Include="AttributesCollectionView\AttributesCollectionViewController.designer.cs" />
+    <Compile Include="ProfilesScreen\SessionsSplitViewController.cs" />
+    <Compile Include="ProfilesScreen\SessionsTableViewController.cs" />
+    <Compile Include="ProfilesScreen\View\SessionHeaderView.cs" />
+    <Compile Include="ProfilesScreen\View\SessionHeaderView.designer.cs" />
+    <Compile Include="ProfilesScreen\ProfilesSplitViewController.cs" />
+    <Compile Include="ProfilesScreen\ProfilesTableViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

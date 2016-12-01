@@ -72,7 +72,7 @@ namespace Categories
 				{
 					if (args.ButtonIndex == 0) //yes clicked
 					{
-						this.TabBarController.SelectedIndex = 0;
+						this.PresentingViewController.DismissModalViewController(true);
 					}
 
 				};
@@ -87,20 +87,6 @@ namespace Categories
 			ImageViewSession.AddGestureRecognizer(SwipeLeft);
 
 
-			/*
-			 * Settings button handler to show the settings screen
-			 * using a modal presentation
-			*/
-			SessionSettingsButton.TouchUpInside += (sender, e) =>
-			{
-				SettingsAlertController settings = new SettingsAlertController();
-				settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
-				settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
-
-				//parent
-				Parent.PresentViewController(settings, true, null);
-
-			};
 		}
 
 		public override void DidReceiveMemoryWarning()

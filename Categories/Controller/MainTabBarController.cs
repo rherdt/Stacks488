@@ -27,9 +27,6 @@ namespace Categories
 			InsertImageView.Title = "Add Image";
 
 
-
-			CategoriesTab.View.BackgroundColor = UIColor.Blue;
-
 			var tabs = new UIViewController[]
 			{
 				ProfilesTab, CategoriesTab, ImagesTab, InsertImageView

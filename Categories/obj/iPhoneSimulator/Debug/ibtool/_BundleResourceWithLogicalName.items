@@ -45,6 +45,10 @@
       <LogicalName>SessionController.nib</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
+    <_BundleResourceWithLogicalName Include="obj/iPhoneSimulator/Debug/ibtool-link/SessionHeaderView.nib">
+      <LogicalName>SessionHeaderView.nib</LogicalName>
+      <Optimize>false</Optimize>
+    </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj/iPhoneSimulator/Debug/ibtool-link/SettingsAlertController.nib">
       <LogicalName>SettingsAlertController.nib</LogicalName>
       <Optimize>false</Optimize>

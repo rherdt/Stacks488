@@ -13,13 +13,15 @@ namespace Categories
 		List<Profiles> tableItems;
 		string cellIdentifier = "TableCell";
 		IDbContext<Profiles> dbContext;
+		SessionsSplitViewController SessionTable;
 		UITableView tableView;
 
-		public TableSourceProfiles(IDbContext<Profiles> context, UITableView view)
+		public TableSourceProfiles(IDbContext<Profiles> context, UITableView view,SessionsSplitViewController sessionTable)
 		{
 			dbContext = context;
 			tableView = view;
 			tableItems = dbContext.GetAll();
+			SessionTable = sessionTable;
 		}
 
 		public TableSourceProfiles()
@@ -34,7 +36,8 @@ namespace Categories
 
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
-			
+			tableView.DeselectRow(indexPath, true);
+			SessionTable.View.Hidden = !SessionTable.View.Hidden;
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
