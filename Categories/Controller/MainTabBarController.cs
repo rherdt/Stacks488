@@ -17,19 +17,14 @@ namespace Categories
 			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new AttributesSplitViewController();
-			InsertImageView = new SessionController();
-
-
 
 			ProfilesTab.Title = "Profiles";
 			CategoriesTab.Title = "Categories";
 			ImagesTab.Title = "Images";
-			InsertImageView.Title = "Add Image";
-
 
 			var tabs = new UIViewController[]
 			{
-				ProfilesTab, CategoriesTab, ImagesTab, InsertImageView
+				ProfilesTab, CategoriesTab, ImagesTab
 			};
 
 

@@ -66,7 +66,6 @@ namespace Categories
 			new UIAlertView("Row Clicked: "+clicked, null, null, "Ok", null).Show();
 			//get  all items that match the clicked profile
 
-
 		}
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{

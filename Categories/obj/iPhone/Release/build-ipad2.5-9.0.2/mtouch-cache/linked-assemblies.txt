@@ -1,0 +1,9 @@
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/System.Core.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/SQLite-net.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/SQLitePCLRaw.batteries_green.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/mscorlib.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/SQLitePCLRaw.core.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/System.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/Xamarin.iOS.dll
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/Categories.exe
+/Users/DQ/Github/Stacks488/Categories/obj/iPhone/Release/build-ipad2.5-9.0.2/mtouch-cache/Link/SQLitePCLRaw.provider.sqlite3.dll
