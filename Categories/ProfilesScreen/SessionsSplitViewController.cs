@@ -16,12 +16,17 @@ namespace Categories
 		nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
 		nfloat NavigationBarWidth, NavigationBarHeight;
 
-		public SessionsSplitViewController()
+		public SessionsSplitViewController(SessionsTableViewController session, UIViewController collection, UINavigationController navcontroller)
 		{
-			CollectionView = new CollectionViewController();
-			sessionsTableViewController = new SessionsTableViewController(CollectionView);
-			navigationController = new UINavigationController(sessionsTableViewController);
+			/*
+			 * Create CollectionView Controller
+			 * Pass reference of CollectionView to the SessionsTable Source to control
+			 * Data handling
+			 */
 
+			CollectionView = collection;
+			sessionsTableViewController = session;
+			navigationController = navcontroller;
 			ViewControllers = new UIViewController[] {navigationController, CollectionView };
 		}
 

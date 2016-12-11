@@ -11,11 +11,16 @@ namespace Categories
 
 		List<Session> TableItems = new List<Session>();
 		NSString cellIdentifier = (NSString)"TableCell";
-		public static event EventHandler RowClicked = delegate { };
-		UIViewController ThirdController;
-		public TableSourceSessions(UIViewController third)
+		IDbContext<Session> dbContext;
+
+		public delegate void SessionsTableDelegate(String string1);
+		public event SessionsTableDelegate SessionRowToController;
+
+
+		public TableSourceSessions(IDbContext<Session> context )
 		{
-			ThirdController = third;
+			dbContext = context;
+
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -25,9 +30,12 @@ namespace Categories
 
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
-			RowClicked(null, EventArgs.Empty);
+			var SelectedItemName = this.TableItems[indexPath.Row];
+			if (SessionRowToController != null)
+			{
+				SessionRowToController(SelectedItemName.SessionDate);
+			}
 			tableView.DeselectRow(indexPath, true);
-			ThirdController.View.Hidden = !ThirdController.View.Hidden;
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -47,7 +55,10 @@ namespace Categories
 			}
 
 			return cell;
-
+		}
+		public void UpdateTableSource(List<Session> sessionsByProfile)
+		{
+			TableItems = sessionsByProfile;
 
 		}
 

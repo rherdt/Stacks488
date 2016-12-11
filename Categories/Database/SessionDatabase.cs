@@ -5,11 +5,13 @@ using SQLite;
 
 namespace Categories
 {
-	public class SessionDatabase
+	public class SessionDatabase : IDbContext<Session>
 	{
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Sessions.db3");
 
-		public static void InsertSession(string date,int parentID, int i, int p, int m)
+		string IDbContext<Session>.dbPath => dbPath;
+
+		public static void InsertSession(string date, Guid parentID, int i, int p, int m)
 		{
 			var db = new SQLiteConnection(dbPath);
 
@@ -24,7 +26,7 @@ namespace Categories
 			db.Insert(currSession);
 
 		}
-		public static void DeleteSessionyID(int id)
+		public static void DeleteSessionByID(int id)
 		{
 			var db = new SQLiteConnection(dbPath);
 			var count  = db.Delete<Session>(id);
@@ -52,27 +54,6 @@ namespace Categories
 			}
 		}
 
-		public static List<Session> getSessions()
-		{
-			List<Session> Sessions = new List<Session>();
-
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Session>();
-
-			if (db.Table<Session>().Count() == 0)
-			{
-				return null;
-			}
-
-			var table = db.Table<Session>();
-			foreach (var s in table)
-			{
-				Sessions.Add(s);
-
-			}
-
-			return Sessions;
-		}
 		public static List<Session> getSessionsByProfile(Profiles profile)
 		{
 			List<Session> Sessions = new List<Session>();
@@ -107,6 +88,44 @@ namespace Categories
 				db.Delete<Session>(i);
 				i++;
 			}
+		}
+
+		public bool Insert(string input)
+		{
+			try
+			{
+				using (var db = new SQLiteConnection(dbPath))
+				{
+					Session _Session = new Session();
+
+					_Session.ID = Guid.NewGuid();
+					/*
+					 * Fix Insert Interface with multiple parameters then get actual parentID
+					 */ 
+					_Session.ParentID = new Guid();
+					_Session.Prompted = 1;
+					_Session.Independent = 1;
+					_Session.Missed = 1;
+					_Session.SessionDate = input;
+
+					db.CreateTable<Session>();
+					db.Insert(_Session);
+					return true;
+				}
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
+		}
+
+		public List<Session> GetAll()
+		{
+			List<Session> Sessions = new List<Session>();
+			var db = new SQLiteConnection(dbPath);
+
+			return Sessions;
+
 		}
 	}
 }

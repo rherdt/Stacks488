@@ -13,15 +13,20 @@ namespace Categories
 		List<Profiles> tableItems;
 		string cellIdentifier = "TableCell";
 		IDbContext<Profiles> dbContext;
-		SessionsSplitViewController SessionTable;
-		UITableView tableView;
 
-		public TableSourceProfiles(IDbContext<Profiles> context, UITableView view,SessionsSplitViewController sessionTable)
+		public delegate void ProfilesTableDelegate(Profiles prof);
+		public event ProfilesTableDelegate ProfileRowToController;
+
+		public delegate void ProfilesTableHideDelegate(Boolean hidden);
+		public event ProfilesTableHideDelegate HideTable;
+		Boolean TableHidden = true;
+
+		public TableSourceProfiles(IDbContext<Profiles> context)
 		{
 			dbContext = context;
-			tableView = view;
+		
 			tableItems = dbContext.GetAll();
-			SessionTable = sessionTable;
+
 		}
 
 		public TableSourceProfiles()
@@ -36,8 +41,19 @@ namespace Categories
 
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
+			//send data to ProfilesSplitViewController
+			var SelectedItemName = this.tableItems[indexPath.Row];
+			if (ProfileRowToController != null)
+			{
+				ProfileRowToController(SelectedItemName);
+			}
 			tableView.DeselectRow(indexPath, true);
-			SessionTable.View.Hidden = !SessionTable.View.Hidden;
+
+			//Show/Hide Table Method call to ProfilessSplitViewController
+			if (TableHidden && ProfileRowToController!= null)
+			{
+				HideTable(TableHidden);
+			}
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -63,6 +79,7 @@ namespace Categories
 			tableItems = dbContext.GetAll();
 			return success;
 		}
+
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{
 			switch (editingStyle)
@@ -84,6 +101,7 @@ namespace Categories
 					break;
 			}
 		}
+
 
 	}
 }

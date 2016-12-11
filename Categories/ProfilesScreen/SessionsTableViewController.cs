@@ -8,13 +8,17 @@ namespace Categories
 		TableSourceSessions source;
 		UITableView table;
 
-		public SessionsTableViewController(UIViewController controllerThree) : base()
+		public SessionsTableViewController(TableSourceSessions sessionSource) : base()
 		{
 			table = new UITableView();
-			source = new TableSourceSessions(controllerThree);
+			source = sessionSource;
 			View = table;
 			table.Source = source;
 
+		}
+		public void ReloadSessionTableData()
+		{
+			table.ReloadData();
 		}
 	}
 }

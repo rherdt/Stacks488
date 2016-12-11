@@ -3,12 +3,13 @@ using SQLite;
 
 namespace Categories
 {
-	public class Session
+	public class Session : IEntity
 	{
 		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
 
-		public int ParentID { get; set; }
+		public Guid ID { get; set; }
+
+		public Guid ParentID { get; set; }
 
 		public string SessionDate { get; set; }
 

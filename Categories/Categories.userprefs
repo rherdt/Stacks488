@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="Controller/TableSourceProfiles.cs" Line="37" Column="22" />
-      <File FileName="Controller/MainTabBarController.cs" Line="29" Column="4" />
-      <File FileName="Controller/TableSourceSessions.cs" Line="30" Column="63" />
-      <File FileName="ProfilesScreen/SessionsSplitViewController.cs" Line="43" Column="1" />
-      <File FileName="ProfilesScreen/SessionsTableViewController.cs" Line="1" Column="1" />
-      <File FileName="RunSession/SessionController.cs" Line="88" Column="4" />
-      <File FileName="RunSession/Settings/SettingsAlertController.cs" Line="43" Column="1" />
-      <File FileName="Main.cs" Line="12" Column="1" />
-      <File FileName="ProfilesScreen/ProfilesSplitViewController.cs" Line="25" Column="46" />
+      <File FileName="ProfilesScreen/ProfilesSplitViewController.cs" Line="64" Column="39" />
+      <File FileName="Controller/TableSourceSessions.cs" Line="37" Column="5" />
+      <File FileName="Controller/TableSourceProfiles.cs" Line="50" Column="1" />
+      <File FileName="Controller/CategoriesSplitViewController.cs" Line="16" Column="58" />
+      <File FileName="Objects/Profiles.cs" Line="7" Column="33" />
+      <File FileName="Database/SessionDatabase.cs" Line="79" Column="1" />
+      <File FileName="Database/ProfileDatabase.cs" Line="66" Column="1" />
+      <File FileName="Objects/Session.cs" Line="10" Column="15" />
+      <File FileName="Interfaces/IDbContext.cs" Line="1" Column="1" />
+      <File FileName="ProfilesScreen/SessionsTableViewController.cs" Line="19" Column="37" />
+      <File FileName="ProfilesScreen/SessionsSplitViewController.cs" Line="8" Column="3" />
       <File FileName="Categories Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

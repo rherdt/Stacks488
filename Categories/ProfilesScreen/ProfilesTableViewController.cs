@@ -5,22 +5,24 @@ namespace Categories
 {
 	public class ProfilesTableViewController: IUpdatableTable
 	{
-		ICustomTableViewSource source { get; }
+		ICustomTableViewSource Source { get; }
 		UITableView table;
 		UITableViewController tableController { get; }
 
 		UITableViewController IUpdatableTable.tableController => tableController;
-		ICustomTableViewSource IUpdatableTable.source => source;
+		ICustomTableViewSource IUpdatableTable.source => Source;
 		string IUpdatableTable.TableType => "Profile";
 
+	
 
-		public ProfilesTableViewController(IDbContext<Profiles> dbContext, SessionsSplitViewController sessionTable)
+
+		public ProfilesTableViewController(ICustomTableViewSource source)
 		{
 			tableController = new UITableViewController();
 			tableController.Title = "Profiles";
 			table = new UITableView();
-			source = new TableSourceProfiles(dbContext, table, sessionTable);
-			table.Source = (UITableViewSource)source;
+			Source = source;
+			table.Source = (UITableViewSource)Source;
 
 			tableController.View = table;
 		}
