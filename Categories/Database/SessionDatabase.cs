@@ -26,11 +26,12 @@ namespace Categories
 			db.Insert(currSession);
 
 		}
-		public static void DeleteSessionByID(int id)
+		public Boolean DeleteSessionByID(Guid id)
 		{
 			var db = new SQLiteConnection(dbPath);
 			var count  = db.Delete<Session>(id);
 			Console.WriteLine("Rows Affected"+count);
+			return true;
 		}
 
 		public static void DeleteSessionsByParentID(int parentid)

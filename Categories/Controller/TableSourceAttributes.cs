@@ -10,12 +10,15 @@ namespace Categories
 		List<Attribute> tableItems;
 		string cellIdentifier = "TableCell";
 		IDbContext<Attribute> dbContext;
-		UITableView tableView;
 
-		public TableSourceAttributes(IDbContext<Attribute> context, UITableView view) : base()
+		//Delegates
+		public delegate void AtributesTableDelegate(Attribute attr);
+		public event AtributesTableDelegate AttributeRowToController;
+
+		public TableSourceAttributes(IDbContext<Attribute> context)
 		{
+			
 			dbContext = context;
-			tableView = view;
 			tableItems = dbContext.GetAll();
 		}
 
@@ -31,6 +34,18 @@ namespace Categories
 			cell.TextLabel.Text = item;
 
 			return cell;
+		}
+		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
+		{
+			//send data to ProfilesSplitViewController
+			var SelectedItemName = this.tableItems[indexPath.Row];
+			if (AttributeRowToController != null)
+			{
+				AttributeRowToController(SelectedItemName);
+			}
+			tableView.DeselectRow(indexPath, true);
+
+
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)

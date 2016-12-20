@@ -72,7 +72,7 @@ namespace Categories
 			//Get Session List, Send to Session Table
 			List<Session> sessionsList = SessionDatabase.getSessionsByProfile(ProfileRow);
 
-			SessionDatabase.InsertSession(DateTime.Now.ToString(), ProfileRow.ID, 1, 1, 1);
+			//SessionDatabase.InsertSession(DateTime.Now.ToString(), ProfileRow.ID, 1, 1, 1);
 
 			
 			SessionSource.UpdateTableSource(sessionsList);

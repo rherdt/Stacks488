@@ -29,10 +29,6 @@ namespace Categories
 
 		}
 
-		public TableSourceProfiles()
-		{
-			
-		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{

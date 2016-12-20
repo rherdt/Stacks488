@@ -124,6 +124,7 @@
     <Folder Include="RunSession\" />
     <Folder Include="RunSession\Settings\" />
     <Folder Include="ProfilesScreen\View\" />
+    <Folder Include="AttributesView\CollctionView\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -133,8 +134,8 @@
     <InterfaceDefinition Include="CollectionView\CollectionViewController.xib" />
     <InterfaceDefinition Include="RunSession\SessionController.xib" />
     <InterfaceDefinition Include="RunSession\Settings\SettingsAlertController.xib" />
-    <InterfaceDefinition Include="AttributesCollectionView\AttributesCollectionViewController.xib" />
     <InterfaceDefinition Include="ProfilesScreen\View\SessionHeaderView.xib" />
+    <InterfaceDefinition Include="AttributesView\CollctionView\AttributesCollectionViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -180,11 +181,7 @@
       <DependentUpon>RunSession.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\CollectionViewImageSource.cs" />
-    <Compile Include="Controller\AttributesSplitViewController.cs" />
     <Compile Include="Controller\TableSourceAttributes.cs" />
-    <Compile Include="Controller\ImageAttributesTableViewController.cs" />
-    <Compile Include="Controller\AttributesTableViewController.cs" />
-    <Compile Include="Controller\ImageAttributesSplitViewController.cs" />
     <Compile Include="Controller\MasterTableNavigationController.cs" />
     <Compile Include="Interfaces\IUpdatableTable.cs" />
     <Compile Include="Interfaces\ICustomTableViewSource.cs" />
@@ -200,14 +197,18 @@
     <Compile Include="RunSession\SessionController.cs" />
     <Compile Include="RunSession\Settings\SettingsAlertController.cs" />
     <Compile Include="RunSession\Settings\SettingsAlertController.designer.cs" />
-    <Compile Include="AttributesCollectionView\AttributesCollectionViewController.cs" />
-    <Compile Include="AttributesCollectionView\AttributesCollectionViewController.designer.cs" />
     <Compile Include="ProfilesScreen\SessionsSplitViewController.cs" />
     <Compile Include="ProfilesScreen\SessionsTableViewController.cs" />
     <Compile Include="ProfilesScreen\View\SessionHeaderView.cs" />
     <Compile Include="ProfilesScreen\View\SessionHeaderView.designer.cs" />
     <Compile Include="ProfilesScreen\ProfilesSplitViewController.cs" />
     <Compile Include="ProfilesScreen\ProfilesTableViewController.cs" />
+    <Compile Include="AttributesView\CollctionView\AttributesCollectionViewController.cs" />
+    <Compile Include="AttributesView\CollctionView\AttributesCollectionViewController.designer.cs" />
+    <Compile Include="AttributesView\AttributesSplitViewController.cs" />
+    <Compile Include="AttributesView\AttributesTableViewController.cs" />
+    <Compile Include="AttributesView\ImageAttributesSplitViewController.cs" />
+    <Compile Include="AttributesView\ImageAttributesTableViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

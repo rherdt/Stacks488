@@ -38,6 +38,7 @@ namespace Categories
 				var db = new SQLiteConnection(dbPath);
 
 				Image image = new Image();
+				image.Attribute = attribute;
 				image.FileName = FileName;
 				image.Category = category;
 
@@ -54,7 +55,7 @@ namespace Categories
 
 		}
 
-		public static UIImage GetImageByID(int id)
+		public static UIImage GetUIImageByID(int id)
 		{
 			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
@@ -62,6 +63,29 @@ namespace Categories
 			UIImage chosenImage = UIImage.FromFile(jpgFilename);
 
 			return chosenImage;
+		}
+		public static Image GetImageByID(int id)
+		{
+			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Image>();
+			if (db.Table<Image>().Count() == 0)
+			{
+				return null;
+			}
+
+			var table = db.Table<Image>();
+			foreach (var s in table)
+			{
+				if (id == s.ID)
+				{
+					return s;
+				}
+			}
+
+			return null;
+
 		}
 		public static UIImage GetImageByFilename(string filename)
 		{
@@ -99,38 +123,42 @@ namespace Categories
 
 			return Images;
 		}
-		//public static List<UIImage> GetImagesByAttribute(string attribute)
-		//{
-		//	List<UIImage> Images = new List<UIImage>();
+		public static List<Image> GetImagesByAttribute(string attribute)
+		{
+			List<Image> Images = new List<Image>();
 
-		//	var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
-		//	var db = new SQLiteConnection(dbPath);
-		//	db.CreateTable<Image>();
-		//	if (db.Table<Image>().Count() == 0)
-		//	{
-		//		return null;
-		//	}
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Image>();
+			if (db.Table<Image>().Count() == 0)
+			{
+				return null;
+			}
 
-		//	var table = db.Table<Image>();
-		//	List<Attribute> attributes = AttributeDatabase.GetAll();
+			var table = db.Table<Image>();
+			List<Attribute> attributes = new AttributeDatabase().GetAll();
+			List<Image> AllImages = ImageDatabase.GetAllImagesByOBJ();
+
+			foreach (var s in AllImages)
+			{
+				//each attribute has an image ID?
+				//if (s.Name.Equals(attribute))
+				//{
+				//	Image image = ImageDatabase.GetImageByID(s.ImageID);
+				//	Images.Add(image);
+				//}
+
+				if (attribute.Equals(s.Attribute))
+				{
+					Images.Add(s);
+				}
+
+			}
 
 
-
-		//	foreach (var s in attributes)
-		//	{
-		//		if (s.Name.Equals(attribute))
-		//		{
-		//			var image = db.Get<Image>(s.ImageID);
-		//			string jpgFilename = System.IO.Path.Combine(documentsDirectory, image.FileName + ".jpg");
-		//			Images.Add(UIImage.FromFile(jpgFilename));
-		//		}
-
-		//	}
-
-
-		//	return Images;
-		//}
+			return Images;
+		}
 
 
 		public static void DeleteAllDatabaseImages()

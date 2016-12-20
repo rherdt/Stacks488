@@ -11,8 +11,9 @@ namespace Categories
 		UICollectionView CollectionView;
 		CollectionViewImageSource CollectionViewSource;
 
-		public AttributesCollectionViewController() : base("AttributesCollectionViewController", null)
+		public AttributesCollectionViewController(CollectionViewImageSource AttributeSource) : base("AttributesCollectionViewController", null)
 		{
+			CollectionViewSource = AttributeSource;
 		}
 
 		public override void ViewDidLoad()
@@ -37,7 +38,7 @@ namespace Categories
 			/*
 			 * Initialize the CollectionViewSource and UICollectionView
 			 */
-			CollectionViewSource = new CollectionViewImageSource();
+		
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
@@ -58,17 +59,29 @@ namespace Categories
 			if (Images != null)
 			{
 				//Add into the collectionview source
-				foreach (var s in Images)
-				{
-					CollectionViewSource.Cells.Add(new ImageCell(s));
-				}
-				//refresh collectionview
-				CollectionView.ReloadData();
-				//add the collection to the UIView
-				Add(CollectionView);
+				UpdateImages(Images);
 			}
 
 		}
+		public void UpdateImages(List<Image> Images)
+		{
+			foreach (var s in Images)
+			{
+				CollectionViewSource.Cells.Add(new ImageCell(s));
+			}
+			//refresh collectionview
+			CollectionView.ReloadData();
+			//add the collection to the UIView
+			Add(CollectionView);
+		}
+		public void ClearImages()
+		{
+			CollectionViewSource.Cells.Clear();
+			CollectionView.ReloadData();
+			
+
+		}
+
 		public override void DidReceiveMemoryWarning()
 		{
 			base.DidReceiveMemoryWarning();

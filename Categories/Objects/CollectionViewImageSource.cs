@@ -8,11 +8,15 @@ namespace Categories
 {
 	public class CollectionViewImageSource : UICollectionViewSource
 	{
+		//Delegates
+		public delegate void AttributeImageTableDelegate(Image attr);
+		public event AttributeImageTableDelegate ImageClickedToController;
 		
 		public CollectionViewImageSource()
 		{
 			Cells = new List<ImageCell>();
 		}
+
 		public List<ImageCell> Cells { get; private set; }
 
 		public SizeF ImageViewSize { get; set; }
@@ -54,6 +58,11 @@ namespace Categories
 				cell.ImageView.Layer.BorderColor = UIColor.Green.CGColor;
 			}
 			Clicked.isClicked = !Clicked.isClicked;
+
+			if (ImageClickedToController != null)
+			{
+				ImageClickedToController(Clicked.ImgOBJ);
+			}
 
 
 		}

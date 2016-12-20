@@ -1,26 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using UIKit;
+
 
 namespace Categories
 {
-	public class AttributesTableViewController : IUpdatableTable
+	public class ImageAttributesTableViewController : IUpdatableTable
 	{
-		ICustomTableViewSource source { get; }
+		
+		ICustomTableViewSource Source { get; }
 		UITableView table;
 		UITableViewController tableController { get; }
 
 		UITableViewController IUpdatableTable.tableController => tableController;
-		ICustomTableViewSource IUpdatableTable.source => source;
+		ICustomTableViewSource IUpdatableTable.source => Source;
 		string IUpdatableTable.TableType => "Attribute";
 
-		public AttributesTableViewController(IDbContext<Attribute> dbContext)
+
+		public ImageAttributesTableViewController(ICustomTableViewSource source) : base()
 		{
 			tableController = new UITableViewController();
 			tableController.Title = "Attributes";
 			table = new UITableView();
-			source = new TableSourceAttributes(dbContext, table);
-			table.Source = (UITableViewSource)source;
+			Source = source;
+			table.Source = (UITableViewSource)Source;
+
 			tableController.View = table;
 		}
 	}

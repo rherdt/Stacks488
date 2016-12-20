@@ -59,16 +59,20 @@ namespace Categories
 			if (Images != null)
 			{
 				//Add into the collectionview source
-				foreach (var s in Images)
-				{
-					CollectionViewSource.Cells.Add(new ImageCell(s));
-				}
-				//refresh collectionview
-				CollectionView.ReloadData();
-				//add the collection to the UIView
-				Add(CollectionView);
+				UpdateImages(Images);
 			}
 
+		}
+		public void UpdateImages(List<Image> Images)
+		{
+			foreach (var s in Images)
+			{
+				CollectionViewSource.Cells.Add(new ImageCell(s));
+			}
+			//refresh collectionview
+			CollectionView.ReloadData();
+			//add the collection to the UIView
+			Add(CollectionView);
 		}
 		public override void DidReceiveMemoryWarning()
 		{
