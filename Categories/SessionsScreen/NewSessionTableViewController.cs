@@ -3,7 +3,7 @@ using UIKit;
 
 namespace Categories
 {
-	public class ProfilesTableViewController: IUpdatableTable
+	public class NewSessionTableViewController : IUpdatableTable
 	{
 		ICustomTableViewSource Source { get; }
 		UITableView table;
@@ -11,18 +11,19 @@ namespace Categories
 
 		UITableViewController IUpdatableTable.tableController => tableController;
 		ICustomTableViewSource IUpdatableTable.source => Source;
-		string IUpdatableTable.TableType => "Profile";
+		string IUpdatableTable.TableType => "Category";
 
-		public ProfilesTableViewController(ICustomTableViewSource source)
+		public NewSessionTableViewController(ICustomTableViewSource source)
 		{
 			tableController = new UITableViewController();
-			tableController.Title = "Profiles";
+			tableController.Title = "New Session:Select Category";
+			//tableController.Title.StringSize(UIFont.FromName("Arial", 20f));
 			table = new UITableView();
 			Source = source;
 			table.Source = (UITableViewSource)Source;
-
 			tableController.View = table;
 		}
+
 
 
 	}

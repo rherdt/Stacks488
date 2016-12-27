@@ -25,5 +25,10 @@ namespace Categories
 		{
 			return btnAdd;
 		}
+
+		public UITextField getProfileNameTextField()
+		{
+			return txtProfileName;
+		}
     }
 }

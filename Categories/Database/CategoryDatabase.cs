@@ -41,6 +41,20 @@ namespace Categories
 				return false;
 			}
 		}
+
+		public static void InsertCategory(string categoryName)
+		{
+			var db = new SQLiteConnection(dbPath);
+
+			Category currCategory = new Category();
+			currCategory.CategoryName = categoryName;
+			currCategory.ID = Guid.NewGuid();
+
+			db.CreateTable<Category>();
+			db.Insert(currCategory);
+
+		}
+
 		public List<Category> GetAll()
 		{
 			List<Category> categories = new List<Category>();
@@ -84,6 +98,41 @@ namespace Categories
 			{
 				return false;
 			}
+		}
+
+		public static List<Category> GetAllStatic()
+		{
+			List<Category> categories = new List<Category>();
+
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Category>();
+			if (db.Table<Category>().Count() == 0)
+			{
+				return categories;
+			}
+
+			var table = db.Table<Category>();
+			foreach (var s in table)
+			{
+				categories.Add(s);
+
+			}
+			return categories;
+		}
+
+		public static Category getCategoryByName(string name)
+		{
+			var db = new SQLiteConnection(dbPath);
+			var table = db.Table<Category>();
+			foreach (var profile in table)
+			{
+				if (name.Equals(profile.ID))
+				{
+					return profile;
+				}
+
+			}
+			return null;
 		}
 
 	}

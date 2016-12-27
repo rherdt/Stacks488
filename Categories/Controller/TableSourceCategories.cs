@@ -16,6 +16,17 @@ namespace Categories
 		IDbContext<Category> dbContext;
 		UITableView tableView;
 
+		public delegate void SessionsTableDelegate(Category category);
+		public event SessionsTableDelegate CategoryRowToSessionTableViewController;
+
+		public TableSourceCategories(IDbContext<Category> context)
+		{
+			dbContext = context;
+
+			TableItems = dbContext.GetAll();
+
+		}
+
 		public TableSourceCategories(IDbContext<Category> context, UITableView view)
 		{
 			
@@ -28,6 +39,19 @@ namespace Categories
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
 			return TableItems.Count;
+		}
+
+		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
+		{
+			//send data to ProfilesSplitViewController
+			var SelectedItemName = this.TableItems[indexPath.Row];
+			if (CategoryRowToSessionTableViewController != null)
+			{
+				CategoryRowToSessionTableViewController(SelectedItemName);
+			}
+			tableView.DeselectRow(indexPath, true);
+
+
 		}
 
 		private void HandleReload(object sender, NotifyCollectionChangedEventArgs e)

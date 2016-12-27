@@ -12,6 +12,7 @@ namespace Categories
 		AttributesTableViewController attributesTableViewController;
 		ImageAttributesSplitViewController imageAttributeSplitViewController;
 		MasterTableNavigationController navController;
+		UINavigationController navControllerCollection;
 
 
 		/*
@@ -34,15 +35,24 @@ namespace Categories
 
 			//2nd Screen
 			AttributeImageSource = new CollectionViewImageSource();
-			AttributeImageSource.ImageClickedToController += GetImageSelectedFromCollectionView;
-			//add delegate to image source
+			AttributeImageSource.ImageClickedToController += GetImageSelectedFromCollectionView; //delegate for image source
+			//add nav controller to collectionview
 
 			attributesCollectionView = new AttributesCollectionViewController(AttributeImageSource);
+			navControllerCollection = new UINavigationController(attributesCollectionView);
+			//UIBarButtonItem backButton = new UIBarButtonItem("Add Photo", UIBarButtonItemStyle.Bordered, AddPhotoButtonHandler);
+
+			//navControllerCollection.NavigationItem.BackBarButtonItem = backButton;
+			navControllerCollection.Title = "Images";
+	
+			navControllerCollection.View.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
+			navControllerCollection.View.Bounds = navControllerCollection.View.Frame;
+
 			TableSourceAttributes RightAttributesTableSource = new TableSourceAttributes(attributeDb);
 			ImageAttributesTableViewController RightImageAttributeTable = new ImageAttributesTableViewController(RightAttributesTableSource);
 			RightAttributesTableSource.AttributeRowToController += GetAttributeRowSelectedRight;
 
-			imageAttributeSplitViewController = new ImageAttributesSplitViewController(RightImageAttributeTable, attributesCollectionView);
+			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, RightImageAttributeTable);
 
 
 
@@ -78,6 +88,11 @@ namespace Categories
 			//get the image object returned from the collection view click
 			new UIAlertView("Row Selected", imageSelected.FileName, null, "OK", null).Show();
 
+		}
+
+		void AddPhotoButtonHandler(object sender, EventArgs e)
+		{
+			new UIAlertView("Add Photo Action", "", null, "OK", null).Show();
 		}
 	}
 }

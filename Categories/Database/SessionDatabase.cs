@@ -11,7 +11,7 @@ namespace Categories
 
 		string IDbContext<Session>.dbPath => dbPath;
 
-		public static void InsertSession(string date, Guid parentID, int i, int p, int m)
+		public static void InsertSession(string date, Guid parentID, int i, int p, int m, Guid categoryID)
 		{
 			var db = new SQLiteConnection(dbPath);
 
@@ -21,17 +21,17 @@ namespace Categories
 			currSession.Independent = i;
 			currSession.Prompted = p;
 			currSession.Missed = m;
+			currSession.categoryID = categoryID;
 
 			db.CreateTable<Session>();
 			db.Insert(currSession);
 
 		}
-		public Boolean DeleteSessionByID(Guid id)
+		public static void DeleteSessionByID(int id)
 		{
 			var db = new SQLiteConnection(dbPath);
 			var count  = db.Delete<Session>(id);
 			Console.WriteLine("Rows Affected"+count);
-			return true;
 		}
 
 		public static void DeleteSessionsByParentID(int parentid)
@@ -71,6 +71,32 @@ namespace Categories
 			foreach (var s in table)
 			{
 				if (s.ParentID.Equals(profile.ID)){
+					Sessions.Add(s);
+				}
+
+			}
+
+			return Sessions;
+		}
+
+
+		public static List<Session> getSessionsByCategory(Category category)
+		{
+			List<Session> Sessions = new List<Session>();
+
+			var db = new SQLiteConnection(dbPath);
+			db.CreateTable<Session>();
+
+			if (db.Table<Session>().Count() == 0)
+			{
+				return null;
+			}
+
+			var table = db.Table<Session>();
+			foreach (var s in table)
+			{
+				if (s.categoryID.Equals(category.ID))
+				{
 					Sessions.Add(s);
 				}
 

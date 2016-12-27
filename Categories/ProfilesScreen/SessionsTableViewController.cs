@@ -16,14 +16,6 @@ namespace Categories
 			table.Source = source;
 
 		}
-
-		public override void ViewWillAppear(bool animated)
-		{
-			base.ViewWillAppear(animated);
-			table.ReloadData();
-		}
-
-
 		public void ReloadSessionTableData()
 		{
 			table.ReloadData();

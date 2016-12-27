@@ -43,7 +43,9 @@ namespace Categories
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
-			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
+			CollectionView.Frame = this.ParentViewController.View.Frame;
+			CollectionView.Bounds = this.ParentViewController.View.Bounds;   //new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
+
 			CollectionView.BackgroundColor = UIColor.White;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 
@@ -94,7 +96,7 @@ namespace Categories
 		public CGSize GetSize()
 		{
 			var screenWidth = this.View.Bounds.Width / 2;
-			var cellWidth = screenWidth / 4.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
+			var cellWidth = screenWidth / 3.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;

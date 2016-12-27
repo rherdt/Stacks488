@@ -9,7 +9,6 @@ public class CustomCellSessions : UITableViewCell
 	UILabel categoriesLabel, dateLabel, correctRawLabel, correctPercentageLabel;
 	UIButton _button;
 
-
 	public CustomCellSessions(NSString cellId, UITableView parent) : base(UITableViewCellStyle.Default, cellId)
 	{
 
@@ -48,9 +47,9 @@ public class CustomCellSessions : UITableViewCell
 
 
 	}
-	public void UpdateCell(string date, int i, int p, int m)
+	public void UpdateCell(string categoryName, string date, int i, int p, int m)
 	{
-		categoriesLabel.Text = "TestCategory";
+		categoriesLabel.Text = categoryName.ToString();
 		dateLabel.Text = date;
 		correctRawLabel.Text = i.ToString() + "/" + (i+p+m).ToString();
 		correctPercentageLabel.Text = calculatePercentage(i, p, m).ToString() + "%";
@@ -61,7 +60,7 @@ public class CustomCellSessions : UITableViewCell
 	{
 		base.LayoutSubviews();
 		categoriesLabel.Frame = new CGRect(1, 1, ContentView.Bounds.Width / 3, ContentView.Bounds.Height / 2);
-		dateLabel.Frame = new CGRect(ContentView.Bounds.Width / 3 + 5, 1, ContentView.Bounds.Width / 3, ContentView.Bounds.Height / 2);
+		dateLabel.Frame = new CGRect(ContentView.Bounds.Width / 3 + 5, 1, ContentView.Bounds.Width / 2, ContentView.Bounds.Height / 2);
 		correctRawLabel.Frame = new CGRect(1, ContentView.Bounds.Height / 2 + 1, ContentView.Bounds.Width / 8, ContentView.Bounds.Height / 2 - 1);
 		correctPercentageLabel.Frame = new CGRect(ContentView.Bounds.Width / 8 + 1, ContentView.Bounds.Height / 2 + 1, ContentView.Bounds.Width / 3, ContentView.Bounds.Height / 2 - 1);
 	}

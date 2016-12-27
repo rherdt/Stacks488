@@ -19,6 +19,8 @@ namespace Categories
 			view.View.BackgroundColor = UIColor.Purple;
 			IDbContext<Profiles> profilesDb = new ProfileDatabase();
 			IDbContext<Session> sessionsDB = new SessionDatabase();
+			IDbContext<Category> categoryDB = new CategoryDatabase();
+
 
 			/*
 			 * SessionSplitView Controllers
@@ -48,10 +50,14 @@ namespace Categories
 			ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;
 			ProfilesSource.HideTable += ShowSessionTableHandler;
 
+			//create category source
+			TableSourceCategories CategorySource = new TableSourceCategories(categoryDB);
 
 			//create the profile table controller
 			profilesTableViewController = new ProfilesTableViewController(ProfilesSource);
 			navController = new MasterTableNavigationController(profilesTableViewController);
+
+
 			ViewControllers = new UIViewController[] {navController, sessionSplitViewController};
 
 			this.View.BackgroundColor = UIColor.White;
@@ -61,21 +67,29 @@ namespace Categories
 		{
 			base.ViewDidLoad();
 		}
-		public void GetRowClickedFromSessionSource(string clicked)
+		public void GetRowClickedFromSessionSource(Session session)
 		{
+			string clicked = "no";
 			new UIAlertView("Row Clicked: "+clicked, null, null, "Ok", null).Show();
 			//get  all items that match the clicked profile
 
 		}
+
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{
 			//Get Session List, Send to Session Table
 			List<Session> sessionsList = SessionDatabase.getSessionsByProfile(ProfileRow);
+			sessionSplitViewController.setProfile(ProfileRow);
 
-			//SessionDatabase.InsertSession(DateTime.Now.ToString(), ProfileRow.ID, 1, 1, 1);
-
-			
+			/*
+			 * TESTING
+			List<Category> catList = CategoryDatabase.GetAllStatic();
+			Random r = new Random();
+			int rInt = r.Next(0,2);
+			SessionDatabase.InsertSession(DateTime.Now.ToString(), ProfileRow.ID, 1, 1, 1, catList[rInt].ID);*/
 			SessionSource.UpdateTableSource(sessionsList);
+
+			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName);
 
 			sessions.ReloadSessionTableData();
 

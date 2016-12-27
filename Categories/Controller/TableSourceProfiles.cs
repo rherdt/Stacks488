@@ -19,16 +19,19 @@ namespace Categories
 
 		public delegate void ProfilesTableHideDelegate(Boolean hidden);
 		public event ProfilesTableHideDelegate HideTable;
+
 		Boolean TableHidden = true;
 
 		public TableSourceProfiles(IDbContext<Profiles> context)
 		{
 			dbContext = context;
-		
 			tableItems = dbContext.GetAll();
-
 		}
 
+		public TableSourceProfiles()
+		{
+			
+		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{

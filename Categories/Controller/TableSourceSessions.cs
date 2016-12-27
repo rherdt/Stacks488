@@ -13,7 +13,7 @@ namespace Categories
 		NSString cellIdentifier = (NSString)"TableCell";
 		IDbContext<Session> dbContext;
 
-		public delegate void SessionsTableDelegate(String string1);
+		public delegate void SessionsTableDelegate(Session string1);
 		public event SessionsTableDelegate SessionRowToController;
 
 
@@ -23,19 +23,34 @@ namespace Categories
 
 		}
 
+		public TableSourceSessions(List<Session> items)
+		{
+			
+			TableItems = items;
+
+		}
+
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			return 0;//TableItems.Count;
+			if (TableItems != null)
+			{
+				return TableItems.Count;
+			}
+
+			return 1;
 		}
 
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
-			var SelectedItemName = this.TableItems[indexPath.Row];
-			if (SessionRowToController != null)
+			if (this.TableItems != null)
 			{
-				SessionRowToController(SelectedItemName.SessionDate);
+				var SelectedItemName = this.TableItems[indexPath.Row];
+				if (SessionRowToController != null)
+				{
+					SessionRowToController(SelectedItemName);
+				}
 			}
-			tableView.DeselectRow(indexPath, true);
+			//tableView.DeselectRow(indexPath, true);
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
@@ -48,7 +63,8 @@ namespace Categories
 
 			else
 			{
-				cell.UpdateCell(TableItems[indexPath.Row].SessionDate
+				var name = categoryIdToName(TableItems[indexPath.Row].categoryID);
+				cell.UpdateCell(name, TableItems[indexPath.Row].SessionDate
 				                ,TableItems[indexPath.Row].Independent
 							, TableItems[indexPath.Row].Prompted,
 				               TableItems[indexPath.Row].Missed);
@@ -56,32 +72,34 @@ namespace Categories
 
 			return cell;
 		}
+
+		private string categoryIdToName(Guid categoryID)
+		{
+			string ret = "";
+			List<Category> categoryList = CategoryDatabase.GetAllStatic();
+			for (int i = 0; i < categoryList.Count; i++)
+			{
+				if (categoryList[i].ID.Equals(categoryID))
+				{
+					ret = categoryList[i].CategoryName;
+				}
+			}
+
+			return ret;
+		}
+
+		public List<Session> getList()
+		{
+			return this.TableItems;
+		}
+
+
 		public void UpdateTableSource(List<Session> sessionsByProfile)
 		{
 			TableItems = sessionsByProfile;
 
 		}
-		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
-		{
-			switch (editingStyle)
-			{
-				case UITableViewCellEditingStyle.Delete:
-					// remove the item from the underlying data source
-					var dbc = dbContext as SessionDatabase;
-					var didDelete = dbc.DeleteSessionByID(TableItems[indexPath.Row].ID);
 
-					if (didDelete)
-					{
-						TableItems.RemoveAt(indexPath.Row);
-						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
-					}
-					break;
-
-				case UITableViewCellEditingStyle.None:
-					Console.WriteLine("CommitEditingStyle:None called");
-					break;
-			}
-		}
 
 	}
 }

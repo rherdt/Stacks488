@@ -19,6 +19,7 @@ namespace Categories
 
 		public int Missed { get; set; }
 
+		public Guid categoryID { get; set; }
 
 	}
 }
