@@ -181,7 +181,6 @@
     <Compile Include="Controller\RunSession.designer.cs">
       <DependentUpon>RunSession.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\CollectionViewImageSource.cs" />
     <Compile Include="Controller\TableSourceAttributes.cs" />
     <Compile Include="Controller\MasterTableNavigationController.cs" />
     <Compile Include="Interfaces\IUpdatableTable.cs" />
@@ -219,6 +218,7 @@
     <Compile Include="Controller\CustomCellCategories.cs" />
     <Compile Include="Objects\CurrentSession.cs" />
     <Compile Include="Objects\Result.cs" />
+    <Compile Include="AttributesView\CollectionView\CollectionViewImageSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

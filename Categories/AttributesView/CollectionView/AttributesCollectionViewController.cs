@@ -55,15 +55,6 @@ namespace Categories
 			CollectionView.Source = CollectionViewSource;
 
 
-			//Get Images from the ImageDatabase
-			List<Image> Images = ImageDatabase.GetAllImagesByOBJ();
-
-			if (Images != null)
-			{
-				//Add into the collectionview source
-				UpdateImages(Images);
-			}
-
 		}
 		public void UpdateImages(List<Image> Images)
 		{

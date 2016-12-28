@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="RunSession/SessionController.cs" Line="54" Column="4" />
-      <File FileName="AttributesView/AttributesSplitViewController.cs" Line="94" Column="64" />
+      <File FileName="RunSession/SessionController.cs" Line="178" Column="4" />
+      <File FileName="AttributesView/AttributesSplitViewController.cs" Line="80" Column="47" />
       <File FileName="AttributesView/ImageAttributesSplitViewController.cs" Line="16" Column="81" />
-      <File FileName="SessionsScreen/NewSessionSplitViewController.cs" Line="66" Column="47" />
-      <File FileName="SessionsScreen/RunsSplitViewController.cs" Line="1" Column="1" />
-      <File FileName="Controller/CustomCellCategories.cs" Line="42" Column="54" />
+      <File FileName="SessionsScreen/NewSessionSplitViewController.cs" Line="25" Column="4" />
+      <File FileName="AttributesView/CollectionView/AttributesCollectionViewController.cs" Line="62" Column="5" />
+      <File FileName="CollectionView/CollectionViewController.cs" Line="12" Column="50" />
       <File FileName="Categories Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

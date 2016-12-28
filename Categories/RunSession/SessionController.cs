@@ -48,7 +48,7 @@ namespace Categories
 			//Show image in ImageViewSessionView from ImageDatabase
 			Images = ImageDatabase.GetAllImagesByOBJ();
 
-			updateImageView(CurrentImageIndex);
+
 
 
 
@@ -173,6 +173,13 @@ namespace Categories
 
 			}
 
+		}
+		public void StartSession()
+		{
+			if (Images != null && Images.Count > 0)
+			{
+				ImageViewSession.Image = ImageDatabase.GetUIImageFromFileName(Images[0].FileName);
+			}
 		}
 		public override bool ShouldAutorotate()
 		{

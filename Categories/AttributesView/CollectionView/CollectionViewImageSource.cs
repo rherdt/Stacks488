@@ -86,7 +86,8 @@ namespace Categories
 			ImgOBJ = imageOBJ;
 			isClicked = false;
 		}
-				public Image ImgOBJ { get;  set; }
+
+		public Image ImgOBJ { get;  set; }
 		public Boolean isClicked { get;  set; }
 
 	}
@@ -117,7 +118,7 @@ namespace Categories
 		public void UpdateRow(ImageCell element,SizeF imageViewSize)
 		{
 
-			ImageView.Image = ImageDatabase.GetUIImageFromFileName(element.ImgOBJ.FileName);
+			ImageView.Image = ImageDatabase.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName);
 
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
 
