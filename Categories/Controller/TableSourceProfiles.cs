@@ -11,7 +11,7 @@ namespace Categories
 	{
 
 		List<Profiles> tableItems;
-		string cellIdentifier = "TableCell";
+		NSString cellIdentifier = (NSString)"TableCell";
 		IDbContext<Profiles> dbContext;
 
 		public delegate void ProfilesTableDelegate(Profiles prof);
@@ -57,18 +57,17 @@ namespace Categories
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			Contract.Ensures(Contract.Result<UITableViewCell>() != null);
-			UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
-			string item = tableItems[indexPath.Row].FirstName;
+			var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellProfiles;
 
-			//---- if there are no cells to reuse, create a new one
 			if (cell == null)
-			{ cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
-
-			cell.TextLabel.Text = item;
+			{
+				cell = new CustomCellProfiles(cellIdentifier);
+			}
+			cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+			var name = tableItems[indexPath.Row].FirstName + " " + tableItems[indexPath.Row].LastName;
+			cell.UpdateCell(name);
 
 			return cell;
-
 
 		}
 

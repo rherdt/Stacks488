@@ -9,7 +9,7 @@ public class CustomCellSessions : UITableViewCell
 	UILabel categoriesLabel, dateLabel, correctRawLabel, correctPercentageLabel;
 	UIButton _button;
 
-	public CustomCellSessions(NSString cellId, UITableView parent) : base(UITableViewCellStyle.Default, cellId)
+	public CustomCellSessions(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
 	{
 
 

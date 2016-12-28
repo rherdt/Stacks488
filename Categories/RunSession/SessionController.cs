@@ -7,12 +7,22 @@ namespace Categories
 	public partial class SessionController : UIViewController
 	{
 		int CurrentImageIndex = 0;
-		List<UIImage> Images;
-		UIImagePickerController imagePicker;
+		List<Image> Images;
+	
 		UIViewController Parent;
+
+		//Session object to keep track of current session
+		CurrentSession _Session;
+		Result ImageResult;
+	
+
+		//Delegates
+		public delegate void RunSessionDelegate(CurrentSession Session);
+		public event RunSessionDelegate ReturnSessionData;
 
 		public SessionController() : base("SessionController", null)
 		{
+			_Session = new CurrentSession();
 		}
 
 		public override void ViewDidLoad()
@@ -36,29 +46,11 @@ namespace Categories
 
 
 			//Show image in ImageViewSessionView from ImageDatabase
-			updateImageView();
+			Images = ImageDatabase.GetAllImagesByOBJ();
+
+			updateImageView(CurrentImageIndex);
 
 
-			//Add Photos button Handler
-			AddPhotoButton.TouchUpInside += (sender, e) =>
-			{
-				// create a new picker controller
-				imagePicker = new UIImagePickerController();
-
-				// set our source to the photo libraryr
-				imagePicker.SourceType = UIImagePickerControllerSourceType.PhotoLibrary;
-
-				// set  media typee
-				imagePicker.MediaTypes = UIImagePickerController.AvailableMediaTypes(UIImagePickerControllerSourceType.PhotoLibrary);
-
-				//handlers for imagepicker
-				imagePicker.FinishedPickingMedia += Handle_FinishedPickingMedia;
-				imagePicker.Canceled += Handle_Canceled;
-
-				// show the picker
-				this.PresentModalViewController(imagePicker, true);
-
-			};
 
 			FinishedButton.TouchUpInside += (sender, e) =>
 			{
@@ -72,6 +64,7 @@ namespace Categories
 				{
 					if (args.ButtonIndex == 0) //yes clicked
 					{
+						ReturnSessionData(_Session);
 						this.PresentingViewController.DismissModalViewController(true);
 					}
 
@@ -98,9 +91,11 @@ namespace Categories
 
 		/*
 		 * Handler for when the imageViewSession detects a right gesture swipe
+		 * 
 		*/
 		public void HandleSwipeRight()
 		{
+			
 			if (Images == null)
 			{
 
@@ -108,10 +103,14 @@ namespace Categories
 			if (CurrentImageIndex > 0)
 			{
 				CurrentImageIndex--;
-				ImageViewSession.Image = Images[CurrentImageIndex];
+				ImageViewSession.Image = ImageDatabase.GetImageByFilename(Images[CurrentImageIndex].FileName);
 
 			}
-
+			/*
+			 * For Testing, Swiping right = incorrect
+			 */
+			ImageResult = new Result(Images[CurrentImageIndex+1].ID);
+			ImageResult.ImageIncorrect = true;
 
 		}
 		/*
@@ -119,9 +118,25 @@ namespace Categories
 		*/
 		protected void HandleDoubleTap()
 		{
-			UIAlertView alertTap = new UIAlertView("Gesture", "Double Tap Recognized", null, "Ok", null);
-			alertTap.Show();
+			/*
+			 * For Testing, Double Tap = Prompting
+			 */
+	
+
+			if (Images == null)
+			{
+				return;
+			}
+			if (CurrentImageIndex < Images.Count)
+			{
+				ImageViewSession.Image = ImageDatabase.GetImageByFilename(Images[CurrentImageIndex].FileName);
+				CurrentImageIndex++;
+			}
+
+			ImageResult = new Result(Images[CurrentImageIndex-1].ID);
+			ImageResult.ImagePrompting = true;
 		}
+
 		/*
 		 * Handler for when the imageViewSession detects a left gesture swipe
 		*/
@@ -133,57 +148,30 @@ namespace Categories
 			}
 			if (CurrentImageIndex < Images.Count)
 			{
-				ImageViewSession.Image = Images[CurrentImageIndex];
+				ImageViewSession.Image = ImageDatabase.GetImageByFilename(Images[CurrentImageIndex].FileName);
 				CurrentImageIndex++;
 			}
-		}
-		/*
-		 * Handler for when the user cancels adding a photo to the imageDatabase from the
-		 * Image picker(camera roll).
-		*/
-		void Handle_Canceled(object sender, EventArgs e)
-		{
-			Console.WriteLine("picker cancelled");
-			imagePicker.DismissModalViewController(true);
+			/*
+			 * For Testing, Swiping Left = Independent
+			 */
+			ImageResult = new Result(Images[CurrentImageIndex-1].ID);
+			ImageResult.ImageIndependent = true;
+
 		}
 
-		/*
-		 * Handler for when the user chooses an image from the imagepicker(camera roll).
-		 * This converts the chosen image to a UIImage and adds it to the database.
-		*/
-		protected void Handle_FinishedPickingMedia(object sender, UIImagePickerMediaPickedEventArgs e)
-		{
-			//determine if photo was chosen
-			if (e.Info[UIImagePickerController.MediaType].ToString().Equals("public.image"))
-			{
 
-				// get the imagee
-				UIImage originalImage = e.Info[UIImagePickerController.OriginalImage] as UIImage;
-				if (originalImage != null)
-				{
-					//add photo to database
-					ImageDatabase.InsertImage(originalImage, "floral", "Plants");
-				}
 
-			}
-			// dismiss the pickerr
-			imagePicker.DismissModalViewController(true);
-
-			//refesh the image View
-			updateImageView();
-		}
 		/*
 		 * Updates the ImageViewSession with the frist image from the imageDatabase.
 		*/
-		public void updateImageView()
+		public void updateImageView(int index)
 		{
-			Images = ImageDatabase.GetAllImages();
 
-			if (Images != null)
+			if (index < Images.Count)
 			{
-				ImageViewSession.Image = Images[0];
-			}
+				ImageViewSession.Image = ImageDatabase.GetUIImageFromFileName(Images[index].FileName);
 
+			}
 
 		}
 		public override bool ShouldAutorotate()
@@ -194,6 +182,7 @@ namespace Categories
 		{
 			return UIInterfaceOrientationMask.All;
 		}
+	
 	}
 }
 

@@ -64,7 +64,7 @@ namespace Categories
 
 			return chosenImage;
 		}
-		public static Image GetImageByID(int id)
+		public static Image GetImageByID(Guid id)
 		{
 			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
@@ -207,29 +207,6 @@ namespace Categories
 				}
 
 			}
-		}
-		public static int GetNextImageID()
-		{
-			int id = -1;
-				
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Image>();
-			if (db.Table<Image>().Count() == 0)
-			{
-				return -1;
-			}
-
-			var table = db.Table<Image>();
-			foreach (var s in table)
-			{
-				if (id < s.ID)
-				{
-					id = s.ID;
-				}
-			}
-
-
-			return id+1;
 		}
 		public static List<UIImage> GetAllImages()
 		{

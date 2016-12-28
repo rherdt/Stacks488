@@ -61,6 +61,12 @@ namespace Categories
 			ViewControllers = new UIViewController[] { masterNavigationController, runsSplitViewController };
 		}
 
+		internal void startButton()
+		{
+			new UIAlertView("Start Button Selected", " ", null, "OK", null).Show();
+
+		}
+
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();

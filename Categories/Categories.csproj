@@ -216,6 +216,9 @@
     <Compile Include="SessionsScreen\RunsSplitViewController.cs" />
     <Compile Include="SessionsScreen\RunsTableViewController.cs" />
     <Compile Include="SessionsScreen\SessionsScreenMasterTableNavigationController.cs" />
+    <Compile Include="Controller\CustomCellCategories.cs" />
+    <Compile Include="Objects\CurrentSession.cs" />
+    <Compile Include="Objects\Result.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

@@ -12,9 +12,11 @@ namespace Categories
 	{
 
 		List<Category> TableItems;
-		string CellIdentifier = "TableCell";
+		//string CellIdentifier = "TableCell";
 		IDbContext<Category> dbContext;
 		UITableView tableView;
+		NSString cellIdentifier = (NSString)"TableCell";
+		UIViewController viewController;
 
 		public delegate void SessionsTableDelegate(Category category);
 		public event SessionsTableDelegate CategoryRowToSessionTableViewController;
@@ -22,24 +24,33 @@ namespace Categories
 		public TableSourceCategories(IDbContext<Category> context)
 		{
 			dbContext = context;
+			TableItems = dbContext.GetAll();
+		}
 
+		public TableSourceCategories(IDbContext<Category> context, UIViewController v)
+		{
+			viewController = v;
+			dbContext = context;
 			TableItems = dbContext.GetAll();
 
 		}
 
 		public TableSourceCategories(IDbContext<Category> context, UITableView view)
 		{
-			
+
 			dbContext = context;
 			//Possibly use view to only update 1 item at a time?
 			tableView = view;
 			TableItems = dbContext.GetAll();
 		}
 
+	
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
 			return TableItems.Count;
 		}
+
+
 
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
@@ -54,6 +65,7 @@ namespace Categories
 
 		}
 
+
 		private void HandleReload(object sender, NotifyCollectionChangedEventArgs e)
 		{
 			tableView.ReloadData();
@@ -63,22 +75,22 @@ namespace Categories
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			Contract.Ensures(Contract.Result<UITableViewCell>() != null);
-			UITableViewCell cell = tableView.DequeueReusableCell(CellIdentifier);
-			string item = TableItems[indexPath.Row].CategoryName;
+			var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellCategories;
 
-			//---- if there are no cells to reuse, create a new one
 			if (cell == null)
-			{ cell = new UITableViewCell(UITableViewCellStyle.Default, CellIdentifier); }
-
-			cell.TextLabel.Text = item;
-
+			{
+				cell = new CustomCellCategories(cellIdentifier, viewController);
+			}
+			cell.UpdateCell(TableItems[indexPath.Row].CategoryName, "Testing");
+	
 			return cell;
+
 		}
+
 
 		public bool UpdateData(string data)
 		{
-			
+
 			bool success = dbContext.Insert(data);
 			TableItems = dbContext.GetAll();
 			return success;

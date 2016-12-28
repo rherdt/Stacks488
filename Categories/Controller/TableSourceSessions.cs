@@ -55,21 +55,21 @@ namespace Categories
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			cellIdentifier = (NSString)indexPath.Row.ToString();
-
 			var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellSessions;
-			if (cell == null)
-				cell = new CustomCellSessions(cellIdentifier, tableView);
 
-			else
+			if (cell == null)
+			{
+				cell = new CustomCellSessions(cellIdentifier);
+			}
+			cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+			if (TableItems != null)
 			{
 				var name = categoryIdToName(TableItems[indexPath.Row].categoryID);
 				cell.UpdateCell(name, TableItems[indexPath.Row].SessionDate
-				                ,TableItems[indexPath.Row].Independent
+								, TableItems[indexPath.Row].Independent
 							, TableItems[indexPath.Row].Prompted,
-				               TableItems[indexPath.Row].Missed);
+							   TableItems[indexPath.Row].Missed);
 			}
-
 			return cell;
 		}
 

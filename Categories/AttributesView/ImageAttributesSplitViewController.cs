@@ -13,7 +13,7 @@ namespace Categories
 			imageAttributesTableViewController = table;
 			CollectionViewWithNav = navCollection;
 			MasterTableNavigationController navController = new MasterTableNavigationController(imageAttributesTableViewController);
-			ViewControllers = new UIViewController[] { CollectionViewWithNav, navController };
+			ViewControllers = new UIViewController[] {CollectionViewWithNav,navController };
 		}
 	}
 }
