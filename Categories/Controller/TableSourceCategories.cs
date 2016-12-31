@@ -21,11 +21,6 @@ namespace Categories
 		public delegate void SessionsTableDelegate(Category category);
 		public event SessionsTableDelegate CategoryRowToSessionTableViewController;
 
-		public TableSourceCategories(IDbContext<Category> context)
-		{
-			dbContext = context;
-			TableItems = dbContext.GetAll();
-		}
 
 		public TableSourceCategories(IDbContext<Category> context, UIViewController v)
 		{

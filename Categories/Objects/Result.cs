@@ -47,9 +47,21 @@ namespace Categories
 			}
 		}
 
-		public Result(Guid id)
+		public Guid ResultImageID
 		{
-			this.ImageID = id;
+			get
+			{
+				return ImageID;
+			}
+
+			set
+			{
+				ImageID = value;
+			}
+		}
+
+		public Result()
+		{
 		}
 
 	}

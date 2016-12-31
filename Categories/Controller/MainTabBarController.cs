@@ -18,6 +18,8 @@ namespace Categories
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new AttributesSplitViewController();
 
+
+			ProfilesTab.TabBarItem = new UITabBarItem(UITabBarSystemItem.Contacts, 0);
 			ProfilesTab.Title = "Profiles";
 			CategoriesTab.Title = "Categories";
 			ImagesTab.Title = "Images";
@@ -31,6 +33,7 @@ namespace Categories
 			ViewControllers = tabs;
 
 			SelectedViewController = ProfilesTab;
+
 
 		}
 

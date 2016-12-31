@@ -44,17 +44,18 @@ namespace Categories
 			HeaderAddSession.TouchUpInside += (sender, e) =>
 			{
 
-				SettingsAlertController settings = new SettingsAlertController();
-				settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
-				settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+				//SettingsAlertController settings = new SettingsAlertController();
+				//settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+				//settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
 
 				//parent
 				UIViewController Parent = this.ParentViewController.ParentViewController;
 				MainTabBarController t = (MainTabBarController)Parent;
 
-				//add specific profile sources
 
-				sessionsTab = new NewSessionSplitViewController(sessionsTableViewController.TableView.Source, this.profileRow);
+				//add specific profile sources
+				sessionsTab = new NewSessionSplitViewController(sessionsTableViewController.TableView.Source, this.profileRow, t);
+
 				sessionsTab.ModalPresentationStyle = UIModalPresentationStyle.Custom;
 				sessionsTab.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
 				//navigationController.PushViewController(t.CustomizableViewControllers[4], true);

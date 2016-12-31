@@ -51,7 +51,7 @@ namespace Categories
 			ProfilesSource.HideTable += ShowSessionTableHandler;
 
 			//create category source
-			TableSourceCategories CategorySource = new TableSourceCategories(categoryDB);
+			TableSourceCategories CategorySource = new TableSourceCategories(categoryDB, this);
 
 			//create the profile table controller
 			profilesTableViewController = new ProfilesTableViewController(ProfilesSource);

@@ -9,8 +9,8 @@ namespace Categories
 	{
 		UILabel lblCategoryName, lblNumberOfImages;
 	 	UIButton btnStart;
-
 		UIViewController view;
+		NewSessionSplitViewController table;
 
 		public CustomCellCategories(NSString cellId, UIViewController v) : base(UITableViewCellStyle.Default, cellId)
 		{
@@ -38,11 +38,19 @@ namespace Categories
 			btnStart = new UIButton(UIButtonType.System);
 			btnStart.SetTitle("Start", UIControlState.Normal);
 
-			var t = (NewSessionSplitViewController)view;
-			btnStart.TouchUpInside += (sender, e) => t.startButton();
+			table = (NewSessionSplitViewController)view;
+
+			btnStart.TouchUpInside += (sender, e) => started();
 
 			ContentView.AddSubviews(new UIView[] { lblCategoryName, lblNumberOfImages, btnStart });
 		}
+		public void started()
+		{
+			table.startButton();
+		}
+	
+
+
 
 		public void UpdateCell(string categoryName, string numOfImgs)
 		{

@@ -169,12 +169,7 @@
     <Compile Include="Controller\MainTabBarController.designer.cs">
       <DependentUpon>MainTabBarController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\CategoriesSplitViewController.cs" />
-    <Compile Include="Controller\CategoriesSplitViewController.designer.cs">
-      <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\ImageStackSplitViewController.cs" />
-    <Compile Include="Controller\CategoriesTableViewController.cs" />
     <Compile Include="Controller\ImageStackTableViewController.cs" />
     <Compile Include="Controller\TestTableSource.cs" />
     <Compile Include="Controller\RunSession.cs" />
@@ -219,6 +214,11 @@
     <Compile Include="Objects\CurrentSession.cs" />
     <Compile Include="Objects\Result.cs" />
     <Compile Include="AttributesView\CollectionView\CollectionViewImageSource.cs" />
+    <Compile Include="CategoriesScreen\CategoriesSplitViewController.cs" />
+    <Compile Include="CategoriesScreen\CategoriesSplitViewController.designer.cs">
+      <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriesScreen\CategoriesTableViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\vector.pdf" />

@@ -3,11 +3,11 @@
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
+/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll

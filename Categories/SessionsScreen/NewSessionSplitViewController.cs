@@ -13,16 +13,17 @@ namespace Categories
 
 		RunsTableViewController ranSessions;
 		TableSourceSessions SessionSource;
+		MainTabBarController tabBar;
 
 		List<Session> originalDb = new List<Session>();
 
-		public NewSessionSplitViewController(UITableViewSource sessionSource, Profiles profileRow)
+		public NewSessionSplitViewController(UITableViewSource sessionSource, Profiles profileRow, MainTabBarController tab)
 		{
 			//TODO: Change size of the title
 			IDbContext<Category> categoryDb = new CategoryDatabase();
 			//newSessionTableViewController = new NewSessionTableViewController(categoryDb, sessionTable);
 
-
+			this.tabBar = tab;
 
 
 			/*
@@ -48,23 +49,26 @@ namespace Categories
 			 */
 
 			//Create the Profile source and assign the delegate
-			TableSourceCategories CategorySource = new TableSourceCategories(categoryDb);
+			TableSourceCategories CategorySource = new TableSourceCategories(categoryDb, this);
 			CategorySource.CategoryRowToSessionTableViewController += GetRowClickedFromCategorySource;
 			//ProfilesSource.HideTable += ShowSessionTableHandler;
 
 
 			//create the profile table controller
 			newSessionTableViewController = new NewSessionTableViewController(CategorySource);
-			masterNavigationController = new SessionsScreenMasterTableNavigationController(newSessionTableViewController);
+			masterNavigationController = new SessionsScreenMasterTableNavigationController(newSessionTableViewController, tabBar);
 
 
 			ViewControllers = new UIViewController[] { masterNavigationController, runsSplitViewController };
 		}
 
-		internal void startButton()
+		public void startButton()
 		{
-			new UIAlertView("Start Button Selected", " ", null, "OK", null).Show();
-
+			SettingsAlertController settings = new SettingsAlertController();
+			settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+			settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+			//UIViewController Parent = this.ParentViewController.ParentViewController;
+			PresentViewController(settings, true, null);
 		}
 
 		public override void ViewDidLoad()
@@ -92,20 +96,22 @@ namespace Categories
 			//Get Session List, Send to Session Table
 
 			List<Session> specificProfileSessionsListTrimmed = new List<Session>();
-
-			for (int i = 0; i < originalDb.Count; i++)
+			if (specificProfileSessionsListTrimmed != null && originalDb != null)
 			{
-				if (originalDb[i].categoryID.Equals(CategoryRow.ID))
+				for (int i = 0; i < originalDb.Count; i++)
 				{
-					specificProfileSessionsListTrimmed.Add(originalDb[i]);
+					if (originalDb[i].categoryID.Equals(CategoryRow.ID))
+					{
+						specificProfileSessionsListTrimmed.Add(originalDb[i]);
+					}
 				}
 			}
 
 
 
 			//SessionSource.UpdateTableSource(specificProfileSessionsListTrimmed);
-			SessionSource.UpdateTableSource(specificProfileSessionsListTrimmed);
-			ranSessions.ReloadSessionTableData(SessionSource);
+			//SessionSource.UpdateTableSource(specificProfileSessionsListTrimmed);
+			//ranSessions.ReloadSessionTableData(SessionSource);
 
 		}
 

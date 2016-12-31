@@ -53,8 +53,6 @@ namespace Categories
 			CollectionView.RegisterClassForCell(typeof(UserCell), UserCell.CellID);
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 			CollectionView.Source = CollectionViewSource;
-
-
 		}
 		public void UpdateImages(List<Image> Images)
 		{

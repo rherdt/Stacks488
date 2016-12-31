@@ -16,11 +16,11 @@ namespace Categories
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton AddPhotoButton { get; set; }
+        UIKit.UIButton FinishedButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton FinishedButton { get; set; }
+        UIKit.UILabel ImageCountLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -28,23 +28,50 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton IndependentButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton MissedButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton PromptedButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel StatsLabel { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (AddPhotoButton != null) {
-                AddPhotoButton.Dispose ();
-                AddPhotoButton = null;
-            }
-
             if (FinishedButton != null) {
                 FinishedButton.Dispose ();
                 FinishedButton = null;
             }
 
+            if (ImageCountLabel != null) {
+                ImageCountLabel.Dispose ();
+                ImageCountLabel = null;
+            }
+
             if (ImageViewSession != null) {
                 ImageViewSession.Dispose ();
                 ImageViewSession = null;
+            }
+
+            if (IndependentButton != null) {
+                IndependentButton.Dispose ();
+                IndependentButton = null;
+            }
+
+            if (MissedButton != null) {
+                MissedButton.Dispose ();
+                MissedButton = null;
+            }
+
+            if (PromptedButton != null) {
+                PromptedButton.Dispose ();
+                PromptedButton = null;
             }
 
             if (StatsLabel != null) {
