@@ -1,25 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using Foundation;
+﻿using System.Collections.Generic;
 using UIKit;
+using System;
+using Foundation;
 
 namespace Categories
 {
-	public class TableSourceAttributes : UITableViewSource, ICustomTableViewSource
+	public class TableSourceImageAttributes : UITableViewSource, ICustomTableViewSource
 	{
-		List<Attribute> tableItems;
+		List<ImageAttributes> tableItems;
 		string cellIdentifier = "TableCell";
-		IDbContext<Attribute> dbContext;
+		IDbContext<ImageAttributes> dbContext;
 
 		//Delegates
-		public delegate void AtributesTableDelegate(Attribute attr);
+		public delegate void AtributesTableDelegate(ImageAttributes attr);
 		public event AtributesTableDelegate AttributeRowToController;
 
-		public TableSourceAttributes(IDbContext<Attribute> context)
+		public TableSourceImageAttributes(IDbContext<ImageAttributes> context)
 		{
-			
+
 			dbContext = context;
-			tableItems = dbContext.GetAll();
+		}
+		public void SetTableSource(List<ImageAttributes> atts)
+		{
+			tableItems = atts;
+
 		}
 
 
@@ -50,7 +54,11 @@ namespace Categories
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			return tableItems.Count;
+			if (tableItems != null)
+			{
+				return tableItems.Count;
+			}
+			return 0;
 
 		}
 

@@ -19,7 +19,7 @@ namespace Categories
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.db3");
 		static string DocsDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
-		public static void InsertImage(UIImage imageToSave, string attribute, string category)
+		public static void InsertImage(UIImage imageToSave)
 		{
 
 			/*
@@ -44,9 +44,7 @@ namespace Categories
 				var db = new SQLiteConnection(dbPath);
 
 				Image image = new Image();
-				image.Attribute = attribute;
 				image.FileName = FileName;
-				image.Category = category;
 
 				db.CreateTable<Image>();
 				db.Insert(image);
@@ -132,9 +130,7 @@ namespace Categories
 		public static List<Image> GetImagesByAttribute(string attribute)
 		{
 			List<Image> Images = new List<Image>();
-
-			var documentsDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-
+			List<ImageAttributes> attributes = new ImageAttributeDatabase().GetAll();
 			var db = new SQLiteConnection(dbPath);
 			db.CreateTable<Image>();
 			if (db.Table<Image>().Count() == 0)
@@ -142,24 +138,18 @@ namespace Categories
 				return null;
 			}
 
-			var table = db.Table<Image>();
-			List<Attribute> attributes = new AttributeDatabase().GetAll();
-			List<Image> AllImages = ImageDatabase.GetAllImagesByOBJ();
+			var imageTable = db.Table<Image>();
 
-			foreach (var s in AllImages)
+
+			foreach (var image in imageTable)
 			{
-				//each attribute has an image ID?
-				//if (s.Name.Equals(attribute))
-				//{
-				//	Image image = ImageDatabase.GetImageByID(s.ImageID);
-				//	Images.Add(image);
-				//}
-
-				if (attribute.Equals(s.Attribute))
+				foreach (var att in attributes)
 				{
-					Images.Add(s);
+					if (image.ID == att.ImageID && att.Name == attribute)
+					{
+						Images.Add(image);
+					}
 				}
-
 			}
 
 

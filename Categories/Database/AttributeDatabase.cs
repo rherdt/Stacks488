@@ -10,7 +10,7 @@ namespace Categories
 	{
 		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Attributes.db3");
 
-	    string IDbContext<Attribute>.dbPath => dbPath;
+		string IDbContext<Attribute>.dbPath => dbPath;
 
 		public bool Insert(string data)
 		{
@@ -40,31 +40,6 @@ namespace Categories
 			}
 		}
 
-		public static List<Attribute> GetAttributesByImageId(int id)
-		{
-			List<Attribute> attributes;
-
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Attribute>();
-			if (db.Table<Attribute>().Count() == 0)
-			{
-				return null;
-			}
-
-			attributes = new List<Attribute>();
-
-			var table = db.Table<Attribute>();
-			foreach (var s in table)
-			{
-				if(s.ImageID.Equals(id))
-				{
-					attributes.Add(s);
-				}
-			}
-
-			return attributes;
-
-		}
 
 		public List<Attribute> GetAll()
 		{
@@ -72,7 +47,7 @@ namespace Categories
 
 			using (var db = new SQLiteConnection(dbPath))
 			{
-				db.CreateTable<Attribute>();
+      			db.CreateTable<Attribute>();
 				if (db.Table<Attribute>().Count() == 0)
 				{
 					return attributes;
@@ -115,5 +90,6 @@ namespace Categories
 				return false;
 			}
 		}
+
 	}
 }

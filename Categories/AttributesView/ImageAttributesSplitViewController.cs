@@ -5,15 +5,13 @@ namespace Categories
 {
 	public class ImageAttributesSplitViewController : UISplitViewController
 	{
-		ImageAttributesTableViewController imageAttributesTableViewController;
-		UINavigationController CollectionViewWithNav;
 
-		public ImageAttributesSplitViewController(UINavigationController navCollection, ImageAttributesTableViewController table)
+		public ImageAttributesSplitViewController(UINavigationController navCollection, MasterTableNavigationController ImageAtrributesNavigationController)
 		{
-			imageAttributesTableViewController = table;
-			CollectionViewWithNav = navCollection;
-			MasterTableNavigationController navController = new MasterTableNavigationController(imageAttributesTableViewController);
-			ViewControllers = new UIViewController[] {CollectionViewWithNav,navController };
+
+			ViewControllers = new UIViewController[] {navCollection , ImageAtrributesNavigationController };
+
 		}
+
 	}
 }

@@ -8,6 +8,10 @@ namespace Categories
 		
 		IUpdatableTable table;
 
+		//Delegates
+		public delegate void NavigationAddValue(String str);
+		public event NavigationAddValue ReturnInsertedValue;
+
 		public MasterTableNavigationController(IUpdatableTable tableViewController) : base()
 		{
 			this.PushViewController(tableViewController.tableController, true);
@@ -35,10 +39,15 @@ namespace Categories
 
 
 				}
-				else 
+				else
 				{
 					table.AddRow(alert.TextFields[0].Text);
+					if (ReturnInsertedValue != null)
+					{
+						ReturnInsertedValue(alert.TextFields[0].Text);
+					}
 				}
+
 			}));
 
 			alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Default, null));

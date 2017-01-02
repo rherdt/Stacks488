@@ -11,16 +11,17 @@ namespace Categories
 		//Delegates
 		public delegate void AttributeImageTableDelegate(Image attr);
 		public event AttributeImageTableDelegate ImageClickedToController;
-		
+
+		//Vars
+		public List<ImageCell> Cells { get; private set; }
+		public SizeF ImageViewSize { get; set; }
+		public NSIndexPath prevImageSelected;
+
+
 		public CollectionViewImageSource()
 		{
 			Cells = new List<ImageCell>();
 		}
-
-		public List<ImageCell> Cells { get; private set; }
-
-		public SizeF ImageViewSize { get; set; }
-
 		public override nint NumberOfSections(UICollectionView collectionView)
 		{
 			return 1;
@@ -38,32 +39,44 @@ namespace Categories
 
 		public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
+			
 			var cell = (UserCell)collectionView.CellForItem(indexPath);
 			cell.ImageView.Alpha = 0.5f;
+
+
+			//unlick the previous image
+			if (prevImageSelected != null && prevImageSelected!= indexPath)
+			{
+				var cellPrev = (UserCell)collectionView.CellForItem(prevImageSelected);
+				cellPrev.ImageView.Alpha = 1.0f;
+				Cells[prevImageSelected.Row].isSelected = false;
+
+			}
+
+			prevImageSelected = indexPath;
+
 		}
 
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
+			//Get the Selected Image
 			var cell = (UserCell)collectionView.CellForItem(indexPath);
-
-
 			ImageCell Clicked = Cells[indexPath.Row];
-			if (Clicked.isClicked)
+
+
+			if (Clicked.isSelected)
 			{
-				cell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
-				cell.ImageView.Alpha = 1f;
+				//cell.ImageView.Alpha = 1.0f;
+				//Clicked.isSelected = false;
 			}
-			else {
-				cell.ImageView.Alpha = 0.5f;
-				cell.ImageView.Layer.BorderColor = UIColor.Green.CGColor;
-			}
-			Clicked.isClicked = !Clicked.isClicked;
+
 
 			if (ImageClickedToController != null)
 			{
 				ImageClickedToController(Clicked.ImgOBJ);
 			}
 
+			Clicked.isSelected = true;
 
 		}
 
@@ -84,11 +97,10 @@ namespace Categories
 		public ImageCell(Image imageOBJ)
 		{
 			ImgOBJ = imageOBJ;
-			isClicked = false;
 		}
 
 		public Image ImgOBJ { get;  set; }
-		public Boolean isClicked { get;  set; }
+		public Boolean isSelected { get; set; }
 
 	}
 	public class UserCell : UICollectionViewCell

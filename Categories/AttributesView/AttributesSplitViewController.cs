@@ -23,9 +23,20 @@ namespace Categories
 		/*
 		 * SplitView 2
 		 */
+
+		//Collection View
 		TableSourceAttributes AttributesTableSource;
 		CollectionViewImageSource AttributeImageSource;
 		AttributesCollectionViewController attributesCollectionView;
+
+		//Image Attribute table
+		MasterTableNavigationController ImageAtrributesNavigationController;
+		ImageAttributesTableViewController RightImageAttributeTable;
+		TableSourceImageAttributes RightAttributesTableSource;
+
+
+		//Other Variables
+		Image Selected;
 
 		public AttributesSplitViewController() : base()
 		{
@@ -46,6 +57,7 @@ namespace Categories
 			attributesCollectionView = new AttributesCollectionViewController(AttributeImageSource);
 			navControllerCollection = new UINavigationController(attributesCollectionView);
 
+			//Set up Navigation Camera Selection button 
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem.Enabled = true;
 			navControllerCollection.NavigationBar.Items[0].Title = "Images";
@@ -53,14 +65,20 @@ namespace Categories
 			navControllerCollection.View.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
 			navControllerCollection.View.Bounds = navControllerCollection.View.Frame;
 
-			TableSourceAttributes RightAttributesTableSource = new TableSourceAttributes(attributeDb);
-			ImageAttributesTableViewController RightImageAttributeTable = new ImageAttributesTableViewController(RightAttributesTableSource);
+			//Right Table (Image Attributes)
+			IDbContext<ImageAttributes> imageAttributeDb = new ImageAttributeDatabase();
+			RightAttributesTableSource = new TableSourceImageAttributes(imageAttributeDb);
+			RightImageAttributeTable = new ImageAttributesTableViewController(RightAttributesTableSource);
+			ImageAtrributesNavigationController = new MasterTableNavigationController(RightImageAttributeTable);
 			RightAttributesTableSource.AttributeRowToController += GetAttributeRowSelectedRight;
 
-			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, RightImageAttributeTable);
+			//add delegate to ImageAtrributesNavigationController
+			ImageAtrributesNavigationController.ReturnInsertedValue += InsertAttributeForImage;
 
+			//2nd SplitView Controller
+			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, ImageAtrributesNavigationController);
 
-
+			//This SplitView Controller controllers
 			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
 		}
 
@@ -71,7 +89,7 @@ namespace Categories
 		void GetAttributeRowSelected(Attribute attrReturned)
 		{
 			//get the row selected from the left table
-			new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
+			//new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
 
 			List<Image> ImageByAttribute = ImageDatabase.GetImagesByAttribute(attrReturned.Name);
 			if (ImageByAttribute != null)
@@ -82,7 +100,7 @@ namespace Categories
 
 
 		}
-		void GetAttributeRowSelectedRight(Attribute attrReturned)
+		void GetAttributeRowSelectedRight(ImageAttributes attrReturned)
 		{
 			//get the row selected from the right table
 			new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
@@ -90,9 +108,19 @@ namespace Categories
 		}
 		void GetImageSelectedFromCollectionView(Image imageSelected)
 		{
-			//get the image object returned from the collection view click
-			new UIAlertView("Row Selected", imageSelected.FileName, null, "OK", null).Show();
+			/*
+			 * Get the image object returned from the collection view click
+			 * Send the data to the RightImageAttributeTable 
+			*/
+			Selected = imageSelected;
 
+			List<ImageAttributes> atts = ImageAttributeDatabase.GetAttributesByImageId(imageSelected.ID);
+			if (atts != null)
+			{
+				RightAttributesTableSource.SetTableSource(atts);
+				RightImageAttributeTable.RefreshTableView();
+
+			}
 		}
 
 		void AddPhotoButtonHandler(object sender, EventArgs e)
@@ -138,14 +166,32 @@ namespace Categories
 				if (originalImage != null)
 				{
 					//add photo to database
-					ImageDatabase.InsertImage(originalImage, "floral", "Plants");
+					ImageDatabase.InsertImage(originalImage);
 				}
 
 			}
 			// dismiss the pickerr
 			imagePicker.DismissModalViewController(true);
 
-			//refesh the image View
+			//refesh the collection view
+			if ( attributesCollectionView != null)
+			{
+				attributesCollectionView.ClearImages();
+				attributesCollectionView.UpdateImages(ImageDatabase.GetAllImagesByOBJ());
+			}
+
+		}
+		public void InsertAttributeForImage(string str)
+		{
+			/*
+			 * 
+			 */
+
+			if (Selected != null)
+			{
+				Boolean inserted = ImageAttributeDatabase.Insert(str, Selected.ID);
+			
+			}
 		}
 
 

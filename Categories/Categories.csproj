@@ -176,7 +176,6 @@
     <Compile Include="Controller\RunSession.designer.cs">
       <DependentUpon>RunSession.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\TableSourceAttributes.cs" />
     <Compile Include="Controller\MasterTableNavigationController.cs" />
     <Compile Include="Interfaces\IUpdatableTable.cs" />
     <Compile Include="Interfaces\ICustomTableViewSource.cs" />
@@ -219,11 +218,17 @@
       <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="CategoriesScreen\CategoriesTableViewController.cs" />
+    <Compile Include="AttributesView\TableSourceImageAttributes.cs" />
+    <Compile Include="AttributesView\TableSourceAttributes.cs" />
+    <Compile Include="Objects\ImageAttributes.cs" />
+    <Compile Include="Database\ImageAttributeDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\vector.pdf" />
     <BundleResource Include="Resources\images.csv" />
     <BundleResource Include="Resources\placeholder.jpg" />
+    <BundleResource Include="Resources\categories.png" />
+    <BundleResource Include="Resources\images.png" />
+    <BundleResource Include="Resources\profiles.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

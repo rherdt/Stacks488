@@ -131,7 +131,7 @@ namespace Categories
 				if (originalImage != null)
 				{
 					//add photo to database
-					ImageDatabase.InsertImage(originalImage, "floral", "Plants");
+					ImageDatabase.InsertImage(originalImage);
 				}
 
 			}

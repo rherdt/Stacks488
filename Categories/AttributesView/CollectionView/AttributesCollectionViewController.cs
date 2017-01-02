@@ -43,8 +43,8 @@ namespace Categories
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
-			CollectionView.Frame = this.ParentViewController.View.Frame;
-			CollectionView.Bounds = this.ParentViewController.View.Bounds;   //new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
+			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
+			CollectionView.Bounds = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
 
 			CollectionView.BackgroundColor = UIColor.White;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
@@ -53,23 +53,26 @@ namespace Categories
 			CollectionView.RegisterClassForCell(typeof(UserCell), UserCell.CellID);
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 			CollectionView.Source = CollectionViewSource;
+			UpdateImages(ImageDatabase.GetAllImagesByOBJ());
 		}
 		public void UpdateImages(List<Image> Images)
 		{
-			foreach (var s in Images)
+			if (Images != null)
 			{
-				CollectionViewSource.Cells.Add(new ImageCell(s));
+				foreach (var s in Images)
+				{
+					CollectionViewSource.Cells.Add(new ImageCell(s));
+				}
+				//refresh collectionview
+				CollectionView.ReloadData();
+				//add the collection to the UIView
+				Add(CollectionView);
 			}
-			//refresh collectionview
-			CollectionView.ReloadData();
-			//add the collection to the UIView
-			Add(CollectionView);
 		}
 		public void ClearImages()
 		{
 			CollectionViewSource.Cells.Clear();
 			CollectionView.ReloadData();
-			
 
 		}
 
@@ -85,7 +88,7 @@ namespace Categories
 		public CGSize GetSize()
 		{
 			var screenWidth = this.View.Bounds.Width / 2;
-			var cellWidth = screenWidth / 3.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
+			var cellWidth = screenWidth / 3.5; //Replace the divisor with the column count requirement. Make sure to have it in float.
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;

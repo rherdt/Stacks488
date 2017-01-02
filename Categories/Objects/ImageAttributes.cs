@@ -1,9 +1,10 @@
-﻿using System;
+﻿
+using System;
 using SQLite;
 
 namespace Categories
 {
-	public class Attribute : IEntity
+	public class ImageAttributes : IEntity
 	{
 		/*
 		 * ImageDatabase		AttributeDatabae
@@ -17,9 +18,11 @@ namespace Categories
 		 * Where ImageDatabase.ID == AttributeDatabase.ID
 		 * 
 		 */
-		[PrimaryKey,AutoIncrement]
+		[PrimaryKey, AutoIncrement]
 		public int ID { get; set; }
-		[Unique]
+
+		public Guid ImageID { get; set; }
+
 		public string Name { get; set; }
 
 

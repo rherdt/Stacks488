@@ -12,16 +12,20 @@ namespace Categories
 		{
 			PopulateDbIfEmpty();
 
-			UIViewController ProfilesTab, CategoriesTab, ImagesTab, InsertImageView;
+			UIViewController ProfilesTab, CategoriesTab, ImagesTab;
 
 			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new AttributesSplitViewController();
 
 
-			ProfilesTab.TabBarItem = new UITabBarItem(UITabBarSystemItem.Contacts, 0);
+			ProfilesTab.TabBarItem = new UITabBarItem("Profiles", UIImage.FromFile("profiles.png"), 0);
 			ProfilesTab.Title = "Profiles";
+
+			CategoriesTab.TabBarItem = new UITabBarItem("Categories", UIImage.FromFile("categories.png"), 0);
 			CategoriesTab.Title = "Categories";
+
+			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
 			ImagesTab.Title = "Images";
 
 			var tabs = new UIViewController[]
