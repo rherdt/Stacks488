@@ -6,27 +6,26 @@ namespace Categories
 {
     public partial class CategoriesSplitViewController : UISplitViewController
     {
-		ImageStackSplitViewController imageStackSplitViewController;
-		CategoriesTableViewController categoriesTableViewController;
-		MasterTableNavigationController navController;
+        #region Fields
+        ImageStackSplitViewController imageStackSplitViewController;
+        CategoriesTableViewController categoriesTableViewController;
+        MasterTableNavigationController navController;
 
-		public CategoriesSplitViewController() : base()
-		{
-			imageStackSplitViewController = new ImageStackSplitViewController();
-			IDbContext<Category> categoryDb = new CategoryDatabase();
-			categoriesTableViewController = new CategoriesTableViewController(categoryDb);
+        //Database Fields
+        IDbContext<Category> categoryDb;
+        #endregion
 
-			navController = new MasterTableNavigationController(categoriesTableViewController);
-			ViewControllers = new UIViewController[] {navController, imageStackSplitViewController };
+        public CategoriesSplitViewController() : base()
+        {
+            imageStackSplitViewController = new ImageStackSplitViewController();
+            categoryDb = new CategoryDatabase();
+            categoriesTableViewController = new CategoriesTableViewController(categoryDb);
+            navController = new MasterTableNavigationController(categoriesTableViewController);
 
+            ViewControllers = new UIViewController[] { navController, imageStackSplitViewController };
 
+        }
 
-		}
-
-		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)
-		{
-			return true;
-		}
-
+        public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { return true; }
     }
-}	
+}

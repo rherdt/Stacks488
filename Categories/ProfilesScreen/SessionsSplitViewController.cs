@@ -5,109 +5,96 @@ using UIKit;
 
 namespace Categories
 {
-	public class SessionsSplitViewController : UISplitViewController
-	{
-		SessionsTableViewController sessionsTableViewController;
-		Profiles profileRow;
-		UIViewController CollectionView;
-		SessionHeaderView sessionHeaderView;
-		UINavigationController navigationController;
-		UIButton HeaderAddSession;
-		NewSessionSplitViewController sessionsTab;
-		 
-		//WIDTHS
-		nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
-		nfloat NavigationBarWidth, NavigationBarHeight;
+    public class SessionsSplitViewController : UISplitViewController
+    {
+        #region Fields
 
-		public SessionsSplitViewController(SessionsTableViewController sessions, UIViewController collection, UINavigationController navcontroller)
-		{
-			/*
+        //Inherited Fields
+        SessionsTableViewController sessionsTableViewController;
+        UIViewController CollectionView;
+        UINavigationController navigationController;
+
+        //Current Row Field
+        Profiles profileRow;
+
+        //Custom Navigation Bar View Field
+        SessionHeaderView sessionHeaderView;
+
+        //Session Screen Fields
+        NewSessionSplitViewController SessionScreen;
+        MainTabBarController tab;
+
+        //WIDTHS
+        nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
+        nfloat NavigationBarWidth, NavigationBarHeight;
+        #endregion
+
+        public SessionsSplitViewController(SessionsTableViewController sessions, UIViewController collection, UINavigationController navcontroller)
+        {
+            /*
 			 * Create CollectionView Controller
 			 * Pass reference of CollectionView to the SessionsTable Source to control
 			 * Data handling
 			 */
 
-			sessionsTableViewController = sessions;
-			CollectionView = collection;
-			navigationController = navcontroller;
-			ViewControllers = new UIViewController[] {navigationController, CollectionView };
-		}
+            sessionsTableViewController = sessions;
+            CollectionView = collection;
+            navigationController = navcontroller;
+            ViewControllers = new UIViewController[] { navigationController, CollectionView };
+        }
 
-		public override void ViewDidLoad()
-		{
-			base.ViewDidLoad();
+        #region View Methods
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
 
-			sessionHeaderView = SessionHeaderView.Create();
-			navigationController.NavigationBar.AddSubview(sessionHeaderView);
+            sessionHeaderView = SessionHeaderView.Create();
+            navigationController.NavigationBar.AddSubview(sessionHeaderView);
 
-			HeaderAddSession = sessionHeaderView.getButton();
-			HeaderAddSession.TouchUpInside += (sender, e) =>
-			{
+            #region Add Button Delegate Assignment
+            sessionHeaderView.getAddButton().TouchUpInside += (sender, e) =>
+            {
+                //parent
+                //UIViewController Parent = ParentViewController.ParentViewController;
 
-				//SettingsAlertController settings = new SettingsAlertController();
-				//settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
-				//settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+                //Get Main Tab Controller to pass into new
+                tab = (MainTabBarController)ParentViewController.ParentViewController;
 
-				//parent
-				UIViewController Parent = this.ParentViewController.ParentViewController;
-				MainTabBarController t = (MainTabBarController)Parent;
+                //add specific profile sources
+                SessionScreen = new NewSessionSplitViewController(sessionsTableViewController.TableView.Source, profileRow, tab);
+                SessionScreen.ModalPresentationStyle = UIModalPresentationStyle.Custom;
+                SessionScreen.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
 
+                tab.PresentViewController(SessionScreen, true, null);
+            };
+            #endregion
+        }
 
-				//add specific profile sources
-				sessionsTab = new NewSessionSplitViewController(sessionsTableViewController.TableView.Source, this.profileRow, t);
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
 
-				sessionsTab.ModalPresentationStyle = UIModalPresentationStyle.Custom;
-				sessionsTab.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
-				//navigationController.PushViewController(t.CustomizableViewControllers[4], true);
-				Parent.PresentViewController(sessionsTab, true, null);
-				//Parent.PresentViewController(settings, true, null);
-			};
-			/*
-			HeaderAddSession.TouchUpInside += (sender, e) =>
-			{
-				SettingsAlertController settings = new SettingsAlertController();
-				settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
-				settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+            navigationController.View.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight);
+            navigationController.NavigationBar.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight);
+            sessionHeaderView.Frame = new CGRect(0, 0, NavigationBarWidth, NavigationBarHeight);
+        }
 
-				//parent
-				UIViewController Parent = this.ParentViewController.ParentViewController;
-				Parent.PresentViewController(settings, true, null);
-			};
-			*/
-		}
+        public override void ViewDidLayoutSubviews()
+        {
+            base.ViewDidLayoutSubviews();
 
-		public override void ViewDidAppear(bool animated)
-		{
-			base.ViewDidAppear(animated);
+            ImageStackSplitControllerWidth = View.Bounds.Width;
+            ImageStackSplitControllerHeight = View.Bounds.Height;
 
-
-			navigationController.View.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight);
-			navigationController.NavigationBar.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight);
-			sessionHeaderView.Frame = new CGRect(0, 0, NavigationBarWidth, NavigationBarHeight);
-
-		}
-
-		public override void ViewDidLayoutSubviews()
-		{
-			base.ViewDidLayoutSubviews();
-
-			ImageStackSplitControllerWidth = this.View.Bounds.Width;
-			ImageStackSplitControllerHeight = this.View.Bounds.Height;
-
-			NavigationBarWidth = (nfloat)(ImageStackSplitControllerWidth / 2.1);
-			NavigationBarHeight = (nfloat)(ImageStackSplitControllerHeight * .16);
+            NavigationBarWidth = (nfloat)(ImageStackSplitControllerWidth / 2.1);
+            NavigationBarHeight = (nfloat)(ImageStackSplitControllerHeight * .16);
 
 
-		}
+        }
+        #endregion
 
-		public void setProfile(Profiles p)
-		{
-			this.profileRow = p;
-		}
+        public void setProfile(Profiles p) { profileRow = p; }
 
-		public void updateNameLabel(string name)
-		{
-			sessionHeaderView.getProfileNameTextField().Text = name;
-		}
-	}
+        public void updateNameLabel(string name) { sessionHeaderView.getProfileNameTextField().Text = name; }
+    }
 }

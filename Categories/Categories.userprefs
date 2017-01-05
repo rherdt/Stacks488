@@ -1,18 +1,10 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="AttributesView/AttributesSplitViewController.cs" Line="118" Column="1" />
-      <File FileName="AttributesView/CollectionView/CollectionViewImageSource.cs" Line="48" Column="41" />
-      <File FileName="Database/AttributeDatabase.cs" Line="53" Column="22" />
-      <File FileName="Controller/MasterTableNavigationController.cs" Line="47" Column="1" />
-      <File FileName="Database/ImageDatabase.cs" Line="146" Column="1" />
-      <File FileName="Database/ImageAttributeDatabase.cs" Line="149" Column="1" />
-      <File FileName="Objects/ImageAttributes.cs" Line="7" Column="30" />
-      <File FileName="AttributesView/TableSourceImageAttributes.cs" Line="25" Column="22" />
-      <File FileName="AttributesView/TableSourceAttributes.cs" Line="22" Column="36" />
-      <File FileName="Main.cs" Line="12" Column="1" />
-      <File FileName="AttributesView/ImageAttributesTableViewController.cs" Line="32" Column="23" />
-      <File FileName="AttributesView/CollectionView/AttributesCollectionViewController.cs" Line="91" Column="37" />
+      <File FileName="Database/AttributeDatabase.cs" Line="38" Column="5" />
+      <File FileName="ProfilesScreen/ProfilesSplitViewController.cs" Line="108" Column="6" />
+      <File FileName="TableSources/TableSourceSessions.cs" Line="33" Column="1" />
+      <File FileName="RunSession/SessionController.cs" Line="76" Column="1" />
       <File FileName="Categories Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -23,20 +15,14 @@
       <Breakpoint enabled="false" file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/Controller/MasterTableNavigationController.cs" line="40" column="43" />
       <Breakpoint file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/Controller/TableSourceCategories.cs" line="35" column="1" />
       <Breakpoint file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/RunSession/SessionController.cs" line="20" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/SessionsScreen/SessionsScreenMasterTableNavigationController.cs" relfile="SessionsScreen/SessionsScreenMasterTableNavigationController.cs" line="24" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="76" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="104" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="112" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="126" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="156" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="183" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="226" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="190" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/Controller/MasterTableNavigationController.cs" relfile="Controller/MasterTableNavigationController.cs" line="47" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="95" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_Current/Stacks488/Categories/SessionsScreen/SessionsScreenMasterTableNavigationController.cs" relfile="SessionsScreen/SessionsScreenMasterTableNavigationController.cs" line="24" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_Current/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="76" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_Current/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="190" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_Current/Stacks488/Categories/Controller/MasterTableNavigationController.cs" relfile="Controller/MasterTableNavigationController.cs" line="47" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_Current/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="95" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.297FB503-D4ED-49B6-9602-9DFBF40D4576" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5AA0FA00-6E84-4DB4-A6D9-7EA658D36EDA" />
   <MultiItemStartupConfigurations />
 </Properties>

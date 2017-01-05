@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -102,31 +102,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\First.imageset\vector.pdf" />
-    <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Second.imageset\vector.pdf" />
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon2.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="SessionController.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\vector.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\vector.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="SessionController.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Database\" />
-    <Folder Include="Objects\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="CategoriesScreen\" />
-    <Folder Include="CategoriesScreen\View\" />
-    <Folder Include="CollectionView\" />
-    <Folder Include="RunSession\" />
-    <Folder Include="RunSession\Settings\" />
-    <Folder Include="ProfilesScreen\View\" />
-    <Folder Include="AttributesView\CollectionView\" />
-    <Folder Include="SessionsScreen\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
@@ -151,10 +158,10 @@
     <Compile Include="Database\SessionDatabase.cs" />
     <Compile Include="Database\CategoryDatabase.cs" />
     <Compile Include="Database\AttributeDatabase.cs" />
-    <Compile Include="Controller\CustomCellProfiles.cs" />
-    <Compile Include="Controller\CustomCellSessions.cs" />
-    <Compile Include="Controller\TableSourceProfiles.cs" />
-    <Compile Include="Controller\TableSourceSessions.cs" />
+    <Compile Include="TableCustomCells\CustomCellProfiles.cs" />
+    <Compile Include="TableCustomCells\CustomCellSessions.cs" />
+    <Compile Include="TableSources\TableSourceProfiles.cs" />
+    <Compile Include="TableSources\TableSourceSessions.cs" />
     <Compile Include="Objects\Attribute.cs" />
     <Compile Include="Objects\Image.cs" />
     <Compile Include="Objects\Profiles.cs" />
@@ -164,14 +171,14 @@
     <Compile Include="Controller\SecondViewController.designer.cs">
       <DependentUpon>SecondViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\TableSourceCategories.cs" />
+    <Compile Include="TableSources\TableSourceCategories.cs" />
     <Compile Include="Controller\MainTabBarController.cs" />
     <Compile Include="Controller\MainTabBarController.designer.cs">
       <DependentUpon>MainTabBarController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\ImageStackSplitViewController.cs" />
-    <Compile Include="Controller\ImageStackTableViewController.cs" />
-    <Compile Include="Controller\TestTableSource.cs" />
+    <Compile Include="CategoriesScreen\ImageStackSplitViewController.cs" />
+    <Compile Include="CategoriesScreen\ImageStackTableViewController.cs" />
+    <Compile Include="TableSources\TestTableSource.cs" />
     <Compile Include="Controller\RunSession.cs" />
     <Compile Include="Controller\RunSession.designer.cs">
       <DependentUpon>RunSession.cs</DependentUpon>
@@ -209,7 +216,7 @@
     <Compile Include="SessionsScreen\RunsSplitViewController.cs" />
     <Compile Include="SessionsScreen\RunsTableViewController.cs" />
     <Compile Include="SessionsScreen\SessionsScreenMasterTableNavigationController.cs" />
-    <Compile Include="Controller\CustomCellCategories.cs" />
+    <Compile Include="TableCustomCells\CustomCellCategories.cs" />
     <Compile Include="Objects\CurrentSession.cs" />
     <Compile Include="Objects\Result.cs" />
     <Compile Include="AttributesView\CollectionView\CollectionViewImageSource.cs" />
@@ -218,8 +225,8 @@
       <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="CategoriesScreen\CategoriesTableViewController.cs" />
-    <Compile Include="AttributesView\TableSourceImageAttributes.cs" />
-    <Compile Include="AttributesView\TableSourceAttributes.cs" />
+    <Compile Include="TableSources\TableSourceImageAttributes.cs" />
+    <Compile Include="TableSources\TableSourceAttributes.cs" />
     <Compile Include="Objects\ImageAttributes.cs" />
     <Compile Include="Database\ImageAttributeDatabase.cs" />
   </ItemGroup>

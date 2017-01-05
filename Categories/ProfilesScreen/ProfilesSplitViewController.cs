@@ -4,106 +4,126 @@ using UIKit;
 
 namespace Categories
 {
-	public class ProfilesSplitViewController : UISplitViewController
-	{
-		SessionsSplitViewController sessionSplitViewController;
-		UIViewController view;
-		ProfilesTableViewController profilesTableViewController;
-		MasterTableNavigationController navController;
-		TableSourceSessions SessionSource;
-		SessionsTableViewController sessions;
+    public class ProfilesSplitViewController : UISplitViewController
+    {
+        #region Fields
+        //Session Controller Fields
+        SessionsSplitViewController sessionSplitViewController;
+        UIViewController CollectionView;
+        new UINavigationController NavigationController;
+        SessionsTableViewController sessions;
 
-		public ProfilesSplitViewController() : base()
-		{
-			view = new UIViewController();
-			view.View.BackgroundColor = UIColor.Purple;
-			IDbContext<Profiles> profilesDb = new ProfileDatabase();
-			IDbContext<Session> sessionsDB = new SessionDatabase();
-			IDbContext<Category> categoryDB = new CategoryDatabase();
+        //Profiles Controller Fields
+        MasterTableNavigationController navController;
+        ProfilesTableViewController profilesTableViewController;
 
+        //Database Fields
+        IDbContext<Profiles> profilesDb;
+        IDbContext<Session> sessionsDB;
+        //IDbContext<Category> categoryDB;
 
-			/*
-			 * SessionSplitView Controllers
-			 */ 
-			UIViewController CollectionView = new CollectionViewController();
+        //Database Source Fields
+        TableSourceProfiles ProfilesSource;
+        TableSourceSessions SessionSource;
+        //TableSourceCategories CategorySource;
+        #endregion
 
-			SessionSource = new TableSourceSessions(sessionsDB);
-			sessions = new SessionsTableViewController(SessionSource);
+        public ProfilesSplitViewController() : base()
+        {
+            initializeDatabases();
+            initializeSessionControllerFields();
+            initializeMasterControllerFields();
 
-			//add delegate to the session source
-			SessionSource.SessionRowToController += GetRowClickedFromSessionSource;
+            //add controllers
+            ViewControllers = new UIViewController[] { navController, sessionSplitViewController };
+            this.View.BackgroundColor = UIColor.White;
+        }
 
+        #region Field Initialization
+        public void initializeDatabases()
+        {
+            profilesDb = new ProfileDatabase();
+            sessionsDB = new SessionDatabase();
+            //categoryDB = new CategoryDatabase();
+        }
 
-			//navigation controller for 2nd(Nested splitview controllers
-			UINavigationController NavigationController = new UINavigationController(sessions);
-			sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionView, NavigationController);
-			sessionSplitViewController.View.Hidden = true;
+        public void initializeSessionControllerFields()
+        {
+            CollectionView = new CollectionViewController();
 
+            SessionSource = new TableSourceSessions(sessionsDB);
+            sessions = new SessionsTableViewController(SessionSource);
 
+            //add delegate to the session source
+            SessionSource.SessionRowToController += GetRowClickedFromSessionSource;
 
-			/*
-			 * Master View
-			 */
+            //navigation controller for 2nd(Nested splitview controllers
+            NavigationController = new UINavigationController(sessions);
+            sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionView, NavigationController);
+            sessionSplitViewController.View.Hidden = true;
+        }
 
-			//Create the Profile source and assign the delegate
-			TableSourceProfiles ProfilesSource = new TableSourceProfiles(profilesDb);
-			ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;
-			ProfilesSource.HideTable += ShowSessionTableHandler;
+        public void initializeMasterControllerFields()
+        {
 
-			//create category source
-			TableSourceCategories CategorySource = new TableSourceCategories(categoryDB, this);
+            //Create the Profile source and assign the delegate
+            ProfilesSource = new TableSourceProfiles(profilesDb);
+            ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;
+            ProfilesSource.HideTable += ShowSessionTableHandler;
 
-			//create the profile table controller
-			profilesTableViewController = new ProfilesTableViewController(ProfilesSource);
-			navController = new MasterTableNavigationController(profilesTableViewController);
+            //create category source
+            //CategorySource = new TableSourceCategories(categoryDB);
 
+            //create the profile table controller
+            profilesTableViewController = new ProfilesTableViewController(ProfilesSource);
+            navController = new MasterTableNavigationController(profilesTableViewController);
 
-			ViewControllers = new UIViewController[] {navController, sessionSplitViewController};
+        }
+        #endregion
 
-			this.View.BackgroundColor = UIColor.White;
-		}
+        #region View Methods
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+        }
+        #endregion
 
-		public override void ViewDidLoad()
-		{
-			base.ViewDidLoad();
-		}
-		public void GetRowClickedFromSessionSource(Session session)
-		{
-			string clicked = "no";
-			new UIAlertView("Row Clicked: "+clicked, null, null, "Ok", null).Show();
-			//get  all items that match the clicked profile
-
-		}
+        #region Delegates
+        public void GetRowClickedFromSessionSource(Session session)
+        {
+            string clicked = "no";
+            new UIAlertView("Row Clicked: " + clicked, null, null, "Ok", null).Show();
+            //get  all items that match the clicked profile
+        }
 
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{
+			/*
+			// * TESTING
+			List<Category> catList = CategoryDatabase.GetAllStatic(); //MAYBE DELETE METHOD
+			Random r = new Random();
+			int rInt = r.Next(0, 2);
+			SessionDatabase.InsertSession(DateTime.Now.ToString("d"), ProfileRow.ID, 1, 1, 1, catList[rInt].ID);
+			//* TESTING
+			*/
+
 			//Get Session List, Send to Session Table
 			List<Session> sessionsList = SessionDatabase.getSessionsByProfile(ProfileRow);
 			sessionSplitViewController.setProfile(ProfileRow);
 
-			/*
-			 * TESTING
-			List<Category> catList = CategoryDatabase.GetAllStatic();
-			Random r = new Random();
-			int rInt = r.Next(0,2);
-			SessionDatabase.InsertSession(DateTime.Now.ToString(), ProfileRow.ID, 1, 1, 1, catList[rInt].ID);*/
 			SessionSource.UpdateTableSource(sessionsList);
-
-			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName);
-
+			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName + " " + ProfileRow.LastName);
 			sessions.ReloadSessionTableData();
-
 		}
 
-		public void ShowSessionTableHandler(bool hidden)
-		{
-			if (hidden)
-			{
-				sessionSplitViewController.View.Hidden = false;
-			}
-				
-		}
+        #endregion
 
-	}
-
+        public void ShowSessionTableHandler(bool hidden)
+        {
+            if (hidden)
+            {
+                sessionSplitViewController.View.Hidden = false;
+            }
+        }
+    }
 }
