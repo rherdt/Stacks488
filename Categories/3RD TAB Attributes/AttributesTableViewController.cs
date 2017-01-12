@@ -14,7 +14,7 @@ namespace Categories
 		ICustomTableViewSource IUpdatableTable.source => source;
 		string IUpdatableTable.TableType => "Attribute";
 
-		public AttributesTableViewController(IDbContext<Attribute> dbContext, TableSourceAttributes paramSource )
+		public AttributesTableViewController(TableSourceAttributes paramSource )
 		{
 			tableController = new UITableViewController();
 			tableController.Title = "Attributes (Select to filter)";

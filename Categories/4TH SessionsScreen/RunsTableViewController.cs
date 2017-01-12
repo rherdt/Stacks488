@@ -31,7 +31,7 @@ namespace Categories
         {
             table = new UITableView();
             source = new TableSourceSessions(SessionDatabase.getSessionsByProfile(profileRow));
-            Title = "Runs for James Mehan on 10/18/2016";
+			Title = "";
             View = table;
             table.Source = source;
         }

@@ -16,7 +16,7 @@ namespace Categories
 {
 	public class ImageDatabase
 	{
-		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.db3");
+		static string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MainDatabase.db3");
 		static string DocsDir = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
 		public static void InsertImage(UIImage imageToSave)

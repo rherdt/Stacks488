@@ -27,7 +27,9 @@ namespace Categories
         //TEMP TO DISMISS CONTROLLER
         void HandleTouchUpInsideTemp(object sender, EventArgs e)
         {
-            DismissViewController(true, null);
+			tabBar.SelectedIndex = 0;
+			tabBar.DismissModalViewController(true);
+            //DismissViewController(true, null);
         }
     }
 }

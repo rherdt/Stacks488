@@ -9,21 +9,21 @@ namespace Categories
 	{
 		List<ImageAttributes> tableItems;
 		string cellIdentifier = "TableCell";
-		IDbContext<ImageAttributes> dbContext;
 
 		//Delegates
 		public delegate void AtributesTableDelegate(ImageAttributes attr);
 		public event AtributesTableDelegate AttributeRowToController;
 
-		public TableSourceImageAttributes(IDbContext<ImageAttributes> context)
-		{
+		Guid CurrentlySelectedImageID;
 
-			dbContext = context;
+		public TableSourceImageAttributes()
+		{
 		}
-		public void SetTableSource(List<ImageAttributes> atts)
+		public void SetTableSource(Guid imageID)
 		{
-			tableItems = atts;
-
+			CurrentlySelectedImageID = imageID;
+			List<ImageAttributes> imageAtts = new DatabaseContext<ImageAttributes>().GetQuery("Select * FROM ImageAttributes WHERE ImageID = ?", imageID.ToString());
+			tableItems = imageAtts;
 		}
 
 
@@ -64,9 +64,27 @@ namespace Categories
 
 		public bool UpdateData(string data)
 		{
-			bool success = dbContext.Insert(data);
-			tableItems = dbContext.GetAll();
-			return success;
+			ImageAttributes newAttr = new ImageAttributes();
+			if (CurrentlySelectedImageID != null)
+			{
+				newAttr.ImageID = CurrentlySelectedImageID;
+				newAttr.Name = data;
+
+				int result = new DatabaseContext<ImageAttributes>().Insert(newAttr);
+
+				//Add the attribute to the Attribute table as well
+				Attribute att = new Attribute();
+				att.Name = data;
+				result = new DatabaseContext<Attribute>().Insert(att);
+				//refresh the attributes table
+
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		
 		}
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{
@@ -74,10 +92,8 @@ namespace Categories
 			{
 				case UITableViewCellEditingStyle.Delete:
 					// remove the item from the underlying data source
-					var dbc = dbContext as AttributeDatabase;
-					bool didDelete = dbc.Delete(tableItems[indexPath.Row].Name);
-
-					if (didDelete)
+					int didDelete = new DatabaseContext<ImageAttributes>().Delete(tableItems[indexPath.Row].ID);
+					if (didDelete > 0)
 					{
 						tableItems.RemoveAt(indexPath.Row);
 						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);

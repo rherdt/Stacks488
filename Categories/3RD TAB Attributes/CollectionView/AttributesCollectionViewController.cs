@@ -53,7 +53,9 @@ namespace Categories
 			CollectionView.RegisterClassForCell(typeof(UserCell), UserCell.CellID);
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 			CollectionView.Source = CollectionViewSource;
-			UpdateImages(ImageDatabase.GetAllImagesByOBJ());
+
+			UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
+			//UpdateImages(ImageDatabase.GetAllImagesByOBJ());
 		}
 		public void UpdateImages(List<Image> Images)
 		{

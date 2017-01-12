@@ -9,24 +9,16 @@ namespace Categories
 	{
 		List<Attribute> tableItems;
 		string cellIdentifier = "TableCell";
-		IDbContext<Attribute> dbContext;
 
 		//Delegates
 		public delegate void AtributesTableDelegate(Attribute attr);
 		public event AtributesTableDelegate AttributeRowToController;
 
-		public TableSourceAttributes(IDbContext<Attribute> context)
-		{
-			
-			dbContext = context;
-			tableItems = dbContext.GetAll();
-		}
-		public void SetTableSource(List<Attribute> atts)
-		{
-			tableItems = atts;
 
+		public TableSourceAttributes()
+		{
+			tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
 		}
-
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
@@ -65,9 +57,12 @@ namespace Categories
 
 		public bool UpdateData(string data)
 		{
-			bool success = dbContext.Insert(data);
-			tableItems = dbContext.GetAll();
-			return success;
+			Attribute att = new Attribute();
+			att.Name = data;
+			int ret = new DatabaseContext<Attribute>().Insert(att);
+			tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
+
+			return true;
 		}
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{
@@ -75,15 +70,14 @@ namespace Categories
 			{
 				case UITableViewCellEditingStyle.Delete:
 					// remove the item from the underlying data source
-					var dbc = dbContext as AttributeDatabase;
-					bool didDelete = dbc.Delete(tableItems[indexPath.Row].Name);
+					int didDelete = new DatabaseContext<Attribute>().Delete(tableItems[indexPath.Row].ID);
 
-					if (didDelete)
+					if (didDelete > 0) //deleted
 					{
 						tableItems.RemoveAt(indexPath.Row);
 						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
-
 					}
+
 					break;
 
 				case UITableViewCellEditingStyle.None:

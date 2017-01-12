@@ -17,10 +17,6 @@ namespace Categories
         MasterTableNavigationController navController;
         ProfilesTableViewController profilesTableViewController;
 
-        //Database Fields
-        IDbContext<Profiles> profilesDb;
-        IDbContext<Session> sessionsDB;
-        //IDbContext<Category> categoryDB;
 
         //Database Source Fields
         TableSourceProfiles ProfilesSource;
@@ -30,7 +26,6 @@ namespace Categories
 
         public ProfilesSplitViewController() : base()
         {
-            initializeDatabases();
             initializeSessionControllerFields();
             initializeMasterControllerFields();
 
@@ -40,18 +35,12 @@ namespace Categories
         }
 
         #region Field Initialization
-        public void initializeDatabases()
-        {
-            profilesDb = new ProfileDatabase();
-            sessionsDB = new SessionDatabase();
-            //categoryDB = new CategoryDatabase();
-        }
 
         public void initializeSessionControllerFields()
         {
             CollectionView = new CollectionViewController();
 
-            SessionSource = new TableSourceSessions(sessionsDB);
+            SessionSource = new TableSourceSessions();
             sessions = new SessionsTableViewController(SessionSource);
 
             //add delegate to the session source
@@ -67,7 +56,7 @@ namespace Categories
         {
 
             //Create the Profile source and assign the delegate
-            ProfilesSource = new TableSourceProfiles(profilesDb);
+            ProfilesSource = new TableSourceProfiles();
             ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;
             ProfilesSource.HideTable += ShowSessionTableHandler;
 
@@ -75,7 +64,7 @@ namespace Categories
             //CategorySource = new TableSourceCategories(categoryDB);
 
             //create the profile table controller
-            profilesTableViewController = new ProfilesTableViewController(ProfilesSource);
+			profilesTableViewController = new ProfilesTableViewController(ProfilesSource);
             navController = new MasterTableNavigationController(profilesTableViewController);
 
         }
@@ -98,22 +87,15 @@ namespace Categories
 
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{
-			/*
-			// * TESTING
-			List<Category> catList = CategoryDatabase.GetAllStatic(); //MAYBE DELETE METHOD
-			Random r = new Random();
-			int rInt = r.Next(0, 2);
-			SessionDatabase.InsertSession(DateTime.Now.ToString("d"), ProfileRow.ID, 1, 1, 1, catList[rInt].ID);
-			//* TESTING
-			*/
 
 			//Get Session List, Send to Session Table
-			List<Session> sessionsList = SessionDatabase.getSessionsByProfile(ProfileRow);
+			List<Session> sessionsList = new DatabaseContext<Session>().GetQuery("Select * From Session WHERE ParentID = ?", ProfileRow.ID.ToString());
 			sessionSplitViewController.setProfile(ProfileRow);
 
 			SessionSource.UpdateTableSource(sessionsList);
 			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName + " " + ProfileRow.LastName);
 			sessions.ReloadSessionTableData();
+
 		}
 
         #endregion

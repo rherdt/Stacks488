@@ -12,11 +12,12 @@ namespace Categories
 		{
 			PopulateDbIfEmpty();
 
-			UIViewController ProfilesTab, CategoriesTab, ImagesTab;
+			UIViewController ProfilesTab, CategoriesTab, ImagesTab, SessionScreen;
 
 			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new AttributesSplitViewController();
+			SessionScreen = new NewSessionSplitViewController();
 
 
 			ProfilesTab.TabBarItem = new UITabBarItem("Profiles", UIImage.FromFile("profiles.png"), 0);
@@ -28,9 +29,12 @@ namespace Categories
 			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
 			ImagesTab.Title = "Images";
 
+			//SessionScreen.Title = "NULL";
+			SessionScreen.TabBarItem.Enabled = false;
+
 			var tabs = new UIViewController[]
 			{
-				ProfilesTab, CategoriesTab, ImagesTab
+				ProfilesTab, CategoriesTab, ImagesTab, SessionScreen
 			};
 
 

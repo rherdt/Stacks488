@@ -6,7 +6,7 @@ namespace Categories
 {
 	public class Profiles : IEntity
 	{
-		[PrimaryKey]
+		[PrimaryKey, AutoIncrement]
 		public Guid ID { get; set; }
 
 		public string FirstName { get; set; }

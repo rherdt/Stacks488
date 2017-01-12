@@ -19,7 +19,7 @@ namespace Categories
 		 * 
 		 */
 		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
+		public Guid ID { get; set; }
 
 		public Guid ImageID { get; set; }
 

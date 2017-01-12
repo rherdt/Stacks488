@@ -60,12 +60,18 @@ namespace Categories
                 //Get Main Tab Controller to pass into new
                 tab = (MainTabBarController)ParentViewController.ParentViewController;
 
-                //add specific profile sources
-                SessionScreen = new NewSessionSplitViewController(sessionsTableViewController.TableView.Source, profileRow, tab);
-                SessionScreen.ModalPresentationStyle = UIModalPresentationStyle.Custom;
-                SessionScreen.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+				//add specific profile sources
+				//SessionScreen = new NewSessionSplitViewController(sessionsTableViewController.TableView.Source, profileRow, tab);
+				//SessionScreen.ModalPresentationStyle = UIModalPresentationStyle.Custom;
+				//SessionScreen.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+				//ParentViewController.DismissViewController(true, null);
+				//tab.PresentViewController(SessionScreen, true, null);
 
-                tab.PresentViewController(SessionScreen, true, null);
+				SessionScreen = (NewSessionSplitViewController)tab.ViewControllers[3];
+				SessionScreen.setFieldsAndInitialize(sessionsTableViewController.TableView.Source, profileRow, tab);
+				tab.SelectedIndex = 3;
+				tab.DismissModalViewController(true);
+				//ParentViewController.PresentViewController(SessionScreen, true, null);
             };
             #endregion
         }

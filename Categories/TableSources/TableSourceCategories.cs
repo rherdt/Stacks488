@@ -16,22 +16,23 @@ namespace Categories
         UITableView tableView;
         NSString cellIdentifier = (NSString)"TableCell";
         UIViewController newSessionSplitViewController;
+		bool isVisible;
         #endregion
 
         public delegate void SessionsTableDelegate(Category category);
         public event SessionsTableDelegate CategoryRowToSessionTableViewController;
 
-        public TableSourceCategories(IDbContext<Category> context)
+        public TableSourceCategories()
         {
-            dbContext = context;
-            TableItems = dbContext.GetAll();
+			TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
         }
 
-        public TableSourceCategories(IDbContext<Category> context, UIViewController v)
+        public TableSourceCategories(IDbContext<Category> context, UIViewController v, bool isVisibleElseHide)
         {
             newSessionSplitViewController = v;
             dbContext = context;
             TableItems = dbContext.GetAll();
+			isVisible = isVisibleElseHide;
 
         }
 
@@ -71,8 +72,12 @@ namespace Categories
 
             if (cell == null)
             {
-                cell = new CustomCellCategories(cellIdentifier, newSessionSplitViewController);
+				cell = new CustomCellCategories(cellIdentifier, newSessionSplitViewController, isVisible);
             }
+			if (!isVisible)
+			{
+				cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+			}
             cell.UpdateCell(TableItems[indexPath.Row].CategoryName, "Testing");
 
             return cell;
@@ -83,9 +88,13 @@ namespace Categories
         public bool UpdateData(string data)
         {
 
-            bool success = dbContext.Insert(data);
-            TableItems = dbContext.GetAll();
-            return success;
+			Category category = new Category();
+			category.CategoryName = data;
+
+			int success = new DatabaseContext<Category>().Insert(category);
+            TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
+
+            return true;
 
         }
 
@@ -94,12 +103,18 @@ namespace Categories
             switch (editingStyle)
             {
                 case UITableViewCellEditingStyle.Delete:
-                    // remove the item from the underlying data source
-                    var dbc = dbContext as CategoryDatabase;
-                    dbc.Delete(TableItems[indexPath.Row].CategoryName);
-                    TableItems.RemoveAt(indexPath.Row);
+					// remove the item from the underlying data source
+
+					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Row].ID);
+
+					if (didDelete > 0) //deleted
+					{
+						TableItems.RemoveAt(indexPath.Row);
+						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
+					}
+
                     // delete the row from the table
-                    tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
+                    //tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
                     break;
                 case UITableViewCellEditingStyle.None:
                     Console.WriteLine("CommitEditingStyle:None called");

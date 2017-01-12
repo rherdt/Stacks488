@@ -8,9 +8,6 @@ namespace Categories
 		
 		IUpdatableTable table;
 
-		//Delegates
-		public delegate void NavigationAddValue(String str);
-		public event NavigationAddValue ReturnInsertedValue;
 
 		public MasterTableNavigationController(IUpdatableTable tableViewController) : base()
 		{
@@ -42,10 +39,7 @@ namespace Categories
 				else
 				{
 					table.AddRow(alert.TextFields[0].Text);
-					if (ReturnInsertedValue != null)
-					{
-						ReturnInsertedValue(alert.TextFields[0].Text);
-					}
+
 				}
 
 			}));

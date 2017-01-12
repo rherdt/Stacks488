@@ -6,7 +6,6 @@ namespace Categories
 	public class Session : IEntity
 	{
 		[PrimaryKey, AutoIncrement]
-
 		public Guid ID { get; set; }
 
 		public Guid ParentID { get; set; }

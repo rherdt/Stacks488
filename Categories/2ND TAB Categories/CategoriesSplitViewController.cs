@@ -11,15 +11,13 @@ namespace Categories
         CategoriesTableViewController categoriesTableViewController;
         MasterTableNavigationController navController;
 
-        //Database Fields
-        IDbContext<Category> categoryDb;
         #endregion
 
         public CategoriesSplitViewController() : base()
         {
             imageStackSplitViewController = new ImageStackSplitViewController();
-            categoryDb = new CategoryDatabase();
-            categoriesTableViewController = new CategoriesTableViewController(categoryDb);
+     
+            categoriesTableViewController = new CategoriesTableViewController();
             navController = new MasterTableNavigationController(categoriesTableViewController);
 
             ViewControllers = new UIViewController[] { navController, imageStackSplitViewController };

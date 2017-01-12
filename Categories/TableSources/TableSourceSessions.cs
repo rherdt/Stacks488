@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Foundation;
@@ -11,25 +11,28 @@ namespace Categories
         #region Fields
         List<Session> TableItems;
         NSString cellIdentifier = (NSString)"TableCell";
-        IDbContext<Session> dbContext;
+		List<Session> list;
 
-        public delegate void SessionsTableDelegate(Session string1);
+		public delegate void SessionsTableDelegate(Session string1);
         public event SessionsTableDelegate SessionRowToController;
         #endregion
 
-        public TableSourceSessions(IDbContext<Session> context)
+        public TableSourceSessions()
         {
-            dbContext = context;
-            TableItems = dbContext.GetAll();
+           
         }
 
-        public TableSourceSessions(List<Session> items)
-        {
-            TableItems = items;
-        }
+		public TableSourceSessions(List<Session> list)
+		{
+			this.TableItems = list;
+		}
 
-        public override nint RowsInSection(UITableView tableview, nint section)
+		public override nint RowsInSection(UITableView tableview, nint section)
         {
+			if (TableItems == null)
+			{
+				return 0;
+			}
             return TableItems.Count;
         }
 

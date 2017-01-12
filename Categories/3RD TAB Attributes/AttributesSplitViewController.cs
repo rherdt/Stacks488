@@ -41,11 +41,10 @@ namespace Categories
 		public AttributesSplitViewController() : base()
 		{
 			//1st screen
-			IDbContext<Attribute> attributeDb = new AttributeDatabase();
-			AttributesTableSource = new TableSourceAttributes(attributeDb);
+			AttributesTableSource = new TableSourceAttributes();
 			AttributesTableSource.AttributeRowToController += GetAttributeRowSelected;
 
-			attributesTableViewController = new AttributesTableViewController(attributeDb, AttributesTableSource);
+			attributesTableViewController = new AttributesTableViewController( AttributesTableSource);
 			navController = new MasterTableNavigationController(attributesTableViewController);
 
 
@@ -67,13 +66,11 @@ namespace Categories
 
 			//Right Table (Image Attributes)
 			IDbContext<ImageAttributes> imageAttributeDb = new ImageAttributeDatabase();
-			RightAttributesTableSource = new TableSourceImageAttributes(imageAttributeDb);
+			RightAttributesTableSource = new TableSourceImageAttributes();
 			RightImageAttributeTable = new ImageAttributesTableViewController(RightAttributesTableSource);
 			ImageAtrributesNavigationController = new MasterTableNavigationController(RightImageAttributeTable);
 			RightAttributesTableSource.AttributeRowToController += GetAttributeRowSelectedRight;
 
-			//add delegate to ImageAtrributesNavigationController
-			ImageAtrributesNavigationController.ReturnInsertedValue += InsertAttributeForImage;
 
 			//2nd SplitView Controller
 			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, ImageAtrributesNavigationController);
@@ -90,12 +87,22 @@ namespace Categories
 		{
 			//get the row selected from the left table
 			//new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
+			List<ImageAttributes> ImagesWithSameAttribute = new DatabaseContext<ImageAttributes>().GetQuery("SELECT * FROM ImageAttributes WHERE Name = ?", attrReturned.Name);
+			List<Image> Images = new List<Image>();
 
-			List<Image> ImageByAttribute = ImageDatabase.GetImagesByAttribute(attrReturned.Name);
-			if (ImageByAttribute != null)
+			foreach (ImageAttributes a in ImagesWithSameAttribute)
+			{
+				List<Image> temp = new DatabaseContext<Image>().GetQuery("Select * FROM Image WHERE ID = ?", a.ImageID.ToString());
+				foreach (Image i in temp)
+				{
+					Images.Add(i);
+				}
+			}
+
+			if (Images != null)
 			{
 				attributesCollectionView.ClearImages();
-				attributesCollectionView.UpdateImages(ImageByAttribute);
+				attributesCollectionView.UpdateImages(Images);
 			}
 
 
@@ -113,14 +120,8 @@ namespace Categories
 			 * Send the data to the RightImageAttributeTable 
 			*/
 			Selected = imageSelected;
-
-			List<ImageAttributes> atts = ImageAttributeDatabase.GetAttributesByImageId(imageSelected.ID);
-			if (atts != null)
-			{
-				RightAttributesTableSource.SetTableSource(atts);
-				RightImageAttributeTable.RefreshTableView();
-
-			}
+			RightAttributesTableSource.SetTableSource(imageSelected.ID);
+			RightImageAttributeTable.RefreshTableView();
 		}
 
 		void AddPhotoButtonHandler(object sender, EventArgs e)
@@ -166,6 +167,7 @@ namespace Categories
 				if (originalImage != null)
 				{
 					//add photo to database
+
 					ImageDatabase.InsertImage(originalImage);
 				}
 
@@ -183,13 +185,14 @@ namespace Categories
 		}
 		public void InsertAttributeForImage(string str)
 		{
-			/*
-			 * 
-			 */
 
 			if (Selected != null)
 			{
-				Boolean inserted = ImageAttributeDatabase.Insert(str, Selected.ID);
+				ImageAttributes newAtt = new ImageAttributes();
+				newAtt.ImageID = Selected.ID;
+				newAtt.Name = str;
+
+				int inserted = new DatabaseContext<ImageAttributes>().Insert(newAtt);
 			
 			}
 		}

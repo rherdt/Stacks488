@@ -7,12 +7,11 @@ using UIKit;
 
 namespace Categories
 {
-    public class TableSourceProfiles : UITableViewSource, ICustomTableViewSource
+	public class TableSourceProfiles : UITableViewSource, ICustomTableViewSource
     {
         #region Fields
-        List<Profiles> tableItems;
+		List<Profiles> tableItems;
         NSString cellIdentifier = (NSString)"TableCell";
-        IDbContext<Profiles> dbContext;
         bool TableHidden = true;
 
         public delegate void ProfilesTableDelegate(Profiles prof);
@@ -20,12 +19,13 @@ namespace Categories
 
         public delegate void ProfilesTableHideDelegate(Boolean hidden);
         public event ProfilesTableHideDelegate HideTable;
+
         #endregion
 
-        public TableSourceProfiles(IDbContext<Profiles> context)
+        public TableSourceProfiles()
         {
-            dbContext = context;
-            tableItems = dbContext.GetAll();
+			tableItems = new DatabaseContext<Profiles>().GetQuery("SELECT * FROM Profiles"); 
+		
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)
@@ -67,9 +67,12 @@ namespace Categories
 
         public bool UpdateData(string data)
         {
-            bool success = dbContext.Insert(data);
-            tableItems = dbContext.GetAll();
-            return success;
+			Profiles profileNew = new Profiles();
+			profileNew.FirstName = data;
+			int success = new DatabaseContext<Profiles>().Insert(profileNew);
+
+			tableItems = new DatabaseContext<Profiles>().GetQuery("SELECT * FROM Profiles");
+            return true;
         }
 
         public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
@@ -77,15 +80,18 @@ namespace Categories
             switch (editingStyle)
             {
                 case UITableViewCellEditingStyle.Delete:
-                    // remove the item from the underlying data source
-                    var dbc = dbContext as ProfileDatabase;
-                    var didDelete = dbc.Delete(tableItems[indexPath.Row].FirstName);
+					// remove the item from the underlying data source
+					Profiles selected = tableItems[indexPath.Row];
 
-                    if (didDelete)
+					var didDelete  = new DatabaseContext<Profiles>().Delete(selected.ID);
+
+					if (didDelete > 0) //deleted
                     {
                         tableItems.RemoveAt(indexPath.Row);
                         tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
                     }
+
+
                     break;
 
                 case UITableViewCellEditingStyle.None:
