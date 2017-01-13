@@ -15,7 +15,6 @@ namespace Categories
 		//Vars
 		public List<ImageCell> Cells { get; private set; }
 		public SizeF ImageViewSize { get; set; }
-		public NSIndexPath prevImageSelected;
 
 
 		public CollectionViewImageSource()
@@ -39,45 +38,10 @@ namespace Categories
 
 		public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
-			
-			var cell = (UserCell)collectionView.CellForItem(indexPath);
-			cell.ImageView.Alpha = 0.5f;
-
-
-			//unlick the previous image
-			if (prevImageSelected != null && prevImageSelected!= indexPath)
-			{
-				var cellPrev = (UserCell)collectionView.CellForItem(prevImageSelected);
-				cellPrev.ImageView.Alpha = 1.0f;
-				Cells[prevImageSelected.Row].isSelected = false;
-
-			}
-
-			prevImageSelected = indexPath;
-
 		}
 
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
-			//Get the Selected Image
-			var cell = (UserCell)collectionView.CellForItem(indexPath);
-			ImageCell Clicked = Cells[indexPath.Row];
-
-
-			if (Clicked.isSelected)
-			{
-				//cell.ImageView.Alpha = 1.0f;
-				//Clicked.isSelected = false;
-			}
-
-
-			if (ImageClickedToController != null)
-			{
-				//ImageClickedToController(Clicked.ImgOBJ);
-			}
-
-			Clicked.isSelected = true;
-
 		}
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
@@ -88,18 +52,21 @@ namespace Categories
 
 			if (row.ImgOBJ.Independent)
 			{
-				cell.ImageView.Alpha = 0.4f;
-				cell.Layer.BackgroundColor = UIColor.Green.CGColor;
+				cell.ImageView.Alpha = 1.0f;
+				cell.Layer.BorderColor = UIColor.Green.CGColor;
+				cell.Layer.BorderWidth = 5.0f;
 			}
 			else if (row.ImgOBJ.Prompted)
 			{
-				cell.ImageView.Alpha = 0.4f;
-				cell.Layer.BackgroundColor = UIColor.Yellow.CGColor;
+				cell.ImageView.Alpha = 1.0f;
+				cell.Layer.BorderColor = UIColor.Yellow.CGColor;
+				cell.Layer.BorderWidth = 5.0f;
 			}
 			else if(row.ImgOBJ.Missed)
 			{
-				cell.ImageView.Alpha = 0.4f;
-				cell.Layer.BackgroundColor = UIColor.Red.CGColor;
+				cell.ImageView.Alpha = 1.0f;
+				cell.Layer.BorderColor = UIColor.Red.CGColor;
+				cell.Layer.BorderWidth = 5.0f;
 			}
 
 			cell.UpdateRow(row, ImageViewSize);
@@ -116,7 +83,6 @@ namespace Categories
 		}
 
 		public SessionResult ImgOBJ { get;  set; }
-		public Boolean isSelected { get; set; }
 
 	}
 	public class UserCell : UICollectionViewCell
