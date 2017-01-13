@@ -96,12 +96,19 @@ namespace Categories
 		#region Delegates
 		public void startButton()
 		{
-			SettingsAlertController settings = new SettingsAlertController(pRow,SessionCategory);
-			settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
-			settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
-			//UIViewController Parent = this.ParentViewController.ParentViewController;
-			//tabBar.DismissViewController(true, null);
-			tabBar.PresentViewController(settings, true, null);
+			if (SessionCategory != null)
+			{
+				SettingsAlertController settings = new SettingsAlertController(pRow, SessionCategory);
+				settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+				settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+				//UIViewController Parent = this.ParentViewController.ParentViewController;
+				//tabBar.DismissViewController(true, null);
+				tabBar.PresentViewController(settings, true, null);
+			}
+			else
+			{
+				new UIAlertView("Category", "Click a category first.", null, "Ok", null).Show();
+			}
 		}
 
 		public void GetRowClickedFromSessionSource(Session SessionRow)

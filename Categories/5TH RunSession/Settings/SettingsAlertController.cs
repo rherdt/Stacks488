@@ -53,7 +53,7 @@ namespace Categories
 					{
 						//create the session
 						Session newSession = new Session();
-						newSession.LastSessionDate = new DateTime().ToString();
+						newSession.LastSessionDate = DateTime.Now.ToString("d");
 						newSession.ParentProfileID = CurrentProfile.ID;
 						newSession.SessionScore = Attempted / Correct * 1.0;
 						newSession.CategoryID = CurrentCategory.ID;
