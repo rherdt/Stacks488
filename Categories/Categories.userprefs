@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="52" Column="1" />
-      <File FileName="CollectionView/CollectionViewAttributes.cs" Line="20" Column="9" />
-      <File FileName="1ST TAB Profiles/ProfilesSplitViewController.cs" Line="44" Column="71" />
+      <File FileName="4TH SessionsScreen/NewSessionSplitViewController.cs" Line="135" Column="7" />
+      <File FileName="TableCustomCells/CustomCellCategories.cs" Line="43" Column="48" />
+      <File FileName="1ST TAB Profiles/SessionsSplitViewController.cs" Line="19" Column="1" />
+      <File FileName="4TH SessionsScreen/RunsSplitViewController.cs" Line="12" Column="1" />
+      <File FileName="1ST TAB Profiles/ProfilesSplitViewController.cs" Line="97" Column="117" />
       <File FileName="Categories Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -18,6 +20,8 @@
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceProfiles.cs" relfile="TableSources/TableSourceProfiles.cs" line="86" column="70" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="195" column="74" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/SessionController.cs" relfile="5TH RunSession/SessionController.cs" line="106" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/4TH SessionsScreen/NewSessionSplitViewController.cs" relfile="4TH SessionsScreen/NewSessionSplitViewController.cs" line="99" column="55" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/4TH SessionsScreen/NewSessionSplitViewController.cs" relfile="4TH SessionsScreen/NewSessionSplitViewController.cs" line="126" column="131" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

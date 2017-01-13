@@ -8,9 +8,12 @@ namespace Categories
 	{
 		UIViewController TopMostParent;
 		Profiles CurrentProfile;
-		public SettingsAlertController(Profiles profileSelected) : base("SettingsAlertController", null)
+		Category CurrentCategory;
+
+		public SettingsAlertController(Profiles profileSelected, Category categorySelected) : base("SettingsAlertController", null)
 		{
 			CurrentProfile = profileSelected;
+			CurrentCategory = categorySelected;
 		}
 
 		public override void ViewDidLoad()
@@ -53,6 +56,8 @@ namespace Categories
 						newSession.LastSessionDate = new DateTime().ToString();
 						newSession.ParentProfileID = CurrentProfile.ID;
 						newSession.SessionScore = Attempted / Correct * 1.0;
+						newSession.CategoryID = CurrentCategory.ID;
+
 						int insertResult = new DatabaseContext<Session>().Insert(newSession);
 
 						//submit the results to that database

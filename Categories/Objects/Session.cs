@@ -10,9 +10,9 @@ namespace Categories
 
 		public Guid ParentProfileID { get; set; }
 
-		public string LastSessionDate { get; set; }
-
 		public Guid CategoryID { get; set;}
+
+		public string LastSessionDate { get; set; }
 
 		public double SessionScore { get; set;}
 

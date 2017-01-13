@@ -16,6 +16,7 @@ namespace Categories
 		RunsSplitViewController runsSplitViewController;
 		RunsTableViewController ranSessions;
 		Profiles pRow;
+		Category SessionCategory;
 
 		//Main Tab field
 		MainTabBarController tabBar;
@@ -95,7 +96,7 @@ namespace Categories
 		#region Delegates
 		public void startButton()
 		{
-			SettingsAlertController settings = new SettingsAlertController(pRow);
+			SettingsAlertController settings = new SettingsAlertController(pRow,SessionCategory);
 			settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
 			settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
 			//UIViewController Parent = this.ParentViewController.ParentViewController;
@@ -118,17 +119,22 @@ namespace Categories
 
 		public void GetRowClickedFromCategorySource(Category CategoryRow)
 		{
+
+			SessionCategory = CategoryRow;
 			//**RIGHT HERE
 
-			//Get Session List, Send to Session Table
-
+			List<Session> sessionsByProfileCategory = new DatabaseContext<Session>().GetQuery("SELECT * FROM Session WHERE CategoryID = ?",SessionCategory.ID.ToString());
 			List<Session> specificProfileSessionsListTrimmed = new List<Session>();
-
-			for (int i = 0; i < originalDb.Count; i++)
+			if (sessionsByProfileCategory.Count > 0)
 			{
-				if (originalDb[i].CategoryID.Equals(CategoryRow.ID))
+				
+
+				for (int i = 0; i < sessionsByProfileCategory.Count; i++)
 				{
-					specificProfileSessionsListTrimmed.Add(originalDb[i]);
+					if (sessionsByProfileCategory[i].CategoryID.Equals(SessionCategory.ID))
+					{
+						specificProfileSessionsListTrimmed.Add(sessionsByProfileCategory[i]);
+					}
 				}
 			}
 			//SessionSource.UpdateTableSource(specificProfileSessionsListTrimmed);
