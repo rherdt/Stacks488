@@ -60,12 +60,14 @@ public class CustomCellSessions : UITableViewCell
     }
     #endregion
 
-    public void UpdateCell(string categoryName, string date, int i, int p, int m)
+    public void UpdateCell(string categoryName, string date)
     {
         categoriesLabel.Text = categoryName;
         dateLabel.Text = date;
-        correctRawLabel.Text = i.ToString() + "/" + (i + p + m).ToString();
-        correctPercentageLabel.Text = calculatePercentage(i, p, m).ToString() + "%";
+		//set fields in Session.cs to the values returned from the session?
+        //correctRawLabel.Text = i.ToString() + "/" + (i + p + m).ToString();
+        //.Text = calculatePercentage(i, p, m).ToString() + "%";
+
     }
 
     int calculatePercentage(int independent, int prompted, int missed)

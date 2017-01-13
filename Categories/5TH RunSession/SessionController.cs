@@ -73,7 +73,11 @@ namespace Categories
 				{
 					if (args.ButtonIndex == 0) //yes clicked
 					{
-						ReturnSessionData(_Session,_Attempted,_Correct);
+						if (ReturnSessionData != null) //check if delegate has been initialized
+						{
+							ReturnSessionData(_Session, _Attempted, _Correct);
+						}
+
 						this.PresentingViewController.DismissModalViewController(true);
 					}
 
@@ -108,7 +112,7 @@ namespace Categories
 		}
 		public void Next()
 		{
-			if (CurrentImageIndex < Images.Count)
+			if (CurrentImageIndex < Images.Count -1)
 			{
 				CurrentImageIndex++;
 				ImageViewSession.Image = ImageDatabase.GetImageByFilename(Images[CurrentImageIndex].FileName);

@@ -7,8 +7,10 @@ namespace Categories
 	public partial class SettingsAlertController : UIViewController
 	{
 		UIViewController TopMostParent;
-		public SettingsAlertController() : base("SettingsAlertController", null)
+		Profiles CurrentProfile;
+		public SettingsAlertController(Profiles profileSelected) : base("SettingsAlertController", null)
 		{
+			CurrentProfile = profileSelected;
 		}
 
 		public override void ViewDidLoad()
@@ -41,6 +43,49 @@ namespace Categories
 			{
 				//new UIAlertView("Start", null, null, "Ok", null).Show();
 				SessionController RunSession = new SessionController();
+				RunSession.ReturnSessionData += (CurrentSession currentSession, int Attempted, int Correct) =>
+				{
+					//add the results to the database
+					if (CurrentProfile != null) //Valid Profile
+					{
+						//create the session
+						Session newSession = new Session();
+						newSession.LastSessionDate = new DateTime().ToString();
+						newSession.ParentProfileID = CurrentProfile.ID;
+						newSession.SessionScore = Attempted / Correct * 1.0;
+						int insertResult = new DatabaseContext<Session>().Insert(newSession);
+
+						//submit the results to that database
+
+
+						foreach (Result res in currentSession.SessionResultsList)
+						{
+
+							SessionResult temp = new SessionResult();
+							temp.ParentSessionID = newSession.ID;
+							temp.SessionImageID = res.ResultImageID;
+
+							if (res.ImageIncorrect)
+							{
+								temp.Missed = true;
+							}
+							else if (res.ImageIndependent)
+							{
+								temp.Independent = true;
+							}
+							else
+							{
+								temp.Prompted = true;
+							}
+							new DatabaseContext<SessionResult>().Insert(temp);
+
+						}
+
+
+
+					}
+				};
+
 				RunSession.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
 				RunSession.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
 
@@ -49,6 +94,7 @@ namespace Categories
 				TopMostParent.View.BackgroundColor = UIColor.White;
 				TopMostParent.View.Alpha = 1.0f;
 				TopMostParent.PresentViewController(RunSession, true, null);
+
 
 			};
 			DisplayLabelsToggle.ValueChanged += (sender, e) =>
@@ -78,6 +124,8 @@ namespace Categories
 
 		}
 
+
+
 		public override void DidReceiveMemoryWarning()
 		{
 			base.DidReceiveMemoryWarning();
@@ -96,6 +144,8 @@ namespace Categories
 			this.View.Frame = size;
 
 		}
+
+
 	}
 }
 

@@ -9,7 +9,7 @@ namespace Categories
         #region Fields
         //Session Controller Fields
         SessionsSplitViewController sessionSplitViewController;
-        UIViewController CollectionView;
+		CollectionViewController CollectionViewTable;
         new UINavigationController NavigationController;
         SessionsTableViewController sessions;
 
@@ -38,7 +38,7 @@ namespace Categories
 
         public void initializeSessionControllerFields()
         {
-            CollectionView = new CollectionViewController();
+            CollectionViewTable = new CollectionViewController();
 
             SessionSource = new TableSourceSessions();
             sessions = new SessionsTableViewController(SessionSource);
@@ -48,7 +48,7 @@ namespace Categories
 
             //navigation controller for 2nd(Nested splitview controllers
             NavigationController = new UINavigationController(sessions);
-            sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionView, NavigationController);
+            sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionViewTable, NavigationController);
             sessionSplitViewController.View.Hidden = true;
         }
 
@@ -80,16 +80,21 @@ namespace Categories
         #region Delegates
         public void GetRowClickedFromSessionSource(Session session)
         {
-            string clicked = "no";
-            new UIAlertView("Row Clicked: " + clicked, null, null, "Ok", null).Show();
-            //get  all items that match the clicked profile
+			//string clicked = "no";
+			//new UIAlertView("Row Clicked: " + clicked, null, null, "Ok", null).Show();
+			//get  all items that match the clicked profile
+			List<SessionResult> imagesForSelectedSession = new DatabaseContext<SessionResult>().GetQuery("SELECT * FROM SessionResult WHERE ParentSessionID = ?", session.ID.ToString());
+
+			//give the source to the categories view
+			CollectionViewTable.ClearCollectionView();
+			CollectionViewTable.SetImageSource(imagesForSelectedSession);
         }
 
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{
 
 			//Get Session List, Send to Session Table
-			List<Session> sessionsList = new DatabaseContext<Session>().GetQuery("Select * From Session WHERE ParentID = ?", ProfileRow.ID.ToString());
+			List<Session> sessionsList = new DatabaseContext<Session>().GetQuery("Select * From Session WHERE ParentProfileID = ?", ProfileRow.ID.ToString());
 			sessionSplitViewController.setProfile(ProfileRow);
 
 			SessionSource.UpdateTableSource(sessionsList);

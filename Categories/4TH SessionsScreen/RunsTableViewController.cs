@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace Categories
@@ -30,7 +31,8 @@ namespace Categories
         public RunsTableViewController(Profiles profileRow)
         {
             table = new UITableView();
-            source = new TableSourceSessions(SessionDatabase.getSessionsByProfile(profileRow));
+			List<Session> sessionsByID = new DatabaseContext<Session>().GetQuery("SELECT * FROM Session WHERE ParentProfileID = ?", profileRow.ID.ToString());
+			source = new TableSourceSessions(sessionsByID);
 			Title = "";
             View = table;
             table.Source = source;

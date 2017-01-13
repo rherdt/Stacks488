@@ -73,7 +73,7 @@ namespace Categories
 
 			if (ImageClickedToController != null)
 			{
-				ImageClickedToController(Clicked.ImgOBJ);
+				//ImageClickedToController(Clicked.ImgOBJ);
 			}
 
 			Clicked.isSelected = true;
@@ -86,6 +86,22 @@ namespace Categories
 
 			ImageCell row = Cells[indexPath.Row];
 
+			if (row.ImgOBJ.Independent)
+			{
+				cell.ImageView.Alpha = 0.4f;
+				cell.Layer.BackgroundColor = UIColor.Green.CGColor;
+			}
+			else if (row.ImgOBJ.Prompted)
+			{
+				cell.ImageView.Alpha = 0.4f;
+				cell.Layer.BackgroundColor = UIColor.Yellow.CGColor;
+			}
+			else if(row.ImgOBJ.Missed)
+			{
+				cell.ImageView.Alpha = 0.4f;
+				cell.Layer.BackgroundColor = UIColor.Red.CGColor;
+			}
+
 			cell.UpdateRow(row, ImageViewSize);
 
 			return cell;
@@ -94,12 +110,12 @@ namespace Categories
 
 	public class ImageCell
 	{
-		public ImageCell(Image imageOBJ)
+		public ImageCell(SessionResult imageOBJ)
 		{
 			ImgOBJ = imageOBJ;
 		}
 
-		public Image ImgOBJ { get;  set; }
+		public SessionResult ImgOBJ { get;  set; }
 		public Boolean isSelected { get; set; }
 
 	}
@@ -119,8 +135,6 @@ namespace Categories
 			ImageView.ContentMode = UIViewContentMode.ScaleToFill;
 
 			ContentView.AddSubview(ImageView);
-	
-
 		}
 
 		public UIImageView ImageView { get; private set; }
@@ -130,9 +144,12 @@ namespace Categories
 		public void UpdateRow(ImageCell element,SizeF imageViewSize)
 		{
 
-			ImageView.Image = ImageDatabase.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName);
+			var Resultfilename = new DatabaseContext<Image>().GetQuery("SELECT * FROM Image WHERE ID = ?", element.ImgOBJ.SessionImageID.ToString());
+
+			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(Resultfilename[0].FileName.ToString());
 
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
+
 
 		}
 	}

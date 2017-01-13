@@ -13,7 +13,7 @@ namespace Categories
         NSString cellIdentifier = (NSString)"TableCell";
 		List<Session> list;
 
-		public delegate void SessionsTableDelegate(Session string1);
+		public delegate void SessionsTableDelegate(Session session);
         public event SessionsTableDelegate SessionRowToController;
         #endregion
 
@@ -58,11 +58,8 @@ namespace Categories
                 cell = new CustomCellSessions(cellIdentifier);
             }
             cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
-            var name = categoryIdToName(TableItems[indexPath.Row].categoryID);
-            cell.UpdateCell(name, TableItems[indexPath.Row].SessionDate
-                            , TableItems[indexPath.Row].Independent
-                        , TableItems[indexPath.Row].Prompted,
-                           TableItems[indexPath.Row].Missed);
+            var name = categoryIdToName(TableItems[indexPath.Row].CategoryID);
+			cell.UpdateCell(name, TableItems[indexPath.Row].LastSessionDate);
             return cell;
         }
 

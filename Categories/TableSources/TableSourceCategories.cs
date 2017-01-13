@@ -27,21 +27,19 @@ namespace Categories
 			TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
         }
 
-        public TableSourceCategories(IDbContext<Category> context, UIViewController v, bool isVisibleElseHide)
+        public TableSourceCategories( UIViewController v, bool isVisibleElseHide)
         {
             newSessionSplitViewController = v;
-            dbContext = context;
-            TableItems = dbContext.GetAll();
+			TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
 			isVisible = isVisibleElseHide;
 
         }
 
-        public TableSourceCategories(IDbContext<Category> context, UITableView view)
+        public TableSourceCategories( UITableView view)
         {
             //Possibly use view to only update 1 item at a time?
-            dbContext = context;
             tableView = view;
-            TableItems = dbContext.GetAll();
+            TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
         }
 
 

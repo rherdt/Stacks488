@@ -6,12 +6,12 @@ using UIKit;
 
 namespace Categories
 {
-	public partial class CollectionViewController : UIViewController
+	public partial class CollectionViewAttributes : UIViewController
 	{
 		UICollectionView CollectionView;
-		CollectionViewImageSource CollectionViewSource;
+		CollectionViewImageSourceAttribute CollectionViewSource;
 
-		public CollectionViewController() : base("CollectionViewController", null)
+		public CollectionViewAttributes() : base("CollectionViewController", null)
 		{
 		}
 
@@ -27,7 +27,7 @@ namespace Categories
 			 */
 			UICollectionViewFlowLayout layout = new UICollectionViewFlowLayout
 			{
-				SectionInset = new UIEdgeInsets(10, 10, 10, 10),
+				SectionInset = new UIEdgeInsets(2, 2, 2, 2),
 				//MinimumInteritemSpacing = 1,
 				//MinimumLineSpacing = 10,
 				ItemSize = CellSize //new SizeF(110, 110)
@@ -37,60 +37,42 @@ namespace Categories
 			/*
 			 * Initialize the CollectionViewSource and UICollectionView
 			 */
-			CollectionViewSource = new CollectionViewImageSource();
+			CollectionViewSource = new CollectionViewImageSourceAttribute();
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
 
-			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.6, this.View.Bounds.Height);
+			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.8, this.View.Bounds.Height);
 			CollectionView.BackgroundColor = UIColor.White;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 
 
-			CollectionView.RegisterClassForCell(typeof(UserCell), UserCell.CellID);
+			CollectionView.RegisterClassForCell(typeof(UserCellAttribute), UserCellAttribute.CellID);
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 			CollectionView.Source = CollectionViewSource;
+			UpdateImages(new DatabaseContext<Image>().GetQuery("SELECT * FROM Image"));
 
 		}
-		public void UpdateImages(List<SessionResult> ImageResults)
+		public void UpdateImages(List<Image> ImageResults)
 		{
-			
+
 			foreach (var s in ImageResults)
 			{
-				CollectionViewSource.Cells.Add(new ImageCell(s));
+				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
 			}
 			//refresh collectionview
 			CollectionView.ReloadData();
 			//add the collection to the UIView
 			Add(CollectionView);
 		}
-		public void ClearCollectionView()
+		public void ClearImages()
 		{
-			//remove all images and reload the data
-			if(CollectionViewSource.Cells.Count >0)
-			{
-				CollectionViewSource.Cells.RemoveRange(0, CollectionViewSource.Cells.Count );
-			}
+			CollectionViewSource.Cells.Clear();
 			CollectionView.ReloadData();
+
 		}
-		public void SetImageSource(List<SessionResult> imagesForSelectedSession)
-		{
-			List<Image> images = new List<Image>();
 
-			foreach (SessionResult res in imagesForSelectedSession)
-			{
-				List<Image> temp = new DatabaseContext<Image>().GetQuery("SELECT * FROM Image WHERE ID = ?", res.SessionImageID.ToString());
-
-				foreach (Image i in temp)
-				{
-					images.Add(i);
-
-				}
-			}
-
-			UpdateImages(imagesForSelectedSession);
-		}
 		public override void DidReceiveMemoryWarning()
 		{
 			base.DidReceiveMemoryWarning();
@@ -104,7 +86,7 @@ namespace Categories
 		{
 			CGRect screenRect = this.View.Bounds; //UIScreen.MainScreen.Bounds;
 			var screenWidth = screenRect.Width;
-			var cellWidth = screenWidth / 6.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
+			var cellWidth = screenWidth / 6.0; //Replace with the column count
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;

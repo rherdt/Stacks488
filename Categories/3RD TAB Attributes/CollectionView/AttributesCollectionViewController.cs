@@ -9,9 +9,9 @@ namespace Categories
 	public partial class AttributesCollectionViewController : UIViewController
 	{
 		UICollectionView CollectionView;
-		CollectionViewImageSource CollectionViewSource;
+		CollectionViewImageSourceAttribute CollectionViewSource;
 
-		public AttributesCollectionViewController(CollectionViewImageSource AttributeSource) : base("AttributesCollectionViewController", null)
+		public AttributesCollectionViewController(CollectionViewImageSourceAttribute AttributeSource) : base("AttributesCollectionViewController", null)
 		{
 			CollectionViewSource = AttributeSource;
 		}
@@ -57,20 +57,28 @@ namespace Categories
 			UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
 			//UpdateImages(ImageDatabase.GetAllImagesByOBJ());
 		}
-		public void UpdateImages(List<Image> Images)
+		public void UpdateImages(List<Image> ImageResults)
 		{
-			if (Images != null)
+
+			foreach (var s in ImageResults)
 			{
-				foreach (var s in Images)
-				{
-					CollectionViewSource.Cells.Add(new ImageCell(s));
-				}
-				//refresh collectionview
-				CollectionView.ReloadData();
-				//add the collection to the UIView
-				Add(CollectionView);
+				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
 			}
+			//refresh collectionview
+			CollectionView.ReloadData();
+			//add the collection to the UIView
+			Add(CollectionView);
 		}
+		public void ClearCollectionView()
+		{
+			//remove all images and reload the data
+			if (CollectionViewSource.Cells.Count > 0)
+			{
+				CollectionViewSource.Cells.RemoveRange(0, CollectionViewSource.Cells.Count);
+			}
+			CollectionView.ReloadData();
+		}
+
 		public void ClearImages()
 		{
 			CollectionViewSource.Cells.Clear();

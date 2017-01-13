@@ -16,12 +16,12 @@ namespace Categories
 			var db = new SQLiteConnection(dbPath);
 
 			Session currSession = new Session();
-			currSession.SessionDate = date;
-			currSession.ParentID = parentID;
-			currSession.Independent = i;
-			currSession.Prompted = p;
-			currSession.Missed = m;
-			currSession.categoryID = categoryID;
+			currSession.LastSessionDate = date;
+			currSession.ParentProfileID = parentID;
+			//currSession.Independent = i;
+			//currSession.Prompted = p;
+			//currSession.Missed = m;
+			currSession.CategoryID = categoryID;
 
 			db.CreateTable<Session>();
 			db.Insert(currSession);
@@ -34,50 +34,8 @@ namespace Categories
 			Console.WriteLine("Rows Affected"+count);
 		}
 
-		public static void DeleteSessionsByParentID(int parentid)
-		{
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Session>();
+	
 
-			if (db.Table<Session>().Count() == 0)
-			{
-				return;
-			}
-
-			var table = db.Table<Session>();
-			foreach (var s in table)
-			{
-				if (s.ParentID.Equals(parentid) )
-				{
-					var count = db.Delete<Session>(s.ID);
-					Console.WriteLine("Rows Affected" + count);
-				}
-			}
-		}
-
-		public static List<Session> getSessionsByProfile(Profiles profile)
-		{
-			List<Session> Sessions = new List<Session>();
-
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Session>();
-
-			if (db.Table<Session>().Count() == 0)
-			{
-				return null;
-			}
-
-			var table = db.Table<Session>();
-			foreach (var s in table)
-			{
-				if (s.ParentID.Equals(profile.ID)){
-					Sessions.Add(s);
-				}
-
-			}
-
-			return Sessions;
-		}
 
 
 		public static List<Session> getSessionsByCategory(Category category)
@@ -95,7 +53,7 @@ namespace Categories
 			var table = db.Table<Session>();
 			foreach (var s in table)
 			{
-				if (s.categoryID.Equals(category.ID))
+				if (s.CategoryID.Equals(category.ID))
 				{
 					Sessions.Add(s);
 				}
@@ -129,11 +87,11 @@ namespace Categories
 					/*
 					 * Fix Insert Interface with multiple parameters then get actual parentID
 					 */ 
-					_Session.ParentID = new Guid();
-					_Session.Prompted = 1;
-					_Session.Independent = 1;
-					_Session.Missed = 1;
-					_Session.SessionDate = input;
+					_Session.ParentProfileID = new Guid();
+					//_Session.Prompted = 1;
+					//_Session.Independent = 1;
+					//_Session.Missed = 1;
+					_Session.LastSessionDate = input;
 
 					db.CreateTable<Session>();
 					db.Insert(_Session);

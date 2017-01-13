@@ -8,17 +8,13 @@ namespace Categories
 		[PrimaryKey, AutoIncrement]
 		public Guid ID { get; set; }
 
-		public Guid ParentID { get; set; }
+		public Guid ParentProfileID { get; set; }
 
-		public string SessionDate { get; set; }
+		public string LastSessionDate { get; set; }
 
-		public int Independent { get; set; }
+		public Guid CategoryID { get; set;}
 
-		public int Prompted { get; set; }
-
-		public int Missed { get; set; }
-
-		public Guid categoryID { get; set; }
+		public double SessionScore { get; set;}
 
 	}
 }

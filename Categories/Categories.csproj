@@ -214,7 +214,6 @@
     <Compile Include="TableCustomCells\CustomCellCategories.cs" />
     <Compile Include="Objects\CurrentSession.cs" />
     <Compile Include="Objects\Result.cs" />
-    <Compile Include="3RD TAB Attributes\CollectionView\CollectionViewImageSource.cs" />
     <Compile Include="2ND TAB Categories\CategoriesSplitViewController.cs" />
     <Compile Include="2ND TAB Categories\CategoriesSplitViewController.designer.cs">
       <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
@@ -232,6 +231,10 @@
     <Compile Include="Database\IDatabase.cs" />
     <Compile Include="Interfaces\Utilities.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
+    <Compile Include="Objects\SessionResult.cs" />
+    <Compile Include="CollectionView\CollectionViewImageSource.cs" />
+    <Compile Include="CollectionView\CollectionViewImageSourceAttribute.cs" />
+    <Compile Include="CollectionView\CollectionViewAttributes.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

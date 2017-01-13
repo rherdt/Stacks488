@@ -26,8 +26,8 @@ namespace Categories
 
 		//Collection View
 		TableSourceAttributes AttributesTableSource;
-		CollectionViewImageSource AttributeImageSource;
-		AttributesCollectionViewController attributesCollectionView;
+		CollectionViewImageSourceAttribute AttributeImageSource;
+		CollectionViewAttributes attributesCollectionView;
 
 		//Image Attribute table
 		MasterTableNavigationController ImageAtrributesNavigationController;
@@ -49,11 +49,11 @@ namespace Categories
 
 
 			//2nd Screen
-			AttributeImageSource = new CollectionViewImageSource();
+			AttributeImageSource = new CollectionViewImageSourceAttribute();
 			AttributeImageSource.ImageClickedToController += GetImageSelectedFromCollectionView; //delegate for image source
 			//add nav controller to collectionview
 
-			attributesCollectionView = new AttributesCollectionViewController(AttributeImageSource);
+			attributesCollectionView = new CollectionViewAttributes();
 			navControllerCollection = new UINavigationController(attributesCollectionView);
 
 			//Set up Navigation Camera Selection button 

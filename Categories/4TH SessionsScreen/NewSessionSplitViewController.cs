@@ -57,7 +57,7 @@ namespace Categories
 		public void InitializeMasterControllerFields()
 		{
 			//Create the Profile source and assign the delegate
-			CategorySource = new TableSourceCategories(categoryDb, this, true);
+			CategorySource = new TableSourceCategories(this, true);
 			CategorySource.CategoryRowToSessionTableViewController += GetRowClickedFromCategorySource;
 			//ProfilesSource.HideTable += ShowSessionTableHandler;
 
@@ -95,7 +95,7 @@ namespace Categories
 		#region Delegates
 		public void startButton()
 		{
-			SettingsAlertController settings = new SettingsAlertController();
+			SettingsAlertController settings = new SettingsAlertController(pRow);
 			settings.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
 			settings.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
 			//UIViewController Parent = this.ParentViewController.ParentViewController;
@@ -126,7 +126,7 @@ namespace Categories
 
 			for (int i = 0; i < originalDb.Count; i++)
 			{
-				if (originalDb[i].categoryID.Equals(CategoryRow.ID))
+				if (originalDb[i].CategoryID.Equals(CategoryRow.ID))
 				{
 					specificProfileSessionsListTrimmed.Add(originalDb[i]);
 				}
