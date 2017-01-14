@@ -55,7 +55,9 @@ namespace Categories
 						Session newSession = new Session();
 						newSession.LastSessionDate = DateTime.Now.ToString("d");
 						newSession.ParentProfileID = CurrentProfile.ID;
-						newSession.SessionScore = Attempted / Correct * 1.0;
+						//newSession.SessionScore = Attempted / Correct * 1.0;
+						newSession.Attempted = Attempted;
+						newSession.Correct = Correct;
 						newSession.CategoryID = CurrentCategory.ID;
 
 						int insertResult = new DatabaseContext<Session>().Insert(newSession);

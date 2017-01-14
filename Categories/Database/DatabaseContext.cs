@@ -23,6 +23,15 @@ namespace Categories
 			}
 		}
 
+		public T GetByGuid(Guid id)
+		{
+			using (var db = new SQLiteConnection(dbPath))
+			{
+				db.CreateTable<T>();
+				return db.Get<T>(id);
+			}
+		}
+
 		public List<T> GetQuery(string qry)
 		{
 			using (var db = new SQLiteConnection(dbPath))

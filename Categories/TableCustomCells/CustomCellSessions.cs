@@ -60,20 +60,19 @@ public class CustomCellSessions : UITableViewCell
     }
     #endregion
 
-    public void UpdateCell(string categoryName, string date)
+    public void UpdateCell(string categoryName, string date, int correct, int attempted)
     {
         categoriesLabel.Text = categoryName;
         dateLabel.Text = date;
-		//set fields in Session.cs to the values returned from the session?
-        //correctRawLabel.Text = i.ToString() + "/" + (i + p + m).ToString();
-        //.Text = calculatePercentage(i, p, m).ToString() + "%";
+
+		correctRawLabel.Text = correct.ToString() + "/" + attempted.ToString();
+        correctPercentageLabel.Text = calculatePercentage(correct, attempted).ToString() + "%";
 
     }
 
-    int calculatePercentage(int independent, int prompted, int missed)
+    int calculatePercentage(int correct, int attempted)
     {
-        int total = independent + prompted + missed;
-        double perc = (double)independent / (double)total * 100.0;
+        double perc = (double)correct / (double)attempted * 100.0;
         int ret = (int)Math.Round(perc);
         return ret;
     }

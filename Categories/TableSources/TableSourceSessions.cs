@@ -58,24 +58,9 @@ namespace Categories
                 cell = new CustomCellSessions(cellIdentifier);
             }
             cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
-            var name = categoryIdToName(TableItems[indexPath.Row].CategoryID);
-			cell.UpdateCell(name, TableItems[indexPath.Row].LastSessionDate);
+            var name = new DatabaseContext<Category>().GetByGuid(TableItems[indexPath.Row].CategoryID).CategoryName;
+			cell.UpdateCell(name, TableItems[indexPath.Row].LastSessionDate, TableItems[indexPath.Row].Correct, TableItems[indexPath.Row].Attempted);
             return cell;
-        }
-
-        private string categoryIdToName(Guid categoryID)
-        {
-            string ret = "";
-            List<Category> categoryList = CategoryDatabase.GetAllStatic();
-            for (int i = 0; i < categoryList.Count; i++)
-            {
-                if (categoryList[i].ID.Equals(categoryID))
-                {
-                    ret = categoryList[i].CategoryName;
-                }
-            }
-
-            return ret;
         }
 
         public List<Session> getList()

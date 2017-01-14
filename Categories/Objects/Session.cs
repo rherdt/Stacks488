@@ -16,5 +16,9 @@ namespace Categories
 
 		public double SessionScore { get; set;}
 
+		public int Attempted { get; set; }
+
+		public int Correct { get; set; }
+
 	}
 }
