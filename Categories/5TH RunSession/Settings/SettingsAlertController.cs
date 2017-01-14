@@ -53,18 +53,18 @@ namespace Categories
 					{
 						//create the session
 						Session newSession = new Session();
-						newSession.LastSessionDate = DateTime.Now.ToString("d");
+						newSession.SessionDate = DateTime.Now.ToString("d");
 						newSession.ParentProfileID = CurrentProfile.ID;
 						//newSession.SessionScore = Attempted / Correct * 1.0;
 						newSession.Attempted = Attempted;
 						newSession.Correct = Correct;
 						newSession.CategoryID = CurrentCategory.ID;
 
+
+
 						int insertResult = new DatabaseContext<Session>().Insert(newSession);
 
 						//submit the results to that database
-
-
 						foreach (Result res in currentSession.SessionResultsList)
 						{
 
@@ -87,6 +87,9 @@ namespace Categories
 							new DatabaseContext<SessionResult>().Insert(temp);
 
 						}
+						//update the profile with the lates date
+						CurrentProfile.LastSessionDate = DateTime.Now.ToString("d");
+						new DatabaseContext<Profiles>().Update(CurrentProfile);
 
 
 

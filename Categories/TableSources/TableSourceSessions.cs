@@ -59,7 +59,7 @@ namespace Categories
             }
             cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
             var name = new DatabaseContext<Category>().GetByGuid(TableItems[indexPath.Row].CategoryID).CategoryName;
-			cell.UpdateCell(name, TableItems[indexPath.Row].LastSessionDate, TableItems[indexPath.Row].Correct, TableItems[indexPath.Row].Attempted);
+			cell.UpdateCell(name, TableItems[indexPath.Row].SessionDate, TableItems[indexPath.Row].Correct, TableItems[indexPath.Row].Attempted);
             return cell;
         }
 

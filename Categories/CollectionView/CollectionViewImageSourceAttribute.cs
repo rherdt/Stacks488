@@ -44,16 +44,18 @@ namespace Categories
 			cell.ImageView.Alpha = 0.5f;
 
 
-			//unlick the previous image
+			/*unlick the previous image
 			if (prevImageSelected != null && prevImageSelected != indexPath)
 			{
 				var cellPrev = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
+				i
 				cellPrev.ImageView.Alpha = 1.0f;
 				Cells[prevImageSelected.Row].isSelected = false;
 
 			}
+			*/
 
-			prevImageSelected = indexPath;
+			//prevImageSelected = indexPath;
 
 		}
 
@@ -62,18 +64,12 @@ namespace Categories
 			//Get the Selected Image
 			var cell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			ImageCellAttribute Clicked = Cells[indexPath.Row];
-
-
-			if (Clicked.isSelected)
-			{
-				//cell.ImageView.Alpha = 1.0f;
-				//Clicked.isSelected = false;
-			}
+			cell.ImageView.Alpha = 1.0f;
 
 
 			if (ImageClickedToController != null)
 			{
-				//ImageClickedToController(Clicked.ImgOBJ);
+				ImageClickedToController(Clicked.ImgOBJ);
 			}
 
 			Clicked.isSelected = true;

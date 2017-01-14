@@ -16,7 +16,7 @@ namespace Categories
 			var db = new SQLiteConnection(dbPath);
 
 			Session currSession = new Session();
-			currSession.LastSessionDate = date;
+			currSession.SessionDate = date;
 			currSession.ParentProfileID = parentID;
 			//currSession.Independent = i;
 			//currSession.Prompted = p;
@@ -91,7 +91,7 @@ namespace Categories
 					//_Session.Prompted = 1;
 					//_Session.Independent = 1;
 					//_Session.Missed = 1;
-					_Session.LastSessionDate = input;
+					_Session.SessionDate = input;
 
 					db.CreateTable<Session>();
 					db.Insert(_Session);

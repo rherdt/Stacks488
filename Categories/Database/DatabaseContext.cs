@@ -67,6 +67,22 @@ namespace Categories
 			}
 	
 		}
+		public int Update(T item)
+		{
+			try
+			{
+				using (var db = new SQLiteConnection(dbPath))
+				{
+					db.CreateTable<T>();
+					return db.Update(item);
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.ToString());
+				return -1;
+			}
+		}
 	}
 
 

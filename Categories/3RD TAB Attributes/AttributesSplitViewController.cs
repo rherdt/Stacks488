@@ -43,17 +43,19 @@ namespace Categories
 			//1st screen
 			AttributesTableSource = new TableSourceAttributes();
 			AttributesTableSource.AttributeRowToController += GetAttributeRowSelected;
+			AttributesTableSource.ReloadCollectionView += ReloadCollectionViewAll;
 
 			attributesTableViewController = new AttributesTableViewController( AttributesTableSource);
+
 			navController = new MasterTableNavigationController(attributesTableViewController);
 
 
 			//2nd Screen
 			AttributeImageSource = new CollectionViewImageSourceAttribute();
 			AttributeImageSource.ImageClickedToController += GetImageSelectedFromCollectionView; //delegate for image source
-			//add nav controller to collectionview
 
-			attributesCollectionView = new CollectionViewAttributes();
+			//add nav controller to collectionview
+			attributesCollectionView = new CollectionViewAttributes(AttributeImageSource);
 			navControllerCollection = new UINavigationController(attributesCollectionView);
 
 			//Set up Navigation Camera Selection button 
@@ -65,8 +67,8 @@ namespace Categories
 			navControllerCollection.View.Bounds = navControllerCollection.View.Frame;
 
 			//Right Table (Image Attributes)
-			IDbContext<ImageAttributes> imageAttributeDb = new ImageAttributeDatabase();
 			RightAttributesTableSource = new TableSourceImageAttributes();
+			RightAttributesTableSource.ImageAttributeToAttributes += InsertAttributeForImage;
 			RightImageAttributeTable = new ImageAttributesTableViewController(RightAttributesTableSource);
 			ImageAtrributesNavigationController = new MasterTableNavigationController(RightImageAttributeTable);
 			RightAttributesTableSource.AttributeRowToController += GetAttributeRowSelectedRight;
@@ -105,6 +107,10 @@ namespace Categories
 				attributesCollectionView.UpdateImages(Images);
 			}
 
+			//clear the attributes table 
+			RightAttributesTableSource.ClearTable();
+			RightImageAttributeTable.RefreshTableView();
+
 
 		}
 		void GetAttributeRowSelectedRight(ImageAttributes attrReturned)
@@ -122,6 +128,16 @@ namespace Categories
 			Selected = imageSelected;
 			RightAttributesTableSource.SetTableSource(imageSelected.ID);
 			RightImageAttributeTable.RefreshTableView();
+
+
+
+
+		}
+
+		void ReloadCollectionViewAll(Attribute attr)
+		{
+			attributesCollectionView.ClearImages();
+			attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * FROM Image"));
 		}
 
 		void AddPhotoButtonHandler(object sender, EventArgs e)
@@ -188,11 +204,12 @@ namespace Categories
 
 			if (Selected != null)
 			{
-				ImageAttributes newAtt = new ImageAttributes();
-				newAtt.ImageID = Selected.ID;
-				newAtt.Name = str;
-
-				int inserted = new DatabaseContext<ImageAttributes>().Insert(newAtt);
+				//update the left Attributes, add attributes from each image to all attributes
+				Attribute att = new Attribute();
+				att.Name = str;
+				int result = new DatabaseContext<Attribute>().Insert(att);
+				AttributesTableSource.ReloadDataAll();
+				attributesTableViewController.ReloadTableData();
 			
 			}
 		}

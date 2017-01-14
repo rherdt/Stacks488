@@ -12,7 +12,7 @@ namespace Categories
 
 		public Guid CategoryID { get; set;}
 
-		public string LastSessionDate { get; set; }
+		public string SessionDate { get; set; }
 
 		public double SessionScore { get; set;}
 

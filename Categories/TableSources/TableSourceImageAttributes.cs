@@ -11,8 +11,10 @@ namespace Categories
 		string cellIdentifier = "TableCell";
 
 		//Delegates
-		public delegate void AtributesTableDelegate(ImageAttributes attr);
-		public event AtributesTableDelegate AttributeRowToController;
+		public delegate void AttributesTableDelegate(ImageAttributes attr);
+		public event AttributesTableDelegate AttributeRowToController;
+		public delegate void Delegate(string attr);
+		public event Delegate ImageAttributeToAttributes;
 
 		Guid CurrentlySelectedImageID;
 
@@ -24,6 +26,10 @@ namespace Categories
 			CurrentlySelectedImageID = imageID;
 			List<ImageAttributes> imageAtts = new DatabaseContext<ImageAttributes>().GetQuery("Select * FROM ImageAttributes WHERE ImageID = ?", imageID.ToString());
 			tableItems = imageAtts;
+		}
+		public void ClearTable()
+		{
+			tableItems = new List<ImageAttributes>();
 		}
 
 
@@ -43,6 +49,7 @@ namespace Categories
 		{
 			//send data to ProfilesSplitViewController
 			var SelectedItemName = this.tableItems[indexPath.Row];
+
 			if (AttributeRowToController != null)
 			{
 				AttributeRowToController(SelectedItemName);
@@ -72,12 +79,13 @@ namespace Categories
 
 				int result = new DatabaseContext<ImageAttributes>().Insert(newAttr);
 
-				//Add the attribute to the Attribute table as well
-				Attribute att = new Attribute();
-				att.Name = data;
-				result = new DatabaseContext<Attribute>().Insert(att);
 				//refresh the attributes table
+				tableItems = new DatabaseContext<ImageAttributes>().GetQuery("Select * FROM ImageAttributes WHERE ImageID = ?", CurrentlySelectedImageID.ToString());
 
+				if (ImageAttributeToAttributes != null)
+				{
+					ImageAttributeToAttributes(data);
+				}
 				return true;
 			}
 			else
@@ -86,6 +94,8 @@ namespace Categories
 			}
 		
 		}
+
+
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{
 			switch (editingStyle)

@@ -9,10 +9,15 @@ namespace Categories
 	{
 		List<Attribute> tableItems;
 		string cellIdentifier = "TableCell";
+		Attribute PrevRowSelected;
+		NSIndexPath Prev;
 
 		//Delegates
 		public delegate void AtributesTableDelegate(Attribute attr);
 		public event AtributesTableDelegate AttributeRowToController;
+		public event AtributesTableDelegate ReloadCollectionView;
+
+
 
 
 		public TableSourceAttributes()
@@ -35,14 +40,31 @@ namespace Categories
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			//send data to ProfilesSplitViewController
-			var SelectedItemName = this.tableItems[indexPath.Row];
-			if (AttributeRowToController != null)
+			Attribute SelectedItemName = this.tableItems[indexPath.Row];
+
+			if (PrevRowSelected == SelectedItemName)
 			{
-				AttributeRowToController(SelectedItemName);
+				if (ReloadCollectionView != null)
+				{
+					ReloadCollectionView(null);
+				}
+				tableView.DeselectRow(indexPath, true);
+
 			}
-			tableView.DeselectRow(indexPath, true);
+			if(AttributeRowToController != null && PrevRowSelected != SelectedItemName){
+				
+				//tableView.DeselectRow(Prev, true);
+				AttributeRowToController(SelectedItemName);
+				Prev = indexPath;
+				PrevRowSelected = SelectedItemName;
+			}
 
 
+
+		}
+		public override void RowDeselected(UITableView tableView, NSIndexPath indexPath)
+		{
+			//tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -63,6 +85,10 @@ namespace Categories
 			tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
 
 			return true;
+		}
+		public void ReloadDataAll()
+		{
+			tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
 		}
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{

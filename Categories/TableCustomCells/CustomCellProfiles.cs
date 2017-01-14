@@ -37,12 +37,15 @@ public class CustomCellProfiles : UITableViewCell
 
         ContentView.AddSubviews(new UIView[] { nameLabel, sessionLabel });
     }
-    public void UpdateCell(string fullName)
+    public void UpdateCell(string fullName, string date)
     {
 
         nameLabel.Text = fullName;
-        //idLabel.Text = id.ToString();
-        sessionLabel.Text = "Last Session: MM/DD/YYYY";
+		//idLabel.Text = id.ToString();
+		if(date != null)
+		{
+			sessionLabel.Text = "Latest Session: "+date;
+		}
     }
 
 

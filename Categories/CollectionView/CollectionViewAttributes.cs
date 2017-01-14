@@ -11,8 +11,9 @@ namespace Categories
 		UICollectionView CollectionView;
 		CollectionViewImageSourceAttribute CollectionViewSource;
 
-		public CollectionViewAttributes() : base("CollectionViewController", null)
+		public CollectionViewAttributes(CollectionViewImageSourceAttribute Source) : base("CollectionViewController", null)
 		{
+			CollectionViewSource = Source;
 		}
 
 		public override void ViewDidLoad()
@@ -37,7 +38,6 @@ namespace Categories
 			/*
 			 * Initialize the CollectionViewSource and UICollectionView
 			 */
-			CollectionViewSource = new CollectionViewImageSourceAttribute();
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);

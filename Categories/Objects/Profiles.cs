@@ -13,5 +13,7 @@ namespace Categories
 
 		public string LastName { get; set; }
 
+		public string LastSessionDate { get; set; }
+
 	}
 }

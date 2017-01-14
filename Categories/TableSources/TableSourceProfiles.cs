@@ -59,8 +59,11 @@ namespace Categories
                 cell = new CustomCellProfiles(cellIdentifier);
             }
             cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
-            var name = tableItems[indexPath.Row].FirstName + " " + tableItems[indexPath.Row].LastName;
-            cell.UpdateCell(name);
+			Profiles temp = tableItems[indexPath.Row];
+
+            var name = temp.FirstName + " " + temp.LastName;
+			var date = temp.LastSessionDate;
+            cell.UpdateCell(name,date);
 
             return cell;
         }
