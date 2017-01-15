@@ -17,6 +17,9 @@ namespace Categories
         NSString cellIdentifier = (NSString)"TableCell";
         UIViewController newSessionSplitViewController;
 		bool isVisible;
+
+		Category PrevRowSelected;
+		NSIndexPath prev;
         #endregion
 
         public delegate void SessionsTableDelegate(Category category);
@@ -51,12 +54,20 @@ namespace Categories
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             //send data to ProfilesSplitViewController
-            var SelectedItemName = this.TableItems[indexPath.Row];
-            if (CategoryRowToSessionTableViewController != null)
-            {
-                CategoryRowToSessionTableViewController(SelectedItemName);
-            }
-            tableView.DeselectRow(indexPath, true);
+            Category SelectedItemName = this.TableItems[indexPath.Row];
+
+			if (PrevRowSelected == SelectedItemName)
+			{
+				tableView.DeselectRow(indexPath, true);
+			}
+			if (CategoryRowToSessionTableViewController != null && PrevRowSelected != SelectedItemName)
+			{
+
+				tableView.DeselectRow(prev, true);
+				CategoryRowToSessionTableViewController(SelectedItemName);
+				prev = indexPath;
+				PrevRowSelected = SelectedItemName;
+			}
         }
 
         void HandleReload()

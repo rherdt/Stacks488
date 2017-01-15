@@ -14,12 +14,12 @@ namespace Categories
         string IUpdatableTable.TableType => "Category";
 
 
-        public CategoriesTableViewController()
+        public CategoriesTableViewController(TableSourceCategories tableCategories)
         {
             tableController = new UITableViewController();
             tableController.Title = "Categories";
             table = new UITableView();
-            source = new TableSourceCategories();
+			source = tableCategories;
             table.Source = (UITableViewSource)source;
             tableController.View = table;
         }

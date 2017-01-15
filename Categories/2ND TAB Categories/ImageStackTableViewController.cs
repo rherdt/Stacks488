@@ -6,12 +6,12 @@ namespace Categories
     public class ImageStackTableViewController : UITableViewController
     {
         UITableView table;
-        TestTableSource source;
+        TableSourceImageStack source;
 
-        public ImageStackTableViewController() : base()
+		public ImageStackTableViewController(TableSourceImageStack imageStackTable) : base()
         {
             table = new UITableView();
-            source = new TestTableSource();
+			source = imageStackTable;
             View = table;
             table.Source = source;
         }
@@ -21,5 +21,12 @@ namespace Categories
             base.ViewDidLayoutSubviews();
             table.Frame = new CoreGraphics.CGRect(0, 0, table.Frame.Width, table.Frame.Height);
         }
+		public void ReloadTableData()
+		{
+			if (table != null)
+			{
+				table.ReloadData();
+			}
+		}
     }
 }

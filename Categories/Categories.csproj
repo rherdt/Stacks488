@@ -235,6 +235,8 @@
     <Compile Include="CollectionView\CollectionViewImageSource.cs" />
     <Compile Include="CollectionView\CollectionViewImageSourceAttribute.cs" />
     <Compile Include="CollectionView\CollectionViewAttributes.cs" />
+    <Compile Include="Objects\ImageStackCategory.cs" />
+    <Compile Include="TableSources\TableSourceImageStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

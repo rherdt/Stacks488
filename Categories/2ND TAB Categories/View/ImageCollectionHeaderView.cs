@@ -17,6 +17,9 @@ namespace Categories
             var v = Runtime.GetNSObject<ImageCollectionHeaderView>(arr.ValueAt(0));
             return v;
         }
+		public UIButton getAddButton() { 
+			return btnAdd; 
+		}
 
         //set button properties at runtime
         public override void AwakeFromNib()

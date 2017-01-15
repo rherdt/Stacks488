@@ -18,6 +18,7 @@ namespace Categories
 
 		Guid CurrentlySelectedImageID;
 
+
 		public TableSourceImageAttributes()
 		{
 		}
@@ -48,13 +49,14 @@ namespace Categories
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			//send data to ProfilesSplitViewController
-			var SelectedItemName = this.tableItems[indexPath.Row];
-
+			ImageAttributes SelectedItemName = this.tableItems[indexPath.Row];
 			if (AttributeRowToController != null)
 			{
 				AttributeRowToController(SelectedItemName);
 			}
 			tableView.DeselectRow(indexPath, true);
+
+
 
 
 		}

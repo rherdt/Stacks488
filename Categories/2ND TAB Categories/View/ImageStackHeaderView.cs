@@ -16,6 +16,10 @@ namespace Categories
             var v = Runtime.GetNSObject<ImageStackHeaderView>(arr.ValueAt(0));
             return v;
         }
+		public UIButton getAddButton()
+		{
+			return AddButton;
+		}
 
         public override void AwakeFromNib() { }
 

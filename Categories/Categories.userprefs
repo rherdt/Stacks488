@@ -1,14 +1,43 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="111" Column="41" />
-      <File FileName="TableSources/TableSourceImageAttributes.cs" Line="32" Column="45" />
-      <File FileName="Database/DatabaseContext.cs" Line="10" Column="1" />
-      <File FileName="TableSources/TableSourceAttributes.cs" Line="91" Column="86" />
-      <File FileName="CollectionView/CollectionViewImageSourceAttribute.cs" Line="67" Column="14" />
-      <File FileName="3RD TAB Attributes/AttributesTableViewController.cs" Line="29" Column="30" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="91" Column="42" />
+      <File FileName="2ND TAB Categories/View/ImageStackHeaderView.cs" Line="21" Column="21" />
+      <File FileName="1ST TAB Profiles/View/SessionHeaderView.cs" Line="24" Column="25" />
+      <File FileName="TableSources/TableSourceProfiles.cs" Line="71" Column="24" />
+      <File FileName="TableSources/TableSourceCategories.cs" Line="65" Column="5" />
+      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="1" Column="1" />
+      <File FileName="TableSources/TableSourceImageAttributes.cs" Line="55" Column="29" />
+      <File FileName="5TH RunSession/Settings/SettingsAlertController.cs" Line="131" Column="6" />
+      <File FileName="TableSources/TableSourceImageStack.cs" Line="83" Column="3" />
       <File FileName="Categories Status" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Categories" expanded="True">
+            <Node name="Categories" expanded="True">
+              <Node name="1ST TAB Profiles" expanded="True">
+                <Node name="View" expanded="True" />
+              </Node>
+              <Node name="2ND TAB Categories" expanded="True">
+                <Node name="View" expanded="True" />
+              </Node>
+              <Node name="3RD TAB Attributes" expanded="True" />
+              <Node name="5TH RunSession" expanded="True">
+                <Node name="Settings" expanded="True" />
+              </Node>
+              <Node name="Controller" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="TableCustomCells" expanded="True" />
+              <Node name="TableSources" expanded="True">
+                <Node name="TableSourceImageStack.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

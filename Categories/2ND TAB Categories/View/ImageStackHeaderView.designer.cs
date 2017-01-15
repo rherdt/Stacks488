@@ -16,10 +16,19 @@ namespace Categories
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton AddButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField txtCategoryName { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
+            if (AddButton != null) {
+                AddButton.Dispose ();
+                AddButton = null;
+            }
+
             if (txtCategoryName != null) {
                 txtCategoryName.Dispose ();
                 txtCategoryName = null;
