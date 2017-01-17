@@ -23,6 +23,21 @@ namespace Categories
 			}
 		}
 
+		public int CascadeDelete<TVal>(Guid parenttID) where TVal: IChildEntity, new()
+		{
+			using (var db = new SQLiteConnection(dbPath))
+			{
+				
+				db.CreateTable<TVal>();
+				return db.Table<TVal>().Delete(t => t.parentId == parenttID);
+			}
+		}
+
+		private void QueryDelete()
+		{
+		}
+			
+
 		public T GetByGuid(Guid id)
 		{
 			using (var db = new SQLiteConnection(dbPath))

@@ -35,6 +35,7 @@ namespace Categories
 			//1st View	
 			categoriesTableSource = new TableSourceCategories();
 			categoriesTableSource.CategoryRowToSessionTableViewController += CategoryRowToImageStackDelegate;
+			categoriesTableSource.HideImageStackView += HideImageStackViewDelegate;
 
 			categoriesTableViewController = new CategoriesTableViewController(categoriesTableSource);
             navController = new MasterTableNavigationController(categoriesTableViewController);
@@ -50,6 +51,7 @@ namespace Categories
 			collectionsNavigationController = new UINavigationController(collectionViewController);
 
 			imageStackSplitViewController = new ImageStackSplitViewController(navigationController, collectionsNavigationController,collectionViewController,imageStackTableViewController);
+			imageStackSplitViewController.View.Hidden = true;
 
 			
 			ViewControllers = new UIViewController[] { navController, imageStackSplitViewController };
@@ -68,13 +70,19 @@ namespace Categories
 			/*
 			 * Update the image stacks based on the category chosen
 			 */
-
+			imageStackSplitViewController.View.Hidden = false;
 			imageStackTable.UpdateSelectedCategory(category);
 
 			imageStackTable.UpdateDataSource(category.ID);
 			imageStackTableViewController.ReloadTableData();
 
 		}
+
+		public void HideImageStackViewDelegate()
+		{
+			imageStackSplitViewController.View.Hidden = true;
+		}
+
 		public void ImageStackToCollectionView(ImageStackCategory imageStackSelected)
 		{
 			/*
