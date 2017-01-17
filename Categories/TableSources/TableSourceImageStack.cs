@@ -54,7 +54,7 @@ namespace Categories
 
 		public void UpdateDataSource(Guid parentID)
 		{
-			TableItems = new DatabaseContext<ImageStackCategory>().GetQuery("SELECT * From ImageStackCategory WHERE ParentCategoryID = ?",parentID.ToString());
+			TableItems = new DatabaseContext<ImageStackCategory>().GetQuery("SELECT * From ImageStackCategory WHERE parentId = ?",parentID.ToString());
 
 		}
 		public void UpdateSelectedCategory(Category currentlySelected)
@@ -87,12 +87,12 @@ namespace Categories
 			{
 				ImageStackCategory imageStack = new ImageStackCategory();
 				imageStack.ImageStackName = data;
-				imageStack.ParentCategoryID = CurrentlySelectedCategory.ID;
+				imageStack.parentId = CurrentlySelectedCategory.ID;
 				imageStack.ParentCategoryName = CurrentlySelectedCategory.CategoryName;
 
 
 				int success = new DatabaseContext<ImageStackCategory>().Insert(imageStack);
-				TableItems = new DatabaseContext<ImageStackCategory>().GetQuery("SELECT * FROM ImageStackCategory WHERE ParentCategoryID = ?", CurrentlySelectedCategory.ID.ToString());
+				TableItems = new DatabaseContext<ImageStackCategory>().GetQuery("SELECT * FROM ImageStackCategory WHERE parentId = ?", CurrentlySelectedCategory.ID.ToString());
 
 				return true;
 			}
@@ -107,7 +107,7 @@ namespace Categories
 				case UITableViewCellEditingStyle.Delete:
 					// remove the item from the underlying data source
 
-					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Row].ID);
+					int didDelete = new DatabaseContext<ImageStackCategory>().Delete(TableItems[indexPath.Row].ID);
 
 					if (didDelete > 0) //deleted
 					{

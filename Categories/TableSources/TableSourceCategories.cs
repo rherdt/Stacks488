@@ -24,6 +24,8 @@ namespace Categories
 
         public delegate void SessionsTableDelegate(Category category);
         public event SessionsTableDelegate CategoryRowToSessionTableViewController;
+		public delegate void HideImageStackDelegate();
+		public event HideImageStackDelegate HideImageStackView;
 
         public TableSourceCategories()
         {
@@ -114,6 +116,9 @@ namespace Categories
                 case UITableViewCellEditingStyle.Delete:
 					// remove the item from the underlying data source
 
+
+					HideImageStackView();
+					int deleteChildren = new DatabaseContext<Category>().CascadeDelete<ImageStackCategory>(TableItems[indexPath.Row].ID);
 					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Row].ID);
 
 					if (didDelete > 0) //deleted

@@ -3,7 +3,7 @@ using SQLite;
 
 namespace Categories
 {
-	public class ImageStackCategory
+	public class ImageStackCategory : IEntity, IChildEntity
 	{
 		[PrimaryKey, AutoIncrement]
 		public Guid ID { get; set; }
@@ -12,6 +12,7 @@ namespace Categories
 
 		public Guid ParentCategoryID { get; set; }
 		public string ParentCategoryName { get; set; }
+		public Guid parentId { get; set; }
 
 	}
 }
