@@ -19,8 +19,5 @@ namespace Categories
 		public int Attempted { get; set; }
 
 		public int Correct { get; set; }
-
-		public string ResultString { get; set; }
-
 	}
 }
