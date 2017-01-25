@@ -31,7 +31,7 @@ namespace Categories
 
             //add controllers
             ViewControllers = new UIViewController[] { navController, sessionSplitViewController };
-            this.View.BackgroundColor = UIColor.White;
+            View.BackgroundColor = UIColor.White;
         }
 
         #region Field Initialization
@@ -45,6 +45,7 @@ namespace Categories
 
             //add delegate to the session source
             SessionSource.SessionRowToController += GetRowClickedFromSessionSource;
+			SessionSource.HideTable += ShowCollectionsView;
 
             //navigation controller for 2nd(Nested splitview controllers
             NavigationController = new UINavigationController(sessions);
@@ -71,9 +72,10 @@ namespace Categories
         #endregion
 
         #region View Methods
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
+        public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			profilesTableViewController.ReloadSessionTableData();
         }
         #endregion
 
@@ -101,9 +103,20 @@ namespace Categories
 			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName + " " + ProfileRow.LastName);
 			sessions.ReloadSessionTableData();
 
+
+
 		}
 
         #endregion
+
+		public void ShowCollectionsView(bool hidden)
+		{
+			//method implemented to avoid crash
+			if (hidden)
+			{
+				
+			}
+		}
 
         public void ShowSessionTableHandler(bool hidden)
         {

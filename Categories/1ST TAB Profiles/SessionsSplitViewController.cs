@@ -27,7 +27,7 @@ namespace Categories
         //WIDTHS
         nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
         nfloat NavigationBarWidth, NavigationBarHeight;
-        #endregion
+		#endregion
 
         public SessionsSplitViewController(SessionsTableViewController sessions, UIViewController collection, UINavigationController navcontroller)
         {
@@ -51,7 +51,7 @@ namespace Categories
             sessionHeaderView = SessionHeaderView.Create();
             navigationController.NavigationBar.AddSubview(sessionHeaderView);
 
-            #region Add Button Delegate Assignment
+            #region Delegate Assignments
             sessionHeaderView.getAddButton().TouchUpInside += (sender, e) =>
             {
                 //parent
@@ -73,8 +73,39 @@ namespace Categories
 				tab.DismissModalViewController(true);
 				//ParentViewController.PresentViewController(SessionScreen, true, null);
             };
-            #endregion
+			#endregion
+
+			sessionHeaderView.getProfileNameTextField().AllTouchEvents += (sender, e) =>
+			{
+				sessionHeaderView.getProfileNameTextField().TintColor = UIColor.Blue;
+			};
+
+			sessionHeaderView.getProfileNameTextField().AddTarget((sender, e) =>
+			{
+				profileRow.FirstName = sessionHeaderView.getProfileNameTextField().Text;
+				new DatabaseContext<Profiles>().Update(profileRow);
+
+			}, UIControlEvent.EditingChanged);
+		
+
+			//sessionHeaderView.getProfileNameTextField().AddObserver("text", Foundation.NSKeyValueObservingOptions.New, ObserveValue);
+
         }
+
+		public void ChangedText(object sender, EventArgs e)
+		{
+			//sessionHeaderView.getProfileNameTextField().ResignFirstResponder();
+			
+			//update the profile with the lates date
+			//profileRow.LastSessionDate = sessionHeaderView.getProfileNameTextField().Text;
+			//new DatabaseContext<Profiles>().Update(profileRow);
+		}
+
+		public override void ViewDidDisappear(bool animated)
+		{
+			base.ViewDidDisappear(animated);
+			sessionHeaderView.getProfileNameTextField().TintColor = UIColor.Clear;
+		}
 
         public override void ViewDidAppear(bool animated)
         {

@@ -162,10 +162,6 @@
     <Compile Include="Objects\Profiles.cs" />
     <Compile Include="Objects\Session.cs" />
     <Compile Include="Objects\Category.cs" />
-    <Compile Include="Controller\SecondViewController.cs" />
-    <Compile Include="Controller\SecondViewController.designer.cs">
-      <DependentUpon>SecondViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="TableSources\TableSourceCategories.cs" />
     <Compile Include="Controller\MainTabBarController.cs" />
     <Compile Include="Controller\MainTabBarController.designer.cs">
@@ -237,6 +233,8 @@
     <Compile Include="CollectionView\CollectionViewAttributes.cs" />
     <Compile Include="Objects\ImageStackCategory.cs" />
     <Compile Include="TableSources\TableSourceImageStack.cs" />
+    <Compile Include="TableSources\TableSourceRanImages.cs" />
+    <Compile Include="TableCustomCells\CustomCellRanImages.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />
@@ -244,6 +242,9 @@
     <BundleResource Include="Resources\categories.png" />
     <BundleResource Include="Resources\images.png" />
     <BundleResource Include="Resources\profiles.png" />
+    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\neutral.png" />
+    <BundleResource Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DEPRECATED\" />

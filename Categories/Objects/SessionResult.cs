@@ -21,6 +21,7 @@ namespace Categories
 		public bool Independent { get; set;}
 		public bool Missed { get; set;}
 		public bool Prompted { get; set;}
+		public string ResultString { get; set;}
 
 	}
 }

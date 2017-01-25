@@ -23,5 +23,10 @@ namespace Categories
 
             tableController.View = table;
         }
+
+		public void ReloadSessionTableData()
+		{
+			table.ReloadData();
+		}
     }
 }

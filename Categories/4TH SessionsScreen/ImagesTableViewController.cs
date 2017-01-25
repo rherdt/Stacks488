@@ -1,21 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace Categories
 {
 	public class ImagesTableViewController:UITableViewController
 	{
+		TableSourceRanImages source;
 		UITableView table;
-		UITableViewSource source;
 
-		public ImagesTableViewController()
+		public ImagesTableViewController(TableSourceRanImages ranImagesSource)
 		{
 			table = new UITableView();
-			source = new TestTableSource();
-
-			Title = "Fruit Run";
-
+			source = ranImagesSource;
 			View = table;
+			table.Source = source;
+		}
+
+		public void setTitle(string t)
+		{
+			Title = t + " Run";
+		}
+
+		public void ReloadRanSessionTableData()
+		{
+			table.ReloadData();
 		}
 	}
 }

@@ -1,4 +1,3 @@
-using Foundation;
 using System;
 using UIKit;
 
@@ -15,11 +14,7 @@ namespace Categories
         CategoriesTableViewController categoriesTableViewController;
         MasterTableNavigationController navController;
 		TableSourceCategories categoriesTableSource;
-
 		#endregion
-
-
-
 
 		/*
 		 * 2nd Table View
@@ -35,6 +30,7 @@ namespace Categories
 			//1st View	
 			categoriesTableSource = new TableSourceCategories();
 			categoriesTableSource.CategoryRowToSessionTableViewController += CategoryRowToImageStackDelegate;
+			categoriesTableSource.HideTable += ShowImageStackView;
 
 			categoriesTableViewController = new CategoriesTableViewController(categoriesTableSource);
             navController = new MasterTableNavigationController(categoriesTableViewController);
@@ -114,6 +110,15 @@ namespace Categories
 			alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Default, null));
 
 			PresentViewController(alert, animated: true, completionHandler: null);
+		}
+
+		public void ShowImageStackView(bool hidden)
+		{
+			//method implemented to avoid crash
+			if (hidden)
+			{
+				
+			}
 		}
 
 		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { 

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using Foundation;
 using UIKit;
 
@@ -12,9 +11,13 @@ namespace Categories
         List<Session> TableItems;
         NSString cellIdentifier = (NSString)"TableCell";
 		List<Session> list;
+		bool TableHidden = true;
 
 		public delegate void SessionsTableDelegate(Session session);
         public event SessionsTableDelegate SessionRowToController;
+
+		public delegate void SessionsTableHideDelegate(bool hidden);
+		public event SessionsTableHideDelegate HideTable;
         #endregion
 
         public TableSourceSessions()
@@ -45,8 +48,13 @@ namespace Categories
                 {
                     SessionRowToController(SelectedItemName);
                 }
+
             }
-            //tableView.DeselectRow(indexPath, true);
+            tableView.DeselectRow(indexPath, true);
+			if (TableHidden && SessionRowToController != null)
+			{
+				HideTable(TableHidden);
+			}
         }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)

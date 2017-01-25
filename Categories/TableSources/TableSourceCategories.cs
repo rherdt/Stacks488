@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Diagnostics.Contracts;
 using Foundation;
 using UIKit;
 
@@ -12,11 +9,11 @@ namespace Categories
     {
         #region Fields
         List<Category> TableItems;
-        IDbContext<Category> dbContext;
         UITableView tableView;
         NSString cellIdentifier = (NSString)"TableCell";
         UIViewController newSessionSplitViewController;
 		bool isVisible;
+		bool TableHidden = true;
 
 		Category PrevRowSelected;
 		NSIndexPath prev;
@@ -24,6 +21,9 @@ namespace Categories
 
         public delegate void SessionsTableDelegate(Category category);
         public event SessionsTableDelegate CategoryRowToSessionTableViewController;
+
+		public delegate void CategoriesTableHideDelegate(bool hidden);
+		public event CategoriesTableHideDelegate HideTable;
 
         public TableSourceCategories()
         {
@@ -67,6 +67,12 @@ namespace Categories
 				CategoryRowToSessionTableViewController(SelectedItemName);
 				prev = indexPath;
 				PrevRowSelected = SelectedItemName;
+			}
+
+			//Show/Hide Table Method call to NewSessionSplitViewController
+			if (TableHidden && CategoryRowToSessionTableViewController != null)
+			{
+				HideTable(TableHidden);
 			}
         }
 

@@ -17,7 +17,7 @@ namespace Categories
         public delegate void ProfilesTableDelegate(Profiles prof);
         public event ProfilesTableDelegate ProfileRowToController;
 
-        public delegate void ProfilesTableHideDelegate(Boolean hidden);
+        public delegate void ProfilesTableHideDelegate(bool hidden);
         public event ProfilesTableHideDelegate HideTable;
 
         #endregion

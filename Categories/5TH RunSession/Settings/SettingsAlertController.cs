@@ -75,14 +75,18 @@ namespace Categories
 							if (res.ImageIncorrect)
 							{
 								temp.Missed = true;
+								temp.ResultString = "M";
+
 							}
 							else if (res.ImageIndependent)
 							{
 								temp.Independent = true;
+								temp.ResultString = "I";
 							}
 							else
 							{
 								temp.Prompted = true;
+								temp.ResultString = "P";
 							}
 							new DatabaseContext<SessionResult>().Insert(temp);
 

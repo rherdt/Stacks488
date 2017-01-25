@@ -50,6 +50,15 @@ namespace Categories
 			}
 		}
 
+		public List<T> GetQuery(string qry, string [] param)
+		{
+			using (var db = new SQLiteConnection(dbPath))
+			{
+				db.CreateTable<T>();
+				return db.Query<T>(qry, param);
+			}
+		}
+
 		public int Insert(T item)
 		{
 			try
@@ -67,6 +76,8 @@ namespace Categories
 			}
 	
 		}
+
+
 		public int Update(T item)
 		{
 			try

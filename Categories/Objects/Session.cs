@@ -20,5 +20,7 @@ namespace Categories
 
 		public int Correct { get; set; }
 
+		public string ResultString { get; set; }
+
 	}
 }

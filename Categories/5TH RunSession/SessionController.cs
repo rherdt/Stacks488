@@ -127,7 +127,7 @@ namespace Categories
 		public void Missed()
 		{
 
-			if (CurrentImageIndex > 0 && Images!=null)
+			if (CurrentImageIndex >= 0 && Images!=null)
 			{
 				/*
 				 * For Testing, Swiping right = incorrect
