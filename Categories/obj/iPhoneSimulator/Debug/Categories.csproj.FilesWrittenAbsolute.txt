@@ -33,3 +33,6 @@
 /Users/jesussaldana/Dropbox/EWU/SP_1:15:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/neutral.png
 /Users/jesussaldana/Dropbox/EWU/SP_1:15:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/plus.png
 /Users/jesussaldana/Dropbox/EWU/SP_1:15:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/minus.png
+/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/neutral.png
+/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/plus.png

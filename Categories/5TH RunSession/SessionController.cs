@@ -154,7 +154,7 @@ namespace Categories
 		protected void Prompted()
 		{
 			/*
-			 * For Testing, Double Tap = Prompting
+			 * For Testing
 			 */
 	
 			if (CurrentImageIndex < Images.Count && Images != null)

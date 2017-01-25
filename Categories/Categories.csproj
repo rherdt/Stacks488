@@ -235,6 +235,7 @@
     <Compile Include="TableSources\TableSourceImageStack.cs" />
     <Compile Include="TableSources\TableSourceRanImages.cs" />
     <Compile Include="TableCustomCells\CustomCellRanImages.cs" />
+    <Compile Include="Objects\ImageStackImages.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />
