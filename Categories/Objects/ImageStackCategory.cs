@@ -12,6 +12,5 @@ namespace Categories
 
 		public Guid ParentCategoryID { get; set; }
 		public string ParentCategoryName { get; set; }
-
 	}
 }

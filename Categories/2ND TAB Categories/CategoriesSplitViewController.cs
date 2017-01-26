@@ -148,8 +148,6 @@ namespace Categories
 		void CollectionViewInOrderButton_TouchUpInside(object sender, EventArgs e)
 		{
 			new UIAlertView("In Order Button", "", null, "OK", null).Show();
-
-
 		}
 
 		public void ShowImageStackView(bool hidden)

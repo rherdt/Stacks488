@@ -12,6 +12,5 @@ namespace Categories
 			public Guid ImageID { get; set;}
 			public Guid ParentImageStackID { get; set;}
 			public int ImageStackIndex { get; set;}
-
 	}
 }
