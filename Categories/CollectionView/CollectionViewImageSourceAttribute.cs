@@ -17,10 +17,12 @@ namespace Categories
 		public SizeF ImageViewSize { get; set; }
 		public NSIndexPath prevImageSelected;
 
+		public bool MoveItemEnabled = true;
 
 		public CollectionViewImageSourceAttribute()
 		{
 			Cells = new List<ImageCellAttribute>();
+
 		}
 		public override nint NumberOfSections(UICollectionView collectionView)
 		{
@@ -44,18 +46,17 @@ namespace Categories
 			cell.ImageView.Alpha = 0.5f;
 
 
-			/*unlick the previous image
+			//unlick the previous image
 			if (prevImageSelected != null && prevImageSelected != indexPath)
 			{
 				var cellPrev = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
-				i
-				cellPrev.ImageView.Alpha = 1.0f;
+
 				Cells[prevImageSelected.Row].isSelected = false;
 
 			}
-			*/
 
-			//prevImageSelected = indexPath;
+
+			prevImageSelected = indexPath;
 
 		}
 
@@ -64,14 +65,14 @@ namespace Categories
 			//Get the Selected Image
 			var cell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			ImageCellAttribute Clicked = Cells[indexPath.Row];
-			cell.ImageView.Alpha = 1.0f;
 
 
 			if (ImageClickedToController != null)
 			{
 				ImageClickedToController(Clicked.ImgOBJ);
-			}
 
+			}
+			cell.ImageView.Alpha = 1.0f;
 			Clicked.isSelected = true;
 
 		}
@@ -87,6 +88,19 @@ namespace Categories
 
 			return cell;
 		}
+		public override bool CanMoveItem(UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			// We can always move items
+				return true;
+		}
+		public override void MoveItem(UICollectionView collectionView, NSIndexPath sourceIndexPath, NSIndexPath destinationIndexPath)
+		{
+			// Reorder our list of items
+			var item = Cells[(int)sourceIndexPath.Item];
+			Cells.RemoveAt((int)sourceIndexPath.Item);
+			Cells.Insert((int)destinationIndexPath.Item, item);
+		}
+
 	}//end of source class
 
 	public class ImageCellAttribute

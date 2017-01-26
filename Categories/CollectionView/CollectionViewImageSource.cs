@@ -16,6 +16,7 @@ namespace Categories
 		public List<ImageCell> Cells { get; private set; }
 		public SizeF ImageViewSize { get; set; }
 
+		public bool MoveItemEnabled = true;
 
 		public CollectionViewImageSource()
 		{
@@ -35,13 +36,32 @@ namespace Categories
 		{
 			return true;
 		}
-
+		public override bool CanMoveItem(UICollectionView collectionView, NSIndexPath indexPath)
+		{
+			// We can always move items
+				return true;
+			
+		}
 		public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
+			// Get cell and change to green background
+			var cell = (UserCell)collectionView.CellForItem(indexPath);
+			cell.ImageView.Alpha = 0.5f;
 		}
 
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
+			// Get cell and return to blue background
+			var cell = (UserCell)collectionView.CellForItem(indexPath);
+			cell.ImageView.Alpha = 1.0f;
+		}
+
+		public override void MoveItem(UICollectionView collectionView, NSIndexPath sourceIndexPath, NSIndexPath destinationIndexPath)
+		{
+			// Reorder our list of items
+			var item = Cells[(int)sourceIndexPath.Item];
+			Cells.RemoveAt((int)sourceIndexPath.Item);
+			Cells.Insert((int)destinationIndexPath.Item, item);
 		}
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)

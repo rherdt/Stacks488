@@ -11,7 +11,7 @@ namespace Categories
 
         //Inherited Fields
         SessionsTableViewController sessionsTableViewController;
-        UIViewController CollectionView;
+		CollectionViewController CollectionView;
         UINavigationController navigationController;
 
         //Current Row Field
@@ -29,7 +29,7 @@ namespace Categories
         nfloat NavigationBarWidth, NavigationBarHeight;
 		#endregion
 
-        public SessionsSplitViewController(SessionsTableViewController sessions, UIViewController collection, UINavigationController navcontroller)
+        public SessionsSplitViewController(SessionsTableViewController sessions, CollectionViewController collection, UINavigationController navcontroller)
         {
             /*
 			 * Create CollectionView Controller

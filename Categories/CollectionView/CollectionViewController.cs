@@ -42,6 +42,35 @@ namespace Categories
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
+			var longPressGesture = new UILongPressGestureRecognizer(gesture =>
+			{
+
+				// Take action based on state
+				switch (gesture.State)
+				{
+					case UIGestureRecognizerState.Began:
+						var selectedIndexPath = CollectionView.IndexPathForItemAtPoint(gesture.LocationInView(View));
+						if (selectedIndexPath != null)
+						{
+							CollectionView.BeginInteractiveMovementForItem(selectedIndexPath);
+						}
+						break;
+					case UIGestureRecognizerState.Changed:
+						CollectionView.UpdateInteractiveMovement(gesture.LocationInView(View));
+						break;
+					case UIGestureRecognizerState.Ended:
+						CollectionView.EndInteractiveMovement();
+						break;
+					default:
+						CollectionView.CancelInteractiveMovement();
+						break;
+				}
+			});
+
+			// Add the custom recognizer to the collection view
+			CollectionView.AddGestureRecognizer(longPressGesture);
+	
+
 
 			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.6, this.View.Bounds.Height);
 			CollectionView.BackgroundColor = UIColor.White;
@@ -55,15 +84,17 @@ namespace Categories
 		}
 		public void UpdateImages(List<SessionResult> ImageResults)
 		{
-			
-			foreach (var s in ImageResults)
+			if (CollectionViewSource != null)
 			{
-				CollectionViewSource.Cells.Add(new ImageCell(s));
+				foreach (var s in ImageResults)
+				{
+					CollectionViewSource.Cells.Add(new ImageCell(s));
+				}
+				//refresh collectionview
+				CollectionView.ReloadData();
+				//add the collection to the UIView
+				Add(CollectionView);
 			}
-			//refresh collectionview
-			CollectionView.ReloadData();
-			//add the collection to the UIView
-			Add(CollectionView);
 		}
 		public void ClearCollectionView()
 		{
@@ -74,6 +105,7 @@ namespace Categories
 			}
 			CollectionView.ReloadData();
 		}
+
 		public void SetImageSource(List<SessionResult> imagesForSelectedSession)
 		{
 			List<Image> images = new List<Image>();
