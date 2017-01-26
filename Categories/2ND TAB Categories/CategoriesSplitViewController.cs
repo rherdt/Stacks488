@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace Categories
@@ -55,8 +56,18 @@ namespace Categories
 		{
 			base.ViewDidLoad();
 
-			UIButton addImageStackButton = imageStackSplitViewController.returnButton();
+			UIButton addImageStackButton = imageStackSplitViewController.returnImageStackAddButton();
 			addImageStackButton.TouchUpInside += AddImageStackButton_TouchUpInside;
+
+			UIButton selectCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackSelectButton();
+			selectCollectionViewButton.TouchUpInside += CollectionViewSelectButton_TouchUpInside;
+			UIButton AddCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackAddButton();
+			AddCollectionViewButton.TouchUpInside += CollectionViewAddButton_TouchUpInside;
+			UIButton RandomizeCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackRandomButton();
+			RandomizeCollectionViewButton.TouchUpInside += CollectionViewRandomizeButton_TouchUpInside;
+			UIButton InOrderCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackInOrderButton();
+			InOrderCollectionViewButton.TouchUpInside += CollectionViewInOrderButton_TouchUpInside;
+
 		}
 
 		public void CategoryRowToImageStackDelegate(Category category)
@@ -75,7 +86,15 @@ namespace Categories
 		{
 			/*
 			 * Update the CollectionView (3rd View) based on the image Stack Selected
+			 * Images from the imagestackimages table that haev image stack id
+			 */
+
+			List<ImageStackImages> imagesFromStack = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ?", imageStackSelected.ID.ToString());
+			//send list of images to the collection view
+			/*Create a new Class for the collection view?
 			 */ 
+
+
 		}
 
 		void AddImageStackButton_TouchUpInside (object sender, EventArgs e)
@@ -110,6 +129,23 @@ namespace Categories
 			alert.AddAction(UIAlertAction.Create("Cancel", UIAlertActionStyle.Default, null));
 
 			PresentViewController(alert, animated: true, completionHandler: null);
+		}
+		void CollectionViewAddButton_TouchUpInside(object sender, EventArgs e)
+		{
+			new UIAlertView("CollectionView Add Button", "", null, "OK", null).Show();
+		}
+		void CollectionViewSelectButton_TouchUpInside(object sender, EventArgs e)
+		{
+			new UIAlertView("Select Button", "", null, "OK", null).Show();
+		}
+		void CollectionViewRandomizeButton_TouchUpInside(object sender, EventArgs e)
+		{
+			new UIAlertView("Randomize Button", "", null, "OK", null).Show();
+		}
+		void CollectionViewInOrderButton_TouchUpInside(object sender, EventArgs e)
+		{
+			new UIAlertView("In Order Button", "", null, "OK", null).Show();
+
 		}
 
 		public void ShowImageStackView(bool hidden)

@@ -3,17 +3,15 @@ using SQLite;
 
 namespace Categories
 {
-	public class CategoryImageStackImages
+	public class ImageStackImages
 	{
-		public class CategoCategoryImageStackImagesry : IEntity
-		{
-
+		
 			[PrimaryKey, AutoIncrement]
 			public Guid ID { get; set; }
 
 			public Guid ImageID { get; set;}
-			public Guid ImageStack { get; set;}
+			public Guid ParentImageStackID { get; set;}
+			public int ImageStackIndex { get; set;}
 
-		}
 	}
 }

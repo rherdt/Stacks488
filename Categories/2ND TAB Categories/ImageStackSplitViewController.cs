@@ -76,11 +76,45 @@ namespace Categories
 			NavigationBarImageCollectionsWidth = (nfloat)(ImageStackSplitControllerWidth * .6);
 			NavigationBarImageCollectionsHeight = (nfloat)(ImageStackSplitControllerHeight * .25);
 		}
-		public UIButton returnButton()
+		#endregion
+		#region Buttons
+		public UIButton returnImageStackAddButton()
 		{
 			if (imageStackHeaderView != null)
 			{
 				return imageStackHeaderView.getAddButton();
+			}
+			return null;
+		}
+		public UIButton returnCollectionViewStackAddButton()
+		{
+			if (imageCollectionHeaderView != null)
+			{
+				return imageCollectionHeaderView.getAddButton();
+			}
+			return null;
+		}
+		public UIButton returnCollectionViewStackSelectButton()
+		{
+			if (imageCollectionHeaderView != null)
+			{
+				return imageCollectionHeaderView.getSelectButton();
+			}
+			return null;
+		}
+		public UIButton returnCollectionViewStackRandomButton()
+		{
+			if (imageCollectionHeaderView != null)
+			{
+				return imageCollectionHeaderView.getRandomizeButton();
+			}
+			return null;
+		}
+		public UIButton returnCollectionViewStackInOrderButton()
+		{
+			if (imageCollectionHeaderView != null)
+			{
+				return imageCollectionHeaderView.getInOrderButton();
 			}
 			return null;
 		}

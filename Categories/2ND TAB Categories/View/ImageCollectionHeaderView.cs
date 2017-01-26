@@ -20,6 +20,18 @@ namespace Categories
 		public UIButton getAddButton() { 
 			return btnAdd; 
 		}
+		public UIButton getSelectButton()
+		{
+			return btnSelect;
+		}
+		public UIButton getRandomizeButton()
+		{
+			return btnRandom;
+		}
+		public UIButton getInOrderButton()
+		{
+			return btnInOrder;
+		}
 
         //set button properties at runtime
         public override void AwakeFromNib()
