@@ -133,18 +133,22 @@ namespace Categories
 		void CollectionViewAddButton_TouchUpInside(object sender, EventArgs e)
 		{
 			new UIAlertView("CollectionView Add Button", "", null, "OK", null).Show();
+			//show all the images to choose from. create delegate to return those images
 		}
 		void CollectionViewSelectButton_TouchUpInside(object sender, EventArgs e)
 		{
 			new UIAlertView("Select Button", "", null, "OK", null).Show();
+			//add ability to select images to remove
 		}
 		void CollectionViewRandomizeButton_TouchUpInside(object sender, EventArgs e)
 		{
 			new UIAlertView("Randomize Button", "", null, "OK", null).Show();
+			//randomize the sort of the images
 		}
 		void CollectionViewInOrderButton_TouchUpInside(object sender, EventArgs e)
 		{
 			new UIAlertView("In Order Button", "", null, "OK", null).Show();
+
 
 		}
 
