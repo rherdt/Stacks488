@@ -54,15 +54,6 @@ namespace Categories
 			return cell;
 		}
 
-		string determineOutcome()
-		{
-			if (TableItems[count].Independent) { return "I"; }
-			else if (TableItems[count].Prompted) { return "P"; }
-			else if (TableItems[count].Missed) { return "M"; }
-			return "ERROR";
-		}
-
-
 		public List<SessionResult> getList()
 		{
 			return TableItems;
