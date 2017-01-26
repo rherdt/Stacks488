@@ -132,8 +132,13 @@ namespace Categories
 		}
 		void CollectionViewAddButton_TouchUpInside(object sender, EventArgs e)
 		{
-			new UIAlertView("CollectionView Add Button", "", null, "OK", null).Show();
+			//new UIAlertView("CollectionView Add Button", "", null, "OK", null).Show();
 			//show all the images to choose from. create delegate to return those images
+				MainTabBarController tab = (MainTabBarController)ParentViewController;
+				//imageStackAddingSplitViewController = (ImageStackAddingSplitViewController)tab.ViewControllers[4];
+				//SessionScreen.setFieldsAndInitialize(sessionsTableViewController.TableView.Source, profileRow, tab);
+				tab.SelectedIndex = 4;
+				tab.DismissModalViewController(true);
 		}
 		void CollectionViewSelectButton_TouchUpInside(object sender, EventArgs e)
 		{

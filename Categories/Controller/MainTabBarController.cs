@@ -10,14 +10,13 @@ namespace Categories
 
 		public MainTabBarController() 
 		{
-			PopulateDbIfEmpty();
-
-			UIViewController ProfilesTab, CategoriesTab, ImagesTab, SessionScreen;
+			UIViewController ProfilesTab, CategoriesTab, ImagesTab, SessionScreen, ImageStackAddingScreen;
 
 			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new AttributesSplitViewController();
 			SessionScreen = new NewSessionSplitViewController();
+			ImageStackAddingScreen = new ImageStackAddingSplitViewController();
 
 
 			ProfilesTab.TabBarItem = new UITabBarItem("Profiles", UIImage.FromFile("profiles.png"), 0);
@@ -29,12 +28,14 @@ namespace Categories
 			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
 			ImagesTab.Title = "Images";
 
-			//SessionScreen.Title = "NULL";
+			//SessionScreen.Title = "Session";
+			ImageStackAddingScreen.Title = "Image Stack";
 			SessionScreen.TabBarItem.Enabled = false;
+			//ImageStackAddingScreen.TabBarItem.Enabled = false;
 
 			var tabs = new UIViewController[]
 			{
-				ProfilesTab, CategoriesTab, ImagesTab, SessionScreen
+				ProfilesTab, CategoriesTab, ImagesTab, SessionScreen, ImageStackAddingScreen
 			};
 
 
@@ -42,19 +43,6 @@ namespace Categories
 
 			SelectedViewController = ProfilesTab;
 
-
-		}
-
-		private void PopulateDbIfEmpty()
-		{
-			var db = new CategoryDatabase();
-			if (db.GetAll() == null)
-			{
-				db.Insert("Fruit");
-				db.Insert("Clothing");
-				db.Insert("FamilyTree");
-
-			}
 
 		}
 

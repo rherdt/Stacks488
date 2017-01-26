@@ -13,6 +13,10 @@
       <LogicalName>ImageCollectionHeaderView.nib</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
+    <_BundleResourceWithLogicalName Include="obj/iPhoneSimulator/Debug/ibtool-link/ImageStackAddingCollectionView.nib">
+      <LogicalName>ImageStackAddingCollectionView.nib</LogicalName>
+      <Optimize>false</Optimize>
+    </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj/iPhoneSimulator/Debug/ibtool-link/ImageStackHeaderView.nib">
       <LogicalName>ImageStackHeaderView.nib</LogicalName>
       <Optimize>false</Optimize>
