@@ -62,7 +62,8 @@ namespace Categories
 
 		public void UpdateImages(List<Image> ImageResults)
 		{
-
+			CollectionViewSource.ResetOnFilter();
+			ClearImages();
 			foreach (var s in ImageResults)
 			{
 				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
@@ -97,6 +98,11 @@ namespace Categories
 
 			return size;
 		}
+		public UIButton returnFinishButton()
+		{
+			return btnFinish;
+		}
+
 
 	}
 }

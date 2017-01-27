@@ -18,11 +18,20 @@ namespace Categories
 		public NSIndexPath prevImageSelected;
 
 		public bool MoveItemEnabled = true;
+		public bool isAttributesTab;
 
-		public CollectionViewImageSourceAttribute()
+		public List<Image> SelectedImagesToImageStack;
+
+		public CollectionViewImageSourceAttribute(bool isattributes)
 		{
 			Cells = new List<ImageCellAttribute>();
+			isAttributesTab = isattributes;
+			//if (isAttributesTab)
+			//{
+				//create the list only if it is for the image stacks
+				SelectedImagesToImageStack = new List<Image>();
 
+			//}
 		}
 		public override nint NumberOfSections(UICollectionView collectionView)
 		{
@@ -43,20 +52,41 @@ namespace Categories
 		{
 
 			var cell = (UserCellAttribute)collectionView.CellForItem(indexPath);
-			cell.ImageView.Alpha = 0.5f;
+			ImageCellAttribute Clicked = Cells[indexPath.Row];
 
-
-			//unlick the previous image
-			if (prevImageSelected != null && prevImageSelected != indexPath)
+			if (isAttributesTab)
 			{
-				var cellPrev = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
+				//unlick the previous image
+				if (prevImageSelected != null && prevImageSelected != indexPath && isAttributesTab)
+				{
+					var cellPrev = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
 
-				Cells[prevImageSelected.Row].isSelected = false;
+					Cells[prevImageSelected.Row].isSelected = false;
+					var pCell = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
+					pCell.ImageView.Alpha = 1.0f;
 
+				}
+				cell.ImageView.Alpha = 0.5f;
+
+				prevImageSelected = indexPath;
 			}
-
-
-			prevImageSelected = indexPath;
+			else
+			{
+				if (Clicked.isSelected)
+				{
+					cell.ImageView.Alpha = 1.0f;
+					Clicked.isSelected = false;
+					//remove the object from the list
+					SelectedImagesToImageStack.Remove(Clicked.ImgOBJ);
+				}
+				else
+				{
+					cell.ImageView.Alpha = 0.5f;
+					Clicked.isSelected = true;
+					//add the image object to the list
+					SelectedImagesToImageStack.Add(Clicked.ImgOBJ);
+				}
+			}
 
 		}
 
@@ -67,14 +97,19 @@ namespace Categories
 			ImageCellAttribute Clicked = Cells[indexPath.Row];
 
 
-			if (ImageClickedToController != null)
+			if (ImageClickedToController != null && isAttributesTab)
 			{
 				ImageClickedToController(Clicked.ImgOBJ);
-
 			}
-			cell.ImageView.Alpha = 1.0f;
-			Clicked.isSelected = true;
 
+		}
+		public void ResetOnFilter()
+		{
+			prevImageSelected = null;
+			foreach (ImageCellAttribute c in Cells)
+			{
+				c.isSelected = false;
+			}
 		}
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
@@ -100,6 +135,15 @@ namespace Categories
 			Cells.RemoveAt((int)sourceIndexPath.Item);
 			Cells.Insert((int)destinationIndexPath.Item, item);
 		}
+		/*
+		 * method to return selected images
+		 */ 
+		public List<Image> getSelectedImagesForImageStack()
+		{
+			return SelectedImagesToImageStack;
+		}
+
+
 
 	}//end of source class
 
@@ -142,7 +186,6 @@ namespace Categories
 			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName.ToString());
 
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
-
 
 		}
 	}

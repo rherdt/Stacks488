@@ -6,21 +6,18 @@ using UIKit;
 
 namespace Categories
 {
-	public class CollectionViewImageSource : UICollectionViewSource
+	public class CollectionViewImageStackSource : UICollectionViewSource
 	{
-		//Delegates
-		public delegate void AttributeImageTableDelegate(Image attr);
-		public event AttributeImageTableDelegate ImageClickedToController;
 
 		//Vars
-		public List<ImageCell> Cells { get; private set; }
+		public List<ImageCell2> Cells { get; private set; }
 		public SizeF ImageViewSize { get; set; }
 
 		public bool MoveItemEnabled = true;
 
-		public CollectionViewImageSource()
+		public CollectionViewImageStackSource()
 		{
-			Cells = new List<ImageCell>();
+			Cells = new List<ImageCell2>();
 		}
 		public override nint NumberOfSections(UICollectionView collectionView)
 		{
@@ -39,20 +36,20 @@ namespace Categories
 		public override bool CanMoveItem(UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			// We can always move items
-				return true;
-			
+			return true;
+
 		}
 		public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			// Get cell and change to green background
-			var cell = (UserCell)collectionView.CellForItem(indexPath);
+			var cell = (UserCell2)collectionView.CellForItem(indexPath);
 			cell.ImageView.Alpha = 0.5f;
 		}
 
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			// Get cell and return to blue background
-			var cell = (UserCell)collectionView.CellForItem(indexPath);
+			var cell = (UserCell2)collectionView.CellForItem(indexPath);
 			cell.ImageView.Alpha = 1.0f;
 		}
 
@@ -66,28 +63,9 @@ namespace Categories
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
 		{
-			var cell = (UserCell)collectionView.DequeueReusableCell(UserCell.CellID, indexPath);
+			var cell = (UserCell2)collectionView.DequeueReusableCell(UserCell2.CellID, indexPath);
 
-			ImageCell row = Cells[indexPath.Row];
-
-			if (row.ImgOBJ.Independent)
-			{
-				cell.ImageView.Alpha = 1.0f;
-				cell.Layer.BorderColor = UIColor.Green.CGColor;
-				cell.Layer.BorderWidth = 5.0f;
-			}
-			else if (row.ImgOBJ.Prompted)
-			{
-				cell.ImageView.Alpha = 1.0f;
-				cell.Layer.BorderColor = UIColor.Yellow.CGColor;
-				cell.Layer.BorderWidth = 5.0f;
-			}
-			else if(row.ImgOBJ.Missed)
-			{
-				cell.ImageView.Alpha = 1.0f;
-				cell.Layer.BorderColor = UIColor.Red.CGColor;
-				cell.Layer.BorderWidth = 5.0f;
-			}
+			ImageCell2 row = Cells[indexPath.Row];
 
 			cell.UpdateRow(row, ImageViewSize);
 
@@ -99,22 +77,22 @@ namespace Categories
 		}
 	}//end of source class
 
-	public class ImageCell
+	public class ImageCell2
 	{
-		public ImageCell(SessionResult imageOBJ)
+		public ImageCell2(ImageStackImages imageOBJ)
 		{
 			ImgOBJ = imageOBJ;
 		}
 
-		public SessionResult ImgOBJ { get;  set; }
+		public ImageStackImages ImgOBJ { get; set; }
 
 	}
-	public class UserCell : UICollectionViewCell
+	public class UserCell2 : UICollectionViewCell
 	{
-		public static NSString CellID = new NSString("UserSource");
+		public static NSString CellID = new NSString("UserSourceB");
 
 		[Export("initWithFrame:")]
-		public UserCell(RectangleF frame)
+		public UserCell2(RectangleF frame)
 			: base(frame)
 		{
 			ImageView = new UIImageView();
@@ -131,10 +109,10 @@ namespace Categories
 
 
 
-		public void UpdateRow(ImageCell element,SizeF imageViewSize)
+		public void UpdateRow(ImageCell2 element, SizeF imageViewSize)
 		{
 
-			var Resultfilename = new DatabaseContext<Image>().GetQuery("SELECT * FROM Image WHERE ID = ?", element.ImgOBJ.SessionImageID.ToString());
+			var Resultfilename = new DatabaseContext<Image>().GetQuery("SELECT * FROM Image WHERE ID = ?", element.ImgOBJ.ImageID.ToString());
 
 			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(Resultfilename[0].FileName.ToString());
 

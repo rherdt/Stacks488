@@ -20,11 +20,13 @@ namespace Categories
 		/*
 		 * 2nd Table View
 		 */
-		CollectionViewController collectionViewController;
+		CollectionViewImageStack collectionViewController;
 		ImageStackTableViewController imageStackTableViewController;
 		UINavigationController navigationController;
 		UINavigationController collectionsNavigationController;
 		TableSourceImageStack imageStackTable;
+
+		ImageStackCategory SelectedImageStack;
 
         public CategoriesSplitViewController() : base()
         {
@@ -38,7 +40,7 @@ namespace Categories
 
 
 			//2nd view
-			collectionViewController = new CollectionViewController();
+			collectionViewController = new CollectionViewImageStack();
 			imageStackTable = new TableSourceImageStack();
 			imageStackTable.ImageStackToController += ImageStackToCollectionView;
 			imageStackTableViewController = new ImageStackTableViewController(imageStackTable);
@@ -88,11 +90,13 @@ namespace Categories
 			 * Update the CollectionView (3rd View) based on the image Stack Selected
 			 * Images from the imagestackimages table that haev image stack id
 			 */
+			SelectedImageStack = imageStackSelected;
 
 			List<ImageStackImages> imagesFromStack = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ?", imageStackSelected.ID.ToString());
 			//send list of images to the collection view
 			/*Create a new Class for the collection view?
-			 */ 
+			 */
+			collectionViewController.UpdateImages(imagesFromStack);
 
 
 		}
@@ -134,11 +138,23 @@ namespace Categories
 		{
 			//new UIAlertView("CollectionView Add Button", "", null, "OK", null).Show();
 			//show all the images to choose from. create delegate to return those images
-				MainTabBarController tab = (MainTabBarController)ParentViewController;
+			MainTabBarController tab = (MainTabBarController)ParentViewController;
+
+			ImageStackAddingSplitViewController imageStackAdding = (ImageStackAddingSplitViewController)tab.CustomizableViewControllers[4];
+			if (SelectedImageStack != null)
+			{
+				imageStackAdding.SetSelectedImageStack(SelectedImageStack);
+
 				//imageStackAddingSplitViewController = (ImageStackAddingSplitViewController)tab.ViewControllers[4];
 				//SessionScreen.setFieldsAndInitialize(sessionsTableViewController.TableView.Source, profileRow, tab);
 				tab.SelectedIndex = 4;
+
 				tab.DismissModalViewController(true);
+			}
+			else
+			{
+				new UIAlertView("Select an imageStack", "", null, "OK", null).Show();
+			}
 		}
 		void CollectionViewSelectButton_TouchUpInside(object sender, EventArgs e)
 		{

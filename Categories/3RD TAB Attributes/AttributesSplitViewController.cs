@@ -51,7 +51,7 @@ namespace Categories
 
 
 			//2nd Screen
-			AttributeImageSource = new CollectionViewImageSourceAttribute();
+			AttributeImageSource = new CollectionViewImageSourceAttribute(true);
 			AttributeImageSource.ImageClickedToController += GetImageSelectedFromCollectionView; //delegate for image source
 
 			//add nav controller to collectionview

@@ -9,7 +9,7 @@ namespace Categories
 	{
 		#region Fields
 		//Controller Fields
-		CollectionViewController collectionViewController;
+		CollectionViewImageStack collectionViewController;
 		ImageStackTableViewController imageStackTableViewController;
 		UINavigationController navigationController, collectionsNavigationController;
 		ImageStackHeaderView imageStackHeaderView;
@@ -23,7 +23,7 @@ namespace Categories
 		nfloat NavigationBarImageCollectionsWidth, NavigationBarImageCollectionsHeight;
 		#endregion
 
-		public ImageStackSplitViewController(UINavigationController nav, UINavigationController collectionsNav, CollectionViewController collectionView, ImageStackTableViewController imageStack)
+		public ImageStackSplitViewController(UINavigationController nav, UINavigationController collectionsNav, CollectionViewImageStack collectionView, ImageStackTableViewController imageStack)
 		{
 			collectionViewController = collectionView;
 			imageStackTableViewController = imageStack;

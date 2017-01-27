@@ -10,6 +10,8 @@ namespace Categories
 	{
 		UICollectionView CollectionView;
 		CollectionViewImageSourceAttribute CollectionViewSource;
+		public delegate void ReturnSelectedImagesImageStack(List<Image> SelectedImages);
+		public event ReturnSelectedImagesImageStack ReturnSelectedImagesToImageStack;
 
 		public CollectionViewAttributes(CollectionViewImageSourceAttribute Source) : base("CollectionViewController", null)
 		{
@@ -56,7 +58,7 @@ namespace Categories
 		}
 		public void UpdateImages(List<Image> ImageResults)
 		{
-
+			ClearImages();
 			foreach (var s in ImageResults)
 			{
 				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
