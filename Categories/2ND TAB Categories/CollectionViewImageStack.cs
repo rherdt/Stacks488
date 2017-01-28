@@ -70,7 +70,7 @@ namespace Categories
 			CollectionView.AddGestureRecognizer(longPressGesture);
 
 
-			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.6, this.View.Bounds.Height);
+			//CollectionView.Frame = new CoreGraphics.CGRect(0, 0, this.View.Bounds.Width / 1.6, this.View.Bounds.Height);
 
 			
 			CollectionView.BackgroundColor = UIColor.White;
@@ -124,6 +124,11 @@ namespace Categories
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;
+		}
+		//enable delete view
+		public CollectionViewImageStackSource getCollectionViewSource()
+		{
+			return CollectionViewSource;
 		}
 
 	}

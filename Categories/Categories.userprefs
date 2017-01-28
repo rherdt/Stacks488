@@ -1,13 +1,10 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Categories Status">
     <Files>
-      <File FileName="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" Line="49" Column="1" />
-      <File FileName="6TH Image Stack Adding/ImageStackAddingCollectionView.cs" Line="38" Column="49" />
-      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="146" Column="1" />
-      <File FileName="CollectionViewImageStack.cs" Line="48" Column="1" />
-      <File FileName="CollectionView/CollectionViewImageStackSource.cs" Line="115" Column="1" />
-      <File FileName="CollectionView/CollectionViewImageSource.cs" Line="69" Column="24" />
-      <File FileName="CollectionView/CollectionViewImageSourceAttribute.cs" Line="65" Column="36" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="165" Column="1" />
+      <File FileName="2ND TAB Categories/CollectionViewImageStack.cs" Line="104" Column="5" />
+      <File FileName="CollectionView/CollectionViewImageStackSource.cs" Line="108" Column="3" />
+      <File FileName="CollectionView/CollectionViewImageSourceAttribute.cs" Line="147" Column="3" />
       <File FileName="Categories Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
@@ -23,10 +20,8 @@
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="195" column="74" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceCategories.cs" relfile="TableSources/TableSourceCategories.cs" line="111" column="1" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceCategories.cs" relfile="TableSources/TableSourceCategories.cs" line="112" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" relfile="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" line="49" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" relfile="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" line="69" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="146" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/CollectionView/CollectionViewImageStackSource.cs" relfile="CollectionView/CollectionViewImageStackSource.cs" line="59" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="147" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="165" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

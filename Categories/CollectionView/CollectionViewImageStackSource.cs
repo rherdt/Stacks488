@@ -14,10 +14,13 @@ namespace Categories
 		public SizeF ImageViewSize { get; set; }
 
 		public bool MoveItemEnabled = true;
+		public bool DeleteEnabled { get; set;}
+		List<ImageStackImages> ImagesToDelete { get; set;} 
 
 		public CollectionViewImageStackSource()
 		{
 			Cells = new List<ImageCell2>();
+			ImagesToDelete = new List<ImageStackImages>();
 		}
 		public override nint NumberOfSections(UICollectionView collectionView)
 		{
@@ -43,19 +46,39 @@ namespace Categories
 		{
 			// Get cell and change to green background
 			var cell = (UserCell2)collectionView.CellForItem(indexPath);
-			cell.ImageView.Alpha = 0.5f;
+			ImageCell2 itemClicked = Cells[indexPath.Row];
+			if (DeleteEnabled)
+			{
+				if (itemClicked.isSelected)
+				{
+					cell.ImageView.Alpha = 1.0f;
+					cell.Layer.BorderColor = UIColor.Red.CGColor;
+					itemClicked.isSelected = false;
+					//remove the object from the list
+					ImagesToDelete.Remove(itemClicked.ImgOBJ);
+				}
+				else
+				{
+					cell.ImageView.Alpha = 0.5f;
+					itemClicked.isSelected = true;
+					cell.Layer.BorderColor = UIColor.Clear.CGColor;
+					//add the image object to the list
+					ImagesToDelete.Add(itemClicked.ImgOBJ);
+				}
+	
+			}
+
 		}
 
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			// Get cell and return to blue background
 			var cell = (UserCell2)collectionView.CellForItem(indexPath);
-			cell.ImageView.Alpha = 1.0f;
 		}
 
 		public override void MoveItem(UICollectionView collectionView, NSIndexPath sourceIndexPath, NSIndexPath destinationIndexPath)
 		{
-			// Reorder our list of items
+			// Reorder our list of items here
 			var item = Cells[(int)sourceIndexPath.Item];
 			Cells.RemoveAt((int)sourceIndexPath.Item);
 			Cells.Insert((int)destinationIndexPath.Item, item);
@@ -71,9 +94,13 @@ namespace Categories
 
 			return cell;
 		}
-		public void ResetOnFilter()
+		public void setDeleteFunction(bool b)
 		{
-
+			DeleteEnabled = b;
+		}
+		public List<ImageStackImages> getSelectedToDeleteItems()
+		{
+			return ImagesToDelete;
 		}
 	}//end of source class
 
@@ -82,9 +109,11 @@ namespace Categories
 		public ImageCell2(ImageStackImages imageOBJ)
 		{
 			ImgOBJ = imageOBJ;
+			isSelected = false;
 		}
 
 		public ImageStackImages ImgOBJ { get; set; }
+		public Boolean isSelected { get; set; }
 
 	}
 	public class UserCell2 : UICollectionViewCell

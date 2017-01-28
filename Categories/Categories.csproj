@@ -241,7 +241,7 @@
     <Compile Include="6TH Image Stack Adding\ImageStackAddingCollectionView.designer.cs" />
     <Compile Include="6TH Image Stack Adding\ImageStackAddingSplitViewController.cs" />
     <Compile Include="CollectionView\CollectionViewImageStackSource.cs" />
-    <Compile Include="CollectionViewImageStack.cs" />
+    <Compile Include="2ND TAB Categories\CollectionViewImageStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

@@ -27,6 +27,7 @@ namespace Categories
 		TableSourceImageStack imageStackTable;
 
 		ImageStackCategory SelectedImageStack;
+		Boolean DeleteFromImageStack = false;
 
         public CategoriesSplitViewController() : base()
         {
@@ -158,8 +159,39 @@ namespace Categories
 		}
 		void CollectionViewSelectButton_TouchUpInside(object sender, EventArgs e)
 		{
-			new UIAlertView("Select Button", "", null, "OK", null).Show();
+			//new UIAlertView("Select Button", "", null, "OK", null).Show();
 			//add ability to select images to remove
+			UIButton btn = (UIButton)sender;
+			if (DeleteFromImageStack)
+			{
+				//get ImageStackImages to Delete
+				List<ImageStackImages> deleteImages = collectionViewController.getCollectionViewSource().getSelectedToDeleteItems();
+
+				foreach (ImageStackImages i in deleteImages)
+				{
+					new DatabaseContext<ImageStackImages>().Delete(i.ID);
+				}
+				//refresh the table view
+				collectionViewController.ClearCollectionView();
+				List<ImageStackImages> imagesFromStack = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ?", SelectedImageStack.ID.ToString());
+				collectionViewController.UpdateImages(imagesFromStack);
+
+
+				btn.SetTitleColor(UIColor.Blue, UIControlState.Normal);
+				btn.SetTitle("Select", UIControlState.Normal);
+				DeleteFromImageStack = false;
+				collectionViewController.getCollectionViewSource().setDeleteFunction(DeleteFromImageStack);
+			}
+			else
+			{
+				btn.SetTitleColor(UIColor.Red, UIControlState.Normal);
+				btn.SetTitle("Delete", UIControlState.Normal);
+				DeleteFromImageStack = true;
+
+				collectionViewController.getCollectionViewSource().setDeleteFunction(DeleteFromImageStack);
+			}
+
+
 		}
 		void CollectionViewRandomizeButton_TouchUpInside(object sender, EventArgs e)
 		{

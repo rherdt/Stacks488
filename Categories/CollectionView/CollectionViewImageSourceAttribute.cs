@@ -152,6 +152,7 @@ namespace Categories
 		public ImageCellAttribute(Image imageOBJ)
 		{
 			ImgOBJ = imageOBJ;
+			isSelected = false;
 		}
 
 		public Image ImgOBJ { get; set; }
