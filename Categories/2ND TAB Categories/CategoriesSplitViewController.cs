@@ -48,6 +48,7 @@ namespace Categories
 
 			navigationController = new UINavigationController(imageStackTableViewController);
 			collectionsNavigationController = new UINavigationController(collectionViewController);
+			collectionsNavigationController.NavigationBar.Translucent = false;
 
 			imageStackSplitViewController = new ImageStackSplitViewController(navigationController, collectionsNavigationController,collectionViewController,imageStackTableViewController);
 
@@ -93,7 +94,7 @@ namespace Categories
 			 */
 			SelectedImageStack = imageStackSelected;
 
-			List<ImageStackImages> imagesFromStack = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ?", imageStackSelected.ID.ToString());
+			List<ImageStackImages> imagesFromStack = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ? Order By ImageStackIndex", imageStackSelected.ID.ToString());
 			//send list of images to the collection view
 			/*Create a new Class for the collection view?
 			 */

@@ -66,7 +66,7 @@ namespace Categories
 			foreach (ImageStackCategory imageStack in ImageStacks)
 			{
 				ImageStackNames.Add(imageStack.ImageStackName.ToString());
-				ImageStack2D.Add(new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =?",imageStack.ID.ToString()));
+				ImageStack2D.Add(new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =? Order By ImageStackIndex ASC",imageStack.ID.ToString()));
 			}
 
 

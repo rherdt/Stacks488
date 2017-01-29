@@ -48,8 +48,17 @@ namespace Categories
 			//get the list of images
 			List<Image> SelectedImages = AttributeImageSource.getSelectedImagesForImageStack();
 
-			int index = 1;
-			//add it to the database
+			int index = 0;
+			/*
+			 * Add images to the DB. get Index ID
+			 */
+
+			List<ImageStackImages> imgCount = new DatabaseContext<ImageStackImages>().GetQuery("Select * From ImageStackImages Where ParentImageStackID = ? Order By ImageStackIndex ASC", SelectedImageStack.ID.ToString());
+			if (imgCount.Count > 0)
+			{
+				//get the last image index
+				index = imgCount[imgCount.Count - 1].ImageStackIndex + 1;
+			}
 			if (SelectedImageStack != null)
 			{
 				foreach (Image i in SelectedImages)

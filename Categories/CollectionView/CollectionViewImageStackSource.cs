@@ -78,10 +78,22 @@ namespace Categories
 
 		public override void MoveItem(UICollectionView collectionView, NSIndexPath sourceIndexPath, NSIndexPath destinationIndexPath)
 		{
-			// Reorder our list of items here
+			// Reorder our list of items here	                                       
 			var item = Cells[(int)sourceIndexPath.Item];
 			Cells.RemoveAt((int)sourceIndexPath.Item);
 			Cells.Insert((int)destinationIndexPath.Item, item);
+
+			//update the Db here with the new Index
+			int prevIndex = (int)sourceIndexPath.Item;
+			int newIndex = (int)destinationIndexPath.Item;
+
+			ImageStackImages prev = Cells[prevIndex].ImgOBJ;
+			ImageStackImages dest = Cells[newIndex].ImgOBJ;
+			dest.ImageStackIndex = newIndex;
+			prev.ImageStackIndex = prevIndex;
+			//update swap
+			new DatabaseContext<ImageStackImages>().Update(prev);
+			new DatabaseContext<ImageStackImages>().Update(dest);
 		}
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
