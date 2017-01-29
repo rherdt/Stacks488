@@ -45,7 +45,8 @@ namespace Categories
 			StartSessionButton.TouchUpInside += (sender, e) =>
 			{
 				//new UIAlertView("Start", null, null, "Ok", null).Show();
-				SessionController RunSession = new SessionController();
+				SessionController RunSession = new SessionController(CurrentProfile,CurrentCategory);
+
 				RunSession.ReturnSessionData += (CurrentSession currentSession, int Attempted, int Correct) =>
 				{
 					//add the results to the database
@@ -71,6 +72,7 @@ namespace Categories
 							SessionResult temp = new SessionResult();
 							temp.ParentSessionID = newSession.ID;
 							temp.SessionImageID = res.ResultImageID;
+							temp.categoryID = CurrentCategory.ID;
 
 							if (res.ImageIncorrect)
 							{

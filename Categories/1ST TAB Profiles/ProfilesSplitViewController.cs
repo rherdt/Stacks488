@@ -86,7 +86,6 @@ namespace Categories
 			//new UIAlertView("Row Clicked: " + clicked, null, null, "Ok", null).Show();
 			//get  all items that match the clicked profile
 			List<SessionResult> imagesForSelectedSession = new DatabaseContext<SessionResult>().GetQuery("SELECT * FROM SessionResult WHERE ParentSessionID = ?", session.ID.ToString());
-
 			//give the source to the categories view
 			CollectionViewTable.ClearCollectionView();
 			CollectionViewTable.SetImageSource(imagesForSelectedSession);

@@ -24,6 +24,10 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel imageStackLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView ImageViewSession { get; set; }
 
         [Outlet]
@@ -52,6 +56,11 @@ namespace Categories
             if (ImageCountLabel != null) {
                 ImageCountLabel.Dispose ();
                 ImageCountLabel = null;
+            }
+
+            if (imageStackLabel != null) {
+                imageStackLabel.Dispose ();
+                imageStackLabel = null;
             }
 
             if (ImageViewSession != null) {

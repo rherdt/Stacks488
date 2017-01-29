@@ -8,7 +8,6 @@ namespace Categories
 		
 			[PrimaryKey, AutoIncrement]
 			public Guid ID { get; set; }
-
 			public Guid ImageID { get; set;}
 			public Guid ParentImageStackID { get; set;}
 			public int ImageStackIndex { get; set;}

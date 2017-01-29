@@ -7,7 +7,7 @@ namespace Categories
 	public partial class SessionController : UIViewController
 	{
 		int CurrentImageIndex = 0;
-		List<Image> Images;
+		int CurrentImageStack = 0;
 	
 		UIViewController Parent;
 
@@ -18,15 +18,24 @@ namespace Categories
 		//variables for statsLabel
 		int _Attempted = 1;
 		int _Correct = 0;
-	
+		Category CurrentCategory;
+		Profiles CurrentProfile;
+
+		List<List<ImageStackImages>> ImageStack2D;
+		List<String> ImageStackNames;
+
 
 		//Delegates
 		public delegate void RunSessionDelegate(CurrentSession Session, int Attempted, int Correct);
 		public event RunSessionDelegate ReturnSessionData;
 
-		public SessionController() : base("SessionController", null)
+		public SessionController(Profiles profileSelected, Category categorySelected) : base("SessionController", null)
 		{
 			_Session = new CurrentSession();
+			CurrentProfile = profileSelected;
+			CurrentCategory = categorySelected;
+			ImageStack2D = new List<List<ImageStackImages>>();
+			ImageStackNames = new List<String>();
 		}
 
 		public override void ViewDidLoad()
@@ -50,7 +59,18 @@ namespace Categories
 
 
 			//Show image in ImageViewSessionView from ImageDatabase
-			Images = ImageDatabase.GetAllImagesByOBJ();
+			//Images = ImageDatabase.GetAllImagesByOBJ();
+			//get all image stacks from the categoruy
+			List<ImageStackCategory> ImageStacks = new DatabaseContext<ImageStackCategory>().GetQuery("SELECT * From ImageStackCategory WHERE ParentCategoryID = ?", CurrentCategory.ID.ToString());
+			//Get all images from that image stack
+			foreach (ImageStackCategory imageStack in ImageStacks)
+			{
+				ImageStackNames.Add(imageStack.ImageStackName.ToString());
+				ImageStack2D.Add(new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =?",imageStack.ID.ToString()));
+			}
+
+
+
 
 			MissedButton.TouchUpInside += (sender, e) => Missed();
 			PromptedButton.TouchUpInside += (sender, e) => Prompted();
@@ -106,17 +126,17 @@ namespace Categories
 			if (CurrentImageIndex > 0)
 			{
 				CurrentImageIndex--;
-				ImageViewSession.Image = ImageDatabase.GetImageByFilename(Images[CurrentImageIndex].FileName);
-				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + Images.Count;
+				ImageViewSession.Image = getImageFromDB();
+				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 			}
 		}
 		public void Next()
 		{
-			if (CurrentImageIndex < Images.Count -1)
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count-1 )
 			{
 				CurrentImageIndex++;
-				ImageViewSession.Image = ImageDatabase.GetImageByFilename(Images[CurrentImageIndex].FileName);
-				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + Images.Count;
+				ImageViewSession.Image = getImageFromDB();
+				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
 			}
 		}
 
@@ -127,26 +147,23 @@ namespace Categories
 		public void Missed()
 		{
 
-			if (CurrentImageIndex >= 0 && Images!=null)
+			if (CurrentImageIndex >= 0 && ImageStack2D != null)
 			{
 				/*
 				 * For Testing, Swiping right = incorrect
 				 */
 				ImageResult = new Result();
-				ImageResult.ResultImageID = Images[CurrentImageIndex].ID;
+				ImageResult.ResultImageID = ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID;
 				ImageResult.ImageIncorrect = true;
 				_Session.AddResult(ImageResult);
 
 				//label
-				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + Images.Count;
+				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 
 				//stats
 				_Attempted++;
 				UpdateCurrentScore();
-
 			}
-
-
 		}
 		/*
 		 * Handler for when the imageViewSession detects a double tap
@@ -154,19 +171,19 @@ namespace Categories
 		protected void Prompted()
 		{
 			/*
-			 * For Testing
+			 *
 			 */
 	
-			if (CurrentImageIndex < Images.Count && Images != null)
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D != null)
 			{
 		
 				ImageResult = new Result();
-				ImageResult.ResultImageID = Images[CurrentImageIndex].ID;
+				ImageResult.ResultImageID = ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID;
 				ImageResult.ImagePrompting = true;
 				_Session.AddResult(ImageResult);
 
 				//label
-				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + Images.Count;
+				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 
 				//stats
 				_Attempted++;
@@ -184,18 +201,18 @@ namespace Categories
 		public void Independent()
 		{
 
-			if (CurrentImageIndex < Images.Count && Images!=null)
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D!=null)
 			{
 
 				/*
 				 * For Testing, Swiping Left = Independent
 				 */
 				ImageResult = new Result();
-				ImageResult.ResultImageID = Images[CurrentImageIndex].ID;
+				ImageResult.ResultImageID = ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID;
 				ImageResult.ImageIndependent = true;
 				_Session.AddResult(ImageResult);
 				//label
-				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + Images.Count;
+				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 
 				//stats
 				_Correct++;
@@ -208,19 +225,29 @@ namespace Categories
 
 		void HandleDoubleTap()
 		{
-			new UIAlertView("Double tap", "Change stack, same category", null, "Ok").Show();
+			//new UIAlertView("Double tap", "Change stack, same category", null, "Ok").Show();
+			if (CurrentImageStack < ImageStack2D.Count )
+			{
+				CurrentImageStack++;
+				CurrentImageIndex = 0;
+				UpdateImageView(CurrentImageIndex);
+			}
+			else
+			{
+				new UIAlertView("Limit Reached", "No More image Stacks", null, "Ok").Show();
+			}
 		}
-
-
 		/*
 		 * Updates the ImageViewSession with the frist image from the imageDatabase.
 		*/
-		public void updateImageView(int index)
+		public void UpdateImageView(int index)
 		{
 
-			if (index < Images.Count)
+			if (CurrentImageStack < ImageStack2D.Count && CurrentImageIndex < ImageStack2D[CurrentImageStack].Count )
 			{
-				ImageViewSession.Image = ImageDatabase.GetUIImageFromFileName(Images[index].FileName);
+
+				ImageViewSession.Image = getImageFromDB();
+				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 
 			}
 
@@ -233,13 +260,24 @@ namespace Categories
 
 		public void StartSession()
 		{
-			if (Images != null && Images.Count > 0)
+			if (ImageStack2D != null && ImageStack2D.Count > 0)
 			{
-				ImageViewSession.Image = ImageDatabase.GetUIImageFromFileName(Images[0].FileName);
+				
+				ImageViewSession.Image = getImageFromDB(); 
 				UpdateCurrentScore();
-				ImageCountLabel.Text = "1/"+Images.Count;
+				ImageCountLabel.Text = "1/"+ImageStack2D[CurrentImageStack].Count;
+				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 
 			}
+		}
+		public UIImage getImageFromDB()
+		{
+			List<Image> image = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
+			if (image != null)
+			{
+				return Utilities.GetUIImageFromFileName(image[0].FileName);
+			}
+			return null;
 		}
 		public override bool ShouldAutorotate()
 		{
