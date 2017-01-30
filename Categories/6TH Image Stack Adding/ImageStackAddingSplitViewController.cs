@@ -75,7 +75,7 @@ namespace Categories
 		{
 			//get the list of images
 			List<Image> SelectedImages = AttributeImageSource.getSelectedImagesForImageStack();
-<<<<<<< Updated upstream
+
 
 			int index = 0;
 			/*
@@ -88,11 +88,9 @@ namespace Categories
 				//get the last image index
 				index = imgCount[imgCount.Count - 1].ImageStackIndex + 1;
 			}
-=======
 	
-			int index = 1;
+			 index = 1;
 			//add it to the database
->>>>>>> Stashed changes
 			if (SelectedImageStack != null)
 			{
 				foreach (Image i in SelectedImages)

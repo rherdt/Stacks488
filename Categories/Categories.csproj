@@ -241,12 +241,8 @@
     <Compile Include="6TH Image Stack Adding\ImageStackAddingCollectionView.designer.cs" />
     <Compile Include="6TH Image Stack Adding\ImageStackAddingSplitViewController.cs" />
     <Compile Include="CollectionView\CollectionViewImageStackSource.cs" />
-<<<<<<< Updated upstream
     <Compile Include="2ND TAB Categories\CollectionViewImageStack.cs" />
-=======
-    <Compile Include="CollectionViewImageStack.cs" />
     <Compile Include="6TH Image Stack Adding\MasterImageAddingTableNavigationController.cs" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />
