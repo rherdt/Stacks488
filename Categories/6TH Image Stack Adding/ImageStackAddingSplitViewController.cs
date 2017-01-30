@@ -8,7 +8,7 @@ namespace Categories
 	{
 		AttributesTableViewController attributesTableViewController;
 		ImageStackAddingCollectionView attributesCollectionView;
-		MasterTableNavigationController navController;
+		MasterImageAddingTableNavigationController navController;
 
 		//Collection View
 		TableSourceAttributes AttributesTableSource;
@@ -24,7 +24,9 @@ namespace Categories
 
 			//master
 			attributesTableViewController = new AttributesTableViewController(AttributesTableSource);
-			navController = new MasterTableNavigationController(attributesTableViewController);
+			navController = new MasterImageAddingTableNavigationController(attributesTableViewController);
+			AttributesTableSource.AttributeRowToController += GetAttributeRowSelected;
+			AttributesTableSource.ReloadCollectionView += ReloadCollectionViewAll;
 
 			//slave
 			AttributeImageSource = new CollectionViewImageSourceAttribute(false);
@@ -34,19 +36,46 @@ namespace Categories
 			ViewControllers = new UIViewController[] { navController, attributesCollectionView };
 
 			//delegate for finish button
-			UIButton btnFinishedClicked = attributesCollectionView.returnFinishButton();
-			btnFinishedClicked.TouchUpInside += BtnFinishedClicked_TouchUpInside;
-
+			navController.getFinishButton().Clicked += BtnFinishedClicked_TouchUpInside;
 		}
-		public override void ViewDidLoad()
+
+		void ReloadCollectionViewAll(Attribute attr)
 		{
+			attributesCollectionView.ClearImages();
+			attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * FROM Image"));
+		}
+
+		void GetAttributeRowSelected(Attribute attrReturned)
+		{
+			//get the row selected from the left table
+			//new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
+			List<ImageAttributes> ImagesWithSameAttribute = new DatabaseContext<ImageAttributes>().GetQuery("SELECT * FROM ImageAttributes WHERE Name = ?", attrReturned.Name);
+			List<Image> Images = new List<Image>();
+
+			foreach (ImageAttributes a in ImagesWithSameAttribute)
+			{
+				List<Image> temp = new DatabaseContext<Image>().GetQuery("Select * FROM Image WHERE ID = ?", a.ImageID.ToString());
+				foreach (Image i in temp)
+				{
+					Images.Add(i);
+				}
+			}
+
+			if (Images != null)
+			{
+				attributesCollectionView.ClearImages();
+				attributesCollectionView.UpdateImages(Images);
+			}
+
+			//clear the attributes table 
 
 		}
-		
+
 		void BtnFinishedClicked_TouchUpInside (object sender, EventArgs e)
 		{
 			//get the list of images
 			List<Image> SelectedImages = AttributeImageSource.getSelectedImagesForImageStack();
+<<<<<<< Updated upstream
 
 			int index = 0;
 			/*
@@ -59,6 +88,11 @@ namespace Categories
 				//get the last image index
 				index = imgCount[imgCount.Count - 1].ImageStackIndex + 1;
 			}
+=======
+	
+			int index = 1;
+			//add it to the database
+>>>>>>> Stashed changes
 			if (SelectedImageStack != null)
 			{
 				foreach (Image i in SelectedImages)
@@ -70,7 +104,13 @@ namespace Categories
 					index++;
 					new DatabaseContext<ImageStackImages>().Insert(tempInsert);
 				}
+
 			}
+			attributesCollectionView.clearCellSelection();
+			MainTabBarController tab = (MainTabBarController)ParentViewController;
+			tab.SelectedIndex = 1;
+			tab.DismissModalViewController(true);
+
 
 		}
 		public void SetSelectedImageStack(ImageStackCategory stackSelected)

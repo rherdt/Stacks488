@@ -150,7 +150,6 @@ namespace Categories
 				//imageStackAddingSplitViewController = (ImageStackAddingSplitViewController)tab.ViewControllers[4];
 				//SessionScreen.setFieldsAndInitialize(sessionsTableViewController.TableView.Source, profileRow, tab);
 				tab.SelectedIndex = 4;
-
 				tab.DismissModalViewController(true);
 			}
 			else

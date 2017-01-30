@@ -58,7 +58,7 @@ namespace Categories
 				Prev = indexPath;
 				PrevRowSelected = SelectedItemName;
 			}
-
+			tableView.DeselectRow(indexPath, true);
 
 
 		}

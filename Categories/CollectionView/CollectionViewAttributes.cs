@@ -45,7 +45,7 @@ namespace Categories
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
 
-			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.8, this.View.Bounds.Height);
+			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, View.Bounds.Width / 1.8, View.Bounds.Height);
 			CollectionView.BackgroundColor = UIColor.White;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Drawing;
 using CoreGraphics;
+using Foundation;
 using UIKit;
 
 namespace Categories
 {
 	public partial class ImageStackAddingCollectionView : UIViewController
 	{
-		//UICollectionView CollectionView;
+		UICollectionView CollectionView;
 		CollectionViewImageSourceAttribute CollectionViewSource;
 
 		public ImageStackAddingCollectionView(CollectionViewImageSourceAttribute Source) : base("ImageStackAddingCollectionView", null)
@@ -19,7 +20,7 @@ namespace Categories
 		public override void ViewDidLayoutSubviews()
 		{
 			base.ViewDidLayoutSubviews();
-			//collectionView.Frame = new CoreGraphics.CGRect(5, 20, View.Bounds.Width - 10, View.Bounds.Height);
+			CollectionView.Frame = new CoreGraphics.CGRect(5, 20, View.Bounds.Width - 10, View.Bounds.Height);
 
 		}
 
@@ -47,17 +48,25 @@ namespace Categories
 			 */
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
 
-			//collectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
-			collectionView2.CollectionViewLayout = layout;
+			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
+			CollectionView.CollectionViewLayout = layout;
 
-			collectionView2.BackgroundColor = UIColor.Cyan;
-			collectionView2.ShowsHorizontalScrollIndicator = true;
+			CollectionView.BackgroundColor = UIColor.Cyan;
+			CollectionView.ShowsHorizontalScrollIndicator = true;
 
 
-			collectionView2.RegisterClassForCell(typeof(UserCellAttribute), UserCellAttribute.CellID);
-			collectionView2.ShowsHorizontalScrollIndicator = true;
-			collectionView2.Source = CollectionViewSource;
+			CollectionView.RegisterClassForCell(typeof(UserCellAttribute), UserCellAttribute.CellID);
+			CollectionView.ShowsHorizontalScrollIndicator = true;
+			CollectionView.Source = CollectionViewSource;
 			UpdateImages(new DatabaseContext<Image>().GetQuery("SELECT * FROM Image"));
+		}
+
+		public void clearCellSelection()
+		{
+			foreach(NSIndexPath indexPath in CollectionView.GetIndexPathsForSelectedItems())
+			{
+				CollectionView.DeselectItem(indexPath, false);
+			}
 		}
 
 		public void UpdateImages(List<Image> ImageResults)
@@ -69,14 +78,14 @@ namespace Categories
 				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
 			}
 			//refresh collectionview
-			collectionView2.ReloadData();
+			CollectionView.ReloadData();
 			//add the collection to the UIView
-			Add(collectionView2);
+			Add(CollectionView);
 		}
 		public void ClearImages()
 		{
 			CollectionViewSource.Cells.Clear();
-			collectionView2.ReloadData();
+			CollectionView.ReloadData();
 
 		}
 
@@ -97,10 +106,6 @@ namespace Categories
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;
-		}
-		public UIButton returnFinishButton()
-		{
-			return btnFinish;
 		}
 
 

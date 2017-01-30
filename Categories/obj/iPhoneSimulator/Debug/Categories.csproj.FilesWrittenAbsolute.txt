@@ -13,7 +13,29 @@
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
+<<<<<<< Updated upstream
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
 /Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+=======
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/categories.png
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/images.png
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/profiles.png
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/minus.png
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/neutral.png
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/plus.png
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
+/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+>>>>>>> Stashed changes
