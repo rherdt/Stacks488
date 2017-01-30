@@ -1,14 +1,30 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/AttributesSplitViewController.cs">
+<<<<<<< Updated upstream
+  <MonoDevelop.Ide.Workbench ActiveDocument="2ND TAB Categories/CollectionViewImageStack.cs">
     <Files>
-      <File FileName="Controller/CategoriesSplitViewController.cs" Line="32" Column="3" />
-      <File FileName="Controller/ImageStackSplitViewController.cs" Line="14" Column="53" />
-      <File FileName="Controller/MasterTableNavigationController.cs" Line="8" Column="10" />
-      <File FileName="AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="Controller/MainTabBarController.cs" Line="1" Column="1" />
-      <File FileName="Controller/CategoriesTableViewController.cs" Line="13" Column="10" />
-      <File FileName="Controller/ProfilesSplitViewController.cs" Line="18" Column="51" />
-      <File FileName="Controller/AttributesSplitViewController.cs" Line="10" Column="4" />
+      <File FileName="CollectionView/CollectionViewImageStackSource.cs" Line="97" Column="1" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="44" Column="44" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" Line="63" Column="5" />
+      <File FileName="Objects/ImageStackImages.cs" Line="13" Column="30" />
+      <File FileName="2ND TAB Categories/CollectionViewImageStack.cs" Line="13" Column="10" />
+      <File FileName="5TH RunSession/SessionController.cs" Line="69" Column="159" />
+      <File FileName="TableSources/TableSourceCategories.cs" Line="112" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Main.cs">
+    <Files>
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="150" Column="27" />
+      <File FileName="TableSources/TableSourceAttributes.cs" Line="49" Column="26" />
+      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="137" Column="3" />
+      <File FileName="1ST TAB Profiles/ProfilesSplitViewController.cs" Line="1" Column="1" />
+      <File FileName="1ST TAB Profiles/SessionsSplitViewController.cs" Line="72" Column="27" />
+      <File FileName="Controller/MainTabBarController.cs" Line="8" Column="26" />
+      <File FileName="CollectionView/CollectionViewAttributes.cs" Line="48" Column="58" />
+      <File FileName="CollectionView/CollectionViewImageSource.cs" Line="100" Column="3" />
+      <File FileName="CollectionView/CollectionViewImageSourceAttribute.cs" Line="105" Column="4" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" Line="94" Column="50" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingCollectionView.cs" Line="68" Column="51" />
+      <File FileName="Main.cs" Line="12" Column="1" />
+>>>>>>> Stashed changes
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,9 +43,33 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/DQ/Remote/Stacks488/Categories/RunSession.cs" line="47" column="1" />
+      <Breakpoint enabled="false" file="/Users/DQ/Remote/Stacks488/Categories/RunSession.cs" line="47" column="1" />
+      <Breakpoint enabled="false" file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/Controller/MasterTableNavigationController.cs" line="40" column="43" />
+      <Breakpoint file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/Controller/TableSourceCategories.cs" line="35" column="1" />
+      <Breakpoint file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/RunSession/SessionController.cs" line="20" column="1" />
+<<<<<<< Updated upstream
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="76" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceProfiles.cs" relfile="TableSources/TableSourceProfiles.cs" line="89" column="70" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="195" column="74" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceCategories.cs" relfile="TableSources/TableSourceCategories.cs" line="111" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceCategories.cs" relfile="TableSources/TableSourceCategories.cs" line="112" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/SessionController.cs" relfile="5TH RunSession/SessionController.cs" line="126" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/CollectionView/CollectionViewImageSource.cs" relfile="CollectionView/CollectionViewImageSource.cs" line="137" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="69" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="53" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" relfile="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" line="56" column="206" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/CollectionView/CollectionViewImageStackSource.cs" relfile="CollectionView/CollectionViewImageStackSource.cs" line="82" column="1" />
+=======
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="76" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/TableSources/TableSourceProfiles.cs" relfile="TableSources/TableSourceProfiles.cs" line="89" column="70" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="195" column="74" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/TableSources/TableSourceCategories.cs" relfile="TableSources/TableSourceCategories.cs" line="111" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/TableSources/TableSourceCategories.cs" relfile="TableSources/TableSourceCategories.cs" line="112" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_1:27:17/Stacks488/Categories/CollectionView/CollectionViewImageStackSource.cs" relfile="CollectionView/CollectionViewImageStackSource.cs" line="59" column="1" />
+>>>>>>> Stashed changes
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E4C8DACE-CE00-4938-B1C2-2110F9F12C3B" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C376F8B9-EB56-449F-8B80-3BB4C4E6589A" />
+  <MultiItemStartupConfigurations />
 </Properties>

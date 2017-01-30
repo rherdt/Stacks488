@@ -4,16 +4,16 @@ using SQLite;
 
 namespace Categories
 {
-	public class Profiles
+	public class Profiles : IEntity
 	{
-
-
 		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
+		public Guid ID { get; set; }
 
 		public string FirstName { get; set; }
 
 		public string LastName { get; set; }
+
+		public string LastSessionDate { get; set; }
 
 	}
 }

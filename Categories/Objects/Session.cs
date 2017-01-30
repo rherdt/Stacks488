@@ -3,21 +3,21 @@ using SQLite;
 
 namespace Categories
 {
-	public class Session
+	public class Session : IEntity
 	{
 		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
+		public Guid ID { get; set; }
 
-		public int ParentID { get; set; }
+		public Guid ParentProfileID { get; set; }
+
+		public Guid CategoryID { get; set;}
 
 		public string SessionDate { get; set; }
 
-		public int Independent { get; set; }
+		public double SessionScore { get; set;}
 
-		public int Prompted { get; set; }
+		public int Attempted { get; set; }
 
-		public int Missed { get; set; }
-
-
+		public int Correct { get; set; }
 	}
 }

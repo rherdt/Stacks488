@@ -10,54 +10,52 @@ namespace Categories
 
 		public MainTabBarController() 
 		{
-			PopulateDbIfEmpty();
-
-			UIViewController ProfilesTab, CategoriesTab, ImagesTab, TestTab, InsertImageView;
+			UIViewController ProfilesTab, CategoriesTab, ImagesTab, SessionScreen, ImageStackAddingScreen;
 
 			ProfilesTab = new ProfilesSplitViewController();
 			CategoriesTab = new CategoriesSplitViewController();
 			ImagesTab = new AttributesSplitViewController();
-			TestTab = new CollectionViewController();
-			InsertImageView = new RunSession();
+			SessionScreen = new NewSessionSplitViewController();
+			ImageStackAddingScreen = new ImageStackAddingSplitViewController();
 
 
-
+			ProfilesTab.TabBarItem = new UITabBarItem("Profiles", UIImage.FromFile("profiles.png"), 0);
 			ProfilesTab.Title = "Profiles";
+
+			CategoriesTab.TabBarItem = new UITabBarItem("Categories", UIImage.FromFile("categories.png"), 0);
 			CategoriesTab.Title = "Categories";
+
+			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
 			ImagesTab.Title = "Images";
-			TestTab.Title = "Test UI";
-			InsertImageView.Title = "Add Image";
 
-
-
-			CategoriesTab.View.BackgroundColor = UIColor.Blue;
+			//SessionScreen.Title = "Session";
+			ImageStackAddingScreen.Title = "Image Stack";
+			SessionScreen.TabBarItem.Enabled = false;
+			//ImageStackAddingScreen.TabBarItem.Enabled = false;
 
 			var tabs = new UIViewController[]
 			{
-				CategoriesTab, ImagesTab, ProfilesTab, TestTab, InsertImageView
+				ProfilesTab, CategoriesTab, ImagesTab, SessionScreen, ImageStackAddingScreen
 			};
 
 
 			ViewControllers = tabs;
 
-			SelectedViewController = CategoriesTab;
+			SelectedViewController = ProfilesTab;
 
-		}
-
-		private void PopulateDbIfEmpty()
-		{
-			if (CategoryDatabase.getAllCategories() == null)
-			{
-				CategoryDatabase.InsertCategory("Fruit");
-				CategoryDatabase.InsertCategory("Clothing");
-				CategoryDatabase.InsertCategory("FamilyTree");
-
-			}
 
 		}
 
 		public MainTabBarController (IntPtr handle) : base (handle)
         {
         }
+		public override bool ShouldAutorotate()
+		{
+			return true;
+		}
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			return UIInterfaceOrientationMask.Landscape;
+		}
     }
 }

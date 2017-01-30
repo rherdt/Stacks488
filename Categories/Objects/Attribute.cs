@@ -3,7 +3,7 @@ using SQLite;
 
 namespace Categories
 {
-	public class Attribute
+	public class Attribute : IEntity
 	{
 		/*
 		 * ImageDatabase		AttributeDatabae
@@ -14,12 +14,14 @@ namespace Categories
 		 * EX: SQL Statement
 		 * Select *
 		 * from AttributeDatabase, ImageDatabase
-		 * Where ImageDatabase,ID == AttributeDatabase.ID
+		 * Where ImageDatabase.ID == AttributeDatabase.ID
 		 * 
 		 */
-		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
-		public int ImageID { get; set;}
-		public string ImageAttribute { get; set; }
+		[PrimaryKey,AutoIncrement]
+		public Guid ID { get; set; }
+		[Unique]
+		public string Name { get; set; }
+
+
 	}
 }

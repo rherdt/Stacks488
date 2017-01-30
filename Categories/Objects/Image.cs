@@ -6,7 +6,7 @@ namespace Categories
 	public class Image
 	{
 		[PrimaryKey, AutoIncrement]
-		public int ID { get; set; }
+		public Guid ID { get; set; }
 
 		[Unique]
 		public string FileName { get; set; }

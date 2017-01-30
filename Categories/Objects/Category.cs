@@ -3,7 +3,7 @@ using SQLite;
 
 namespace Categories
 {
-	public class Category
+	public class Category : IEntity
 	{
 
 		[PrimaryKey, AutoIncrement]

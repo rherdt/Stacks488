@@ -120,16 +120,31 @@
     <ImageAsset Include="Assets.xcassets\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="SessionController.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Database\" />
-    <Folder Include="Objects\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="Controller\CollectionViewController.xib" />
+    <InterfaceDefinition Include="2ND TAB Categories\View\ImageCollectionHeaderView.xib" />
+    <InterfaceDefinition Include="2ND TAB Categories\View\ImageStackHeaderView.xib" />
+    <InterfaceDefinition Include="CollectionView\CollectionViewController.xib" />
+    <InterfaceDefinition Include="5TH RunSession\SessionController.xib" />
+    <InterfaceDefinition Include="5TH RunSession\Settings\SettingsAlertController.xib" />
+    <InterfaceDefinition Include="1ST TAB Profiles\View\SessionHeaderView.xib" />
+    <InterfaceDefinition Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.xib" />
+    <InterfaceDefinition Include="6TH Image Stack Adding\ImageStackAddingCollectionView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -139,65 +154,113 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Database\ProfileDatabase.cs" />
-    <Compile Include="Database\ImageDatabase.cs" />
-    <Compile Include="Database\SessionDatabase.cs" />
-    <Compile Include="Database\CategoryDatabase.cs" />
-    <Compile Include="Database\AttributeDatabase.cs" />
-    <Compile Include="Controller\CustomCellProfiles.cs" />
-    <Compile Include="Controller\CustomCellSessions.cs" />
-    <Compile Include="Controller\TableSourceProfiles.cs" />
-    <Compile Include="Controller\TableSourceSessions.cs" />
+    <Compile Include="TableCustomCells\CustomCellProfiles.cs" />
+    <Compile Include="TableCustomCells\CustomCellSessions.cs" />
+    <Compile Include="TableSources\TableSourceProfiles.cs" />
+    <Compile Include="TableSources\TableSourceSessions.cs" />
     <Compile Include="Objects\Attribute.cs" />
     <Compile Include="Objects\Image.cs" />
     <Compile Include="Objects\Profiles.cs" />
     <Compile Include="Objects\Session.cs" />
     <Compile Include="Objects\Category.cs" />
-    <Compile Include="Controller\FirstViewController.cs" />
-    <Compile Include="Controller\FirstViewController.designer.cs">
-      <DependentUpon>FirstViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\SecondViewController.cs" />
-    <Compile Include="Controller\SecondViewController.designer.cs">
-      <DependentUpon>SecondViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\TableSourceCategories.cs" />
+    <Compile Include="TableSources\TableSourceCategories.cs" />
     <Compile Include="Controller\MainTabBarController.cs" />
     <Compile Include="Controller\MainTabBarController.designer.cs">
       <DependentUpon>MainTabBarController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\CategoriesSplitViewController.cs" />
-    <Compile Include="Controller\CategoriesSplitViewController.designer.cs">
-      <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\ImageStackSplitViewController.cs" />
-    <Compile Include="Controller\CategoriesTableViewController.cs" />
-    <Compile Include="Controller\ImageStackTableViewController.cs" />
-    <Compile Include="Controller\TestTableSource.cs" />
+    <Compile Include="2ND TAB Categories\ImageStackSplitViewController.cs" />
+    <Compile Include="2ND TAB Categories\ImageStackTableViewController.cs" />
+    <Compile Include="TableSources\TestTableSource.cs" />
     <Compile Include="Controller\RunSession.cs" />
     <Compile Include="Controller\RunSession.designer.cs">
       <DependentUpon>RunSession.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\CollectionViewImageSource.cs" />
-    <Compile Include="Controller\CollectionViewController.cs" />
-    <Compile Include="Controller\CollectionViewController.designer.cs">
-      <DependentUpon>CollectionViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\ProfilesSplitViewController.cs" />
-    <Compile Include="Controller\ProfilesTableViewController.cs" />
-    <Compile Include="Controller\SessionsSplitViewController.cs" />
-    <Compile Include="Controller\SessionsTableViewController.cs" />
-    <Compile Include="Controller\AttributesSplitViewController.cs" />
-    <Compile Include="Controller\TableSourceAttributes.cs" />
-    <Compile Include="Controller\ImageAttributesTableViewController.cs" />
-    <Compile Include="Controller\AttributesTableViewController.cs" />
-    <Compile Include="Controller\ImageAttributesSplitViewController.cs" />
     <Compile Include="Controller\MasterTableNavigationController.cs" />
+    <Compile Include="Interfaces\IUpdatableTable.cs" />
+    <Compile Include="Interfaces\ICustomTableViewSource.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageCollectionHeaderView.designer.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageCollectionHeaderView.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageStackHeaderView.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageStackHeaderView.designer.cs" />
+    <Compile Include="CollectionView\CollectionViewController.cs" />
+    <Compile Include="CollectionView\CollectionViewController.designer.cs" />
+    <Compile Include="5TH RunSession\SessionController.designer.cs" />
+    <Compile Include="5TH RunSession\SessionController.cs" />
+    <Compile Include="5TH RunSession\Settings\SettingsAlertController.cs" />
+    <Compile Include="5TH RunSession\Settings\SettingsAlertController.designer.cs" />
+    <Compile Include="1ST TAB Profiles\SessionsSplitViewController.cs" />
+    <Compile Include="1ST TAB Profiles\SessionsTableViewController.cs" />
+    <Compile Include="1ST TAB Profiles\View\SessionHeaderView.cs" />
+    <Compile Include="1ST TAB Profiles\View\SessionHeaderView.designer.cs" />
+    <Compile Include="1ST TAB Profiles\ProfilesSplitViewController.cs" />
+    <Compile Include="1ST TAB Profiles\ProfilesTableViewController.cs" />
+    <Compile Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.cs" />
+    <Compile Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.designer.cs" />
+    <Compile Include="3RD TAB Attributes\AttributesSplitViewController.cs" />
+    <Compile Include="3RD TAB Attributes\AttributesTableViewController.cs" />
+    <Compile Include="3RD TAB Attributes\ImageAttributesSplitViewController.cs" />
+    <Compile Include="3RD TAB Attributes\ImageAttributesTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\ImagesTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\NewSessionSplitViewController.cs" />
+    <Compile Include="4TH SessionsScreen\NewSessionTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\RunsSplitViewController.cs" />
+    <Compile Include="4TH SessionsScreen\RunsTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\SessionsScreenMasterTableNavigationController.cs" />
+    <Compile Include="TableCustomCells\CustomCellCategories.cs" />
+    <Compile Include="Objects\CurrentSession.cs" />
+    <Compile Include="Objects\Result.cs" />
+    <Compile Include="2ND TAB Categories\CategoriesSplitViewController.cs" />
+    <Compile Include="2ND TAB Categories\CategoriesSplitViewController.designer.cs">
+      <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2ND TAB Categories\CategoriesTableViewController.cs" />
+    <Compile Include="TableSources\TableSourceImageAttributes.cs" />
+    <Compile Include="TableSources\TableSourceAttributes.cs" />
+    <Compile Include="Objects\ImageAttributes.cs" />
+    <Compile Include="DEPRECATED\AttributeDatabase.cs" />
+    <Compile Include="DEPRECATED\CategoryDatabase.cs" />
+    <Compile Include="DEPRECATED\ImageAttributeDatabase.cs" />
+    <Compile Include="DEPRECATED\ImageDatabase.cs" />
+    <Compile Include="DEPRECATED\ProfileDatabase.cs" />
+    <Compile Include="DEPRECATED\SessionDatabase.cs" />
+    <Compile Include="Database\IDatabase.cs" />
+    <Compile Include="Interfaces\Utilities.cs" />
+    <Compile Include="Database\DatabaseContext.cs" />
+    <Compile Include="Objects\SessionResult.cs" />
+    <Compile Include="CollectionView\CollectionViewImageSource.cs" />
+    <Compile Include="CollectionView\CollectionViewImageSourceAttribute.cs" />
+    <Compile Include="CollectionView\CollectionViewAttributes.cs" />
+    <Compile Include="Objects\ImageStackCategory.cs" />
+    <Compile Include="TableSources\TableSourceImageStack.cs" />
+    <Compile Include="TableSources\TableSourceRanImages.cs" />
+    <Compile Include="TableCustomCells\CustomCellRanImages.cs" />
+    <Compile Include="Objects\ImageStackImages.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingCollectionView.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingCollectionView.designer.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingSplitViewController.cs" />
+    <Compile Include="CollectionView\CollectionViewImageStackSource.cs" />
+<<<<<<< Updated upstream
+    <Compile Include="2ND TAB Categories\CollectionViewImageStack.cs" />
+=======
+    <Compile Include="CollectionViewImageStack.cs" />
+    <Compile Include="6TH Image Stack Adding\MasterImageAddingTableNavigationController.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\vector.pdf" />
     <BundleResource Include="Resources\images.csv" />
     <BundleResource Include="Resources\placeholder.jpg" />
+    <BundleResource Include="Resources\categories.png" />
+    <BundleResource Include="Resources\images.png" />
+    <BundleResource Include="Resources\profiles.png" />
+    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\neutral.png" />
+    <BundleResource Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DEPRECATED\" />
+    <Folder Include="Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
