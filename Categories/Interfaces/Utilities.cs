@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using System.Drawing;
+using Foundation;
 using UIKit;
 
 namespace Categories
@@ -46,6 +47,39 @@ namespace Categories
 			return null;
 		}
 
+		public static void InsertImage(UIImage imageToSave)
+		{
+
+			/*
+			 * Insert image from Camera roll and save into the Personal folder in the app bundle
+			 * Image Name is an auto generated Guid
+			 * Resize image first
+			 */
+			imageToSave = ResizeImage(imageToSave, 500, 500);
+			string FileName = Guid.NewGuid() + ".jpg";
+
+			string jpgFilename = System.IO.Path.Combine(DocsDir, FileName);                  // hardcoded filename for now, need to implement filename generator
+
+			NSData imgData = imageToSave.AsJPEG();                                                      //convert the image to jpeg
+			NSError err = null;
+
+			if (imgData.Save(jpgFilename, false, out err))
+			{
+				Console.WriteLine("saved as " + jpgFilename);
+				//Save image to the Database
+				Image image = new Image();
+				image.FileName = FileName;
+
+				new DatabaseContext<Image>().Insert(image);
+
+			}
+			else
+			{
+				Console.WriteLine("NOT saved as " + jpgFilename + " because" + err.LocalizedDescription);
+			}
+
+
+		}
 
 	}
 }

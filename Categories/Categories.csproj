@@ -171,10 +171,6 @@
     <Compile Include="2ND TAB Categories\ImageStackSplitViewController.cs" />
     <Compile Include="2ND TAB Categories\ImageStackTableViewController.cs" />
     <Compile Include="TableSources\TestTableSource.cs" />
-    <Compile Include="Controller\RunSession.cs" />
-    <Compile Include="Controller\RunSession.designer.cs">
-      <DependentUpon>RunSession.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controller\MasterTableNavigationController.cs" />
     <Compile Include="Interfaces\IUpdatableTable.cs" />
     <Compile Include="Interfaces\ICustomTableViewSource.cs" />
@@ -219,12 +215,6 @@
     <Compile Include="TableSources\TableSourceImageAttributes.cs" />
     <Compile Include="TableSources\TableSourceAttributes.cs" />
     <Compile Include="Objects\ImageAttributes.cs" />
-    <Compile Include="DEPRECATED\AttributeDatabase.cs" />
-    <Compile Include="DEPRECATED\CategoryDatabase.cs" />
-    <Compile Include="DEPRECATED\ImageAttributeDatabase.cs" />
-    <Compile Include="DEPRECATED\ImageDatabase.cs" />
-    <Compile Include="DEPRECATED\ProfileDatabase.cs" />
-    <Compile Include="DEPRECATED\SessionDatabase.cs" />
     <Compile Include="Database\IDatabase.cs" />
     <Compile Include="Interfaces\Utilities.cs" />
     <Compile Include="Database\DatabaseContext.cs" />
@@ -255,7 +245,6 @@
     <BundleResource Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DEPRECATED\" />
     <Folder Include="Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -184,7 +184,7 @@ namespace Categories
 				{
 					//add photo to database
 
-					ImageDatabase.InsertImage(originalImage);
+					Utilities.InsertImage(originalImage);
 				}
 
 			}
@@ -195,7 +195,7 @@ namespace Categories
 			if ( attributesCollectionView != null)
 			{
 				attributesCollectionView.ClearImages();
-				attributesCollectionView.UpdateImages(ImageDatabase.GetAllImagesByOBJ());
+				attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
 			}
 
 		}

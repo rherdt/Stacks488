@@ -1,16 +1,27 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="2ND TAB Categories/CategoriesSplitViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="3RD TAB Attributes/AttributesSplitViewController.cs">
     <Files>
-      <File FileName="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" Line="90" Column="5" />
-      <File FileName="Objects/ImageStackCategory.cs" Line="1" Column="1" />
-      <File FileName="Objects/ImageStackImages.cs" Line="13" Column="43" />
-      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="1" Column="1" />
+      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="190" Column="5" />
+      <File FileName="DEPRECATED/ImageDatabase.cs" Line="60" Column="4" />
+      <File FileName="Interfaces/Utilities.cs" Line="69" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/DQ/Remote/Stacks488/Categories/RunSession.cs" line="47" column="1" />
+      <Breakpoint enabled="false" file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/Controller/MasterTableNavigationController.cs" line="40" column="43" />
+      <Breakpoint file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/Controller/TableSourceCategories.cs" line="35" column="1" />
+      <Breakpoint file="/Users/gnu_kid/Stacks488/Stacks488/Stacks488/Categories/RunSession/SessionController.cs" line="20" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/RunSession/SessionController.cs" relfile="RunSession/SessionController.cs" line="76" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceProfiles.cs" relfile="TableSources/TableSourceProfiles.cs" line="89" column="70" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="195" column="74" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/CollectionView/CollectionViewImageSource.cs" relfile="CollectionView/CollectionViewImageSource.cs" line="137" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="53" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" relfile="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" line="56" column="206" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E4C8DACE-CE00-4938-B1C2-2110F9F12C3B" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6AF740A9-1C74-4EB3-9651-A8533EDF835D" />
+  <MultiItemStartupConfigurations />
 </Properties>
