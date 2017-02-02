@@ -126,17 +126,23 @@ namespace Categories
 			if (CurrentImageIndex > 0)
 			{
 				CurrentImageIndex--;
-				ImageViewSession.Image = getImageFromDB();
-				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
-				List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
-				String s = images[0].Title;
-				if (s != null)
+				if (CurrentProfile.showImageSettings)
 				{
-					ImageTitleLabel.Text = s;
+					ImageViewSession.Image = getImageFromDB();
 				}
-				else
+				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
+				if (CurrentProfile.showLabelSettings)
 				{
-					ImageTitleLabel.Text = "No Label";
+					List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
+					String s = images[0].Title;
+					if (s != null)
+					{
+						ImageTitleLabel.Text = s;
+					}
+					else
+					{
+						ImageTitleLabel.Text = "No Label";
+					}
 				}
 			}
 		}
@@ -145,18 +151,27 @@ namespace Categories
 			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count-1 )
 			{
 				CurrentImageIndex++;
-				ImageViewSession.Image = getImageFromDB();
-				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
-				List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
-
-				String s = images[0].Title;
-				if (s != null)
+				if (CurrentProfile.showImageSettings)
 				{
-					ImageTitleLabel.Text = s;
+					ImageViewSession.Image = getImageFromDB();
 				}
-				else
+				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
+
+				if (CurrentProfile.showLabelSettings)
 				{
-					ImageTitleLabel.Text = "No Label";
+					List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
+
+					//if-else used to allow older versions to work
+					//TEMPERARY
+					String s = images[0].Title;
+					if (s != null)
+					{
+						ImageTitleLabel.Text = s;
+					}
+					else
+					{
+						ImageTitleLabel.Text = "No Label";
+					}
 				}
 			}
 		}
@@ -211,9 +226,6 @@ namespace Categories
 				UpdateCurrentScore();
 
 			}
-
-		
-
 		}
 
 		/*
@@ -266,9 +278,14 @@ namespace Categories
 
 			if (CurrentImageStack < ImageStack2D.Count && CurrentImageIndex < ImageStack2D[CurrentImageStack].Count )
 			{
-
-				ImageViewSession.Image = getImageFromDB();
-				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+				if (CurrentProfile.showImageSettings)
+				{
+					ImageViewSession.Image = getImageFromDB();
+				}
+				if (CurrentProfile.showLabelSettings)
+				{
+					imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+				}
 			}
 		}
 		public void UpdateCurrentScore()
@@ -281,8 +298,10 @@ namespace Categories
 		{
 			if (ImageStack2D != null && ImageStack2D.Count > 0)
 			{
-				
-				ImageViewSession.Image = getImageFromDB(); 
+				if (CurrentProfile.showImageSettings)
+				{
+					ImageViewSession.Image = getImageFromDB();
+				}
 				UpdateCurrentScore();
 				ImageCountLabel.Text = "1/"+ImageStack2D[CurrentImageStack].Count;
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];

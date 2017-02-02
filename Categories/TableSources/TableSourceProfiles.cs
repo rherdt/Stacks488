@@ -72,6 +72,8 @@ namespace Categories
         {
 			Profiles profileNew = new Profiles();
 			profileNew.FirstName = data;
+			profileNew.showImageSettings = true;
+			profileNew.showLabelSettings = true;
 			int success = new DatabaseContext<Profiles>().Insert(profileNew);
 
 			tableItems = new DatabaseContext<Profiles>().GetQuery("SELECT * FROM Profiles");
