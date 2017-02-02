@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="3RD TAB Attributes/AttributesSplitViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="5TH RunSession/SessionController.cs">
     <Files>
-      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="190" Column="5" />
-      <File FileName="DEPRECATED/ImageDatabase.cs" Line="60" Column="4" />
-      <File FileName="Interfaces/Utilities.cs" Line="69" Column="33" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingCollectionView.cs" Line="27" Column="3" />
+      <File FileName="3RD TAB Attributes/AttributesSplitViewController.cs" Line="181" Column="1" />
+      <File FileName="Objects/Image.cs" Line="9" Column="17" />
+      <File FileName="Interfaces/Utilities.cs" Line="79" Column="94" />
+      <File FileName="5TH RunSession/SessionController.cs" Line="283" Column="5" />
+      <File FileName="Main.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
@@ -19,6 +22,9 @@
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/CollectionView/CollectionViewImageSource.cs" relfile="CollectionView/CollectionViewImageSource.cs" line="137" column="1" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="53" column="1" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" relfile="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" line="56" column="206" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/3RD TAB Attributes/AttributesSplitViewController.cs" relfile="3RD TAB Attributes/AttributesSplitViewController.cs" line="181" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/SessionController.cs" relfile="5TH RunSession/SessionController.cs" line="267" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/SessionController.cs" relfile="5TH RunSession/SessionController.cs" line="250" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

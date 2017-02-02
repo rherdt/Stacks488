@@ -29,9 +29,9 @@ namespace Categories
 			ImagesTab.Title = "Images";
 
 			//SessionScreen.Title = "Session";
-			ImageStackAddingScreen.Title = "Image Stack";
+			//ImageStackAddingScreen.Title = "Image Stack";
 			SessionScreen.TabBarItem.Enabled = false;
-			//ImageStackAddingScreen.TabBarItem.Enabled = false;
+			ImageStackAddingScreen.TabBarItem.Enabled = false;
 
 			var tabs = new UIViewController[]
 			{
@@ -43,7 +43,12 @@ namespace Categories
 
 			SelectedViewController = ProfilesTab;
 
+	
 
+
+		}
+		public override void ViewDidLoad()
+		{ 
 		}
 
 		public MainTabBarController (IntPtr handle) : base (handle)

@@ -47,7 +47,7 @@ namespace Categories
 			return null;
 		}
 
-		public static void InsertImage(UIImage imageToSave)
+		public static Image InsertImage(UIImage imageToSave)
 		{
 
 			/*
@@ -71,12 +71,15 @@ namespace Categories
 				image.FileName = FileName;
 
 				new DatabaseContext<Image>().Insert(image);
+				return image;
 
 			}
 			else
 			{
 				Console.WriteLine("NOT saved as " + jpgFilename + " because" + err.LocalizedDescription);
 			}
+
+			return null;
 
 
 		}

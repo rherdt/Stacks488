@@ -19,7 +19,6 @@ namespace Categories
 		MasterTableNavigationController navController;
 		UINavigationController navControllerCollection;
 
-
 		/*
 		 * SplitView 2
 		 */
@@ -73,7 +72,6 @@ namespace Categories
 			ImageAtrributesNavigationController = new MasterTableNavigationController(RightImageAttributeTable);
 			RightAttributesTableSource.AttributeRowToController += GetAttributeRowSelectedRight;
 
-
 			//2nd SplitView Controller
 			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, ImageAtrributesNavigationController);
 
@@ -100,7 +98,6 @@ namespace Categories
 					Images.Add(i);
 				}
 			}
-
 			if (Images != null)
 			{
 				attributesCollectionView.ClearImages();
@@ -110,14 +107,11 @@ namespace Categories
 			//clear the attributes table 
 			RightAttributesTableSource.ClearTable();
 			RightImageAttributeTable.RefreshTableView();
-
-
 		}
 		void GetAttributeRowSelectedRight(ImageAttributes attrReturned)
 		{
 			//get the row selected from the right table
 			new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
-
 		}
 		void GetImageSelectedFromCollectionView(Image imageSelected)
 		{
@@ -128,18 +122,12 @@ namespace Categories
 			Selected = imageSelected;
 			RightAttributesTableSource.SetTableSource(imageSelected.ID);
 			RightImageAttributeTable.RefreshTableView();
-
-
-
-
 		}
-
 		void ReloadCollectionViewAll(Attribute attr)
 		{
 			attributesCollectionView.ClearImages();
 			attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * FROM Image"));
 		}
-
 		void AddPhotoButtonHandler(object sender, EventArgs e)
 		{
 			// create a new picker controller
@@ -167,7 +155,6 @@ namespace Categories
 			Console.WriteLine("picker cancelled");
 			imagePicker.DismissModalViewController(true);
 		}
-
 		/*
 		 * Handler for when the user chooses an image from the imagepicker(camera roll).
 		 * This converts the chosen image to a UIImage and adds it to the database.
@@ -183,25 +170,40 @@ namespace Categories
 				if (originalImage != null)
 				{
 					//add photo to database
+					Image inserted = Utilities.InsertImage(originalImage);
+					UIAlertView alert = new UIAlertView();
+					alert.Title = "Image Name";
+					alert.AddButton("Ok");
+					alert.Message = "Enter Image Title name:";
+					alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+					alert.Clicked += (object s, UIButtonEventArgs ev) =>
+					{
+						if (ev.ButtonIndex == 0)
+						{
+							string input = alert.GetTextField(0).Text;
+							inserted.Title = input;
+							new DatabaseContext<Image>().Update(inserted);
 
-					Utilities.InsertImage(originalImage);
+						}
+
+					};
+					alert.Show();
+
 				}
 
 			}
 			// dismiss the pickerr
 			imagePicker.DismissModalViewController(true);
-
 			//refesh the collection view
 			if ( attributesCollectionView != null)
 			{
 				attributesCollectionView.ClearImages();
 				attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
 			}
-
 		}
+
 		public void InsertAttributeForImage(string str)
 		{
-
 			if (Selected != null)
 			{
 				//update the left Attributes, add attributes from each image to all attributes
@@ -213,7 +215,5 @@ namespace Categories
 			
 			}
 		}
-
-
 	}
 }

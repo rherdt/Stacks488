@@ -128,6 +128,16 @@ namespace Categories
 				CurrentImageIndex--;
 				ImageViewSession.Image = getImageFromDB();
 				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
+				List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
+				String s = images[0].Title;
+				if (s != null)
+				{
+					ImageTitleLabel.Text = s;
+				}
+				else
+				{
+					ImageTitleLabel.Text = "No Label";
+				}
 			}
 		}
 		public void Next()
@@ -137,6 +147,17 @@ namespace Categories
 				CurrentImageIndex++;
 				ImageViewSession.Image = getImageFromDB();
 				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
+				List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
+
+				String s = images[0].Title;
+				if (s != null)
+				{
+					ImageTitleLabel.Text = s;
+				}
+				else
+				{
+					ImageTitleLabel.Text = "No Label";
+				}
 			}
 		}
 
@@ -248,9 +269,7 @@ namespace Categories
 
 				ImageViewSession.Image = getImageFromDB();
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
-
 			}
-
 		}
 		public void UpdateCurrentScore()
 		{
