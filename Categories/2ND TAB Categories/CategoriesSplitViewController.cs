@@ -195,8 +195,38 @@ namespace Categories
 		}
 		void CollectionViewRandomizeButton_TouchUpInside(object sender, EventArgs e)
 		{
-			new UIAlertView("Randomize Button", "", null, "OK", null).Show();
-			//randomize the sort of the images
+			//new UIAlertView("Randomize Button", "", null, "OK", null).Show();
+			/* randomize the sort of the images
+			 * 
+			 */
+			if (SelectedImageStack != null)
+			{
+				Random rand = new Random();
+				List<int>indexList;
+				List<ImageStackImages> images = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ? Order By ImageStackIndex", SelectedImageStack.ID.ToString());
+				indexList = new List<int>();
+
+				//get all image id's
+				foreach (ImageStackImages i in images)
+				{
+					indexList.Add( i.ImageStackIndex) ;
+				}
+
+				//get random index, pop from array
+				foreach (ImageStackImages i in images)
+				{
+					ImageStackImages temp = i;
+					int randomIndex = rand.Next(rand.Next(0, indexList.Count));
+					int tempIndex = indexList[randomIndex];
+					indexList.RemoveAt(randomIndex);
+
+					i.ImageStackIndex = tempIndex;
+					new DatabaseContext<ImageStackImages>().Update(i);
+				}
+
+				collectionViewController.UpdateImages(images);
+			}
+
 		}
 		void CollectionViewInOrderButton_TouchUpInside(object sender, EventArgs e)
 		{

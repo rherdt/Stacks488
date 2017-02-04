@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="5TH RunSession/Settings/SettingsAlertController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="2ND TAB Categories/View/ImageCollectionHeaderView.cs">
     <Files>
-      <File FileName="5TH RunSession/Settings/SettingsAlertController.cs" Line="22" Column="28" />
-      <File FileName="TableSources/TableSourceProfiles.cs" Line="75" Column="39" />
-      <File FileName="5TH RunSession/SessionController.cs" Line="154" Column="1" />
-      <File FileName="Database/DatabaseContext.cs" Line="15" Column="1" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="230" Column="4" />
+      <File FileName="2ND TAB Categories/CollectionViewImageStack.cs" Line="85" Column="15" />
+      <File FileName="2ND TAB Categories/View/ImageCollectionHeaderView.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
@@ -18,13 +17,10 @@
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceProfiles.cs" relfile="TableSources/TableSourceProfiles.cs" line="91" column="70" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/AttributesView/AttributesSplitViewController.cs" relfile="AttributesView/AttributesSplitViewController.cs" line="195" column="74" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/CollectionView/CollectionViewImageSource.cs" relfile="CollectionView/CollectionViewImageSource.cs" line="137" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="54" column="1" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" relfile="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" line="56" column="206" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/3RD TAB Attributes/AttributesSplitViewController.cs" relfile="3RD TAB Attributes/AttributesSplitViewController.cs" line="181" column="1" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/SessionController.cs" relfile="5TH RunSession/SessionController.cs" line="279" column="1" />
       <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/SessionController.cs" relfile="5TH RunSession/SessionController.cs" line="262" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="176" column="1" />
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/5TH RunSession/Settings/SettingsAlertController.cs" relfile="5TH RunSession/Settings/SettingsAlertController.cs" line="49" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
