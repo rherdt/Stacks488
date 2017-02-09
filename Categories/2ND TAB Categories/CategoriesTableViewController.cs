@@ -23,5 +23,10 @@ namespace Categories
             table.Source = (UITableViewSource)source;
             tableController.View = table;
         }
+
+		public void ReloadSessionTableData()
+		{
+			table.ReloadData();
+		}
     }
 }

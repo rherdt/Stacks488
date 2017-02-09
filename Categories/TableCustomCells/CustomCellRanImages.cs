@@ -13,11 +13,10 @@ public class CustomCellRanImages : UITableViewCell
 	public CustomCellRanImages(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
 	{
 		SelectionStyle = UITableViewCellSelectionStyle.None;
-		ContentView.BackgroundColor = UIColor.FromRGB(255, 255, 255);
-		img = new UIImageView()
-		{
-			//BackgroundColor = UIColor.Green
-		};
+		ContentView.BackgroundColor = UIColor.White;
+
+		img = new UIImageView();
+
 		nameLabel = new UILabel()
 		{
 			Font = UIFont.FromName("AmericanTypewriter", 13f),
@@ -26,10 +25,7 @@ public class CustomCellRanImages : UITableViewCell
 			//BackgroundColor = UIColor.Blue
 		};
 
-		result = new UIImageView()
-		{
-			//BackgroundColor = UIColor.Red
-		};
+		result = new UIImageView();
 
 		ContentView.AddSubviews(new UIView[] { img, nameLabel, result });
 	}
@@ -56,7 +52,6 @@ public class CustomCellRanImages : UITableViewCell
 		else if (outcome.Equals("M"))
 		{
 			result.Image = UIImage.FromFile("minus.png");
-			//result.Frame = new CGRect((ContentView.Bounds.Width / 6) + (ContentView.Bounds.Width / 3) + 60, 3, 25, 25);
 			additionModifier = 140;
 		}
 		LayoutSubviews();

@@ -33,6 +33,11 @@ namespace Categories
 			return btnInOrder;
 		}
 
+		public UITextField getImageStackTextbox()
+		{
+			return txtImageStack;
+		}
+
 
         //set button properties at runtime
         public override void AwakeFromNib()

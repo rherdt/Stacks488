@@ -15,5 +15,9 @@ namespace Categories
 
 		public string LastSessionDate { get; set; }
 
+		//for settings
+		public bool showLabelSettings { get; set; }
+		public bool showImageSettings { get; set; }
+
 	}
 }

@@ -13,7 +13,7 @@ namespace Categories
         #region Fields
         ImageStackSplitViewController imageStackSplitViewController;
         CategoriesTableViewController categoriesTableViewController;
-        MasterTableNavigationController navController;
+        MasterTableNavigationController categoriesNavigationController;
 		TableSourceCategories categoriesTableSource;
 		#endregion
 
@@ -22,47 +22,67 @@ namespace Categories
 		 */
 		CollectionViewImageStack collectionViewController;
 		ImageStackTableViewController imageStackTableViewController;
-		UINavigationController navigationController;
+		UINavigationController ImageStackNavigationController;
 		UINavigationController collectionsNavigationController;
 		TableSourceImageStack imageStackTable;
 
 		ImageStackCategory SelectedImageStack;
-		Boolean DeleteFromImageStack = false;
+		bool DeleteFromImageStack;
+		static Random rand = new Random();
 
         public CategoriesSplitViewController() : base()
         {
-			//1st View	
+				
+			InitializeCategoriesTable(); //1st view
+			InitializeImageStackViewTable(); //2nd view
+			InitializeCollectionView(); //3rd view
+
+			imageStackSplitViewController = new ImageStackSplitViewController(ImageStackNavigationController, collectionsNavigationController, collectionViewController,imageStackTableViewController);
+			//imageStackSplitViewController.View.Hidden = true;
+
+			ViewControllers = new UIViewController[] { categoriesNavigationController, imageStackSplitViewController };
+			View.BackgroundColor = UIColor.White;
+        }
+
+		#region Initialization
+
+		public void InitializeCategoriesTable()
+		{
 			categoriesTableSource = new TableSourceCategories();
 			categoriesTableSource.CategoryRowToSessionTableViewController += CategoryRowToImageStackDelegate;
 			categoriesTableSource.HideTable += ShowImageStackView;
 
 			categoriesTableViewController = new CategoriesTableViewController(categoriesTableSource);
-            navController = new MasterTableNavigationController(categoriesTableViewController);
+			categoriesNavigationController = new MasterTableNavigationController(categoriesTableViewController);
+		}
 
-
-			//2nd view
-			collectionViewController = new CollectionViewImageStack();
+		public void InitializeImageStackViewTable()
+		{
 			imageStackTable = new TableSourceImageStack();
 			imageStackTable.ImageStackToController += ImageStackToCollectionView;
+			imageStackTable.HideTable += ShowCollectionViewImageStack;
 			imageStackTableViewController = new ImageStackTableViewController(imageStackTable);
+			ImageStackNavigationController = new UINavigationController(imageStackTableViewController);
+			ImageStackNavigationController.View.Hidden = true;
+			ImageStackNavigationController.NavigationBar.Translucent = false;
+		}
 
-			navigationController = new UINavigationController(imageStackTableViewController);
+		public void InitializeCollectionView() 
+		{
+			collectionViewController = new CollectionViewImageStack();
 			collectionsNavigationController = new UINavigationController(collectionViewController);
+			collectionsNavigationController.View.Hidden = true;
 			collectionsNavigationController.NavigationBar.Translucent = false;
+		}
 
-			imageStackSplitViewController = new ImageStackSplitViewController(navigationController, collectionsNavigationController,collectionViewController,imageStackTableViewController);
+  		#endregion
 
-			
-			ViewControllers = new UIViewController[] { navController, imageStackSplitViewController };
-
-        }
+		#region View Methods
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-
 			UIButton addImageStackButton = imageStackSplitViewController.returnImageStackAddButton();
 			addImageStackButton.TouchUpInside += AddImageStackButton_TouchUpInside;
-
 			UIButton selectCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackSelectButton();
 			selectCollectionViewButton.TouchUpInside += CollectionViewSelectButton_TouchUpInside;
 			UIButton AddCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackAddButton();
@@ -71,19 +91,30 @@ namespace Categories
 			RandomizeCollectionViewButton.TouchUpInside += CollectionViewRandomizeButton_TouchUpInside;
 			UIButton InOrderCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackInOrderButton();
 			InOrderCollectionViewButton.TouchUpInside += CollectionViewInOrderButton_TouchUpInside;
-
 		}
+
+		public override void ViewDidDisappear(bool animated)
+		{
+			base.ViewDidDisappear(animated);
+			//imageStackSplitViewController.View.Hidden = true;
+			//collectionsNavigationController.View.Hidden = true;
+		}
+
+		#endregion
 
 		public void CategoryRowToImageStackDelegate(Category category)
 		{
 			/*
 			 * Update the image stacks based on the category chosen
 			 */
+			collectionsNavigationController.View.Hidden = true;
+			imageStackSplitViewController.setCategory(category);
 
 			imageStackTable.UpdateSelectedCategory(category);
-
+			imageStackSplitViewController.updateCategoryNameLabel(category.CategoryName);
 			imageStackTable.UpdateDataSource(category.ID);
 			imageStackTableViewController.ReloadTableData();
+			//collectionsNavigationController.View.Hidden = true;
 
 		}
 		public void ImageStackToCollectionView(ImageStackCategory imageStackSelected)
@@ -93,7 +124,8 @@ namespace Categories
 			 * Images from the imagestackimages table that haev image stack id
 			 */
 			SelectedImageStack = imageStackSelected;
-
+			imageStackSplitViewController.setImageStackName(imageStackSelected);
+			imageStackSplitViewController.updateImageStackNameLabel(imageStackSelected.ImageStackName);
 			List<ImageStackImages> imagesFromStack = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ? Order By ImageStackIndex", imageStackSelected.ID.ToString());
 			//send list of images to the collection view
 			/*Create a new Class for the collection view?
@@ -119,15 +151,11 @@ namespace Categories
 					var emptyFieldAlert = UIAlertController.Create("Error", "Image Stack text field cannot be empty", UIAlertControllerStyle.Alert);
 					emptyFieldAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Cancel, null));
 					PresentViewController(emptyFieldAlert, animated: true, completionHandler: null);
-
-
 				}
 				else
 				{
-					
 					imageStackTable.UpdateData(alert.TextFields[0].Text);
 					imageStackTableViewController.ReloadTableData();
-
 				}
 
 			}));
@@ -195,21 +223,52 @@ namespace Categories
 		}
 		void CollectionViewRandomizeButton_TouchUpInside(object sender, EventArgs e)
 		{
-			new UIAlertView("Randomize Button", "", null, "OK", null).Show();
-			//randomize the sort of the images
+			//new UIAlertView("Randomize Button", "", null, "OK", null).Show();
+			/* randomize the sort of the images
+			 * 
+			 */
+			if (SelectedImageStack != null)
+			{
+				
+				List<int> indexList;
+				List<ImageStackImages> images = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ? Order By ImageStackIndex", SelectedImageStack.ID.ToString());
+				indexList = new List<int>();
+
+				//get all image id's
+				foreach (ImageStackImages i in images)
+				{
+					indexList.Add(i.ImageStackIndex);
+				}
+
+				//get random index, pop from array
+				foreach (ImageStackImages i in images)
+				{
+					ImageStackImages temp = i;
+					int randomIndex = rand.Next(rand.Next(0, indexList.Count+1));
+					int tempIndex = indexList[randomIndex];
+					indexList.RemoveAt(randomIndex);
+
+					i.ImageStackIndex = tempIndex;
+					new DatabaseContext<ImageStackImages>().Update(i);
+				}
+
+				collectionViewController.UpdateImages(images);
+			}
+
 		}
 		void CollectionViewInOrderButton_TouchUpInside(object sender, EventArgs e)
 		{
 			new UIAlertView("In Order Button", "", null, "OK", null).Show();
 		}
 
+		public void ShowCollectionViewImageStack(bool hidden)
+		{
+			if (hidden) { collectionsNavigationController.View.Hidden = false; }
+		}
+
 		public void ShowImageStackView(bool hidden)
 		{
-			//method implemented to avoid crash
-			if (hidden)
-			{
-				
-			}
+			if (hidden) { ImageStackNavigationController.View.Hidden = false; }
 		}
 
 		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { 

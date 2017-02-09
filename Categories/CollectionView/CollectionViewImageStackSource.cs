@@ -103,7 +103,7 @@ namespace Categories
 			ImageCell2 row = Cells[indexPath.Row];
 
 			cell.UpdateRow(row, ImageViewSize);
-
+			cell.Layer.BorderColor = UIColor.Red.CGColor;
 			return cell;
 		}
 		public void setDeleteFunction(bool b)

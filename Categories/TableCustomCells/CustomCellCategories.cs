@@ -41,9 +41,7 @@ namespace Categories
 
 				var t = (NewSessionSplitViewController)newSessionSplitViewController;
 				btnStart.TouchUpInside += (sender, e) => t.startButton();
-
 				btnStart.Frame = new CGRect(ContentView.Bounds.Width - 100, ContentView.Bounds.Height / 2 - 10, 60, 15);
-
 				ContentView.AddSubviews(new UIView[] { lblCategoryName, lblNumberOfImages, btnStart });
 			}
 			else
@@ -57,14 +55,13 @@ namespace Categories
         {
             lblCategoryName.Text = categoryName;
             lblNumberOfImages.Text = numOfImgs;
-
         }
 
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
-            lblCategoryName.Frame = new CGRect(1, 1, ContentView.Bounds.Width / 3, ContentView.Bounds.Height / 2);
-            lblNumberOfImages.Frame = new CGRect(1, ContentView.Bounds.Height / 2 + 1, ContentView.Bounds.Width / 3, ContentView.Bounds.Height / 2 - 1);
+            lblCategoryName.Frame = new CGRect(1, 1, ContentView.Bounds.Width / 1.5, ContentView.Bounds.Height / 2);
+            lblNumberOfImages.Frame = new CGRect(1, ContentView.Bounds.Height / 2 + 1, ContentView.Bounds.Width / 1.5, ContentView.Bounds.Height / 2 - 1);
         }
     }
 }

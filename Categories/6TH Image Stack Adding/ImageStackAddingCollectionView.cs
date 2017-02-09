@@ -10,9 +10,9 @@ namespace Categories
 	public partial class ImageStackAddingCollectionView : UIViewController
 	{
 		UICollectionView CollectionView;
-		CollectionViewImageSourceAttribute CollectionViewSource;
+		ImageStackAddingSource CollectionViewSource;
 
-		public ImageStackAddingCollectionView(CollectionViewImageSourceAttribute Source) : base("ImageStackAddingCollectionView", null)
+		public ImageStackAddingCollectionView(ImageStackAddingSource Source) : base("ImageStackAddingCollectionView", null)
 		{
 			CollectionViewSource = Source;
 		}
@@ -22,6 +22,12 @@ namespace Categories
 			base.ViewDidLayoutSubviews();
 			CollectionView.Frame = new CoreGraphics.CGRect(5, 20, View.Bounds.Width - 10, View.Bounds.Height);
 
+		}
+
+		//temp
+		public UICollectionView getCollection()
+		{
+			return CollectionView;
 		}
 
 		public override void ViewDidLoad()
@@ -51,13 +57,19 @@ namespace Categories
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 			CollectionView.CollectionViewLayout = layout;
 
-			CollectionView.BackgroundColor = UIColor.Cyan;
+			CollectionView.BackgroundColor = UIColor.White;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 
 
-			CollectionView.RegisterClassForCell(typeof(UserCellAttribute), UserCellAttribute.CellID);
+			CollectionView.RegisterClassForCell(typeof(UserCellAttribute2), UserCellAttribute2.CellID);
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 			CollectionView.Source = CollectionViewSource;
+			//UpdateImages(new DatabaseContext<Image>().GetQuery("SELECT * FROM Image"));
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
 			UpdateImages(new DatabaseContext<Image>().GetQuery("SELECT * FROM Image"));
 		}
 
@@ -75,18 +87,18 @@ namespace Categories
 			ClearImages();
 			foreach (var s in ImageResults)
 			{
-				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
+				CollectionViewSource.Cells.Add(new ImageCellAttribute2(s));
 			}
 			//refresh collectionview
 			CollectionView.ReloadData();
 			//add the collection to the UIView
 			Add(CollectionView);
 		}
+
 		public void ClearImages()
 		{
 			CollectionViewSource.Cells.Clear();
 			CollectionView.ReloadData();
-
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -107,8 +119,6 @@ namespace Categories
 
 			return size;
 		}
-
-
 	}
 }
 

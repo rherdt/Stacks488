@@ -11,9 +11,7 @@ namespace Categories
 		UICollectionView CollectionView;
 		CollectionViewImageSource CollectionViewSource;
 
-		public CollectionViewController() : base("CollectionViewController", null)
-		{
-		}
+		public CollectionViewController() : base("CollectionViewController", null) { }
 
 		public override void ViewDidLoad()
 		{

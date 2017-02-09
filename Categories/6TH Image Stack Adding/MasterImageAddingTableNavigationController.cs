@@ -15,8 +15,7 @@ namespace Categories
 			table = tableViewController;
 			tableViewController.tableController.NavigationItem.Title = "Attributes";
 			tableViewController.tableController.NavigationItem.RightBarButtonItem = new UIBarButtonItem();
-			tableViewController.tableController.NavigationItem.RightBarButtonItem.Title = "Finished";
-			//tableViewController.tableController.NavigationItem.RightBarButtonItem = new UIBarButtonItem("Finished",UIBarButtonItemStyle.Plain);
+			tableViewController.tableController.NavigationItem.RightBarButtonItem.Title = "Finish";
 		}
 
 		public UIBarButtonItem getFinishButton()

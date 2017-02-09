@@ -183,21 +183,36 @@ namespace Categories
 				if (originalImage != null)
 				{
 					//add photo to database
+					Image inserted = Utilities.InsertImage(originalImage);
+					UIAlertView alert = new UIAlertView();
+					alert.Title = "Image Name";
+					alert.AddButton("Ok");
+					alert.Message = "Enter Image Title name:";
+					alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+					alert.Clicked += (object s, UIButtonEventArgs ev) =>
+					{
+						if (ev.ButtonIndex == 0)
+						{
+							string input = alert.GetTextField(0).Text;
+							inserted.Title = input;
+							new DatabaseContext<Image>().Update(inserted);
 
-					Utilities.InsertImage(originalImage);
+						}
+
+					};
+					alert.Show();
+
 				}
 
 			}
 			// dismiss the pickerr
 			imagePicker.DismissModalViewController(true);
-
 			//refesh the collection view
-			if ( attributesCollectionView != null)
+			if (attributesCollectionView != null)
 			{
 				attributesCollectionView.ClearImages();
 				attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
 			}
-
 		}
 		public void InsertAttributeForImage(string str)
 		{

@@ -19,6 +19,7 @@ namespace Categories
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+			UpdateSettingsToggles();
 			// Perform any additional setup after loading the view, typically from a nib.
 			this.View.BackgroundColor = UIColor.White;
 
@@ -45,7 +46,7 @@ namespace Categories
 			StartSessionButton.TouchUpInside += (sender, e) =>
 			{
 				//new UIAlertView("Start", null, null, "Ok", null).Show();
-				SessionController RunSession = new SessionController(CurrentProfile,CurrentCategory);
+				SessionController RunSession = new SessionController(CurrentProfile, CurrentCategory);
 
 				RunSession.ReturnSessionData += (CurrentSession currentSession, int Attempted, int Correct) =>
 				{
@@ -112,17 +113,23 @@ namespace Categories
 				TopMostParent.PresentViewController(RunSession, true, null);
 
 
+
+
 			};
 			DisplayLabelsToggle.ValueChanged += (sender, e) =>
 			{
 				//get toggle switch state
 				if (DisplayLabelsToggle.On)
 				{
-					new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					CurrentProfile.showLabelSettings = true;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 				else
 				{
-					new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					CurrentProfile.showLabelSettings = false;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 			};
 			DisplayPictureToggle.ValueChanged += (sender, e) =>
@@ -130,17 +137,19 @@ namespace Categories
 				//get toggle switch state
 				if (DisplayPictureToggle.On)
 				{
-					new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					CurrentProfile.showImageSettings = true;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 				else
 				{
-					new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					CurrentProfile.showImageSettings = false;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 			};
 
 		}
-
-
 
 		public override void DidReceiveMemoryWarning()
 		{
@@ -162,6 +171,12 @@ namespace Categories
 		}
 
 
+		void UpdateSettingsToggles()
+		{
+			DisplayLabelsToggle.On = CurrentProfile.showLabelSettings;
+			DisplayPictureToggle.On = CurrentProfile.showImageSettings;
+
+		}
 	}
 }
 
