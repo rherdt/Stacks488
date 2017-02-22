@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Categories</RootNamespace>
+    <AssemblyName>Categories</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchUseSGen>true</MtouchUseSGen>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>packages\SQLitePCLRaw.core.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3">
+      <HintPath>packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>packages\SQLitePCLRaw.bundle_green.1.0.1\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>packages\sqlite-net-pcl.1.2.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\First.imageset\vector.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Second.imageset\vector.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appIcon2.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="SessionController.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="2ND TAB Categories\View\ImageCollectionHeaderView.xib" />
+    <InterfaceDefinition Include="2ND TAB Categories\View\ImageStackHeaderView.xib" />
+    <InterfaceDefinition Include="CollectionView\CollectionViewController.xib" />
+    <InterfaceDefinition Include="5TH RunSession\SessionController.xib" />
+    <InterfaceDefinition Include="5TH RunSession\Settings\SettingsAlertController.xib" />
+    <InterfaceDefinition Include="1ST TAB Profiles\View\SessionHeaderView.xib" />
+    <InterfaceDefinition Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.xib" />
+    <InterfaceDefinition Include="6TH Image Stack Adding\ImageStackAddingCollectionView.xib" />
+    <InterfaceDefinition Include="5TH RunSession\FinishScreenController.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="TableCustomCells\CustomCellProfiles.cs" />
+    <Compile Include="TableCustomCells\CustomCellSessions.cs" />
+    <Compile Include="TableSources\TableSourceProfiles.cs" />
+    <Compile Include="TableSources\TableSourceSessions.cs" />
+    <Compile Include="Objects\Attribute.cs" />
+    <Compile Include="Objects\Image.cs" />
+    <Compile Include="Objects\Profiles.cs" />
+    <Compile Include="Objects\Session.cs" />
+    <Compile Include="Objects\Category.cs" />
+    <Compile Include="TableSources\TableSourceCategories.cs" />
+    <Compile Include="Controller\MainTabBarController.cs" />
+    <Compile Include="Controller\MainTabBarController.designer.cs">
+      <DependentUpon>MainTabBarController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2ND TAB Categories\ImageStackSplitViewController.cs" />
+    <Compile Include="2ND TAB Categories\ImageStackTableViewController.cs" />
+    <Compile Include="TableSources\TestTableSource.cs" />
+    <Compile Include="Controller\MasterTableNavigationController.cs" />
+    <Compile Include="Interfaces\IUpdatableTable.cs" />
+    <Compile Include="Interfaces\ICustomTableViewSource.cs" />
+    <Compile Include="Interfaces\IDbContext.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageCollectionHeaderView.designer.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageCollectionHeaderView.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageStackHeaderView.cs" />
+    <Compile Include="2ND TAB Categories\View\ImageStackHeaderView.designer.cs" />
+    <Compile Include="CollectionView\CollectionViewController.cs" />
+    <Compile Include="CollectionView\CollectionViewController.designer.cs" />
+    <Compile Include="5TH RunSession\SessionController.designer.cs" />
+    <Compile Include="5TH RunSession\SessionController.cs" />
+    <Compile Include="5TH RunSession\Settings\SettingsAlertController.cs" />
+    <Compile Include="5TH RunSession\Settings\SettingsAlertController.designer.cs" />
+    <Compile Include="1ST TAB Profiles\SessionsSplitViewController.cs" />
+    <Compile Include="1ST TAB Profiles\SessionsTableViewController.cs" />
+    <Compile Include="1ST TAB Profiles\View\SessionHeaderView.cs" />
+    <Compile Include="1ST TAB Profiles\View\SessionHeaderView.designer.cs" />
+    <Compile Include="1ST TAB Profiles\ProfilesSplitViewController.cs" />
+    <Compile Include="1ST TAB Profiles\ProfilesTableViewController.cs" />
+    <Compile Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.cs" />
+    <Compile Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.designer.cs" />
+    <Compile Include="3RD TAB Attributes\AttributesSplitViewController.cs" />
+    <Compile Include="3RD TAB Attributes\AttributesTableViewController.cs" />
+    <Compile Include="3RD TAB Attributes\ImageAttributesSplitViewController.cs" />
+    <Compile Include="3RD TAB Attributes\ImageAttributesTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\ImagesTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\NewSessionSplitViewController.cs" />
+    <Compile Include="4TH SessionsScreen\NewSessionTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\RunsSplitViewController.cs" />
+    <Compile Include="4TH SessionsScreen\RunsTableViewController.cs" />
+    <Compile Include="4TH SessionsScreen\SessionsScreenMasterTableNavigationController.cs" />
+    <Compile Include="TableCustomCells\CustomCellCategories.cs" />
+    <Compile Include="Objects\CurrentSession.cs" />
+    <Compile Include="Objects\Result.cs" />
+    <Compile Include="2ND TAB Categories\CategoriesSplitViewController.cs" />
+    <Compile Include="2ND TAB Categories\CategoriesSplitViewController.designer.cs">
+      <DependentUpon>CategoriesSplitViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2ND TAB Categories\CategoriesTableViewController.cs" />
+    <Compile Include="TableSources\TableSourceImageAttributes.cs" />
+    <Compile Include="TableSources\TableSourceAttributes.cs" />
+    <Compile Include="Objects\ImageAttributes.cs" />
+    <Compile Include="Database\IDatabase.cs" />
+    <Compile Include="Interfaces\Utilities.cs" />
+    <Compile Include="Database\DatabaseContext.cs" />
+    <Compile Include="Objects\SessionResult.cs" />
+    <Compile Include="CollectionView\CollectionViewImageSource.cs" />
+    <Compile Include="CollectionView\CollectionViewImageSourceAttribute.cs" />
+    <Compile Include="CollectionView\CollectionViewAttributes.cs" />
+    <Compile Include="Objects\ImageStackCategory.cs" />
+    <Compile Include="TableSources\TableSourceImageStack.cs" />
+    <Compile Include="TableSources\TableSourceRanImages.cs" />
+    <Compile Include="TableCustomCells\CustomCellRanImages.cs" />
+    <Compile Include="Objects\ImageStackImages.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingCollectionView.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingCollectionView.designer.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingSplitViewController.cs" />
+    <Compile Include="CollectionView\CollectionViewImageStackSource.cs" />
+    <Compile Include="2ND TAB Categories\CollectionViewImageStack.cs" />
+    <Compile Include="6TH Image Stack Adding\MasterImageAddingTableNavigationController.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingSource.cs" />
+    <Compile Include="5TH RunSession\FinishScreenController.cs" />
+    <Compile Include="5TH RunSession\FinishScreenController.designer.cs">
+      <DependentUpon>FinishScreenController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\images.csv" />
+    <BundleResource Include="Resources\placeholder.jpg" />
+    <BundleResource Include="Resources\categories.png" />
+    <BundleResource Include="Resources\images.png" />
+    <BundleResource Include="Resources\profiles.png" />
+    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\neutral.png" />
+    <BundleResource Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>
