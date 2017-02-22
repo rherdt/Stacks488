@@ -14,6 +14,9 @@ namespace Categories
 			source = imageStackTable;
             View = table;
             table.Source = source;
+			View.AutoresizingMask = UIViewAutoresizing.None;
+			View.AutosizesSubviews = false;
+
         }
 
         public override void ViewDidLayoutSubviews()

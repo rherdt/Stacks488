@@ -28,8 +28,11 @@ namespace Categories
 			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
 			ImagesTab.Title = "Images";
 
+<<<<<<< HEAD
 			//SessionScreen.Title = "Session";
 			//ImageStackAddingScreen.Title = "Image Stack";
+=======
+>>>>>>> origin/JSBranch
 			SessionScreen.TabBarItem.Enabled = false;
 			ImageStackAddingScreen.TabBarItem.Enabled = false;
 

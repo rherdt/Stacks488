@@ -74,6 +74,7 @@ namespace Categories
 			{
 				HideTable(TableHidden);
 			}
+			tableView.DeselectRow(indexPath, true);
         }
 
         void HandleReload()

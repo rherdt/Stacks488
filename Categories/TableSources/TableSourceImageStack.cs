@@ -17,16 +17,14 @@ namespace Categories
 		UIViewController newSessionSplitViewController;
 		bool isVisible;
 		Category CurrentlySelectedCategory;
-
+		bool TableHidden = true;
 		#endregion
 
 		public delegate void ImageStackDelegate(ImageStackCategory imageStack);
 		public event ImageStackDelegate ImageStackToController;
 
-		public TableSourceImageStack()
-		{
-		}
-
+		public delegate void ImageStackTableHideDelegate(bool hidden);
+		public event ImageStackTableHideDelegate HideTable;
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
@@ -45,6 +43,11 @@ namespace Categories
 			if (ImageStackToController != null)
 			{
 				ImageStackToController(SelectedItemName);
+			}
+			//Show/Hide Table Method call to NewSessionSplitViewController
+			if (TableHidden && ImageStackToController != null)
+			{
+				HideTable(TableHidden);
 			}
 			tableView.DeselectRow(indexPath, true);
 

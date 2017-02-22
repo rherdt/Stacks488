@@ -195,7 +195,7 @@ namespace Categories
 			// dismiss the pickerr
 			imagePicker.DismissModalViewController(true);
 			//refesh the collection view
-			if ( attributesCollectionView != null)
+			if (attributesCollectionView != null)
 			{
 				attributesCollectionView.ClearImages();
 				attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));

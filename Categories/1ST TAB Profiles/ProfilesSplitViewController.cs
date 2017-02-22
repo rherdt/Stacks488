@@ -4,96 +4,86 @@ using UIKit;
 
 namespace Categories
 {
-    public class ProfilesSplitViewController : UISplitViewController
-    {
-        #region Fields
-        //Session Controller Fields
-        SessionsSplitViewController sessionSplitViewController;
+	public class ProfilesSplitViewController : UISplitViewController
+	{
+		#region Fields
+		//Session Controller Fields
+		SessionsSplitViewController sessionSplitViewController;
 		CollectionViewController CollectionViewTable;
-        new UINavigationController NavigationController;
-        SessionsTableViewController sessions;
+		new UINavigationController NavigationController;
+		SessionsTableViewController sessions;
 
-        //Profiles Controller Fields
-        MasterTableNavigationController navController;
-        ProfilesTableViewController profilesTableViewController;
+		//Profiles Controller Fields
+		MasterTableNavigationController navController;
+		ProfilesTableViewController profilesTableViewController;
 
+		//Database Source Fields
+		TableSourceProfiles ProfilesSource;
+		TableSourceSessions SessionSource;
+		#endregion
 
-        //Database Source Fields
-        TableSourceProfiles ProfilesSource;
-        TableSourceSessions SessionSource;
-        //TableSourceCategories CategorySource;
-        #endregion
+		public ProfilesSplitViewController() : base()
+		{
+			initializeSessionControllerFields();
+			initializeMasterControllerFields();
 
-        public ProfilesSplitViewController() : base()
-        {
-            initializeSessionControllerFields();
-            initializeMasterControllerFields();
+			//add controllers
+			ViewControllers = new UIViewController[] { navController, sessionSplitViewController };
+			View.BackgroundColor = UIColor.White;
+		}
 
-            //add controllers
-            ViewControllers = new UIViewController[] { navController, sessionSplitViewController };
-            View.BackgroundColor = UIColor.White;
-        }
+		#region Field Initialization
+		public void initializeSessionControllerFields()
+		{
+			CollectionViewTable = new CollectionViewController();
 
-        #region Field Initialization
+			SessionSource = new TableSourceSessions();
+			sessions = new SessionsTableViewController(SessionSource);
 
-        public void initializeSessionControllerFields()
-        {
-            CollectionViewTable = new CollectionViewController();
-
-            SessionSource = new TableSourceSessions();
-            sessions = new SessionsTableViewController(SessionSource);
-
-            //add delegate to the session source
-            SessionSource.SessionRowToController += GetRowClickedFromSessionSource;
+			//add delegate to the session source
+			SessionSource.SessionRowToController += GetRowClickedFromSessionSource;
 			SessionSource.HideTable += ShowCollectionsView;
 
-            //navigation controller for 2nd(Nested splitview controllers
-            NavigationController = new UINavigationController(sessions);
-            sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionViewTable, NavigationController);
-            sessionSplitViewController.View.Hidden = true;
-        }
+			//navigation controller for 2nd(Nested splitview controllers
+			NavigationController = new UINavigationController(sessions);
+			NavigationController.NavigationBar.Translucent = false;
+			sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionViewTable, NavigationController);
+			sessionSplitViewController.View.Hidden = true;
+		}
 
-        public void initializeMasterControllerFields()
-        {
+		public void initializeMasterControllerFields()
+		{
 
-            //Create the Profile source and assign the delegate
-            ProfilesSource = new TableSourceProfiles();
-            ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;
-            ProfilesSource.HideTable += ShowSessionTableHandler;
+			//Create the Profile source and assign the delegate
+			ProfilesSource = new TableSourceProfiles();
+			ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;
+			ProfilesSource.HideTable += ShowSessionTableHandler;
 
-            //create category source
-            //CategorySource = new TableSourceCategories(categoryDB);
-
-            //create the profile table controller
+			//create the profile table controller
 			profilesTableViewController = new ProfilesTableViewController(ProfilesSource);
-            navController = new MasterTableNavigationController(profilesTableViewController);
+			navController = new MasterTableNavigationController(profilesTableViewController);
 
-        }
-        #endregion
+		}
+		#endregion
 
-        #region View Methods
-        public override void ViewWillAppear(bool animated)
+		#region View Methods
+		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
 			profilesTableViewController.ReloadSessionTableData();
-        }
-        #endregion
+		}
+		#endregion
 
-        #region Delegates
-        public void GetRowClickedFromSessionSource(Session session)
-        {
-			//string clicked = "no";
-			//new UIAlertView("Row Clicked: " + clicked, null, null, "Ok", null).Show();
-			//get  all items that match the clicked profile
+		#region Delegates
+		public void GetRowClickedFromSessionSource(Session session)
+		{
 			List<SessionResult> imagesForSelectedSession = new DatabaseContext<SessionResult>().GetQuery("SELECT * FROM SessionResult WHERE ParentSessionID = ?", session.ID.ToString());
-			//give the source to the categories view
-			CollectionViewTable.ClearCollectionView();
+			CollectionViewTable.ClearCollectionView(); //give the source to the categories view
 			CollectionViewTable.SetImageSource(imagesForSelectedSession);
-        }
+		}
 
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{
-
 			//Get Session List, Send to Session Table
 			List<Session> sessionsList = new DatabaseContext<Session>().GetQuery("Select * From Session WHERE ParentProfileID = ?", ProfileRow.ID.ToString());
 			sessionSplitViewController.setProfile(ProfileRow);
@@ -101,28 +91,23 @@ namespace Categories
 			SessionSource.UpdateTableSource(sessionsList);
 			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName + " " + ProfileRow.LastName);
 			sessions.ReloadSessionTableData();
-
-
-
+			CollectionViewTable.View.Hidden = true;
 		}
 
-        #endregion
+		#region Hiding Table Delegates
+		public void ShowSessionTableHandler(bool hidden)
+		{
+			if (hidden) { sessionSplitViewController.View.Hidden = false; }
+		}
 
 		public void ShowCollectionsView(bool hidden)
 		{
-			//method implemented to avoid crash
-			if (hidden)
-			{
-				
-			}
+			if (hidden) { CollectionViewTable.View.Hidden = false; }
 		}
+		#endregion
 
-        public void ShowSessionTableHandler(bool hidden)
-        {
-            if (hidden)
-            {
-                sessionSplitViewController.View.Hidden = false;
-            }
-        }
-    }
+		#endregion
+
+
+	}
 }

@@ -60,7 +60,7 @@ namespace Categories
 			navigationController = new UINavigationController(ranSessions);
 			//navigationController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { Font = UIFont.FromName("Arial", 12f)};
 			runsSplitViewController = new RunsSplitViewController(ranSessions, navigationController, imagesTableviewNavController);
-
+			runsSplitViewController.View.Hidden = true;
 			navigationController.NavigationItem.Title.StringSize(UIFont.FromName("Arial", 20f));
 		}
 

@@ -233,6 +233,7 @@
     <Compile Include="CollectionView\CollectionViewImageStackSource.cs" />
     <Compile Include="2ND TAB Categories\CollectionViewImageStack.cs" />
     <Compile Include="6TH Image Stack Adding\MasterImageAddingTableNavigationController.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />
