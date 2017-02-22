@@ -65,9 +65,20 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </switch>
             </subviews>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                    <real key="value" value="30"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
     <resources>
         <image name="placeholder.jpg" width="1809" height="1920"/>
+        <image name="categories.png" width="30" height="30"/>
+        <image name="images.png" width="30" height="30"/>
+        <image name="profiles.png" width="30" height="30"/>
+        <image name="minus.png" width="600" height="600"/>
+        <image name="neutral.png" width="200" height="200"/>
+        <image name="plus.png" width="256" height="256"/>
     </resources>
 </document>

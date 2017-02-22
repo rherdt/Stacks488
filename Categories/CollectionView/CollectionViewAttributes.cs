@@ -30,9 +30,9 @@ namespace Categories
 			 */
 			UICollectionViewFlowLayout layout = new UICollectionViewFlowLayout
 			{
-				SectionInset = new UIEdgeInsets(2, 2, 2, 2),
-				//MinimumInteritemSpacing = 1,
-				//MinimumLineSpacing = 10,
+				SectionInset = new UIEdgeInsets(20, 20, 20, 20),
+				MinimumInteritemSpacing = 1,
+				MinimumLineSpacing = 10,
 				ItemSize = CellSize //new SizeF(110, 110)
 
 			};
@@ -88,7 +88,7 @@ namespace Categories
 		{
 			CGRect screenRect = this.View.Bounds; //UIScreen.MainScreen.Bounds;
 			var screenWidth = screenRect.Width;
-			var cellWidth = screenWidth / 6.0; //Replace with the column count
+			var cellWidth = screenWidth / 4.2; //Replace with the column count
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;

@@ -139,7 +139,7 @@ namespace Categories
 			var Resultfilename = new DatabaseContext<Image>().GetQuery("SELECT * FROM Image WHERE ID = ?", element.ImgOBJ.SessionImageID.ToString());
 
 			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(Resultfilename[0].FileName.ToString());
-
+			ImageView.Layer.CornerRadius = 20f;
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
 
 

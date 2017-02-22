@@ -185,7 +185,7 @@ namespace Categories
 		{
 
 			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName.ToString());
-
+			ImageView.Layer.CornerRadius = 20f;
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
 
 		}
