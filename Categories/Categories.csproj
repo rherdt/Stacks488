@@ -239,6 +239,7 @@
     <Compile Include="5TH RunSession\FinishScreenController.designer.cs">
       <DependentUpon>FinishScreenController.cs</DependentUpon>
     </Compile>
+    <Compile Include="E_AppColor.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

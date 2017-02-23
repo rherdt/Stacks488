@@ -11,7 +11,7 @@ namespace Categories
 
 		//Inherited Fields
 		SessionsTableViewController sessionsTableViewController;
-		CollectionViewController CollectionView;
+		//CollectionViewController CollectionView;
 		UINavigationController navigationController;
 
 		//Current Row Field
@@ -24,12 +24,17 @@ namespace Categories
 		NewSessionSplitViewController SessionScreen;
 		MainTabBarController tab;
 
+		UIViewController blankView;
+
+		//Background Color
+		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+
 		//WIDTHS
 		nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
 		nfloat NavigationBarWidth, NavigationBarHeight;
 		#endregion
 
-		public SessionsSplitViewController(SessionsTableViewController sessions, CollectionViewController collection, UINavigationController navcontroller)
+		public SessionsSplitViewController(SessionsTableViewController sessions, UINavigationController navcontroller)
 		{
 			/*
 			 * Create CollectionView Controller
@@ -38,11 +43,13 @@ namespace Categories
 			 */
 
 			sessionsTableViewController = sessions;
-			CollectionView = collection;
-			CollectionView.View.BackgroundColor = UIColor.White;
+			blankView = new UIViewController();
+			blankView.View.BackgroundColor = BGColor;
+			//CollectionView = collection;
+			//CollectionView.View.BackgroundColor = UIColor.White;
 			navigationController = navcontroller;
-			ViewControllers = new UIViewController[] { navigationController, CollectionView };
-			View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			ViewControllers = new UIViewController[] { navigationController, blankView };
+			View.BackgroundColor = BGColor;
 		}
 
 		#region View Methods
@@ -59,9 +66,9 @@ namespace Categories
 				//Get Main Tab Controller to pass into new
 				tab = (MainTabBarController)ParentViewController.ParentViewController;
 
-				SessionScreen = (NewSessionSplitViewController)tab.ViewControllers[3];
+				SessionScreen = (NewSessionSplitViewController)tab.ViewControllers[4];
 				SessionScreen.setFieldsAndInitialize(sessionsTableViewController.TableView.Source, profileRow, tab);
-				tab.SelectedIndex = 3;
+				tab.SelectedIndex = 4;
 				tab.DismissModalViewController(true);
 				//ParentViewController.PresentViewController(SessionScreen, true, null);
 			};

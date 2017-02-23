@@ -73,6 +73,9 @@
             <connections>
                 <outlet property="AddButton" destination="55" id="name-outlet-55"/>
                 <outlet property="txtCategoryName" destination="46" id="name-outlet-46"/>
+                <outlet property="lblCategory" destination="43" id="name-outlet-43"/>
+                <outlet property="btnDuplicate" destination="48" id="name-outlet-48"/>
+                <outlet property="lblImageStack" destination="52" id="name-outlet-52"/>
             </connections>
         </view>
     </objects>

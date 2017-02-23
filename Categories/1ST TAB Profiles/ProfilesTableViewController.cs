@@ -16,9 +16,9 @@ namespace Categories
         public ProfilesTableViewController(ICustomTableViewSource source)
         {
             tableController = new UITableViewController();
-            tableController.Title = "Profiles";
+            //tableController.Title = "Profiles";
             table = new UITableView();
-			table.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			table.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
             Source = source;
             table.Source = (UITableViewSource)Source;
 

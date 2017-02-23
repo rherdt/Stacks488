@@ -30,7 +30,7 @@ namespace Categories
 		public TableSourceImageStack()
 		{
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = UIColor.FromRGB(255, 235, 205);
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -41,14 +41,14 @@ namespace Categories
 		public override UIView GetViewForHeader(UITableView tableView, nint section)
 		{
 			UIView headerView = new UIView();
-			headerView.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 			return headerView;
 		}
 
 		public override UIView GetViewForFooter(UITableView tableView, nint section)
 		{
 			UIView footerView = new UIView();
-			footerView.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 			return footerView;
 		}
 

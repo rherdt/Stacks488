@@ -17,7 +17,7 @@ namespace Categories
 		public AttributesTableViewController(TableSourceAttributes paramSource )
 		{
 			tableController = new UITableViewController();
-			tableController.Title = "Attributes (Select to filter)";
+			//tableController.Title = "Attributes (Select to filter)";
 			table = new UITableView();
 
 			source = paramSource;

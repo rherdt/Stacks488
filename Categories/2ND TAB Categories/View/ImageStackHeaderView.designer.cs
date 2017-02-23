@@ -20,6 +20,18 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnDuplicate { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblCategory { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblImageStack { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField txtCategoryName { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -27,6 +39,21 @@ namespace Categories
             if (AddButton != null) {
                 AddButton.Dispose ();
                 AddButton = null;
+            }
+
+            if (btnDuplicate != null) {
+                btnDuplicate.Dispose ();
+                btnDuplicate = null;
+            }
+
+            if (lblCategory != null) {
+                lblCategory.Dispose ();
+                lblCategory = null;
+            }
+
+            if (lblImageStack != null) {
+                lblImageStack.Dispose ();
+                lblImageStack = null;
             }
 
             if (txtCategoryName != null) {

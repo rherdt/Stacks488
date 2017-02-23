@@ -26,13 +26,16 @@ namespace Categories
 		TableSourceSessions SessionSource;
 		TableSourceCategories CategorySource;
 		TableSourceRanImages RanImagesSource;
+
+		//Background Color
+		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 		#endregion
 
 		#region Initialization
 
 		public NewSessionSplitViewController()
 		{
-			View.BackgroundColor = UIColor.White;
+			View.BackgroundColor = BGColor;
 		}
 
 		public void InitializeRunsControllerFields(UITableViewSource sessionSource, Profiles profileRow)
@@ -47,7 +50,10 @@ namespace Categories
 			imageTableViewController = new ImagesTableViewController(RanImagesSource);
 			imageTableViewController.View.Hidden = true;
 			imagesTableviewNavController = new UINavigationController(imageTableViewController);
-			imagesTableviewNavController.View.BackgroundColor = UIColor.White;
+			imagesTableviewNavController.View.BackgroundColor = BGColor;
+			imagesTableviewNavController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
+			imagesTableviewNavController.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
+
 
 			//source assignments
 			SessionSource = (TableSourceSessions)sessionSource;
@@ -58,6 +64,7 @@ namespace Categories
 			SessionSource.HideTable += ShowImagesTableHandler;
 
 			navigationController = new UINavigationController(ranSessions);
+			navigationController.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
 			//navigationController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { Font = UIFont.FromName("Arial", 12f)};
 			runsSplitViewController = new RunsSplitViewController(ranSessions, navigationController, imagesTableviewNavController);
 			runsSplitViewController.View.Hidden = true;
@@ -122,7 +129,7 @@ namespace Categories
 			imageTableViewController.setTitle(SessionCategory.CategoryName);
 			//**RIGHT HERE
 
-			List<Session> sessionsByProfileCategory = new DatabaseContext<Session>().GetQuery("SELECT * FROM Session WHERE CategoryID = ? and ParentProfileID = ?", new string[] { SessionCategory.ID.ToString(), CurrentProfile.ID.ToString()});
+			List<Session> sessionsByProfileCategory = new DatabaseContext<Session>().GetQuery("SELECT * FROM Session WHERE CategoryID = ? and ParentProfileID = ?", new string[] { SessionCategory.ID.ToString(), CurrentProfile.ID.ToString() });
 			List<Session> specificProfileSessionsListTrimmed = new List<Session>();
 			if (sessionsByProfileCategory.Count > 0)
 			{
@@ -147,6 +154,7 @@ namespace Categories
 			if (hidden)
 			{
 				runsSplitViewController.View.Hidden = false;
+				runsSplitViewController.View.BackgroundColor = BGColor;
 			}
 		}
 		#endregion
@@ -158,6 +166,7 @@ namespace Categories
 
 			UILabel titleView = new UILabel
 			{
+				TextColor = UIColor.White,
 				Frame = new CoreGraphics.CGRect(0, 0, 200, 40),
 				TextAlignment = UITextAlignment.Center,
 				Font = UIFont.FromName("Arial", 18f),
@@ -175,6 +184,7 @@ namespace Categories
 			if (hidden)
 			{
 				imageTableViewController.View.Hidden = false;
+				imageTableViewController.View.BackgroundColor = BGColor;
 			}
 		}
 	}

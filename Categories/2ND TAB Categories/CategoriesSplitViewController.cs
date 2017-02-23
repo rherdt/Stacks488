@@ -4,16 +4,16 @@ using UIKit;
 
 namespace Categories
 {
-    public partial class CategoriesSplitViewController : UISplitViewController
-    {
+	public partial class CategoriesSplitViewController : UISplitViewController
+	{
 		/*
 		 * First Table View
 		 */
 
-        #region Fields
-        ImageStackSplitViewController imageStackSplitViewController;
-        CategoriesTableViewController categoriesTableViewController;
-        MasterTableNavigationController categoriesNavigationController;
+		#region Fields
+		ImageStackSplitViewController imageStackSplitViewController;
+		CategoriesTableViewController categoriesTableViewController;
+		MasterTableNavigationController categoriesNavigationController;
 		TableSourceCategories categoriesTableSource;
 		#endregion
 
@@ -29,20 +29,21 @@ namespace Categories
 		ImageStackCategory SelectedImageStack;
 		bool DeleteFromImageStack;
 		static Random rand = new Random();
+		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 
-        public CategoriesSplitViewController() : base()
-        {
-				
+		public CategoriesSplitViewController() : base()
+		{
+
 			InitializeCategoriesTable(); //1st view
 			InitializeImageStackViewTable(); //2nd view
 			InitializeCollectionView(); //3rd view
 
-			imageStackSplitViewController = new ImageStackSplitViewController(ImageStackNavigationController, collectionsNavigationController, collectionViewController,imageStackTableViewController);
+			imageStackSplitViewController = new ImageStackSplitViewController(ImageStackNavigationController, collectionsNavigationController, collectionViewController, imageStackTableViewController);
 			//imageStackSplitViewController.View.Hidden = true;
 
 			ViewControllers = new UIViewController[] { categoriesNavigationController, imageStackSplitViewController };
-			View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
-        }
+			View.BackgroundColor = BGColor;
+		}
 
 		#region Initialization
 
@@ -67,7 +68,7 @@ namespace Categories
 			ImageStackNavigationController.NavigationBar.Translucent = false;
 		}
 
-		public void InitializeCollectionView() 
+		public void InitializeCollectionView()
 		{
 			collectionViewController = new CollectionViewImageStack();
 			collectionsNavigationController = new UINavigationController(collectionViewController);
@@ -75,7 +76,7 @@ namespace Categories
 			collectionsNavigationController.NavigationBar.Translucent = false;
 		}
 
-  		#endregion
+		#endregion
 
 		#region View Methods
 		public override void ViewDidLoad()
@@ -135,7 +136,7 @@ namespace Categories
 
 		}
 
-		void AddImageStackButton_TouchUpInside (object sender, EventArgs e)
+		void AddImageStackButton_TouchUpInside(object sender, EventArgs e)
 		{
 			var alert = UIAlertController.Create("New Image Stack", "Add a new Image Stack", UIAlertControllerStyle.Alert);
 
@@ -170,14 +171,14 @@ namespace Categories
 			//show all the images to choose from. create delegate to return those images
 			MainTabBarController tab = (MainTabBarController)ParentViewController;
 
-			ImageStackAddingSplitViewController imageStackAdding = (ImageStackAddingSplitViewController)tab.CustomizableViewControllers[4];
+			ImageStackAddingSplitViewController imageStackAdding = (ImageStackAddingSplitViewController)tab.CustomizableViewControllers[0];
 			if (SelectedImageStack != null)
 			{
 				imageStackAdding.SetSelectedImageStack(SelectedImageStack);
 
 				//imageStackAddingSplitViewController = (ImageStackAddingSplitViewController)tab.ViewControllers[4];
 				//SessionScreen.setFieldsAndInitialize(sessionsTableViewController.TableView.Source, profileRow, tab);
-				tab.SelectedIndex = 4;
+				tab.SelectedIndex = 0;
 				tab.DismissModalViewController(true);
 			}
 			else
@@ -229,7 +230,7 @@ namespace Categories
 			 */
 			if (SelectedImageStack != null)
 			{
-				
+
 				List<int> indexList;
 				List<ImageStackImages> images = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * FROM ImageStackImages WHERE ParentImageStackID = ? Order By ImageStackIndex", SelectedImageStack.ID.ToString());
 				indexList = new List<int>();
@@ -244,7 +245,7 @@ namespace Categories
 				foreach (ImageStackImages i in images)
 				{
 					ImageStackImages temp = i;
-					int randomIndex = rand.Next(rand.Next(0, indexList.Count+1));
+					int randomIndex = rand.Next(rand.Next(0, indexList.Count + 1));
 					int tempIndex = indexList[randomIndex];
 					indexList.RemoveAt(randomIndex);
 
@@ -263,16 +264,15 @@ namespace Categories
 
 		public void ShowCollectionViewImageStack(bool hidden)
 		{
-			if (hidden) { collectionsNavigationController.View.Hidden = false; collectionViewController.View.BackgroundColor = UIColor.FromRGB(175, 238, 238); }
+			if (hidden) { collectionsNavigationController.View.Hidden = false; collectionViewController.View.BackgroundColor = BGColor; }
 		}
 
 		public void ShowImageStackView(bool hidden)
 		{
-			if (hidden) { ImageStackNavigationController.View.Hidden = false; }
+			if (hidden) { ImageStackNavigationController.View.Hidden = false; imageStackSplitViewController.View.BackgroundColor = BGColor; }
 		}
 
-		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { 
-			return true; 
-		}
+		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { return true; }
+
     }
 }

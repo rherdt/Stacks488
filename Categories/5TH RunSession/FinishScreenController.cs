@@ -74,13 +74,13 @@ namespace Categories
 				imageTableViewController.ReloadRanSessionTableData();
 				//RanImagesSource = new TableSourceRanImages();
 
-				tabBar.SelectedIndex = 3;
+				tabBar.SelectedIndex = 4;
 				tabBar.DismissModalViewController(true);
 			};
 
 			btnNo.TouchUpInside += (sender, e) =>
 			{
-				tabBar.SelectedIndex = 3;
+				tabBar.SelectedIndex = 4;
 				tabBar.DismissModalViewController(true);
 			};
 

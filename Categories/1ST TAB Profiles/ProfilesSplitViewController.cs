@@ -9,7 +9,7 @@ namespace Categories
 		#region Fields
 		//Session Controller Fields
 		SessionsSplitViewController sessionSplitViewController;
-		CollectionViewController CollectionViewTable;
+		//CollectionViewController CollectionViewTable;
 		new UINavigationController NavigationController;
 		SessionsTableViewController sessions;
 
@@ -20,7 +20,10 @@ namespace Categories
 		//Database Source Fields
 		TableSourceProfiles ProfilesSource;
 		TableSourceSessions SessionSource;
+		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 		#endregion
+
+		UILabel lbl;
 
 		public ProfilesSplitViewController() : base()
 		{
@@ -29,13 +32,13 @@ namespace Categories
 
 			//add controllers
 			ViewControllers = new UIViewController[] { navController, sessionSplitViewController };
-			View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			View.BackgroundColor = UIColor.FromRGB(0, 0, 0);
 		}
 
 		#region Field Initialization
 		public void initializeSessionControllerFields()
 		{
-			CollectionViewTable = new CollectionViewController();
+			//CollectionViewTable = new CollectionViewController();
 
 
 			SessionSource = new TableSourceSessions();
@@ -48,12 +51,15 @@ namespace Categories
 			//navigation controller for 2nd(Nested splitview controllers
 			NavigationController = new UINavigationController(sessions);
 			NavigationController.NavigationBar.Translucent = false;
-			sessionSplitViewController = new SessionsSplitViewController(sessions, CollectionViewTable, NavigationController);
+			sessionSplitViewController = new SessionsSplitViewController(sessions, NavigationController);
 			sessionSplitViewController.View.Hidden = true;
 		}
 
 		public void initializeMasterControllerFields()
 		{
+
+
+
 
 			//Create the Profile source and assign the delegate
 			ProfilesSource = new TableSourceProfiles();
@@ -79,8 +85,8 @@ namespace Categories
 		public void GetRowClickedFromSessionSource(Session session)
 		{
 			List<SessionResult> imagesForSelectedSession = new DatabaseContext<SessionResult>().GetQuery("SELECT * FROM SessionResult WHERE ParentSessionID = ?", session.ID.ToString());
-			CollectionViewTable.ClearCollectionView(); //give the source to the categories view
-			CollectionViewTable.SetImageSource(imagesForSelectedSession);
+			//CollectionViewTable.ClearCollectionView(); //give the source to the categories view
+			//CollectionViewTable.SetImageSource(imagesForSelectedSession);
 		}
 
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
@@ -92,7 +98,7 @@ namespace Categories
 			SessionSource.UpdateTableSource(sessionsList);
 			sessionSplitViewController.updateNameLabel(ProfileRow.FirstName + " " + ProfileRow.LastName);
 			sessions.ReloadSessionTableData();
-			CollectionViewTable.View.Hidden = true;
+			//CollectionViewTable.View.Hidden = true;
 		}
 
 		#region Hiding Table Delegates
@@ -101,10 +107,8 @@ namespace Categories
 			if (hidden) { sessionSplitViewController.View.Hidden = false; }
 		}
 
-		public void ShowCollectionsView(bool hidden)
-		{
-			if (hidden) { CollectionViewTable.View.Hidden = false; CollectionViewTable.View.BackgroundColor = UIColor.FromRGB(175, 238, 238);}
-		}
+
+		public void ShowCollectionsView(bool hidden) { }
 		#endregion
 
 		#endregion
