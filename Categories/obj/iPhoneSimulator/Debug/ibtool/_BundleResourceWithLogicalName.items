@@ -49,6 +49,10 @@
       <LogicalName>Main.storyboardc/UITabBarController-49e-Tb-3d3.nib</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
+    <_BundleResourceWithLogicalName Include="obj/iPhoneSimulator/Debug/ibtool-link/PopupAttributes.nib">
+      <LogicalName>PopupAttributes.nib</LogicalName>
+      <Optimize>false</Optimize>
+    </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj/iPhoneSimulator/Debug/ibtool-link/SessionController.nib">
       <LogicalName>SessionController.nib</LogicalName>
       <Optimize>false</Optimize>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CoreGraphics;
 using UIKit;
 
 namespace Categories
@@ -41,17 +42,28 @@ namespace Categories
 
 		public AttributesSplitViewController() : base()
 		{
-			//1st screen
+			InitializeLeftTableView();
+			InitializeMiddleCollectionView();
+			InitializeRightTableView();
+
+
+			//Initilize the nested slitviewcontrollers
+			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, ImageAtrributesNavigationController);
+			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
+		}
+		#region Table Initialization
+		public void InitializeLeftTableView()
+		{
 			AttributesTableSource = new TableSourceAttributes();
 			AttributesTableSource.AttributeRowToController += GetAttributeRowSelected;
 			AttributesTableSource.ReloadCollectionView += ReloadCollectionViewAll;
 
-			attributesTableViewController = new AttributesTableViewController( AttributesTableSource);
+			attributesTableViewController = new AttributesTableViewController(AttributesTableSource);
 
 			navController = new MasterTableNavigationController(attributesTableViewController);
-
-
-			//2nd Screen
+		}
+		public void InitializeMiddleCollectionView()
+		{
 			AttributeImageSource = new CollectionViewImageSourceAttribute(true);
 			AttributeImageSource.ImageClickedToController += GetImageSelectedFromCollectionView; //delegate for image source
 
@@ -63,33 +75,41 @@ namespace Categories
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem.Enabled = true;
 			navControllerCollection.NavigationBar.Items[0].Title = "Images";
-	
+
 			navControllerCollection.View.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
 			navControllerCollection.View.Bounds = navControllerCollection.View.Frame;
-
+		}
+		public void InitializeRightTableView()
+		{
 			//Right Table (Image Attributes)
 			RightAttributesTableSource = new TableSourceImageAttributes();
 			RightAttributesTableSource.ImageAttributeToAttributes += InsertAttributeForImage;
 			RightImageAttributeTable = new ImageAttributesTableViewController(RightAttributesTableSource);
 			ImageAtrributesNavigationController = new MasterTableNavigationController(RightImageAttributeTable);
+			/*
+			 * Get the left Button handler, show the listview
+			 */ 
+
+			UIBarButtonItem addAttribute = ImageAtrributesNavigationController.LeftButton();
+			addAttribute.Clicked += AddImageAttribute;
 			RightAttributesTableSource.AttributeRowToController += GetAttributeRowSelectedRight;
 
-
-			//2nd SplitView Controller
-			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, ImageAtrributesNavigationController);
-
-			//This SplitView Controller controllers
-			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
 		}
+		#endregion
 
-		void HandleTouchUpInside(object sender, EventArgs ea)
-		{
-			new UIAlertView("Add Attribute", "Attributes Table Add", null, "OK", null).Show();
-		}
+		#region Delegate Initialization
 		void GetAttributeRowSelected(Attribute attrReturned)
 		{
 			//get the row selected from the left table
 			//new UIAlertView("Row Selected", attrReturned.Name, null, "OK", null).Show();
+
+			if (attrReturned.Name == "All")
+			{
+				attributesCollectionView.ClearImages();
+				attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * from Image"));
+				return;
+			}
+		
 			List<ImageAttributes> ImagesWithSameAttribute = new DatabaseContext<ImageAttributes>().GetQuery("SELECT * FROM ImageAttributes WHERE Name = ?", attrReturned.Name);
 			List<Image> Images = new List<Image>();
 
@@ -111,9 +131,10 @@ namespace Categories
 			//clear the attributes table 
 			RightAttributesTableSource.ClearTable();
 			RightImageAttributeTable.RefreshTableView();
-
-
 		}
+
+
+
 		void GetAttributeRowSelectedRight(ImageAttributes attrReturned)
 		{
 			//get the row selected from the right table
@@ -129,10 +150,6 @@ namespace Categories
 			Selected = imageSelected;
 			RightAttributesTableSource.SetTableSource(imageSelected.ID);
 			RightImageAttributeTable.RefreshTableView();
-
-
-
-
 		}
 
 		void ReloadCollectionViewAll(Attribute attr)
@@ -145,6 +162,8 @@ namespace Categories
 		{
 			// create a new picker controller
 			imagePicker = new UIImagePickerController();
+			imagePicker.ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation.LandscapeLeft);
+			imagePicker.WillRotate(UIInterfaceOrientation.LandscapeLeft, 10.0);
 
 			// set our source to the photo libraryr
 			imagePicker.SourceType = UIImagePickerControllerSourceType.PhotoLibrary;
@@ -165,7 +184,6 @@ namespace Categories
 		*/
 		void Handle_Canceled(object sender, EventArgs e)
 		{
-			Console.WriteLine("picker cancelled");
 			imagePicker.DismissModalViewController(true);
 		}
 
@@ -230,6 +248,26 @@ namespace Categories
 				attributesTableViewController.ReloadTableData();
 			
 			}
+		}
+
+		void AddImageAttribute(object sender, EventArgs e)
+		{
+			/*
+			 * Show list of existing attributes or allow to add own attribute
+			 */
+			if (Selected != null)//make sure image has been selectd
+			{
+				PopupAttributes listPopup = new PopupAttributes(Selected, this, AttributesTableSource ,RightAttributesTableSource, RightImageAttributeTable);
+				listPopup.ModalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+				listPopup.ModalTransitionStyle = UIModalTransitionStyle.CrossDissolve;
+				this.PresentViewController(listPopup, true, null);
+			}
+	
+		}
+		#endregion
+		public override bool ShouldAutorotate()
+		{
+			return true;
 		}
 
 

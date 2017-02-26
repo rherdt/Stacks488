@@ -35,7 +35,7 @@ namespace Categories
 
 			var tabs = new UIViewController[]
 			{
-				ImageStackAddingScreen,ProfilesTab, CategoriesTab, ImagesTab, SessionScreen
+				ImageStackAddingScreen, ProfilesTab, CategoriesTab, ImagesTab, SessionScreen
 			};
 
 

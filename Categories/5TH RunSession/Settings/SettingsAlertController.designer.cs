@@ -28,6 +28,10 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch RandomizeStackSwitch { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton StartSessionButton { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -45,6 +49,11 @@ namespace Categories
             if (DisplayPictureToggle != null) {
                 DisplayPictureToggle.Dispose ();
                 DisplayPictureToggle = null;
+            }
+
+            if (RandomizeStackSwitch != null) {
+                RandomizeStackSwitch.Dispose ();
+                RandomizeStackSwitch = null;
             }
 
             if (StartSessionButton != null) {

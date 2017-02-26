@@ -21,6 +21,8 @@ namespace Categories
 		public bool isAttributesTab;
 
 		public List<Image> SelectedImagesToImageStack;
+		private List<NSIndexPath> SelectedImagesToClear = new List<NSIndexPath>();
+		private UICollectionView mainCollectionView;
 
 		public CollectionViewImageSourceAttribute(bool isattributes)
 		{
@@ -30,14 +32,8 @@ namespace Categories
 			//{
 				//create the list only if it is for the image stacks
 				SelectedImagesToImageStack = new List<Image>();
-
 			//}
 		}
-		public override nint NumberOfSections(UICollectionView collectionView)
-		{
-			return 1;
-		}
-
 		public override nint GetItemsCount(UICollectionView collectionView, nint section)
 		{
 			return Cells.Count;
@@ -50,26 +46,42 @@ namespace Categories
 
 		public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
+			/*
+			 * Fix this when switching attributes
+			 */ 
 
 			var cell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			ImageCellAttribute Clicked = Cells[indexPath.Row];
+			SelectedImagesToClear.Add(indexPath);
+			if (mainCollectionView == null)
+			{
+				mainCollectionView = collectionView;
+			}
 
+			/*
+			 * Select/Deselect Images and keep them Highlighted
+			 */ 
 			if (isAttributesTab)
 			{
 				//unlick the previous image
-				if (prevImageSelected != null && prevImageSelected != indexPath && isAttributesTab)
+
+				if (prevImageSelected != null && prevImageSelected != indexPath)
 				{
-					var cellPrev = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
+					var pCell = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
 
 					Cells[prevImageSelected.Row].isSelected = false;
-					var pCell = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
 					pCell.ImageView.Alpha = 1.0f;
-
 				}
-				cell.ImageView.Alpha = 0.5f;
 
-				prevImageSelected = indexPath;
+				//always highlight the currently selected image
+				cell.ImageView.Alpha = 0.5f;
+				Cells[indexPath.Row].isSelected = true;
+
 			}
+			/*
+			 * Image Stacks functionality. This adds Selected images to the array
+			 * to be able to delete images from this image stack.
+			 */ 
 			else
 			{
 				if (Clicked.isSelected)
@@ -87,6 +99,7 @@ namespace Categories
 					SelectedImagesToImageStack.Add(Clicked.ImgOBJ);
 				}
 			}
+			prevImageSelected = indexPath;
 
 		}
 
@@ -96,7 +109,10 @@ namespace Categories
 			var cell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			ImageCellAttribute Clicked = Cells[indexPath.Row];
 
-
+			/*
+			 * Sends image clicked to the RightAttributes table view
+			 * Updates the source to show only attributes for the selected image. 
+			 */ 
 			if (ImageClickedToController != null && isAttributesTab)
 			{
 				ImageClickedToController(Clicked.ImgOBJ);
@@ -110,6 +126,19 @@ namespace Categories
 			{
 				c.isSelected = false;
 			}
+			//clear all selected cells
+			if (mainCollectionView != null)
+			{
+				foreach (NSIndexPath path in SelectedImagesToClear)
+				{
+					var cell = (UserCellAttribute)mainCollectionView.CellForItem(path);
+					if (cell != null)
+					{
+						cell.ImageView.Alpha = 1.0f;
+					}
+				}
+			}
+
 		}
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)

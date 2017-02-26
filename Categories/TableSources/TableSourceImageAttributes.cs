@@ -27,6 +27,7 @@ namespace Categories
 			CurrentlySelectedImageID = imageID;
 			List<ImageAttributes> imageAtts = new DatabaseContext<ImageAttributes>().GetQuery("Select * FROM ImageAttributes WHERE ImageID = ?", imageID.ToString());
 			tableItems = imageAtts;
+
 		}
 		public void ClearTable()
 		{
@@ -54,10 +55,8 @@ namespace Categories
 			{
 				AttributeRowToController(SelectedItemName);
 			}
-			tableView.DeselectRow(indexPath, true);
-
-
-
+			//tableView.DeselectRow(indexPath, true);
+			tableView.SelectRow(indexPath, true, UITableViewScrollPosition.None);
 
 		}
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using Foundation;
 using UIKit;
 
@@ -9,7 +10,6 @@ namespace Categories
 	{
 		List<Attribute> tableItems;
 		string cellIdentifier = "TableCell";
-		Attribute PrevRowSelected;
 		NSIndexPath Prev;
 
 		//Delegates
@@ -18,13 +18,15 @@ namespace Categories
 		public event AtributesTableDelegate ReloadCollectionView;
 
 
-
-
 		public TableSourceAttributes()
 		{
 			tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
 		}
-
+		public void ReloadTableData()
+		{
+			tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
+			this.ReloadDataAll();
+		}
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
 			UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
@@ -41,30 +43,21 @@ namespace Categories
 		{
 			//send data to ProfilesSplitViewController
 			Attribute SelectedItemName = this.tableItems[indexPath.Row];
+			//keep track of previous indexpath, if the same, deselect it
+			tableView.SelectRow(indexPath, true, UITableViewScrollPosition.None);
+	
 
-			if (PrevRowSelected == SelectedItemName)
-			{
-				if (ReloadCollectionView != null)
-				{
-					ReloadCollectionView(null);
-				}
-				tableView.DeselectRow(indexPath, true);
-
-			}
-			if(AttributeRowToController != null && PrevRowSelected != SelectedItemName){
+			if(AttributeRowToController != null ){
 				
-				//tableView.DeselectRow(Prev, true);
 				AttributeRowToController(SelectedItemName);
-				Prev = indexPath;
-				PrevRowSelected = SelectedItemName;
+			
 			}
-			tableView.DeselectRow(indexPath, true);
-
 
 		}
 		public override void RowDeselected(UITableView tableView, NSIndexPath indexPath)
 		{
 			//tableItems = new DatabaseContext<Attribute>().GetQuery("SELECT * FROM Attribute");
+			tableView.DeselectRow(indexPath, true);
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -73,7 +66,7 @@ namespace Categories
 			{
 				return tableItems.Count;
 			}
-			return 1;
+			return 0;
 
 		}
 

@@ -4,7 +4,7 @@ using UIKit;
 
 namespace Categories
 {
-	public class AttributesTableViewController : IUpdatableTable
+	public class AttributesTableViewController : UITableViewController, IUpdatableTable
 	{
 		ICustomTableViewSource source { get; }
 		UITableView table;
@@ -26,9 +26,14 @@ namespace Categories
 			tableController.View = table;
 
 		}
+
 		public void ReloadTableData()
 		{
 			this.table.ReloadData();
+		}
+		public UIView GetView()
+		{
+			return this.View;
 		}
 	}
 }

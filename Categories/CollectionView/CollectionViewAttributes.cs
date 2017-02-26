@@ -63,7 +63,7 @@ namespace Categories
 			{
 				CollectionViewSource.Cells.Add(new ImageCellAttribute(s));
 			}
-			//refresh collectionview
+			//refresh collectionview 
 			CollectionView.ReloadData();
 			//add the collection to the UIView
 			Add(CollectionView);
@@ -71,7 +71,9 @@ namespace Categories
 		public void ClearImages()
 		{
 			CollectionViewSource.Cells.Clear();
+			CollectionViewSource.ResetOnFilter();
 			CollectionView.ReloadData();
+
 
 		}
 
