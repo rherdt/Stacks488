@@ -11,11 +11,11 @@ namespace Categories
 		[Unique]
 		public string FileName { get; set; }
 
-		public string Title { get; set;}
+		public string Title { get; set; }
 
 		public string Category { get; set; }
 
-		public int ParentCategory { get; set;}
+		public int ParentCategory { get; set; }
 
 	}
 }

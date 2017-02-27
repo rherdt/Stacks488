@@ -21,34 +21,35 @@ namespace Categories
 
 			ProfilesTab.TabBarItem = new UITabBarItem("Profiles", UIImage.FromFile("profiles.png"), 0);
 			ProfilesTab.Title = "Profiles";
+			ProfilesTab.View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
 
 			CategoriesTab.TabBarItem = new UITabBarItem("Categories", UIImage.FromFile("categories.png"), 0);
 			CategoriesTab.Title = "Categories";
 
 			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
 			ImagesTab.Title = "Images";
+			ImagesTab.View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
 
-			//SessionScreen.Title = "Session";
-			//ImageStackAddingScreen.Title = "Image Stack";
 			SessionScreen.TabBarItem.Enabled = false;
 			ImageStackAddingScreen.TabBarItem.Enabled = false;
 
 			var tabs = new UIViewController[]
 			{
-				ProfilesTab, CategoriesTab, ImagesTab, SessionScreen, ImageStackAddingScreen
+				ImageStackAddingScreen, ProfilesTab, CategoriesTab, ImagesTab, SessionScreen
 			};
 
 
 			ViewControllers = tabs;
 
 			SelectedViewController = ProfilesTab;
+			this.TabBar.BarTintColor = UIColor.FromRGB(186, 186, 186);
+			this.TabBar.SelectedImageTintColor = UIColor.White;
+			UITextAttributes attr = new UITextAttributes();
+			attr.TextColor = UIColor.White;
 
-	
-
-
-		}
-		public override void ViewDidLoad()
-		{ 
+			ProfilesTab.TabBarItem.SetTitleTextAttributes(attr, UIControlState.Normal);
+			CategoriesTab.TabBarItem.SetTitleTextAttributes(attr, UIControlState.Normal);
+			ImagesTab.TabBarItem.SetTitleTextAttributes(attr, UIControlState.Normal);
 		}
 
 		public MainTabBarController (IntPtr handle) : base (handle)

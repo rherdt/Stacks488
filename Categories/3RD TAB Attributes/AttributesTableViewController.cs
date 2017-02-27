@@ -4,7 +4,7 @@ using UIKit;
 
 namespace Categories
 {
-	public class AttributesTableViewController : IUpdatableTable
+	public class AttributesTableViewController : UITableViewController, IUpdatableTable
 	{
 		ICustomTableViewSource source { get; }
 		UITableView table;
@@ -17,18 +17,28 @@ namespace Categories
 		public AttributesTableViewController(TableSourceAttributes paramSource )
 		{
 			tableController = new UITableViewController();
-			tableController.Title = "Attributes (Select to filter)";
+			//tableController.Title = "Attributes (Select to filter)";
 			table = new UITableView();
-
+			table.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 			source = paramSource;
 			table.Source = (UITableViewSource)source;
 
 			tableController.View = table;
 
 		}
+
+		public UITableView getTable()
+		{
+			return this.table;
+		}
+
 		public void ReloadTableData()
 		{
 			this.table.ReloadData();
+		}
+		public UIView GetView()
+		{
+			return this.View;
 		}
 	}
 }

@@ -145,6 +145,8 @@
     <InterfaceDefinition Include="1ST TAB Profiles\View\SessionHeaderView.xib" />
     <InterfaceDefinition Include="3RD TAB Attributes\CollectionView\AttributesCollectionViewController.xib" />
     <InterfaceDefinition Include="6TH Image Stack Adding\ImageStackAddingCollectionView.xib" />
+    <InterfaceDefinition Include="5TH RunSession\FinishScreenController.xib" />
+    <InterfaceDefinition Include="3RD TAB Attributes\PopupAttributes.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -184,7 +186,6 @@
     <Compile Include="CollectionView\CollectionViewController.designer.cs" />
     <Compile Include="5TH RunSession\SessionController.designer.cs" />
     <Compile Include="5TH RunSession\SessionController.cs" />
-    <Compile Include="5TH RunSession\Settings\SettingsAlertController.cs" />
     <Compile Include="5TH RunSession\Settings\SettingsAlertController.designer.cs" />
     <Compile Include="1ST TAB Profiles\SessionsSplitViewController.cs" />
     <Compile Include="1ST TAB Profiles\SessionsTableViewController.cs" />
@@ -233,6 +234,19 @@
     <Compile Include="CollectionView\CollectionViewImageStackSource.cs" />
     <Compile Include="2ND TAB Categories\CollectionViewImageStack.cs" />
     <Compile Include="6TH Image Stack Adding\MasterImageAddingTableNavigationController.cs" />
+    <Compile Include="6TH Image Stack Adding\ImageStackAddingSource.cs" />
+    <Compile Include="5TH RunSession\FinishScreenController.cs" />
+    <Compile Include="5TH RunSession\FinishScreenController.designer.cs">
+      <DependentUpon>FinishScreenController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="E_AppColor.cs" />
+    <Compile Include="2ND TAB Categories\SettingsAlertController.cs" />
+    <Compile Include="3RD TAB Attributes\PopupAttributes.cs" />
+    <Compile Include="3RD TAB Attributes\PopupAttributes.designer.cs">
+      <DependentUpon>PopupAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="3RD TAB Attributes\NonRotatingImagePicker.cs" />
+    <Compile Include="3RD TAB Attributes\AttributesMasterTableNavigationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

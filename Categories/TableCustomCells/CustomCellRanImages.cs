@@ -13,11 +13,10 @@ public class CustomCellRanImages : UITableViewCell
 	public CustomCellRanImages(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
 	{
 		SelectionStyle = UITableViewCellSelectionStyle.None;
-		ContentView.BackgroundColor = UIColor.FromRGB(255, 255, 255);
-		img = new UIImageView()
-		{
-			//BackgroundColor = UIColor.Green
-		};
+		ContentView.BackgroundColor = UIColor.White;
+
+		img = new UIImageView();
+
 		nameLabel = new UILabel()
 		{
 			Font = UIFont.FromName("AmericanTypewriter", 13f),
@@ -26,10 +25,7 @@ public class CustomCellRanImages : UITableViewCell
 			//BackgroundColor = UIColor.Blue
 		};
 
-		result = new UIImageView()
-		{
-			//BackgroundColor = UIColor.Red
-		};
+		result = new UIImageView();
 
 		ContentView.AddSubviews(new UIView[] { img, nameLabel, result });
 	}
@@ -41,24 +37,11 @@ public class CustomCellRanImages : UITableViewCell
 
 	}
 
-	private void chooseOutcomeImage(string outcome)
+ 	void chooseOutcomeImage(string outcome)
 	{
-		if (outcome.Equals("I"))
-		{
-			result.Image = UIImage.FromFile("plus.png");
-			additionModifier = 40;
-		}
-		else if (outcome.Equals("P"))
-		{
-			result.Image = UIImage.FromFile("neutral.png");
-			additionModifier = 90;
-		}
-		else if (outcome.Equals("M"))
-		{
-			result.Image = UIImage.FromFile("minus.png");
-			//result.Frame = new CGRect((ContentView.Bounds.Width / 6) + (ContentView.Bounds.Width / 3) + 60, 3, 25, 25);
-			additionModifier = 140;
-		}
+		if (outcome.Equals("I")) { result.Image = UIImage.FromFile("plus.png"); }
+		else if (outcome.Equals("P")) { result.Image = UIImage.FromFile("neutral.png"); }
+		else if (outcome.Equals("M")) { result.Image = UIImage.FromFile("minus.png"); }
 		LayoutSubviews();
 	}
 
@@ -73,6 +56,6 @@ public class CustomCellRanImages : UITableViewCell
 
 		img.Frame = new CGRect(3, 3, ContentView.Bounds.Width / 6, ContentView.Bounds.Height - 5);
 		nameLabel.Frame = new CGRect(ContentView.Bounds.Width / 6 + 10, 3, ContentView.Bounds.Width / 3, ContentView.Bounds.Height - 5);
-		result.Frame = new CGRect((ContentView.Bounds.Width / 6) + (ContentView.Bounds.Width / 3) + additionModifier, 15, 25, 25);
+		result.Frame = new CGRect((ContentView.Bounds.Width / 6) + (ContentView.Bounds.Width / 3) + 140, 15, 25, 25);
 	}
 }

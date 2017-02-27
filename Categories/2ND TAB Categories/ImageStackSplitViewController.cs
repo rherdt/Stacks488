@@ -11,11 +11,12 @@ namespace Categories
 		//Controller Fields
 		CollectionViewImageStack collectionViewController;
 		ImageStackTableViewController imageStackTableViewController;
-		UINavigationController navigationController, collectionsNavigationController;
+		UINavigationController ImageStackNavigationController, collectionsNavigationController;
 		ImageStackHeaderView imageStackHeaderView;
 		ImageCollectionHeaderView imageCollectionHeaderView;
-
-
+		Category categoryRow;
+		ImageStackCategory imageStackRow;
+		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 
 		//WIDTHS
 		nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
@@ -23,18 +24,14 @@ namespace Categories
 		nfloat NavigationBarImageCollectionsWidth, NavigationBarImageCollectionsHeight;
 		#endregion
 
-		public ImageStackSplitViewController(UINavigationController nav, UINavigationController collectionsNav, CollectionViewImageStack collectionView, ImageStackTableViewController imageStack)
+		public ImageStackSplitViewController(UINavigationController imageStackNavigationController, UINavigationController collectionsNav, CollectionViewImageStack collectionView, ImageStackTableViewController imageStack)
 		{
 			collectionViewController = collectionView;
 			imageStackTableViewController = imageStack;
-			navigationController = nav;
+			ImageStackNavigationController = imageStackNavigationController;
 			collectionsNavigationController = collectionsNav;
-
-			ViewControllers = new UIViewController[] { navigationController, collectionsNavigationController };
-
-			//MAYBE TAKE OFF***********(might not do anything)
-			//MinimumPrimaryColumnWidth = NavigationBarWidth;
-			//PreferredPrimaryColumnWidthFraction = 0.5f;
+			ViewControllers = new UIViewController[] { ImageStackNavigationController, collectionsNavigationController };
+			View.BackgroundColor = BGColor;
 		}
 
 		#region View Methods
@@ -42,13 +39,21 @@ namespace Categories
 		{
 			base.ViewDidAppear(animated);
 
-			navigationController.View.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight);
-			navigationController.NavigationBar.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight);
-			imageStackHeaderView.Frame = new CGRect(0, 0, NavigationBarWidth, NavigationBarHeight);
+			ImageStackNavigationController.NavigationBar.Frame = new CGRect(0.0, 0.0, NavigationBarWidth, NavigationBarHeight - 20);
+			imageStackHeaderView.Frame = new CGRect(0, 0, NavigationBarWidth, NavigationBarHeight - 20);
 
-			collectionsNavigationController.View.Frame = new CGRect(0.0, 0.0, NavigationBarImageCollectionsWidth, NavigationBarImageCollectionsHeight);
 			collectionsNavigationController.NavigationBar.Frame = new CGRect(0.0, 0.0, NavigationBarImageCollectionsWidth, NavigationBarImageCollectionsHeight);
 			imageCollectionHeaderView.Frame = new CGRect(0.0, 0.0, NavigationBarImageCollectionsWidth, NavigationBarImageCollectionsHeight);
+
+			imageStackTableViewController.TableView.ContentInset = new UIEdgeInsets(ImageStackNavigationController.NavigationBar.Frame.Size.Height, 0, 0, 0);
+			collectionViewController.setInset(collectionsNavigationController.NavigationBar.Frame.Size.Height);
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			//imageStackTableViewController.View.Frame = new CGRect(0, 50, NavigationBarWidth, 768);
+			//imageStackTableViewController.TableView.ReloadInputViews();
 		}
 
 		public override void ViewDidLoad()
@@ -58,25 +63,86 @@ namespace Categories
 			//create the header views
 			imageStackHeaderView = ImageStackHeaderView.Create();
 			imageCollectionHeaderView = ImageCollectionHeaderView.Create();
-			navigationController.NavigationBar.AddSubview(imageStackHeaderView);
+			ImageStackNavigationController.NavigationBar.AddSubview(imageStackHeaderView);
 			collectionsNavigationController.NavigationBar.AddSubview(imageCollectionHeaderView);
+
+			#region Name Changing
+			returnCategoryTextbox().AllTouchEvents += (sender, e) =>
+			{
+				returnCategoryTextbox().TintColor = UIColor.Blue;
+			};
+
+			returnCategoryTextbox().AddTarget((sender, e) =>
+			{				
+				categoryRow.CategoryName = returnCategoryTextbox().Text;
+				new DatabaseContext<Category>().Update(categoryRow);
+
+			}, UIControlEvent.EditingChanged);
+
+			returnImageStackTextbox().AllTouchEvents += (sender, e) =>
+			{
+				returnImageStackTextbox().TintColor = UIColor.Blue;
+			};
+
+			returnImageStackTextbox().AddTarget((sender, e) =>
+			{
+				imageStackRow.ImageStackName = returnImageStackTextbox().Text;
+				new DatabaseContext<ImageStackCategory>().Update(imageStackRow);
+
+			}, UIControlEvent.EditingChanged);
+			#endregion
 		}
+
+		public override void ViewDidDisappear(bool animated)
+		{
+			base.ViewDidDisappear(animated);
+			returnCategoryTextbox().TintColor = UIColor.Clear; //gets rid of blue cursor
+			returnImageStackTextbox().TintColor = UIColor.Clear; //gets rid of blue cursor
+		}
+
 
 		public override void ViewDidLayoutSubviews()
 		{
 			base.ViewDidLayoutSubviews();
 
-			ImageStackSplitControllerWidth = this.View.Bounds.Width;
-			ImageStackSplitControllerHeight = this.View.Bounds.Height;
+			ImageStackSplitControllerWidth = View.Bounds.Width;
+			ImageStackSplitControllerHeight = View.Bounds.Height;
 
 			NavigationBarWidth = (nfloat)(ImageStackSplitControllerWidth / 2.1);
 			NavigationBarHeight = (nfloat)(ImageStackSplitControllerHeight * .2);
 
-
 			NavigationBarImageCollectionsWidth = (nfloat)(ImageStackSplitControllerWidth * .6);
-			NavigationBarImageCollectionsHeight = (nfloat)(ImageStackSplitControllerHeight * .25);
+			NavigationBarImageCollectionsHeight = (nfloat)(ImageStackSplitControllerHeight * .1211);
+
+
+
+			//ImageStackNavigationController.NavigationBar.SizeThatFits(new CGSize(NavigationBarWidth, NavigationBarHeight - 20));
 		}
 		#endregion
+
+		#region Header View Get Methods
+		#region Textboxes
+
+		public UITextField returnCategoryTextbox()
+		{
+			if (imageStackHeaderView != null)
+			{
+				return imageStackHeaderView.getCategoryName();
+			}
+			return null;
+		}
+
+		public UITextField returnImageStackTextbox()
+		{
+			if (imageCollectionHeaderView != null)
+			{
+				return imageCollectionHeaderView.getImageStackTextbox();
+			}
+			return null;
+		}
+
+		#endregion
+
 		#region Buttons
 		public UIButton returnImageStackAddButton()
 		{
@@ -120,5 +186,11 @@ namespace Categories
 		}
 		#endregion
 
+		#endregion
+
+		public void setCategory(Category c) { categoryRow = c; }
+		public void setImageStackName(ImageStackCategory isc) { imageStackRow = isc; }
+		public void updateCategoryNameLabel(string name) { returnCategoryTextbox().Text = name; }
+		public void updateImageStackNameLabel(string name) { returnImageStackTextbox().Text = name; }
 	}
 }

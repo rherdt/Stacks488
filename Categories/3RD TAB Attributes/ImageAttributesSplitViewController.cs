@@ -6,7 +6,7 @@ namespace Categories
 	public class ImageAttributesSplitViewController : UISplitViewController
 	{
 
-		public ImageAttributesSplitViewController(UINavigationController navCollection, MasterTableNavigationController ImageAtrributesNavigationController)
+		public ImageAttributesSplitViewController(UINavigationController navCollection, UINavigationController ImageAtrributesNavigationController)
 		{
 
 			ViewControllers = new UIViewController[] {navCollection , ImageAtrributesNavigationController };
