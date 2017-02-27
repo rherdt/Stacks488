@@ -22,6 +22,8 @@ namespace Categories
 
         public override void AwakeFromNib() { }
 
+		public UITextField getCategoryName() { return txtCategoryName; }
+
         public void setTxtCategory(string s) { txtCategoryName.Text = s; }
     }
 }

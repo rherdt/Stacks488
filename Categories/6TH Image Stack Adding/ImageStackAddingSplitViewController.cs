@@ -12,7 +12,7 @@ namespace Categories
 
 		//Collection View
 		TableSourceAttributes AttributesTableSource;
-		CollectionViewImageSourceAttribute AttributeImageSource;
+		ImageStackAddingSource AttributeImageSource;
 
 		//selected Image Stack
 		ImageStackCategory SelectedImageStack;
@@ -29,7 +29,8 @@ namespace Categories
 			AttributesTableSource.ReloadCollectionView += ReloadCollectionViewAll;
 
 			//slave
-			AttributeImageSource = new CollectionViewImageSourceAttribute(false);
+			//AttributeImageSource = new CollectionViewImageSourceAttribute(false);
+			AttributeImageSource = new ImageStackAddingSource();
 			attributesCollectionView = new ImageStackAddingCollectionView(AttributeImageSource);
 			PreferredPrimaryColumnWidthFraction = 0.2f;
 
@@ -37,6 +38,15 @@ namespace Categories
 
 			//delegate for finish button
 			navController.getFinishButton().Clicked += BtnFinishedClicked_TouchUpInside;
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			AttributesTableSource.ReloadDataAll();
+			attributesTableViewController.ReloadTableData();
+				
+
 		}
 
 		void ReloadCollectionViewAll(Attribute attr)
@@ -77,7 +87,7 @@ namespace Categories
 			List<Image> SelectedImages = AttributeImageSource.getSelectedImagesForImageStack();
 
 
-			int index = 0;
+			int index = 1;
 			/*
 			 * Add images to the DB. get Index ID
 			 */
@@ -89,7 +99,7 @@ namespace Categories
 				index = imgCount[imgCount.Count - 1].ImageStackIndex + 1;
 			}
 	
-			 index = 1;
+			 //index = 1;
 			//add it to the database
 			if (SelectedImageStack != null)
 			{
@@ -104,7 +114,8 @@ namespace Categories
 				}
 
 			}
-			attributesCollectionView.clearCellSelection();
+			//attributesCollectionView.clearCellSelection();
+			AttributeImageSource.clearSelectedImages(attributesCollectionView.getCollection());
 			MainTabBarController tab = (MainTabBarController)ParentViewController;
 			tab.SelectedIndex = 1;
 			tab.DismissModalViewController(true);

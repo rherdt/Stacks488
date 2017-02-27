@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -9,72 +11,69 @@
         <view contentMode="scaleToFill" id="1" customClass="ImageStackHeaderView">
             <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="43" translatesAutoresizingMaskIntoConstraints="NO" adjustsFontSizeToFit="NO">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43">
                     <rect key="frame" x="20" y="44" width="89" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="81"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
-                    <constraints>
-                        <constraint id="81" firstAttribute="height" constant="21"/>
-                    </constraints>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" id="46" translatesAutoresizingMaskIntoConstraints="NO">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="46">
                     <rect key="frame" x="117" y="40" width="189" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="189" id="103"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
-                    <constraints>
-                        <constraint id="103" firstAttribute="width" constant="189"/>
-                    </constraints>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="48" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                    <rect key="frame" x="-5" y="94" width="88" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48">
+                    <rect key="frame" x="-5" y="75" width="88" height="30"/>
                     <state key="normal" title="Duplicate">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
-                    <connections>
-                        <action selector="BtnDup_TouchUpInside:" destination="50" id="49" eventType="touchUpInside"/>
-                    </connections>
                     <constraints>
-                        <constraint id="106" firstItem="48" firstAttribute="width" constant="88"/>
-                        <constraint id="107" firstItem="48" firstAttribute="height" constant="30"/>
+                        <constraint id="125" firstAttribute="width" constant="88"/>
                     </constraints>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Stack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="52" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="20" y="124" width="102" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image Stack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52">
+                    <rect key="frame" x="20" y="105" width="102" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                     <constraints>
-                        <constraint id="110" firstItem="52" firstAttribute="width" constant="102"/>
-                        <constraint id="111" firstItem="52" firstAttribute="height" constant="21"/>
+                        <constraint id="120" firstAttribute="width" constant="102"/>
+                        <constraint id="121" firstAttribute="height" constant="21"/>
                     </constraints>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="55" translatesAutoresizingMaskIntoConstraints="NO" preservesSuperviewLayoutMargins="YES">
-                    <rect key="frame" x="290" y="124" width="22" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55">
+                    <rect key="frame" x="290" y="105" width="22" height="22"/>
                     <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
             </subviews>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-1/3"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-            <connections>
-                <outlet property="txtCategoryName" destination="46" id="name-outlet-46"/>
-                <outlet property="AddButton" destination="55" id="name-outlet-55"/>
-            </connections>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint id="78" firstItem="43" firstAttribute="top" secondItem="1" secondAttribute="top" constant="44"/>
-                <constraint id="80" firstItem="43" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20"/>
-                <constraint id="102" firstItem="46" firstAttribute="top" secondItem="1" secondAttribute="top" constant="40"/>
-                <constraint id="104" firstItem="46" firstAttribute="leading" secondItem="43" secondAttribute="centerX" constant="52"/>
-                <constraint id="105" firstItem="48" firstAttribute="top" secondItem="43" secondAttribute="bottom" constant="29"/>
-                <constraint id="108" firstItem="52" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20"/>
-                <constraint id="109" firstItem="52" firstAttribute="top" secondItem="48" secondAttribute="centerY" constant="15"/>
-                <constraint id="114" firstItem="55" firstAttribute="top" secondItem="46" secondAttribute="bottom" constant="54"/>
-                <constraint id="115" firstItem="55" firstAttribute="leading" secondItem="52" secondAttribute="trailing" constant="168"/>
+                <constraint firstItem="43" firstAttribute="top" secondItem="1" secondAttribute="top" constant="44" id="78"/>
+                <constraint firstItem="43" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="80"/>
+                <constraint firstItem="46" firstAttribute="top" secondItem="1" secondAttribute="top" constant="40" id="102"/>
+                <constraint firstItem="46" firstAttribute="leading" secondItem="43" secondAttribute="centerX" constant="52" id="104"/>
+                <constraint id="118" firstItem="52" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20"/>
+                <constraint id="122" firstItem="52" firstAttribute="top" secondItem="43" secondAttribute="bottom" constant="40"/>
+                <constraint id="123" firstItem="48" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="-5"/>
+                <constraint id="126" firstItem="48" firstAttribute="top" secondItem="43" secondAttribute="centerY" constant="20"/>
+                <constraint id="129" firstItem="55" firstAttribute="top" secondItem="46" secondAttribute="centerY" constant="50"/>
+                <constraint id="130" firstItem="55" firstAttribute="leading" secondItem="52" secondAttribute="trailing" constant="168"/>
             </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="ipad9_7.splitview1_3"/>
+            <connections>
+                <outlet property="AddButton" destination="55" id="name-outlet-55"/>
+                <outlet property="txtCategoryName" destination="46" id="name-outlet-46"/>
+            </connections>
         </view>
     </objects>
     <resources>
@@ -82,5 +81,8 @@
         <image name="categories.png" width="30" height="30"/>
         <image name="images.png" width="30" height="30"/>
         <image name="profiles.png" width="30" height="30"/>
+        <image name="minus.png" width="600" height="600"/>
+        <image name="neutral.png" width="200" height="200"/>
+        <image name="plus.png" width="256" height="256"/>
     </resources>
 </document>
