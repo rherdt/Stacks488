@@ -29,6 +29,7 @@ namespace Categories
 		}
 		public void RefreshTableView()
 		{
+			table.Source = (UITableViewSource)Source;
 			table.ReloadData();
 		}
 	}

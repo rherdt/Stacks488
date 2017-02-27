@@ -12,45 +12,79 @@ namespace Categories
         NSString cellIdentifier = (NSString)"TableCell";
 		List<Session> list;
 		bool TableHidden = true;
+		UIView cellBackgroundColor;
 
 		public delegate void SessionsTableDelegate(Session session);
         public event SessionsTableDelegate SessionRowToController;
 
 		public delegate void SessionsTableHideDelegate(bool hidden);
 		public event SessionsTableHideDelegate HideTable;
-        #endregion
+		#endregion
 
-        public TableSourceSessions()
-        {
-           
-        }
+		public TableSourceSessions()
+		{
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
+		}
 
 		public TableSourceSessions(List<Session> list)
 		{
-			this.TableItems = list;
+			TableItems = list;
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
-        {
+		{
+			return 1;
+		}
+
+		public override UIView GetViewForHeader(UITableView tableView, nint section)
+		{
+			UIView headerView = new UIView();
+			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return headerView;
+		}
+
+		public override UIView GetViewForFooter(UITableView tableView, nint section)
+		{
+			UIView footerView = new UIView();
+			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return footerView;
+		}
+
+		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
+		{
+			return 1;
+		}
+
+		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
+		{
+			return 5;
+		}
+
+		public override nint NumberOfSections(UITableView tableView)
+		{
 			if (TableItems == null)
 			{
 				return 0;
 			}
-            return TableItems.Count;
-        }
+			return TableItems.Count;
+		}
+
 
         public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
         {
             if (this.TableItems != null)
             {
-                var SelectedItemName = this.TableItems[indexPath.Row];
+                var SelectedItemName = this.TableItems[indexPath.Section];
                 if (SessionRowToController != null)
                 {
                     SessionRowToController(SelectedItemName);
                 }
 
             }
-            tableView.DeselectRow(indexPath, true);
+            //tableView.DeselectRow(indexPath, true);
 			if (TableHidden && SessionRowToController != null)
 			{
 				HideTable(TableHidden);
@@ -65,9 +99,12 @@ namespace Categories
             {
                 cell = new CustomCellSessions(cellIdentifier);
             }
+			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
             cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
-            var name = new DatabaseContext<Category>().GetByGuid(TableItems[indexPath.Row].CategoryID).CategoryName;
-			cell.UpdateCell(name, TableItems[indexPath.Row].SessionDate, TableItems[indexPath.Row].Correct, TableItems[indexPath.Row].Attempted);
+            var name = new DatabaseContext<Category>().GetByGuid(TableItems[indexPath.Section].CategoryID).CategoryName;
+			cell.UpdateCell(name, TableItems[indexPath.Section].SessionDate, TableItems[indexPath.Section].Correct, TableItems[indexPath.Section].Attempted);
             return cell;
         }
 

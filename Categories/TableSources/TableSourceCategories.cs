@@ -17,6 +17,7 @@ namespace Categories
 
 		Category PrevRowSelected;
 		NSIndexPath prev;
+		UIView cellBackgroundColor;
         #endregion
 
         public delegate void SessionsTableDelegate(Category category);
@@ -28,6 +29,7 @@ namespace Categories
         public TableSourceCategories()
         {
 			TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
+			createCellBGColor();
         }
 
         public TableSourceCategories( UIViewController v, bool isVisibleElseHide)
@@ -35,6 +37,7 @@ namespace Categories
             newSessionSplitViewController = v;
 			TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
 			isVisible = isVisibleElseHide;
+			createCellBGColor();
 
         }
 
@@ -43,18 +46,53 @@ namespace Categories
             //Possibly use view to only update 1 item at a time?
             tableView = view;
             TableItems = new DatabaseContext<Category>().GetQuery("SELECT * FROM Category");
+			createCellBGColor();
         }
 
+		void createCellBGColor()
+		{
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
+		}
 
-        public override nint RowsInSection(UITableView tableview, nint section)
-        {
-            return TableItems.Count;
-        }
+		public override nint RowsInSection(UITableView tableview, nint section)
+		{
+			return 1;
+		}
+
+		public override UIView GetViewForHeader(UITableView tableView, nint section)
+		{
+			UIView headerView = new UIView();
+			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return headerView;
+		}
+
+		public override UIView GetViewForFooter(UITableView tableView, nint section)
+		{
+			UIView footerView = new UIView();
+			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return footerView;
+		}
+
+		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
+		{
+			return 1;
+		}
+
+		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
+		{
+			return 5;
+		}
+
+		public override nint NumberOfSections(UITableView tableView)
+		{
+			return TableItems.Count;
+		}	
 
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             //send data to ProfilesSplitViewController
-            Category SelectedItemName = this.TableItems[indexPath.Row];
+            Category SelectedItemName = this.TableItems[indexPath.Section];
 
 			if (PrevRowSelected == SelectedItemName)
 			{
@@ -74,6 +112,7 @@ namespace Categories
 			{
 				HideTable(TableHidden);
 			}
+			//tableView.DeselectRow(indexPath, true);
         }
 
         void HandleReload()
@@ -93,7 +132,10 @@ namespace Categories
 			{
 				cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			}
-            cell.UpdateCell(TableItems[indexPath.Row].CategoryName, "Testing");
+			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
+            cell.UpdateCell(TableItems[indexPath.Section].CategoryName, "Testing");
 
             return cell;
 
@@ -120,11 +162,11 @@ namespace Categories
                 case UITableViewCellEditingStyle.Delete:
 					// remove the item from the underlying data source
 
-					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Row].ID);
+					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Section].ID);
 
 					if (didDelete > 0) //deleted
 					{
-						TableItems.RemoveAt(indexPath.Row);
+						TableItems.RemoveAt(indexPath.Section);
 						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
 					}
 

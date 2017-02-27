@@ -6,19 +6,41 @@ namespace Categories
 {
 	public partial class SettingsAlertController : UIViewController
 	{
+		#region Fields
 		UIViewController TopMostParent;
 		Profiles CurrentProfile;
 		Category CurrentCategory;
+		MainTabBarController tabBar;
 
-		public SettingsAlertController(Profiles profileSelected, Category categorySelected) : base("SettingsAlertController", null)
+		//to update Ran Session Table once session finishes
+		TableSourceSessions SessionSource;
+		RunsTableViewController runsTableViewController;
+		ImagesTableViewController imageTableViewController;
+		#endregion
+
+		//DEFUNCT
+		public SettingsAlertController(Profiles profileSelected, Category categorySelected, MainTabBarController tab) : base("SettingsAlertController", null)
 		{
 			CurrentProfile = profileSelected;
 			CurrentCategory = categorySelected;
+			tabBar = tab;
+		}
+
+		public SettingsAlertController(Profiles profileSelected, Category categorySelected, MainTabBarController tab, TableSourceSessions session, RunsTableViewController runTableViewController, ImagesTableViewController ImageTableViewController) : base("SettingsAlertController", null)
+		{
+			CurrentProfile = profileSelected;
+			CurrentCategory = categorySelected;
+			tabBar = tab;
+			SessionSource = session;
+			runsTableViewController = runTableViewController;
+			imageTableViewController = ImageTableViewController;
+	
 		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+			UpdateSettingsToggles();
 			// Perform any additional setup after loading the view, typically from a nib.
 			this.View.BackgroundColor = UIColor.White;
 
@@ -45,9 +67,11 @@ namespace Categories
 			StartSessionButton.TouchUpInside += (sender, e) =>
 			{
 				//new UIAlertView("Start", null, null, "Ok", null).Show();
-				SessionController RunSession = new SessionController(CurrentProfile,CurrentCategory);
+				//FinishScreenController finishedScreen = new FinishScreenController(tabBar);
+				FinishScreenController finishedScreen = new FinishScreenController(tabBar, SessionSource, runsTableViewController, imageTableViewController, CurrentProfile, CurrentCategory);
+				SessionController RunSession = new SessionController(CurrentProfile, CurrentCategory, finishedScreen);
 
-				RunSession.ReturnSessionData += (CurrentSession currentSession, int Attempted, int Correct) =>
+				finishedScreen.ReturnSessionData += (CurrentSession currentSession, int Attempted, int Correct) =>
 				{
 					//add the results to the database
 					if (CurrentProfile != null) //Valid Profile
@@ -112,17 +136,23 @@ namespace Categories
 				TopMostParent.PresentViewController(RunSession, true, null);
 
 
+
+
 			};
 			DisplayLabelsToggle.ValueChanged += (sender, e) =>
 			{
 				//get toggle switch state
 				if (DisplayLabelsToggle.On)
 				{
-					new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					CurrentProfile.showLabelSettings = true;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 				else
 				{
-					new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					CurrentProfile.showLabelSettings = false;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 			};
 			DisplayPictureToggle.ValueChanged += (sender, e) =>
@@ -130,17 +160,19 @@ namespace Categories
 				//get toggle switch state
 				if (DisplayPictureToggle.On)
 				{
-					new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle On", null, null, "Ok", null).Show();
+					CurrentProfile.showImageSettings = true;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 				else
 				{
-					new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					//new UIAlertView("Toggle Off", null, null, "Ok", null).Show();
+					CurrentProfile.showImageSettings = false;
+					new DatabaseContext<Profiles>().Update(CurrentProfile);
 				}
 			};
 
 		}
-
-
 
 		public override void DidReceiveMemoryWarning()
 		{
@@ -162,6 +194,12 @@ namespace Categories
 		}
 
 
+		void UpdateSettingsToggles()
+		{
+			DisplayLabelsToggle.On = CurrentProfile.showLabelSettings;
+			DisplayPictureToggle.On = CurrentProfile.showImageSettings;
+
+		}
 	}
 }
 

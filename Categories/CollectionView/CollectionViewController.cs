@@ -11,9 +11,7 @@ namespace Categories
 		UICollectionView CollectionView;
 		CollectionViewImageSource CollectionViewSource;
 
-		public CollectionViewController() : base("CollectionViewController", null)
-		{
-		}
+		public CollectionViewController() : base("CollectionViewController", null) { }
 
 		public override void ViewDidLoad()
 		{
@@ -27,9 +25,9 @@ namespace Categories
 			 */
 			UICollectionViewFlowLayout layout = new UICollectionViewFlowLayout
 			{
-				SectionInset = new UIEdgeInsets(10, 10, 10, 10),
-				//MinimumInteritemSpacing = 1,
-				//MinimumLineSpacing = 10,
+				SectionInset = new UIEdgeInsets(20, 20, 20, 20),
+				MinimumInteritemSpacing = 1,
+				MinimumLineSpacing = 10,
 				ItemSize = CellSize //new SizeF(110, 110)
 
 			};
@@ -73,7 +71,7 @@ namespace Categories
 
 
 			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.6, this.View.Bounds.Height);
-			CollectionView.BackgroundColor = UIColor.White;
+			CollectionView.BackgroundColor = UIColor.Clear;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 
 
@@ -136,7 +134,7 @@ namespace Categories
 		{
 			CGRect screenRect = this.View.Bounds; //UIScreen.MainScreen.Bounds;
 			var screenWidth = screenRect.Width;
-			var cellWidth = screenWidth / 6.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
+			var cellWidth = screenWidth / 4.0; //Replace the divisor with the column count requirement. Make sure to have it in float.
 			CGSize size = new CGSize(cellWidth, cellWidth);
 
 			return size;

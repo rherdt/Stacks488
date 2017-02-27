@@ -10,32 +10,30 @@ namespace Categories
 		int CurrentImageStack = 0;
 	
 		UIViewController Parent;
+		FinishScreenController finishedScreen;
 
 		//Session object to keep track of current session
 		CurrentSession _Session;
 		Result ImageResult;
 
 		//variables for statsLabel
-		int _Attempted = 1;
+		int _Attempted = 0;
 		int _Correct = 0;
 		Category CurrentCategory;
 		Profiles CurrentProfile;
+		bool didChooseAnswer;
 
 		List<List<ImageStackImages>> ImageStack2D;
 		List<String> ImageStackNames;
 
-
-		//Delegates
-		public delegate void RunSessionDelegate(CurrentSession Session, int Attempted, int Correct);
-		public event RunSessionDelegate ReturnSessionData;
-
-		public SessionController(Profiles profileSelected, Category categorySelected) : base("SessionController", null)
+		public SessionController(Profiles profileSelected, Category categorySelected, FinishScreenController finishController) : base("SessionController", null)
 		{
 			_Session = new CurrentSession();
 			CurrentProfile = profileSelected;
 			CurrentCategory = categorySelected;
 			ImageStack2D = new List<List<ImageStackImages>>();
 			ImageStackNames = new List<String>();
+			finishedScreen = finishController;
 		}
 
 		public override void ViewDidLoad()
@@ -87,21 +85,12 @@ namespace Categories
 				 * Finished Button Handler
 				 * Return to the homescreen.
 				 */
-				UIAlertView alertFinished = new UIAlertView("Finshed?", "Are you sure you want to finish?", null, "Yes", "Cancel");
-				alertFinished.Show();
-				alertFinished.Clicked += (fromsender, args) =>
-				{
-					if (args.ButtonIndex == 0) //yes clicked
-					{
-						if (ReturnSessionData != null) //check if delegate has been initialized
-						{
-							ReturnSessionData(_Session, _Attempted, _Correct);
-						}
 
-						this.PresentingViewController.DismissModalViewController(true);
-					}
+				finishedScreen.setSession(_Session);
+				finishedScreen.setAttempted(_Attempted);
+				finishedScreen.setCorrect(_Correct);
+				PresentViewController(finishedScreen, true, null);
 
-				};
 			};
 
 			/*
@@ -128,16 +117,7 @@ namespace Categories
 				CurrentImageIndex--;
 				ImageViewSession.Image = getImageFromDB();
 				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
-				List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
-				String s = images[0].Title;
-				if (s != null)
-				{
-					ImageTitleLabel.Text = s;
-				}
-				else
-				{
-					ImageTitleLabel.Text = "No Label";
-				}
+				didChooseAnswer = false;
 			}
 		}
 		public void Next()
@@ -147,17 +127,7 @@ namespace Categories
 				CurrentImageIndex++;
 				ImageViewSession.Image = getImageFromDB();
 				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
-				List<Image> images = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
-
-				String s = images[0].Title;
-				if (s != null)
-				{
-					ImageTitleLabel.Text = s;
-				}
-				else
-				{
-					ImageTitleLabel.Text = "No Label";
-				}
+				didChooseAnswer = false;
 			}
 		}
 
@@ -168,7 +138,7 @@ namespace Categories
 		public void Missed()
 		{
 
-			if (CurrentImageIndex >= 0 && ImageStack2D != null)
+			if (CurrentImageIndex >= 0 && ImageStack2D != null && !didChooseAnswer)
 			{
 				/*
 				 * For Testing, Swiping right = incorrect
@@ -182,6 +152,7 @@ namespace Categories
 				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 
 				//stats
+				didChooseAnswer = true;
 				_Attempted++;
 				UpdateCurrentScore();
 			}
@@ -195,7 +166,7 @@ namespace Categories
 			 *
 			 */
 	
-			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D != null)
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D != null && !didChooseAnswer)
 			{
 		
 				ImageResult = new Result();
@@ -207,6 +178,7 @@ namespace Categories
 				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 
 				//stats
+				didChooseAnswer = true;
 				_Attempted++;
 				UpdateCurrentScore();
 
@@ -222,7 +194,7 @@ namespace Categories
 		public void Independent()
 		{
 
-			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D!=null)
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D!=null && !didChooseAnswer)
 			{
 
 				/*
@@ -236,6 +208,8 @@ namespace Categories
 				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
 
 				//stats
+				didChooseAnswer = true;
+				_Attempted++;
 				_Correct++;
 				UpdateCurrentScore();
 			}
@@ -247,11 +221,14 @@ namespace Categories
 		void HandleDoubleTap()
 		{
 			//new UIAlertView("Double tap", "Change stack, same category", null, "Ok").Show();
-			if (CurrentImageStack < ImageStack2D.Count )
+			if (CurrentImageStack < ImageStack2D.Count-1 )
 			{
 				CurrentImageStack++;
 				CurrentImageIndex = 0;
+				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
+				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 				UpdateImageView(CurrentImageIndex);
+				didChooseAnswer = false;
 			}
 			else
 			{
@@ -269,7 +246,9 @@ namespace Categories
 
 				ImageViewSession.Image = getImageFromDB();
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+
 			}
+
 		}
 		public void UpdateCurrentScore()
 		{
@@ -283,7 +262,8 @@ namespace Categories
 			{
 				
 				ImageViewSession.Image = getImageFromDB(); 
-				UpdateCurrentScore();
+				//UpdateCurrentScore();
+				StatsLabel.Text = 0 + "/" + 0 + " " + 0 + "%";
 				ImageCountLabel.Text = "1/"+ImageStack2D[CurrentImageStack].Count;
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 

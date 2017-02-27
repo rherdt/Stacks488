@@ -7,13 +7,50 @@ namespace Categories
 	{
 		
 		IUpdatableTable table;
-
+		UILabel titleOnLeft;
+		UIBarButtonItem leftItem;
+		IUpdatableTable TableViewController;
 
 		public MasterTableNavigationController(IUpdatableTable tableViewController) : base()
 		{
 			this.PushViewController(tableViewController.tableController, true);
 			table = tableViewController;
+			titleOnLeft = new UILabel()
+			{
+				Text = getLabelName(table.TableType),
+				TextColor = UIColor.White
+			};
+			titleOnLeft.SizeToFit();
+			leftItem = new UIBarButtonItem();
+			leftItem.CustomView = titleOnLeft;
 			tableViewController.tableController.NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Add,(sender, e) => HandleTouchUpInside(sender, e));
+			tableViewController.tableController.NavigationItem.LeftBarButtonItem = leftItem;
+
+			NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
+			NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
+			NavigationBar.TintColor = UIColor.White;
+
+			this.TableViewController = tableViewController;
+
+		}
+
+		String getLabelName(String tableType)
+		{
+			switch (tableType)
+			{
+				case "Profile":
+					return "Profiles";
+
+				case "Category":
+					return "Categories";
+
+				case "Attribute":
+					return "Attributes (Select to Filter)";
+			
+				default: return "Error";
+
+			}
+			
 		}
 
 
@@ -48,7 +85,28 @@ namespace Categories
 
 			PresentViewController(alert, animated: true, completionHandler: null);
 
+		}
+		public void UpdateLabel(string title)
+		{
+			titleOnLeft = new UILabel()
+			{
+				Text = title,
+				TextColor = UIColor.White
+			};
+			titleOnLeft.SizeToFit();
+			leftItem = new UIBarButtonItem();
+			leftItem.CustomView = titleOnLeft;
+			TableViewController.tableController.NavigationItem.LeftBarButtonItem = leftItem;
 
 		}
+		public UIBarButtonItem LeftButton()
+		{
+			TableViewController.tableController.NavigationItem.LeftBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Add,null);
+			TableViewController.tableController.NavigationItem.RightBarButtonItem = null;
+
+
+			return TableViewController.tableController.NavigationItem.LeftBarButtonItem;
+		}
+
 	}
 }

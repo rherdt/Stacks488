@@ -17,36 +17,74 @@ namespace Categories
 		UIViewController newSessionSplitViewController;
 		bool isVisible;
 		Category CurrentlySelectedCategory;
-
+		bool TableHidden = true;
+		UIView cellBackgroundColor;
 		#endregion
 
 		public delegate void ImageStackDelegate(ImageStackCategory imageStack);
 		public event ImageStackDelegate ImageStackToController;
 
+		public delegate void ImageStackTableHideDelegate(bool hidden);
+		public event ImageStackTableHideDelegate HideTable;
+
 		public TableSourceImageStack()
 		{
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
 		}
-
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			if (TableItems != null)
-			{
-				return TableItems.Count;
-			}
+			return 1;
+		}
 
-			return 0;
+		public override UIView GetViewForHeader(UITableView tableView, nint section)
+		{
+			UIView headerView = new UIView();
+			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return headerView;
+		}
+
+		public override UIView GetViewForFooter(UITableView tableView, nint section)
+		{
+			UIView footerView = new UIView();
+			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return footerView;
+		}
+
+		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
+		{
+			return 1;
+		}
+
+		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
+		{
+			return 5;
+		}
+
+		public override nint NumberOfSections(UITableView tableView)
+		{
+			if (TableItems == null)
+			{
+				return 0;
+			}
+			return TableItems.Count;
 		}
 
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
 			//send data to ProfilesSplitViewController
-			var SelectedItemName = this.TableItems[indexPath.Row];
+			var SelectedItemName = this.TableItems[indexPath.Section];
 			if (ImageStackToController != null)
 			{
 				ImageStackToController(SelectedItemName);
 			}
-			tableView.DeselectRow(indexPath, true);
+			//Show/Hide Table Method call to NewSessionSplitViewController
+			if (TableHidden && ImageStackToController != null)
+			{
+				HideTable(TableHidden);
+			}
+			//tableView.DeselectRow(indexPath, true);
 
 
 		}
@@ -74,7 +112,8 @@ namespace Categories
 			{
 				cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			}
-			cell.UpdateCell(TableItems[indexPath.Row].ImageStackName, "Test");
+			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.UpdateCell(TableItems[indexPath.Section].ImageStackName, "Test");
 
 			return cell;
 
@@ -107,11 +146,11 @@ namespace Categories
 				case UITableViewCellEditingStyle.Delete:
 					// remove the item from the underlying data source
 
-					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Row].ID);
+					int didDelete = new DatabaseContext<Category>().Delete(TableItems[indexPath.Section].ID);
 
 					if (didDelete > 0) //deleted
 					{
-						TableItems.RemoveAt(indexPath.Row);
+						TableItems.RemoveAt(indexPath.Section);
 						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
 					}
 
