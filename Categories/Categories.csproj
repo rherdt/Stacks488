@@ -245,6 +245,8 @@
     <Compile Include="3RD TAB Attributes\PopupAttributes.designer.cs">
       <DependentUpon>PopupAttributes.cs</DependentUpon>
     </Compile>
+    <Compile Include="3RD TAB Attributes\NonRotatingImagePicker.cs" />
+    <Compile Include="3RD TAB Attributes\AttributesMasterTableNavigationController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

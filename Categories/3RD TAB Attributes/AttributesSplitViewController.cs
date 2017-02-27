@@ -17,7 +17,7 @@ namespace Categories
 		 */ 
 		AttributesTableViewController attributesTableViewController;
 		ImageAttributesSplitViewController imageAttributeSplitViewController;
-		MasterTableNavigationController navController;
+		AttributesMasterTableNavigationController navController;
 		UINavigationController navControllerCollection;
 
 
@@ -38,7 +38,6 @@ namespace Categories
 
 		//Other Variables
 		Image Selected;
-		bool isValidName;
 
 		public AttributesSplitViewController() : base()
 		{
@@ -49,6 +48,9 @@ namespace Categories
 
 			//Initilize the nested slitviewcontrollers
 			imageAttributeSplitViewController = new ImageAttributesSplitViewController(navControllerCollection, ImageAtrributesNavigationController);
+			navController.setCollectionViewController(attributesCollectionView);
+			navController.setAttributesSource(AttributesTableSource);
+			navController.setAttributesTableViewController(attributesTableViewController);
 			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
 		}
 		#region Table Initialization
@@ -60,7 +62,7 @@ namespace Categories
 
 			attributesTableViewController = new AttributesTableViewController(AttributesTableSource);
 
-			navController = new MasterTableNavigationController(attributesTableViewController);
+			navController = new AttributesMasterTableNavigationController(attributesTableViewController);
 		}
 		public void InitializeMiddleCollectionView()
 		{
@@ -70,6 +72,7 @@ namespace Categories
 			//add nav controller to collectionview
 			attributesCollectionView = new CollectionViewAttributes(AttributeImageSource);
 			navControllerCollection = new UINavigationController(attributesCollectionView);
+
 
 			//Set up Navigation Camera Selection button 
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
@@ -161,7 +164,7 @@ namespace Categories
 		void AddPhotoButtonHandler(object sender, EventArgs e)
 		{
 			// create a new picker controller
-			imagePicker = new UIImagePickerController();
+			imagePicker = new NonRotatingImagePicker();
 			imagePicker.ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation.LandscapeLeft);
 			imagePicker.WillRotate(UIInterfaceOrientation.LandscapeLeft, 10.0);
 
@@ -215,7 +218,6 @@ namespace Categories
 							string input = alert.GetTextField(0).Text;
 							if (input != "")
 							{
-								isValidName = true;
 								inserted.Title = input;
 								new DatabaseContext<Image>().Update(inserted);
 							}

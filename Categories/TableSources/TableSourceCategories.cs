@@ -133,6 +133,8 @@ namespace Categories
 				cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
 			}
 			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
             cell.UpdateCell(TableItems[indexPath.Section].CategoryName, "Testing");
 
             return cell;

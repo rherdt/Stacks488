@@ -19,12 +19,17 @@ namespace Categories
 			tableController = new UITableViewController();
 			//tableController.Title = "Attributes (Select to filter)";
 			table = new UITableView();
-
+			table.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 			source = paramSource;
 			table.Source = (UITableViewSource)source;
 
 			tableController.View = table;
 
+		}
+
+		public UITableView getTable()
+		{
+			return this.table;
 		}
 
 		public void ReloadTableData()
