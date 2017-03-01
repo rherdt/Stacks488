@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CoreGraphics;
 using UIKit;
 
 namespace Categories
@@ -25,6 +26,8 @@ namespace Categories
 
 		List<List<ImageStackImages>> ImageStack2D;
 		List<String> ImageStackNames;
+
+		UIImageView imageView;
 
 		public SessionController(Profiles profileSelected, Category categorySelected, FinishScreenController finishController) : base("SessionController", null)
 		{
@@ -102,6 +105,7 @@ namespace Categories
 			ImageViewSession.AddGestureRecognizer(SwipeLeft);
 
 			StartSession();
+
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -112,22 +116,36 @@ namespace Categories
 		}
 		public void Prev()
 		{
-			if (CurrentImageIndex > 0)
+			if (CurrentImageStack > 0)
 			{
-				CurrentImageIndex--;
-				ImageViewSession.Image = getImageFromDB();
-				ImageCountLabel.Text = CurrentImageIndex + 1 + "/" + ImageStack2D[CurrentImageStack].Count;
+				CurrentImageStack--;
+				CurrentImageIndex = 0;
+				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
+				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+				UpdateImageView(CurrentImageIndex);
 				didChooseAnswer = false;
+			}
+			else
+			{
+				new UIAlertView("Limit Reached", "No More image stacked", null, "Ok").Show();
 			}
 		}
 		public void Next()
 		{
-			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count-1 )
+
+
+			if (CurrentImageStack < ImageStack2D.Count - 1)
 			{
-				CurrentImageIndex++;
-				ImageViewSession.Image = getImageFromDB();
-				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
+				CurrentImageStack++;
+				CurrentImageIndex = 0;
+				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
+				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+				UpdateImageView(CurrentImageIndex);
 				didChooseAnswer = false;
+			}
+			else
+			{
+				new UIAlertView("Limit Reached", "No More image stacks", null, "Ok").Show();
 			}
 		}
 
@@ -220,19 +238,12 @@ namespace Categories
 
 		void HandleDoubleTap()
 		{
-			//new UIAlertView("Double tap", "Change stack, same category", null, "Ok").Show();
-			if (CurrentImageStack < ImageStack2D.Count-1 )
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count - 1)
 			{
-				CurrentImageStack++;
-				CurrentImageIndex = 0;
-				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
-				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
-				UpdateImageView(CurrentImageIndex);
+				CurrentImageIndex++;
+				ImageViewSession.Image = getImageFromDB();
+				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
 				didChooseAnswer = false;
-			}
-			else
-			{
-				new UIAlertView("Limit Reached", "No More image Stacks", null, "Ok").Show();
 			}
 		}
 		/*

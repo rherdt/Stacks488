@@ -240,13 +240,13 @@
       <DependentUpon>FinishScreenController.cs</DependentUpon>
     </Compile>
     <Compile Include="E_AppColor.cs" />
-    <Compile Include="2ND TAB Categories\SettingsAlertController.cs" />
     <Compile Include="3RD TAB Attributes\PopupAttributes.cs" />
     <Compile Include="3RD TAB Attributes\PopupAttributes.designer.cs">
       <DependentUpon>PopupAttributes.cs</DependentUpon>
     </Compile>
     <Compile Include="3RD TAB Attributes\NonRotatingImagePicker.cs" />
     <Compile Include="3RD TAB Attributes\AttributesMasterTableNavigationController.cs" />
+    <Compile Include="5TH RunSession\Settings\SettingsAlertController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />
