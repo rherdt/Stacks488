@@ -7,6 +7,8 @@ namespace Categories
 {
 	public partial class SessionController : UIViewController
 	{
+		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+
 		int CurrentImageIndex = 0;
 		int CurrentImageStack = 0;
 	
@@ -29,6 +31,8 @@ namespace Categories
 
 		UIImageView imageView;
 
+		Random rand = new Random();
+
 		public SessionController(Profiles profileSelected, Category categorySelected, FinishScreenController finishController) : base("SessionController", null)
 		{
 			_Session = new CurrentSession();
@@ -43,6 +47,8 @@ namespace Categories
 		{
 			base.ViewDidLoad();
 			Parent = this;
+
+			View.BackgroundColor = BGColor;
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			/*
@@ -66,20 +72,23 @@ namespace Categories
 			//Get all images from that image stack
 			foreach (ImageStackCategory imageStack in ImageStacks)
 			{
+				
 				ImageStackNames.Add(imageStack.ImageStackName.ToString());
-				ImageStack2D.Add(new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =? Order By ImageStackIndex ASC",imageStack.ID.ToString()));
+
+				List<ImageStackImages> ImageStackList = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =? Order By ImageStackIndex ASC",imageStack.ID.ToString());
+
+				//randomize images if enabled
+				if (imageStack.RandomizeImageStack)
+				{
+					ImageStackList = RandomizeImageStackIfEnabled(ImageStackList);
+				}
+				ImageStack2D.Add(ImageStackList);
 			}
-
-
 
 
 			MissedButton.TouchUpInside += (sender, e) => Missed();
 			PromptedButton.TouchUpInside += (sender, e) => Prompted();
 			IndependentButton.TouchUpInside += (sender, e) => Independent();
-
-
-
-
 
 
 			FinishedButton.TouchUpInside += (sender, e) =>
@@ -105,7 +114,6 @@ namespace Categories
 			ImageViewSession.AddGestureRecognizer(SwipeLeft);
 
 			StartSession();
-
 		}
 
 		public override void DidReceiveMemoryWarning()
@@ -296,6 +304,25 @@ namespace Categories
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
 		{
 			return UIInterfaceOrientationMask.All;
+		}
+		public List<ImageStackImages> RandomizeImageStackIfEnabled(List<ImageStackImages> imageStack)
+		{
+			/*
+			 * This method randmizes the image stacks (arrays)
+			 * if the random button has been toggled.
+			 */
+			List<ImageStackImages> randomizedList = new List<ImageStackImages>();
+
+			int randomIndex = 0;
+
+			while (imageStack.Count > 0)
+			{
+				randomIndex = rand.Next(0, imageStack.Count); //Choose a random object in the list
+				randomizedList.Add(imageStack[randomIndex]); //add it to the new, random list
+				imageStack.RemoveAt(randomIndex); //remove to avoid duplicates
+			}
+
+			return randomizedList;
 		}
 	
 	}

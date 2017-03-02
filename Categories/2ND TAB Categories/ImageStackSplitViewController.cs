@@ -184,6 +184,48 @@ namespace Categories
 			}
 			return null;
 		}
+		public void SetImageStackRandomizeButtonSelected()
+		{
+			/*
+			 * Set the ImageStackRandomize Button to Blue
+			 */
+
+			UIButton random = imageCollectionHeaderView.getRandomizeButton();
+			UIButton inOrder = imageCollectionHeaderView.getInOrderButton();
+			random.BackgroundColor = UIColor.FromRGB(63, 133, 244);
+			random.SetTitleColor(UIColor.White, UIControlState.Normal);
+			random.Layer.CornerRadius = 2;
+			random.Layer.BorderWidth = 0;
+			random.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
+
+			inOrder.SetTitleColor(UIColor.FromRGB(63, 133, 244), UIControlState.Normal);
+			inOrder.Layer.CornerRadius = 2;
+			inOrder.BackgroundColor = UIColor.White;
+			inOrder.Layer.BorderWidth = 0;
+			inOrder.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
+
+		}
+		public void SetImageStackInOrderButtonSelected()
+		{
+			/*
+			 * Set the ImageStackInOrder Button to Blue
+			 */
+			UIButton random = imageCollectionHeaderView.getRandomizeButton();
+			UIButton inOrder = imageCollectionHeaderView.getInOrderButton();
+			inOrder.BackgroundColor = UIColor.FromRGB(63, 133, 244);
+			inOrder.SetTitleColor(UIColor.White, UIControlState.Normal);
+			inOrder.Layer.CornerRadius = 2;
+			inOrder.Layer.BorderWidth = 0;
+			inOrder.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
+
+			random.SetTitleColor(UIColor.FromRGB(63, 133, 244), UIControlState.Normal);
+			random.Layer.CornerRadius = 2;
+			random.Layer.BorderWidth = 0;
+			random.BackgroundColor = UIColor.White;
+			random.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
+
+		}
+			
 		#endregion
 
 		#endregion

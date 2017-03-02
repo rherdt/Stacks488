@@ -1,14 +1,19 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="5TH RunSession/Settings/SettingsAlertController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TableCustomCells/CustomCellCategories.cs">
     <Files>
-      <File FileName="5TH RunSession/SessionController.cs" Line="125" Column="31" />
-      <File FileName="5TH RunSession/Settings/SettingsAlertController.cs" Line="17" Column="27" />
-      <File FileName="3RD TAB Attributes/NonRotatingImagePicker.cs" Line="1" Column="1" />
+      <File FileName="5TH RunSession/Settings/SettingsAlertController.cs" Line="144" Column="5" />
+      <File FileName="5TH RunSession/SessionController.cs" Line="49" Column="18" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="32" Column="48" />
+      <File FileName="4TH SessionsScreen/NewSessionSplitViewController.cs" Line="99" Column="4" />
+      <File FileName="TableCustomCells/CustomCellCategories.cs" Line="20" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="245" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="262" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6AF740A9-1C74-4EB3-9651-A8533EDF835D" />

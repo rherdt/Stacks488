@@ -11,5 +11,6 @@ namespace Categories
 		public string ImageStackName { get; set; }
 		public Guid ParentCategoryID { get; set; }
 		public string ParentCategoryName { get; set; }
+		public Boolean RandomizeImageStack { get; set;}
 	}
 }

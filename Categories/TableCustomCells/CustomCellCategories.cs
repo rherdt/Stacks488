@@ -38,7 +38,7 @@ namespace Categories
 			{
 				btnStart = new UIButton(UIButtonType.System);
 				btnStart.SetTitle("Start", UIControlState.Normal);
-
+				btnStart.Font = UIFont.SystemFontOfSize(25, UIFontWeight.Regular);
 				var t = (NewSessionSplitViewController)newSessionSplitViewController;
 				btnStart.TouchUpInside += (sender, e) => t.startButton();
 				btnStart.Frame = new CGRect(ContentView.Bounds.Width - 100, ContentView.Bounds.Height / 2 - 10, 60, 15);
