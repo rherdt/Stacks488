@@ -12,7 +12,7 @@ namespace Categories
 		int CurrentImageIndex = 0;
 		int CurrentImageStack = 0;
 	
-		UIViewController Parent;
+		MainTabBarController Parent;
 		FinishScreenController finishedScreen;
 
 		//Session object to keep track of current session
@@ -33,7 +33,7 @@ namespace Categories
 
 		Random rand = new Random();
 
-		public SessionController(Profiles profileSelected, Category categorySelected, FinishScreenController finishController) : base("SessionController", null)
+		public SessionController(Profiles profileSelected, Category categorySelected, FinishScreenController finishController, MainTabBarController topParent) : base("SessionController", null)
 		{
 			_Session = new CurrentSession();
 			CurrentProfile = profileSelected;
@@ -41,13 +41,12 @@ namespace Categories
 			ImageStack2D = new List<List<ImageStackImages>>();
 			ImageStackNames = new List<String>();
 			finishedScreen = finishController;
+			Parent = topParent;
 		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			Parent = this;
-
 			View.BackgroundColor = BGColor;
 			// Perform any additional setup after loading the view, typically from a nib.
 
@@ -101,7 +100,9 @@ namespace Categories
 				finishedScreen.setSession(_Session);
 				finishedScreen.setAttempted(_Attempted);
 				finishedScreen.setCorrect(_Correct);
-				PresentViewController(finishedScreen, true, null);
+				Parent.DismissViewController(true, null);
+				Parent.PresentViewController(finishedScreen, true, null);
+
 
 			};
 

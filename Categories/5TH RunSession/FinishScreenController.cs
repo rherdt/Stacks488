@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using UIKit;
 
 namespace Categories
@@ -26,11 +27,6 @@ namespace Categories
 		public event RunSessionDelegate ReturnSessionData;
 		#endregion
 
-		//DEFUNCT
-		public FinishScreenController(MainTabBarController tab) : base("FinishScreenController", null)
-		{
-			tabBar = tab;
-		}
 
 		public FinishScreenController(MainTabBarController tab, TableSourceSessions s, RunsTableViewController r, ImagesTableViewController i, Profiles p, Category c) : base("FinishScreenController", null)
 		{
@@ -83,8 +79,18 @@ namespace Categories
 				tabBar.SelectedIndex = 4;
 				tabBar.DismissModalViewController(true);
 			};
+		}
 
-
+		public override void ViewWillLayoutSubviews()
+		{
+			/*
+			 * Calculate 1/4 spacing to center the settings view.
+			 */
+			base.ViewWillLayoutSubviews();
+			float _WSpacing = (float)this.View.Bounds.Width / 6.0f;
+			float _HSpacing = (float)this.View.Bounds.Height / 6.0f;
+			RectangleF size = new RectangleF(_WSpacing, _HSpacing, (float)this.View.Bounds.Width - _WSpacing, (float)this.View.Bounds.Height - _HSpacing);
+			this.View.Frame = size;
 
 		}
 
@@ -98,6 +104,15 @@ namespace Categories
 		{
 			base.DidReceiveMemoryWarning();
 			// Release any cached data, images, etc that aren't in use.
+		}
+
+		public override bool ShouldAutorotate()
+		{
+			return true;
+		}
+		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
+		{
+			return UIInterfaceOrientationMask.All;
 		}
 	}
 }

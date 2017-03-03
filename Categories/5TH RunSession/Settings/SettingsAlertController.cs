@@ -70,7 +70,7 @@ namespace Categories
 				//new UIAlertView("Start", null, null, "Ok", null).Show();
 				//FinishScreenController finishedScreen = new FinishScreenController(tabBar);
 				FinishScreenController finishedScreen = new FinishScreenController(tabBar, SessionSource, runsTableViewController, imageTableViewController, CurrentProfile, CurrentCategory);
-				SessionController RunSession = new SessionController(CurrentProfile, CurrentCategory, finishedScreen);
+				SessionController RunSession = new SessionController(CurrentProfile, CurrentCategory, finishedScreen, (MainTabBarController)TopMostParent);
 
 				finishedScreen.ReturnSessionData += (CurrentSession currentSession, int Attempted, int Correct) =>
 				{

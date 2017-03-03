@@ -20,15 +20,15 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnTemp { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnYes { get; set; }
 
-        [Outlet]
+        [Action ("BtnTemp_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblMessage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblSaveMsg { get; set; }
+        partial void BtnTemp_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -37,19 +37,14 @@ namespace Categories
                 btnNo = null;
             }
 
+            if (btnTemp != null) {
+                btnTemp.Dispose ();
+                btnTemp = null;
+            }
+
             if (btnYes != null) {
                 btnYes.Dispose ();
                 btnYes = null;
-            }
-
-            if (lblMessage != null) {
-                lblMessage.Dispose ();
-                lblMessage = null;
-            }
-
-            if (lblSaveMsg != null) {
-                lblSaveMsg.Dispose ();
-                lblSaveMsg = null;
             }
         }
     }

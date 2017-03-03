@@ -185,7 +185,6 @@
     <Compile Include="CollectionView\CollectionViewController.cs" />
     <Compile Include="CollectionView\CollectionViewController.designer.cs" />
     <Compile Include="5TH RunSession\SessionController.designer.cs" />
-    <Compile Include="5TH RunSession\SessionController.cs" />
     <Compile Include="5TH RunSession\Settings\SettingsAlertController.designer.cs" />
     <Compile Include="1ST TAB Profiles\SessionsSplitViewController.cs" />
     <Compile Include="1ST TAB Profiles\SessionsTableViewController.cs" />
@@ -247,6 +246,7 @@
     <Compile Include="3RD TAB Attributes\NonRotatingImagePicker.cs" />
     <Compile Include="3RD TAB Attributes\AttributesMasterTableNavigationController.cs" />
     <Compile Include="5TH RunSession\Settings\SettingsAlertController.cs" />
+    <Compile Include="5TH RunSession\SessionController.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

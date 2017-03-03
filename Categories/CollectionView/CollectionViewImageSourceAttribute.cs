@@ -16,6 +16,7 @@ namespace Categories
 		public List<ImageCellAttribute> Cells { get; private set; }
 		public SizeF ImageViewSize { get; set; }
 		public NSIndexPath prevImageSelected;
+		public UserCellAttribute prevCell;
 
 		public bool MoveItemEnabled = true;
 		public bool isAttributesTab;
@@ -30,8 +31,8 @@ namespace Categories
 			isAttributesTab = isattributes;
 			//if (isAttributesTab)
 			//{
-				//create the list only if it is for the image stacks
-				SelectedImagesToImageStack = new List<Image>();
+			//create the list only if it is for the image stacks
+			SelectedImagesToImageStack = new List<Image>();
 			//}
 		}
 		public override nint GetItemsCount(UICollectionView collectionView, nint section)
@@ -48,7 +49,7 @@ namespace Categories
 		{
 			/*
 			 * Fix this when switching attributes
-			 */ 
+			 */
 
 			var cell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			ImageCellAttribute Clicked = Cells[indexPath.Row];
@@ -60,7 +61,7 @@ namespace Categories
 
 			/*
 			 * Select/Deselect Images and keep them Highlighted
-			 */ 
+			 */
 			if (isAttributesTab)
 			{
 				//unlick the previous image
@@ -68,20 +69,26 @@ namespace Categories
 				if (prevImageSelected != null && prevImageSelected != indexPath)
 				{
 					var pCell = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
-
 					Cells[prevImageSelected.Row].isSelected = false;
-					pCell.ImageView.Alpha = 1.0f;
+					prevCell.ImageView.Alpha = 1.0f;
+					/*
+					if (pCell != null)
+					{
+						
+					}
+					Cells[prevImageSelected.Row].isSelected = false;*/
 				}
+
 
 				//always highlight the currently selected image
 				cell.ImageView.Alpha = 0.5f;
 				Cells[indexPath.Row].isSelected = true;
-
+				prevCell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			}
 			/*
 			 * Image Stacks functionality. This adds Selected images to the array
 			 * to be able to delete images from this image stack.
-			 */ 
+			 */
 			else
 			{
 				if (Clicked.isSelected)
@@ -103,6 +110,7 @@ namespace Categories
 
 		}
 
+
 		public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			//Get the Selected Image
@@ -112,7 +120,7 @@ namespace Categories
 			/*
 			 * Sends image clicked to the RightAttributes table view
 			 * Updates the source to show only attributes for the selected image. 
-			 */ 
+			 */
 			if (ImageClickedToController != null && isAttributesTab)
 			{
 				ImageClickedToController(Clicked.ImgOBJ);
@@ -138,8 +146,9 @@ namespace Categories
 					}
 				}
 			}
-
 		}
+
+
 
 		public override UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
 		{
@@ -149,13 +158,26 @@ namespace Categories
 
 
 			cell.UpdateRow(row, ImageViewSize);
+			/*
+			if (Cells[indexPath.Row].isSelected == false)
+			{
+				cell.ImageView.Alpha = 1.0f;
+			}
+			else
+			{
+				cell.ImageView.Alpha = 0.5f;
+			}
+
+
+			cell.ImageView.Alpha = 1.0f;*/
+
 
 			return cell;
 		}
 		public override bool CanMoveItem(UICollectionView collectionView, NSIndexPath indexPath)
 		{
 			// We can always move items
-				return true;
+			return true;
 		}
 		public override void MoveItem(UICollectionView collectionView, NSIndexPath sourceIndexPath, NSIndexPath destinationIndexPath)
 		{
@@ -166,7 +188,7 @@ namespace Categories
 		}
 		/*
 		 * method to return selected images
-		 */ 
+		 */
 		public List<Image> getSelectedImagesForImageStack()
 		{
 			return SelectedImagesToImageStack;
@@ -213,7 +235,7 @@ namespace Categories
 		public void UpdateRow(ImageCellAttribute element, SizeF imageViewSize)
 		{
 
-			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName.ToString());
+			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName);
 			ImageView.Layer.CornerRadius = 20f;
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
 
