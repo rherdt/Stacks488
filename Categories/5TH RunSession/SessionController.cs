@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoreGraphics;
+using CoreAnimation;
 using UIKit;
 
 namespace Categories
@@ -11,7 +12,7 @@ namespace Categories
 
 		int CurrentImageIndex = 0;
 		int CurrentImageStack = 0;
-	
+
 		MainTabBarController Parent;
 		FinishScreenController finishedScreen;
 
@@ -71,10 +72,10 @@ namespace Categories
 			//Get all images from that image stack
 			foreach (ImageStackCategory imageStack in ImageStacks)
 			{
-				
+
 				ImageStackNames.Add(imageStack.ImageStackName.ToString());
 
-				List<ImageStackImages> ImageStackList = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =? Order By ImageStackIndex ASC",imageStack.ID.ToString());
+				List<ImageStackImages> ImageStackList = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =? Order By ImageStackIndex ASC", imageStack.ID.ToString());
 
 				//randomize images if enabled
 				if (imageStack.RandomizeImageStack)
@@ -131,7 +132,7 @@ namespace Categories
 				CurrentImageIndex = 0;
 				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
-				UpdateImageView(CurrentImageIndex);
+				UpdateImageView(0);
 				didChooseAnswer = false;
 			}
 			else
@@ -149,7 +150,7 @@ namespace Categories
 				CurrentImageIndex = 0;
 				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
-				UpdateImageView(CurrentImageIndex);
+				UpdateImageView(1);
 				didChooseAnswer = false;
 			}
 			else
@@ -192,10 +193,10 @@ namespace Categories
 			/*
 			 *
 			 */
-	
+
 			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D != null && !didChooseAnswer)
 			{
-		
+
 				ImageResult = new Result();
 				ImageResult.ResultImageID = ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID;
 				ImageResult.ImagePrompting = true;
@@ -211,7 +212,7 @@ namespace Categories
 
 			}
 
-		
+
 
 		}
 
@@ -221,7 +222,7 @@ namespace Categories
 		public void Independent()
 		{
 
-			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D!=null && !didChooseAnswer)
+			if (CurrentImageIndex < ImageStack2D[CurrentImageStack].Count && ImageStack2D != null && !didChooseAnswer)
 			{
 
 				/*
@@ -251,6 +252,13 @@ namespace Categories
 			{
 				CurrentImageIndex++;
 				ImageViewSession.Image = getImageFromDB();
+				//start animation
+
+				var tempImage = getImageFromDB();
+
+				UIView.Transition(ImageViewSession, .3, UIViewAnimationOptions.TransitionCrossDissolve,() => ImageViewSession.Image = tempImage, null);
+
+				//end animation
 				ImageCountLabel.Text = (CurrentImageIndex + 1) + "/" + ImageStack2D[CurrentImageStack].Count;
 				didChooseAnswer = false;
 			}
@@ -258,21 +266,29 @@ namespace Categories
 		/*
 		 * Updates the ImageViewSession with the frist image from the imageDatabase.
 		*/
-		public void UpdateImageView(int index)
+		public void UpdateImageView(int flipOrientation)
 		{
 
-			if (CurrentImageStack < ImageStack2D.Count && CurrentImageIndex < ImageStack2D[CurrentImageStack].Count )
+			if (CurrentImageStack < ImageStack2D.Count && CurrentImageIndex < ImageStack2D[CurrentImageStack].Count)
 			{
 
-				ImageViewSession.Image = getImageFromDB();
+				var temp = getImageFromDB();
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 
+				if (flipOrientation == 1)
+				{
+					UIView.Transition(ImageViewSession, .5, UIViewAnimationOptions.TransitionFlipFromRight, () => ImageViewSession.Image = temp, null);
+				}
+				else
+				{
+					UIView.Transition(ImageViewSession, .5, UIViewAnimationOptions.TransitionFlipFromLeft, () => ImageViewSession.Image = temp, null);
+				}
 			}
 
 		}
 		public void UpdateCurrentScore()
 		{
-			int percentage = (_Correct*100 / _Attempted);
+			int percentage = (_Correct * 100 / _Attempted);
 			StatsLabel.Text = _Correct + "/" + _Attempted + " " + percentage + "%";
 		}
 
@@ -280,11 +296,11 @@ namespace Categories
 		{
 			if (ImageStack2D != null && ImageStack2D.Count > 0)
 			{
-				
-				ImageViewSession.Image = getImageFromDB(); 
+
+				ImageViewSession.Image = getImageFromDB();
 				//UpdateCurrentScore();
 				StatsLabel.Text = 0 + "/" + 0 + " " + 0 + "%";
-				ImageCountLabel.Text = "1/"+ImageStack2D[CurrentImageStack].Count;
+				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
 				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 
 			}
@@ -325,7 +341,7 @@ namespace Categories
 
 			return randomizedList;
 		}
-	
+
 	}
 }
 
