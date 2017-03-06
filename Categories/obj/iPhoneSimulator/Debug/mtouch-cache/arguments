@@ -1,10 +1,10 @@
-# Version: 10.4.0.20 (master: 62816dd)
-# [first argument, ignore] # /Library/Frameworks/Xamarin.iOS.framework/Versions/10.4.0.20/lib/mtouch/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/10.4.0.20/lib/mtouch/mtouch.exe \
+# Version: 10.2.0.4 (xcode8.1: b638977)
+# [first argument, ignore] # /Library/Frameworks/Xamarin.iOS.framework/Versions/10.2.0.4/lib/mtouch/mtouch.exe
+/Library/Frameworks/Xamarin.iOS.framework/Versions/10.2.0.4/lib/mtouch/mtouch.exe \
 	--cache \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/mtouch-cache \
+	/Users/rylanherdt/Repos/Stacks488/Categories/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.app \
+	/Users/rylanherdt/Repos/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.app \
 	--executable \
 	Categories \
 	--fastdev \
@@ -20,7 +20,7 @@
 	--tls-provider=default \
 	--abi=i386 \
 	--symbollist \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
+	/Users/rylanherdt/Repos/Stacks488/Categories/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
 	--dsym=no \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
@@ -31,13 +31,13 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/SQLitePCLRaw.core.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.core.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/SQLitePCLRaw.core.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.core.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/SQLitePCLRaw.provider.sqlite3.ios_unified.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.provider.sqlite3.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/SQLitePCLRaw.provider.sqlite3.ios_unified.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.provider.sqlite3.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/SQLitePCLRaw.bundle_green.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.batteries_green.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/SQLitePCLRaw.bundle_green.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.batteries_green.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/sqlite-net-pcl.1.2.0/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/sqlite-net-pcl.1.2.0/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
 	-r \
@@ -166,12 +166,6 @@
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Net.WebSockets.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.ObjectModel.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Reflection.Emit.ILGeneration.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Reflection.Emit.Lightweight.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Reflection.Emit.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Reflection.Extensions.dll \
 	-r \
@@ -303,13 +297,13 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.Xsl.Primitives.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/SQLitePCLRaw.core.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.core.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/SQLitePCLRaw.core.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.core.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/SQLitePCLRaw.provider.sqlite3.ios_unified.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.provider.sqlite3.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/SQLitePCLRaw.provider.sqlite3.ios_unified.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.provider.sqlite3.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/SQLitePCLRaw.bundle_green.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.batteries_green.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/SQLitePCLRaw.bundle_green.1.0.1/lib/Xamarin.iOS10/SQLitePCLRaw.batteries_green.dll \
 	-r \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/packages/sqlite-net-pcl.1.2.0/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
+	/Users/rylanherdt/Repos/Stacks488/Categories/packages/sqlite-net-pcl.1.2.0/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
 	--target-framework \
 	"Xamarin.iOS,v1.0" \
-	/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/bin/iPhoneSimulator/Debug//Categories.exe \
+	/Users/rylanherdt/Repos/Stacks488/Categories/bin/iPhoneSimulator/Debug//Categories.exe \

@@ -1,24 +1,18 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="TableSources/TableSourceSessions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="5TH RunSession/SessionController.cs">
     <Files>
-      <File FileName="5TH RunSession/Settings/SettingsAlertController.cs" Line="73" Column="128" />
-      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="32" Column="48" />
-      <File FileName="4TH SessionsScreen/NewSessionSplitViewController.cs" Line="99" Column="4" />
-      <File FileName="TableCustomCells/CustomCellCategories.cs" Line="20" Column="52" />
-      <File FileName="5TH RunSession/SessionController.cs" Line="104" Column="41" />
-      <File FileName="CollectionView/CollectionViewImageSourceAttribute.cs" Line="238" Column="87" />
-      <File FileName="TableSources/TableSourceRanImages.cs" Line="1" Column="1" />
-      <File FileName="TableSources/TableSourceSessions.cs" Line="1" Column="1" />
+      <File FileName="5TH RunSession/SessionController.designer.cs" Line="31" Column="27" />
+      <File FileName="5TH RunSession/SessionController.cs" Line="257" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="245" column="1" />
-      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="262" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" line="245" column="1" />
+      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_3:1:17/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" line="262" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C376F8B9-EB56-449F-8B80-3BB4C4E6589A" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.5D64AB5F-9716-491F-B6CA-2830A24EA5F4" />
   <MultiItemStartupConfigurations />
 </Properties>
