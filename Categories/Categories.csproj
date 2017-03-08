@@ -254,9 +254,12 @@
     <BundleResource Include="Resources\categories.png" />
     <BundleResource Include="Resources\images.png" />
     <BundleResource Include="Resources\profiles.png" />
-    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\minusSession.png" />
     <BundleResource Include="Resources\neutral.png" />
     <BundleResource Include="Resources\plus.png" />
+    <BundleResource Include="Resources\plusSession.png" />
+    <BundleResource Include="Resources\doublearrowSession.png" />
+    <BundleResource Include="Resources\minus.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />

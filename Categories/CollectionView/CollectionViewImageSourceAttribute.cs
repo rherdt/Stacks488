@@ -29,11 +29,9 @@ namespace Categories
 		{
 			Cells = new List<ImageCellAttribute>();
 			isAttributesTab = isattributes;
-			//if (isAttributesTab)
-			//{
-			//create the list only if it is for the image stacks
 			SelectedImagesToImageStack = new List<Image>();
-			//}
+
+
 		}
 		public override nint GetItemsCount(UICollectionView collectionView, nint section)
 		{

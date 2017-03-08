@@ -9,6 +9,7 @@ namespace Categories
 	{
 		List<ImageAttributes> tableItems;
 		string cellIdentifier = "TableCell";
+		UIView cellBackgroundColor;
 
 		//Delegates
 		public delegate void AttributesTableDelegate(ImageAttributes attr);
@@ -21,6 +22,7 @@ namespace Categories
 
 		public TableSourceImageAttributes()
 		{
+			createCellBGColor();
 		}
 		public void SetTableSource(Guid imageID)
 		{
@@ -33,7 +35,11 @@ namespace Categories
 		{
 			tableItems = new List<ImageAttributes>();
 		}
-
+		void createCellBGColor()
+		{
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
+		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
@@ -44,8 +50,19 @@ namespace Categories
 			{ cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
 
 			cell.TextLabel.Text = item;
-
+			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
 			return cell;
+		}
+		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
+		{
+			return 5;
+		}
+
+		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
+		{
+			return 5;
 		}
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
@@ -95,8 +112,6 @@ namespace Categories
 			}
 		
 		}
-
-
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{
 			switch (editingStyle)

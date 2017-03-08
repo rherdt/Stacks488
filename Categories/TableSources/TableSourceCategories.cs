@@ -18,6 +18,7 @@ namespace Categories
 		Category PrevRowSelected;
 		NSIndexPath prev;
 		UIView cellBackgroundColor;
+		Category SelectedItemName; //currently selected category
         #endregion
 
         public delegate void SessionsTableDelegate(Category category);
@@ -92,7 +93,7 @@ namespace Categories
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             //send data to ProfilesSplitViewController
-            Category SelectedItemName = this.TableItems[indexPath.Section];
+            SelectedItemName = this.TableItems[indexPath.Section];
 
 			if (PrevRowSelected == SelectedItemName)
 			{
@@ -123,6 +124,7 @@ namespace Categories
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellCategories;
+			Category item = TableItems[indexPath.Row];
 
             if (cell == null)
             {
@@ -135,7 +137,7 @@ namespace Categories
 			cell.SelectedBackgroundView = cellBackgroundColor;
 			cell.Layer.CornerRadius = 10;
 			cell.Layer.MasksToBounds = true;
-            cell.UpdateCell(TableItems[indexPath.Section].CategoryName, "Testing");
+			cell.UpdateCell(TableItems[indexPath.Section].CategoryName, getTotalCategoryImages(item).ToString()+" images");
 
             return cell;
 
@@ -178,6 +180,23 @@ namespace Categories
                     break;
             }
         }
+		public int getTotalCategoryImages(Category item)
+		{
+			if (item != null)
+			{
+				List<ImageStackCategory> stacks = new DatabaseContext<ImageStackCategory>().GetQuery("Select * from ImageStackCategory Where ParentCategoryID = ?", item.ID.ToString());
+				int TotalImageCount = 0;
+
+				foreach (ImageStackCategory ic in stacks)
+				{
+					List<ImageStackImages> imagesPerStack = new DatabaseContext<ImageStackImages>().GetQuery("Select * From ImageStackImages Where ParentImageStackID = ?", ic.ID.ToString());
+					TotalImageCount += imagesPerStack.Count;
+				}
+
+				return TotalImageCount;
+			}
+			return 0;
+		}
 
     }
 }

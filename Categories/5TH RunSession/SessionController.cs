@@ -87,9 +87,16 @@ namespace Categories
 
 
 			MissedButton.TouchUpInside += (sender, e) => Missed();
-			PromptedButton.TouchUpInside += (sender, e) => Prompted();
-			IndependentButton.TouchUpInside += (sender, e) => Independent();
+			UIImage missedImageBtn = UIImage.FromFile("minusSession.png");
+			MissedButton.SetImage(missedImageBtn, UIControlState.Normal);
 
+			PromptedButton.TouchUpInside += (sender, e) => Prompted();
+			UIImage promptedBtn = UIImage.FromFile("doublearrowSession.png");
+			PromptedButton.SetImage(promptedBtn, UIControlState.Normal);
+
+			IndependentButton.TouchUpInside += (sender, e) => Independent();
+			UIImage independentBtn = UIImage.FromFile("plusSession.png");
+			IndependentButton.SetImage(independentBtn, UIControlState.Normal);
 
 			FinishedButton.TouchUpInside += (sender, e) =>
 			{

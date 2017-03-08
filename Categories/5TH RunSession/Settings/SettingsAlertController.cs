@@ -191,7 +191,7 @@ namespace Categories
 			float _HSpacing = (float)this.View.Bounds.Height / 3.0f;
 			RectangleF size = new RectangleF(_WSpacing, _HSpacing-100, (float)this.View.Bounds.Width - _WSpacing, (float)this.View.Bounds.Height-100);
 			this.View.Frame = size;
-			this.View.BackgroundColor = BGColor;
+			//this.View.BackgroundColor = BGColor;
 
 		}
 

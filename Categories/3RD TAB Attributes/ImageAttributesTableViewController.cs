@@ -23,7 +23,7 @@ namespace Categories
 			table = new UITableView();
 			Source = source;
 			table.Source = (UITableViewSource)Source;
-
+			table.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 			tableController.View = table;
 
 		}

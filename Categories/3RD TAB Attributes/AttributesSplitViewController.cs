@@ -52,6 +52,7 @@ namespace Categories
 			navController.setAttributesSource(AttributesTableSource);
 			navController.setAttributesTableViewController(attributesTableViewController);
 			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
+			this.View.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 		}
 		#region Table Initialization
 		public void InitializeLeftTableView()
@@ -206,24 +207,26 @@ namespace Categories
 				{
 					//add photo to database
 					Image inserted = Utilities.InsertImage(originalImage);
-					UIAlertView alert = new UIAlertView();
-					alert.Title = "Image Name";
-					alert.AddButton("Ok");
-					alert.Message = "Enter Image Title name:";
-					alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
-					alert.Clicked += (object s, UIButtonEventArgs ev) =>
-					{
-						if (ev.ButtonIndex == 0)
+				
+						UIAlertView alert = new UIAlertView();
+						alert.Title = "Image Name";
+						alert.AddButton("Ok");
+						alert.Message = "Enter Image Title name:";
+						alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+						alert.Clicked += (object s, UIButtonEventArgs ev) =>
 						{
-							string input = alert.GetTextField(0).Text;
-							if (input != "")
+							if (ev.ButtonIndex == 0)
 							{
-								inserted.Title = input;
-								new DatabaseContext<Image>().Update(inserted);
+								string input = alert.GetTextField(0).Text;
+								if (input != "")
+								{
+									inserted.Title = input;
+									new DatabaseContext<Image>().Update(inserted);
+								}
 							}
-						}
-					};
-					alert.Show();
+						};
+						alert.Show();
+
 
 				}
 
