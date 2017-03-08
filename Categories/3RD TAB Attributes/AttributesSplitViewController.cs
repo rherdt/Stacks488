@@ -73,7 +73,8 @@ namespace Categories
 			//add nav controller to collectionview
 			attributesCollectionView = new CollectionViewAttributes(AttributeImageSource);
 			navControllerCollection = new UINavigationController(attributesCollectionView);
-
+			navControllerCollection.NavigationBar.Translucent = false;
+			navControllerCollection.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
 
 			//Set up Navigation Camera Selection button 
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));

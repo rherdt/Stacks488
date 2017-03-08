@@ -30,7 +30,6 @@ namespace Categories
 
 			NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
 			NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
-			NavigationBar.TintColor = UIColor.White;
 
 		}
 

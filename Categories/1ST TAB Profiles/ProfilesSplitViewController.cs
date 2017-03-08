@@ -58,9 +58,6 @@ namespace Categories
 		public void initializeMasterControllerFields()
 		{
 
-
-
-
 			//Create the Profile source and assign the delegate
 			ProfilesSource = new TableSourceProfiles();
 			ProfilesSource.ProfileRowToController += GetRowClickedFromProfilesSource;

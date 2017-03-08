@@ -56,7 +56,7 @@ namespace Categories
 			CollectionView.Source = CollectionViewSource;
 
 			UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
-			//UpdateImages(ImageDatabase.GetAllImagesByOBJ());
+
 		}
 		public void UpdateImages(List<Image> ImageResults)
 		{
