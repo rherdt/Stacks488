@@ -22,8 +22,48 @@ namespace Categories
 
 		public TableSourceImageAttributes()
 		{
-			createCellBGColor();
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
 		}
+
+		public override nint RowsInSection(UITableView tableview, nint section)
+		{
+			return 1;
+		}
+
+		public override UIView GetViewForHeader(UITableView tableView, nint section)
+		{
+			UIView headerView = new UIView();
+			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return headerView;
+		}
+
+		public override UIView GetViewForFooter(UITableView tableView, nint section)
+		{
+			UIView footerView = new UIView();
+			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			return footerView;
+		}
+
+		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
+		{
+			return 1;
+		}
+
+		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
+		{
+			return 5;
+		}
+
+		public override nint NumberOfSections(UITableView tableView)
+		{
+			if (tableItems == null)
+			{
+				return 0;
+			}
+			return tableItems.Count;
+		}
+
 		public void SetTableSource(Guid imageID)
 		{
 			CurrentlySelectedImageID = imageID;
@@ -35,16 +75,12 @@ namespace Categories
 		{
 			tableItems = new List<ImageAttributes>();
 		}
-		void createCellBGColor()
-		{
-			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
-		}
+
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
 			UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
-			string item = tableItems[indexPath.Row].Name;
+			string item = tableItems[indexPath.Section].Name;
 
 			if (cell == null)
 			{ cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
@@ -55,19 +91,10 @@ namespace Categories
 			cell.Layer.MasksToBounds = true;
 			return cell;
 		}
-		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
-		{
-			return 5;
-		}
-
-		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
-		{
-			return 5;
-		}
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			//send data to ProfilesSplitViewController
-			ImageAttributes SelectedItemName = this.tableItems[indexPath.Row];
+			ImageAttributes SelectedItemName = this.tableItems[indexPath.Section];
 			if (AttributeRowToController != null)
 			{
 				AttributeRowToController(SelectedItemName);
@@ -77,15 +104,6 @@ namespace Categories
 
 		}
 
-		public override nint RowsInSection(UITableView tableview, nint section)
-		{
-			if (tableItems != null)
-			{
-				return tableItems.Count;
-			}
-			return 0;
-
-		}
 
 		public bool UpdateData(string data)
 		{
@@ -110,8 +128,10 @@ namespace Categories
 			{
 				return false;
 			}
-		
+
 		}
+
+
 		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, Foundation.NSIndexPath indexPath)
 		{
 			switch (editingStyle)
