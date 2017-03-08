@@ -7,9 +7,10 @@ namespace Categories
 {
 	public class AttributesSplitViewController: UISplitViewController
 	{
+		#region Fields
 		/*
 		 * Picker for Photo Gallery
-		 */ 
+		 */
 		UIImagePickerController imagePicker;
 
 		/*
@@ -38,6 +39,8 @@ namespace Categories
 
 		//Other Variables
 		Image Selected;
+		UIBarButtonItem btnAddImg;
+		#endregion
 
 		public AttributesSplitViewController() : base()
 		{
@@ -77,7 +80,12 @@ namespace Categories
 			navControllerCollection.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
 
 			//Set up Navigation Camera Selection button 
-			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
+			btnAddImg = new UIBarButtonItem();
+			btnAddImg.Title = "New Image";
+			btnAddImg.Clicked += (sender, e) => AddPhotoButtonHandler(sender, e);
+			btnAddImg.TintColor = UIColor.White;
+			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = btnAddImg;
+			//navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem.Enabled = true;
 			navControllerCollection.NavigationBar.Items[0].Title = "Images";
 
