@@ -26,9 +26,6 @@ namespace Categories
 
 		UIViewController blankView;
 
-		//Background Color
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
-
 		//WIDTHS
 		nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
 		nfloat NavigationBarWidth, NavigationBarHeight;
@@ -44,12 +41,12 @@ namespace Categories
 
 			sessionsTableViewController = sessions;
 			blankView = new UIViewController();
-			blankView.View.BackgroundColor = BGColor;
+			blankView.View.BackgroundColor = AppColors.TableBackgroundColor;
 			//CollectionView = collection;
 			//CollectionView.View.BackgroundColor = UIColor.White;
 			navigationController = navcontroller;
 			ViewControllers = new UIViewController[] { navigationController, blankView };
-			View.BackgroundColor = BGColor;
+			View.BackgroundColor = AppColors.TableBackgroundColor;
 		}
 
 		#region View Methods

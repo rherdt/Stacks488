@@ -28,8 +28,6 @@ namespace Categories
 
 		ImageStackCategory SelectedImageStack;
 		bool DeleteFromImageStack;
-		static Random rand = new Random();
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 
 		public CategoriesSplitViewController() : base()
 		{
@@ -42,7 +40,7 @@ namespace Categories
 			//imageStackSplitViewController.View.Hidden = true;
 
 			ViewControllers = new UIViewController[] { categoriesNavigationController, imageStackSplitViewController };
-			View.BackgroundColor = BGColor;
+			View.BackgroundColor = AppColors.TableBackgroundColor;
 		}
 
 		#region Initialization
@@ -270,12 +268,12 @@ namespace Categories
 
 		public void ShowCollectionViewImageStack(bool hidden)
 		{
-			if (hidden) { collectionsNavigationController.View.Hidden = false; collectionViewController.View.BackgroundColor = BGColor; }
+			if (hidden) { collectionsNavigationController.View.Hidden = false; collectionViewController.View.BackgroundColor = AppColors.TableBackgroundColor; }
 		}
 
 		public void ShowImageStackView(bool hidden)
 		{
-			if (hidden) { ImageStackNavigationController.View.Hidden = false; imageStackSplitViewController.View.BackgroundColor = BGColor; }
+			if (hidden) { ImageStackNavigationController.View.Hidden = false; imageStackSplitViewController.View.BackgroundColor = AppColors.TableBackgroundColor; }
 		}
 
 		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { return true; }

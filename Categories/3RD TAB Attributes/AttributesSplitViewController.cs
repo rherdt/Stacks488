@@ -55,7 +55,7 @@ namespace Categories
 			navController.setAttributesSource(AttributesTableSource);
 			navController.setAttributesTableViewController(attributesTableViewController);
 			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
-			this.View.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			this.View.BackgroundColor = AppColors.TableBackgroundColor;
 		}
 		#region Table Initialization
 		public void InitializeLeftTableView()
@@ -77,7 +77,7 @@ namespace Categories
 			attributesCollectionView = new CollectionViewAttributes(AttributeImageSource);
 			navControllerCollection = new UINavigationController(attributesCollectionView);
 			navControllerCollection.NavigationBar.Translucent = false;
-			navControllerCollection.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
+			navControllerCollection.NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
 
 			//Set up Navigation Camera Selection button 
 			btnAddImg = new UIBarButtonItem();

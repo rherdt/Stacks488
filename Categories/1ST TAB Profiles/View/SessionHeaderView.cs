@@ -16,7 +16,7 @@ namespace Categories
         {
             var arr = NSBundle.MainBundle.LoadNib("SessionHeaderView", null, null);
             var v = Runtime.GetNSObject<SessionHeaderView>(arr.ValueAt(0));
-			v.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
+			v.BackgroundColor = AppColors.NavigationBarBackgroundColor;
 			v.btnAdd.TintColor = UIColor.White;
 			v.lblSessions.TextColor = UIColor.White;
 			v.lblProfileName.TextColor = UIColor.White;

@@ -10,7 +10,7 @@ namespace Categories
 		{
 
 			ViewControllers = new UIViewController[] {navCollection , ImageAtrributesNavigationController };
-			this.View.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
+			this.View.BackgroundColor = AppColors.NavigationBarBackgroundColor;
 
 		}
 
