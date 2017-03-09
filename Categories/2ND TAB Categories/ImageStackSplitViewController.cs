@@ -16,7 +16,6 @@ namespace Categories
 		ImageCollectionHeaderView imageCollectionHeaderView;
 		Category categoryRow;
 		ImageStackCategory imageStackRow;
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 
 		//WIDTHS
 		nfloat ImageStackSplitControllerWidth, ImageStackSplitControllerHeight;
@@ -31,7 +30,7 @@ namespace Categories
 			ImageStackNavigationController = imageStackNavigationController;
 			collectionsNavigationController = collectionsNav;
 			ViewControllers = new UIViewController[] { ImageStackNavigationController, collectionsNavigationController };
-			View.BackgroundColor = BGColor;
+			View.BackgroundColor = AppColors.TableBackgroundColor;
 		}
 
 		#region View Methods

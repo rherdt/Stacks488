@@ -26,16 +26,13 @@ namespace Categories
 		TableSourceSessions SessionSource;
 		TableSourceCategories CategorySource;
 		TableSourceRanImages RanImagesSource;
-
-		//Background Color
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 		#endregion
 
 		#region Initialization
 
 		public NewSessionSplitViewController()
 		{
-			View.BackgroundColor = BGColor;
+			View.BackgroundColor = AppColors.TableBackgroundColor;
 		}
 
 		public void InitializeRunsControllerFields(UITableViewSource sessionSource, Profiles profileRow)
@@ -50,10 +47,9 @@ namespace Categories
 			imageTableViewController = new ImagesTableViewController(RanImagesSource);
 			imageTableViewController.View.Hidden = true;
 			imagesTableviewNavController = new UINavigationController(imageTableViewController);
-			imagesTableviewNavController.View.BackgroundColor = BGColor;
+			imagesTableviewNavController.View.BackgroundColor = AppColors.TableBackgroundColor;
 			imagesTableviewNavController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
-			imagesTableviewNavController.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
-
+			imagesTableviewNavController.NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
 
 			//source assignments
 			SessionSource = (TableSourceSessions)sessionSource;
@@ -64,7 +60,7 @@ namespace Categories
 			SessionSource.HideTable += ShowImagesTableHandler;
 
 			navigationController = new UINavigationController(ranSessions);
-			navigationController.NavigationBar.BarTintColor = UIColor.FromRGB((int)E_AppColor.R_NavBarBG, (int)E_AppColor.G_NavBarBG, (int)E_AppColor.B_NavBarBG);
+			navigationController.NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
 			//navigationController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { Font = UIFont.FromName("Arial", 12f)};
 			runsSplitViewController = new RunsSplitViewController(ranSessions, navigationController, imagesTableviewNavController);
 			runsSplitViewController.View.Hidden = true;
@@ -154,7 +150,7 @@ namespace Categories
 			if (hidden)
 			{
 				runsSplitViewController.View.Hidden = false;
-				runsSplitViewController.View.BackgroundColor = BGColor;
+				runsSplitViewController.View.BackgroundColor = AppColors.TableBackgroundColor;
 			}
 		}
 		#endregion
@@ -184,7 +180,7 @@ namespace Categories
 			if (hidden)
 			{
 				imageTableViewController.View.Hidden = false;
-				imageTableViewController.View.BackgroundColor = BGColor;
+				imageTableViewController.View.BackgroundColor = AppColors.TableBackgroundColor;
 			}
 		}
 	}

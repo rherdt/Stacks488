@@ -18,7 +18,7 @@ namespace Categories
             tableController = new UITableViewController();
             //tableController.Title = "Profiles";
             table = new UITableView();
-			table.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			table.BackgroundColor = AppColors.TableBackgroundColor;
             Source = source;
             table.Source = (UITableViewSource)Source;
 

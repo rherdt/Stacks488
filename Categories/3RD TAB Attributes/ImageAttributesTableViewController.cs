@@ -21,9 +21,9 @@ namespace Categories
 			tableController = new UITableViewController();
 			tableController.Title = "Attributes";
 			table = new UITableView();
+			table.BackgroundColor = AppColors.TableBackgroundColor;
 			Source = source;
 			table.Source = (UITableViewSource)Source;
-
 			tableController.View = table;
 
 		}

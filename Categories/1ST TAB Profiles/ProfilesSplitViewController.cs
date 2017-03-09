@@ -20,10 +20,7 @@ namespace Categories
 		//Database Source Fields
 		TableSourceProfiles ProfilesSource;
 		TableSourceSessions SessionSource;
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 		#endregion
-
-		UILabel lbl;
 
 		public ProfilesSplitViewController() : base()
 		{
@@ -57,9 +54,6 @@ namespace Categories
 
 		public void initializeMasterControllerFields()
 		{
-
-
-
 
 			//Create the Profile source and assign the delegate
 			ProfilesSource = new TableSourceProfiles();

@@ -30,6 +30,10 @@ namespace Categories
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BtnTemp_TouchUpInside (UIKit.UIButton sender);
 
+        [Action ("UIButton313_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void UIButton313_TouchUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (btnNo != null) {

@@ -17,15 +17,8 @@ namespace Categories
 		RunsTableViewController runsTableViewController;
 		ImagesTableViewController imageTableViewController;
 		#endregion
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
 
-		//DEFUNCT
-		public SettingsAlertController(Profiles profileSelected, Category categorySelected, MainTabBarController tab) : base("SettingsAlertController", null)
-		{
-			CurrentProfile = profileSelected;
-			CurrentCategory = categorySelected;
-			tabBar = tab;
-		}
+	
 
 		public SettingsAlertController(Profiles profileSelected, Category categorySelected, MainTabBarController tab, TableSourceSessions session, RunsTableViewController runTableViewController, ImagesTableViewController ImageTableViewController) : base("SettingsAlertController", null)
 		{
@@ -191,7 +184,7 @@ namespace Categories
 			float _HSpacing = (float)this.View.Bounds.Height / 3.0f;
 			RectangleF size = new RectangleF(_WSpacing, _HSpacing-100, (float)this.View.Bounds.Width - _WSpacing, (float)this.View.Bounds.Height-100);
 			this.View.Frame = size;
-			this.View.BackgroundColor = BGColor;
+			//this.View.BackgroundColor = BGColor;
 
 		}
 

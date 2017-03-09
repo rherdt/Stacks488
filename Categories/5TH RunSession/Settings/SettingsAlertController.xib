@@ -18,13 +18,14 @@
         <view contentMode="scaleToFill" id="2">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedRGB" red="0.63529411764705879" green="1" blue="0.996078431372549" alpha="1"/>
+            <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedWhite" white="1" alpha="1"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                     <rect key="frame" x="8" y="495" width="87" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Cancel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" colorSpace="calibratedRGB" red="0.34901960784313724" green="0.37647058823529411" blue="0.38039215686274508" alpha="1"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
@@ -32,28 +33,28 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="77"/>
                     <state key="normal" title="Start">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" colorSpace="calibratedRGB" red="0.42352941176470588" green="0.788235294117647" blue="0.40784313725490196" alpha="1"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                     <rect key="frame" x="8" y="199" width="212" height="82"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" colorSpace="calibratedRGB" red="0.36078431372549019" green="0.75294117647058822" blue="0.32941176470588235" alpha="1"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display Labels" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                     <rect key="frame" x="8" y="112" width="212" height="79"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" colorSpace="calibratedRGB" red="0.30196078431372547" green="0.71372549019607845" blue="0.25882352941176473" alpha="1"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Run Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                    <rect key="frame" x="84" y="6" width="270" height="98"/>
+                    <rect key="frame" x="0.0" y="15" width="270" height="98"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" colorSpace="calibratedRGB" red="0.29019607843137257" green="0.69019607843137254" blue="0.23921568627450981" alpha="1"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="10" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
@@ -64,6 +65,27 @@
                     <rect key="frame" x="391" y="224" width="51" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="___________________________________________________________">
+                    <rect key="frame" x="8" y="107" width="592" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="15" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text="___________________________________________________________">
+                    <rect key="frame" x="8" y="186" width="584" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="16" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" text=" ____________________________________________________________">
+                    <rect key="frame" x="4" y="263" width="592" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
@@ -80,5 +102,8 @@
         <image name="minus.png" width="600" height="600"/>
         <image name="neutral.png" width="200" height="200"/>
         <image name="plus.png" width="256" height="256"/>
+        <image name="minusSession.png" width="60" height="60"/>
+        <image name="plusSession.png" width="60" height="60"/>
+        <image name="doublearrowSession.png" width="60" height="60"/>
     </resources>
 </document>

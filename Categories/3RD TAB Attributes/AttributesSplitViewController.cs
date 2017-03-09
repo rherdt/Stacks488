@@ -7,9 +7,10 @@ namespace Categories
 {
 	public class AttributesSplitViewController: UISplitViewController
 	{
+		#region Fields
 		/*
 		 * Picker for Photo Gallery
-		 */ 
+		 */
 		UIImagePickerController imagePicker;
 
 		/*
@@ -38,6 +39,8 @@ namespace Categories
 
 		//Other Variables
 		Image Selected;
+		UIBarButtonItem btnAddImg;
+		#endregion
 
 		public AttributesSplitViewController() : base()
 		{
@@ -52,6 +55,7 @@ namespace Categories
 			navController.setAttributesSource(AttributesTableSource);
 			navController.setAttributesTableViewController(attributesTableViewController);
 			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
+			this.View.BackgroundColor = AppColors.TableBackgroundColor;
 		}
 		#region Table Initialization
 		public void InitializeLeftTableView()
@@ -72,10 +76,16 @@ namespace Categories
 			//add nav controller to collectionview
 			attributesCollectionView = new CollectionViewAttributes(AttributeImageSource);
 			navControllerCollection = new UINavigationController(attributesCollectionView);
-
+			navControllerCollection.NavigationBar.Translucent = false;
+			navControllerCollection.NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
 
 			//Set up Navigation Camera Selection button 
-			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
+			btnAddImg = new UIBarButtonItem();
+			btnAddImg.Title = "New Image";
+			btnAddImg.Clicked += (sender, e) => AddPhotoButtonHandler(sender, e);
+			btnAddImg.TintColor = UIColor.White;
+			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = btnAddImg;
+			//navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem.Enabled = true;
 			navControllerCollection.NavigationBar.Items[0].Title = "Images";
 
@@ -206,24 +216,26 @@ namespace Categories
 				{
 					//add photo to database
 					Image inserted = Utilities.InsertImage(originalImage);
-					UIAlertView alert = new UIAlertView();
-					alert.Title = "Image Name";
-					alert.AddButton("Ok");
-					alert.Message = "Enter Image Title name:";
-					alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
-					alert.Clicked += (object s, UIButtonEventArgs ev) =>
-					{
-						if (ev.ButtonIndex == 0)
+				
+						UIAlertView alert = new UIAlertView();
+						alert.Title = "Image Name";
+						alert.AddButton("Ok");
+						alert.Message = "Enter Image Title name:";
+						alert.AlertViewStyle = UIAlertViewStyle.PlainTextInput;
+						alert.Clicked += (object s, UIButtonEventArgs ev) =>
 						{
-							string input = alert.GetTextField(0).Text;
-							if (input != "")
+							if (ev.ButtonIndex == 0)
 							{
-								inserted.Title = input;
-								new DatabaseContext<Image>().Update(inserted);
+								string input = alert.GetTextField(0).Text;
+								if (input != "")
+								{
+									inserted.Title = input;
+									new DatabaseContext<Image>().Update(inserted);
+								}
 							}
-						}
-					};
-					alert.Show();
+						};
+						alert.Show();
+
 
 				}
 

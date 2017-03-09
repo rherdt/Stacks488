@@ -9,6 +9,7 @@ namespace Categories
 	{
 		List<ImageAttributes> tableItems;
 		string cellIdentifier = "TableCell";
+		UIView cellBackgroundColor;
 
 		//Delegates
 		public delegate void AttributesTableDelegate(ImageAttributes attr);
@@ -21,7 +22,48 @@ namespace Categories
 
 		public TableSourceImageAttributes()
 		{
+			cellBackgroundColor = new UIView();
+			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
 		}
+
+		public override nint RowsInSection(UITableView tableview, nint section)
+		{
+			return 1;
+		}
+
+		public override UIView GetViewForHeader(UITableView tableView, nint section)
+		{
+			UIView headerView = new UIView();
+			headerView.BackgroundColor = AppColors.TableBackgroundColor;
+			return headerView;
+		}
+
+		public override UIView GetViewForFooter(UITableView tableView, nint section)
+		{
+			UIView footerView = new UIView();
+			footerView.BackgroundColor = AppColors.TableBackgroundColor;
+			return footerView;
+		}
+
+		public override nfloat GetHeightForFooter(UITableView tableView, nint section)
+		{
+			return 1;
+		}
+
+		public override nfloat GetHeightForHeader(UITableView tableView, nint section)
+		{
+			return 5;
+		}
+
+		public override nint NumberOfSections(UITableView tableView)
+		{
+			if (tableItems == null)
+			{
+				return 0;
+			}
+			return tableItems.Count;
+		}
+
 		public void SetTableSource(Guid imageID)
 		{
 			CurrentlySelectedImageID = imageID;
@@ -38,19 +80,21 @@ namespace Categories
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
 			UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
-			string item = tableItems[indexPath.Row].Name;
+			string item = tableItems[indexPath.Section].Name;
 
 			if (cell == null)
 			{ cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier); }
 
 			cell.TextLabel.Text = item;
-
+			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
 			return cell;
 		}
 		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
 		{
 			//send data to ProfilesSplitViewController
-			ImageAttributes SelectedItemName = this.tableItems[indexPath.Row];
+			ImageAttributes SelectedItemName = this.tableItems[indexPath.Section];
 			if (AttributeRowToController != null)
 			{
 				AttributeRowToController(SelectedItemName);
@@ -60,15 +104,6 @@ namespace Categories
 
 		}
 
-		public override nint RowsInSection(UITableView tableview, nint section)
-		{
-			if (tableItems != null)
-			{
-				return tableItems.Count;
-			}
-			return 0;
-
-		}
 
 		public bool UpdateData(string data)
 		{
@@ -93,7 +128,7 @@ namespace Categories
 			{
 				return false;
 			}
-		
+
 		}
 
 

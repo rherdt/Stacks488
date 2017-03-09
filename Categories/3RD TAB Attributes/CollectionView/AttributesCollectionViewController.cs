@@ -14,6 +14,8 @@ namespace Categories
 		public AttributesCollectionViewController(CollectionViewImageSourceAttribute AttributeSource) : base("AttributesCollectionViewController", null)
 		{
 			CollectionViewSource = AttributeSource;
+
+
 		}
 
 		public override void ViewDidLoad()
@@ -40,13 +42,12 @@ namespace Categories
 			 */
 		
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
-
+			CollectionView.BackgroundColor = AppColors.TableBackgroundColor;
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
 			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
 			CollectionView.Bounds = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
 
-			CollectionView.BackgroundColor = UIColor.White;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 
 
@@ -55,7 +56,7 @@ namespace Categories
 			CollectionView.Source = CollectionViewSource;
 
 			UpdateImages(new DatabaseContext<Image>().GetQuery("Select * From Image"));
-			//UpdateImages(ImageDatabase.GetAllImagesByOBJ());
+
 		}
 		public void UpdateImages(List<Image> ImageResults)
 		{

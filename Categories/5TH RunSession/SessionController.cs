@@ -8,7 +8,7 @@ namespace Categories
 {
 	public partial class SessionController : UIViewController
 	{
-		static UIColor BGColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+		static UIColor BGColor = AppColors.TableBackgroundColor;
 
 		int CurrentImageIndex = 0;
 		int CurrentImageStack = 0;
@@ -87,9 +87,16 @@ namespace Categories
 
 
 			MissedButton.TouchUpInside += (sender, e) => Missed();
-			PromptedButton.TouchUpInside += (sender, e) => Prompted();
-			IndependentButton.TouchUpInside += (sender, e) => Independent();
+			UIImage missedImageBtn = UIImage.FromFile("minusSession.png");
+			MissedButton.SetImage(missedImageBtn, UIControlState.Normal);
 
+			PromptedButton.TouchUpInside += (sender, e) => Prompted();
+			UIImage promptedBtn = UIImage.FromFile("doublearrowSession.png");
+			PromptedButton.SetImage(promptedBtn, UIControlState.Normal);
+
+			IndependentButton.TouchUpInside += (sender, e) => Independent();
+			UIImage independentBtn = UIImage.FromFile("plusSession.png");
+			IndependentButton.SetImage(independentBtn, UIControlState.Normal);
 
 			FinishedButton.TouchUpInside += (sender, e) =>
 			{

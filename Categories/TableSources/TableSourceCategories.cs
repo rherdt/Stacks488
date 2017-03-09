@@ -18,6 +18,7 @@ namespace Categories
 		Category PrevRowSelected;
 		NSIndexPath prev;
 		UIView cellBackgroundColor;
+		Category SelectedItemName; //currently selected category
         #endregion
 
         public delegate void SessionsTableDelegate(Category category);
@@ -52,7 +53,7 @@ namespace Categories
 		void createCellBGColor()
 		{
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
+			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -63,14 +64,14 @@ namespace Categories
 		public override UIView GetViewForHeader(UITableView tableView, nint section)
 		{
 			UIView headerView = new UIView();
-			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			headerView.BackgroundColor = AppColors.TableBackgroundColor;
 			return headerView;
 		}
 
 		public override UIView GetViewForFooter(UITableView tableView, nint section)
 		{
 			UIView footerView = new UIView();
-			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			footerView.BackgroundColor = AppColors.TableBackgroundColor;
 			return footerView;
 		}
 
@@ -92,7 +93,7 @@ namespace Categories
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             //send data to ProfilesSplitViewController
-            Category SelectedItemName = this.TableItems[indexPath.Section];
+            SelectedItemName = this.TableItems[indexPath.Section];
 
 			if (PrevRowSelected == SelectedItemName)
 			{
@@ -123,6 +124,7 @@ namespace Categories
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellCategories;
+			Category item = TableItems[indexPath.Row];
 
             if (cell == null)
             {
@@ -135,7 +137,7 @@ namespace Categories
 			cell.SelectedBackgroundView = cellBackgroundColor;
 			cell.Layer.CornerRadius = 10;
 			cell.Layer.MasksToBounds = true;
-            cell.UpdateCell(TableItems[indexPath.Section].CategoryName, "Testing");
+			cell.UpdateCell(TableItems[indexPath.Section].CategoryName, getTotalCategoryImages(item).ToString()+" images");
 
             return cell;
 
@@ -178,6 +180,23 @@ namespace Categories
                     break;
             }
         }
+		public int getTotalCategoryImages(Category item)
+		{
+			if (item != null)
+			{
+				List<ImageStackCategory> stacks = new DatabaseContext<ImageStackCategory>().GetQuery("Select * from ImageStackCategory Where ParentCategoryID = ?", item.ID.ToString());
+				int TotalImageCount = 0;
+
+				foreach (ImageStackCategory ic in stacks)
+				{
+					List<ImageStackImages> imagesPerStack = new DatabaseContext<ImageStackImages>().GetQuery("Select * From ImageStackImages Where ParentImageStackID = ?", ic.ID.ToString());
+					TotalImageCount += imagesPerStack.Count;
+				}
+
+				return TotalImageCount;
+			}
+			return 0;
+		}
 
     }
 }

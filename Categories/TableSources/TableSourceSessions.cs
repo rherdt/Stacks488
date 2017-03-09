@@ -24,14 +24,14 @@ namespace Categories
 		public TableSourceSessions()
 		{
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
+			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
 		}
 
 		public TableSourceSessions(List<Session> list)
 		{
 			TableItems = list;
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_Cell, (int)E_AppColor.G_Cell, (int)E_AppColor.B_Cell);
+			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -42,14 +42,14 @@ namespace Categories
 		public override UIView GetViewForHeader(UITableView tableView, nint section)
 		{
 			UIView headerView = new UIView();
-			headerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			headerView.BackgroundColor = AppColors.TableBackgroundColor;
 			return headerView;
 		}
 
 		public override UIView GetViewForFooter(UITableView tableView, nint section)
 		{
 			UIView footerView = new UIView();
-			footerView.BackgroundColor = UIColor.FromRGB((int)E_AppColor.R_TableBG, (int)E_AppColor.G_TableBG, (int)E_AppColor.B_TableBG);
+			footerView.BackgroundColor = AppColors.TableBackgroundColor;
 			return footerView;
 		}
 
