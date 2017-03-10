@@ -19,16 +19,17 @@ namespace Categories
 			ImageStackAddingScreen = new ImageStackAddingSplitViewController();
 
 
-			ProfilesTab.TabBarItem = new UITabBarItem("Profiles", UIImage.FromFile("profiles.png"), 0);
+			ProfilesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Profiles Icon.png"), 0);
 			ProfilesTab.Title = "Profiles";
-			ProfilesTab.View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			ProfilesTab.View.BackgroundColor = AppColors.TableBackgroundColor;
+			TabBar.TintColor = AppColors.DARK_GRAY;
 
-			CategoriesTab.TabBarItem = new UITabBarItem("Categories", UIImage.FromFile("categories.png"), 0);
+			CategoriesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Categories Icon.png"), 0);
 			CategoriesTab.Title = "Categories";
 
-			ImagesTab.TabBarItem = new UITabBarItem("Images", UIImage.FromFile("images.png"), 0);
+			ImagesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Images Icon.png"), 0);
 			ImagesTab.Title = "Images";
-			ImagesTab.View.BackgroundColor = UIColor.FromRGB(175, 238, 238);
+			ImagesTab.View.BackgroundColor = AppColors.TableBackgroundColor;
 
 			SessionScreen.TabBarItem.Enabled = false;
 			ImageStackAddingScreen.TabBarItem.Enabled = false;

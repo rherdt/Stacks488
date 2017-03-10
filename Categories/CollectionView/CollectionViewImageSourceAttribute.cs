@@ -69,6 +69,7 @@ namespace Categories
 					var pCell = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
 					Cells[prevImageSelected.Row].isSelected = false;
 					prevCell.ImageView.Alpha = 1.0f;
+					prevCell.Layer.BorderColor = UIColor.Clear.CGColor;
 					/*
 					if (pCell != null)
 					{
@@ -79,7 +80,10 @@ namespace Categories
 
 
 				//always highlight the currently selected image
-				cell.ImageView.Alpha = 0.5f;
+				//cell.ImageView.Alpha = 0.5f;
+				cell.Layer.BorderWidth = 10;
+				cell.Layer.CornerRadius = 10;
+				cell.Layer.BorderColor = AppColors.PEACH.CGColor;
 				Cells[indexPath.Row].isSelected = true;
 				prevCell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			}
@@ -91,15 +95,19 @@ namespace Categories
 			{
 				if (Clicked.isSelected)
 				{
-					cell.ImageView.Alpha = 1.0f;
+					//cell.ImageView.Alpha = 1.0f;
+					cell.Layer.BorderWidth = 10;
+					cell.Layer.CornerRadius = 10;
+					cell.Layer.BorderColor = AppColors.PEACH.CGColor;
 					Clicked.isSelected = false;
 					//remove the object from the list
 					SelectedImagesToImageStack.Remove(Clicked.ImgOBJ);
 				}
 				else
 				{
-					cell.ImageView.Alpha = 0.5f;
+					//cell.ImageView.Alpha = 0.5f;
 					Clicked.isSelected = true;
+					cell.Layer.BorderColor = UIColor.Clear.CGColor;
 					//add the image object to the list
 					SelectedImagesToImageStack.Add(Clicked.ImgOBJ);
 				}

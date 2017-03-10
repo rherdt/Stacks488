@@ -1,13 +1,21 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="2ND TAB Categories/ImageStackSplitViewController.cs">
+    <Files>
+      <File FileName="CollectionView/CollectionViewAttributes.cs" Line="20" Column="3" />
+      <File FileName="CollectionView/CollectionViewController.cs" Line="21" Column="32" />
+      <File FileName="2ND TAB Categories/CollectionViewImageStack.cs" Line="46" Column="55" />
+      <File FileName="CollectionView/CollectionViewImageStackSource.cs" Line="51" Column="5" />
+      <File FileName="2ND TAB Categories/ImageStackSplitViewController.cs" Line="215" Column="46" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="248" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_3:8:17/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="243" column="1" />
-      <Breakpoint file="/Users/jesussaldana/Dropbox/EWU/SP_3:8:17/Stacks488/Categories/2ND TAB Categories/CategoriesSplitViewController.cs" relfile="2ND TAB Categories/CategoriesSplitViewController.cs" line="260" column="1" />
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/Objects/CurrentSession.cs" relfile="Objects/CurrentSession.cs" line="24" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C376F8B9-EB56-449F-8B80-3BB4C4E6589A" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6AF740A9-1C74-4EB3-9651-A8533EDF835D" />
   <MultiItemStartupConfigurations />
 </Properties>

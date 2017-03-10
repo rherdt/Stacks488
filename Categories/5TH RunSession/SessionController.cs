@@ -48,7 +48,7 @@ namespace Categories
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			View.BackgroundColor = BGColor;
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 			// Perform any additional setup after loading the view, typically from a nib.
 
 			/*
@@ -87,15 +87,15 @@ namespace Categories
 
 
 			MissedButton.TouchUpInside += (sender, e) => Missed();
-			UIImage missedImageBtn = UIImage.FromFile("minusSession.png");
+			UIImage missedImageBtn = UIImage.FromFile("Incorrect-Icon.png");
 			MissedButton.SetImage(missedImageBtn, UIControlState.Normal);
 
 			PromptedButton.TouchUpInside += (sender, e) => Prompted();
-			UIImage promptedBtn = UIImage.FromFile("doublearrowSession.png");
+			UIImage promptedBtn = UIImage.FromFile("Help-Icon.png");
 			PromptedButton.SetImage(promptedBtn, UIControlState.Normal);
 
 			IndependentButton.TouchUpInside += (sender, e) => Independent();
-			UIImage independentBtn = UIImage.FromFile("plusSession.png");
+			UIImage independentBtn = UIImage.FromFile("Individual-Icon.png");
 			IndependentButton.SetImage(independentBtn, UIControlState.Normal);
 
 			FinishedButton.TouchUpInside += (sender, e) =>
@@ -138,7 +138,8 @@ namespace Categories
 				CurrentImageStack--;
 				CurrentImageIndex = 0;
 				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
-				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+				//imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+
 				UpdateImageView(0);
 				didChooseAnswer = false;
 			}
@@ -280,7 +281,8 @@ namespace Categories
 			{
 
 				var temp = getImageFromDB();
-				imageStackLabel.Text = ImageStackNames[CurrentImageStack];
+
+				//imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 
 				if (flipOrientation == 1)
 				{
@@ -317,6 +319,7 @@ namespace Categories
 			List<Image> image = new DatabaseContext<Image>().GetQuery("Select * From Image Where ID = ?", ImageStack2D[CurrentImageStack][CurrentImageIndex].ImageID.ToString());
 			if (image != null)
 			{
+				ImageLabel.Text = image[0].Title;
 				return Utilities.GetUIImageFromFileName(image[0].FileName);
 			}
 			return null;

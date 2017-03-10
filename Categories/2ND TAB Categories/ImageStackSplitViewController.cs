@@ -191,13 +191,14 @@ namespace Categories
 
 			UIButton random = imageCollectionHeaderView.getRandomizeButton();
 			UIButton inOrder = imageCollectionHeaderView.getInOrderButton();
-			random.BackgroundColor = UIColor.FromRGB(63, 133, 244);
-			random.SetTitleColor(UIColor.White, UIControlState.Normal);
+
+			random.BackgroundColor = AppColors.PEACH;
+			random.SetTitleColor(AppColors.DARK_GRAY,UIControlState.Normal);
 			random.Layer.CornerRadius = 2;
 			random.Layer.BorderWidth = 0;
 			random.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
 
-			inOrder.SetTitleColor(UIColor.FromRGB(63, 133, 244), UIControlState.Normal);
+			inOrder.SetTitleColor(AppColors.DARK_GRAY, UIControlState.Normal);
 			inOrder.Layer.CornerRadius = 2;
 			inOrder.BackgroundColor = UIColor.White;
 			inOrder.Layer.BorderWidth = 0;
@@ -211,13 +212,13 @@ namespace Categories
 			 */
 			UIButton random = imageCollectionHeaderView.getRandomizeButton();
 			UIButton inOrder = imageCollectionHeaderView.getInOrderButton();
-			inOrder.BackgroundColor = UIColor.FromRGB(63, 133, 244);
-			inOrder.SetTitleColor(UIColor.White, UIControlState.Normal);
+			inOrder.BackgroundColor = AppColors.PEACH;
+			inOrder.SetTitleColor(AppColors.DARK_GRAY, UIControlState.Normal);
 			inOrder.Layer.CornerRadius = 2;
 			inOrder.Layer.BorderWidth = 0;
 			inOrder.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
 
-			random.SetTitleColor(UIColor.FromRGB(63, 133, 244), UIControlState.Normal);
+			random.SetTitleColor(AppColors.DARK_GRAY, UIControlState.Normal);
 			random.Layer.CornerRadius = 2;
 			random.Layer.BorderWidth = 0;
 			random.BackgroundColor = UIColor.White;

@@ -180,9 +180,8 @@ namespace Categories
 			 * Calculate 1/4 spacing to center the settings view.
 			*/
 			base.ViewWillLayoutSubviews();
-			float _WSpacing = (float)this.View.Bounds.Width / 3.0f;
-			float _HSpacing = (float)this.View.Bounds.Height / 3.0f;
-			RectangleF size = new RectangleF(_WSpacing, _HSpacing-100, (float)this.View.Bounds.Width - _WSpacing, (float)this.View.Bounds.Height-100);
+
+			RectangleF size = new RectangleF(new PointF((float)this.View.Bounds.Width+160 , (float)this.View.Bounds.Height/ 2), new SizeF(228, 338));
 			this.View.Frame = size;
 			//this.View.BackgroundColor = BGColor;
 

@@ -51,15 +51,17 @@ namespace Categories
 			{
 				if (itemClicked.isSelected)
 				{
-					cell.ImageView.Alpha = 1.0f;
-					cell.Layer.BorderColor = UIColor.Red.CGColor;
+					//cell.ImageView.Alpha = 1.0f;
+					//cell.Layer.BorderColor = UIColor.Red.CGColor;
 					itemClicked.isSelected = false;
+					cell.Layer.BorderColor = AppColors.PEACH.CGColor;
+					cell.Layer.BorderWidth = 10;
 					//remove the object from the list
 					ImagesToDelete.Remove(itemClicked.ImgOBJ);
 				}
 				else
 				{
-					cell.ImageView.Alpha = 0.5f;
+					//cell.ImageView.Alpha = 0.5f;
 					itemClicked.isSelected = true;
 					cell.Layer.BorderColor = UIColor.Clear.CGColor;
 					//add the image object to the list

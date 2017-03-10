@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		308B3E190000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AD57550000000000000000 /* UIKit.framework */; };
+		9E831BE70000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A535230000000000000000 /* MapKit.framework */; };
+		D57F0ACE0000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA1240A0000000000000000 /* Foundation.framework */; };
+		C7AF9B500000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939D12F10000000000000000 /* CoreGraphics.framework */; };
+		DDEC55C60000000000000000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650E6F020000000000000000 /* Assets.xcassets */; };
+		759774350000000000000000 /* SessionController.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB98D710000000000000000 /* SessionController.xcassets */; };
+		8E8E4F000000000000000000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 900AFE2C0000000000000000 /* LaunchScreen.storyboard */; };
+		936927AE0000000000000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B40EA0000000000000000 /* Main.storyboard */; };
+		BB5557AD0000000000000000 /* ImageCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 427770E90000000000000000 /* ImageCollectionHeaderView.xib */; };
+		58C144EE0000000000000000 /* ImageStackHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE35E2A0000000000000000 /* ImageStackHeaderView.xib */; };
+		7F6426640000000000000000 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6863FA000000000000000000 /* CollectionViewController.xib */; };
+		3ECB7D100000000000000000 /* SessionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5ED964C0000000000000000 /* SessionController.xib */; };
+		C52209DC0000000000000000 /* SettingsAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4423180000000000000000 /* SettingsAlertController.xib */; };
+		3D3464300000000000000000 /* SessionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4567D6C0000000000000000 /* SessionHeaderView.xib */; };
+		F513DB680000000000000000 /* AttributesCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C35F4A40000000000000000 /* AttributesCollectionViewController.xib */; };
+		52B2ABC50000000000000000 /* ImageStackAddingCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9D4C5010000000000000000 /* ImageStackAddingCollectionView.xib */; };
+		DE7C3D0C0000000000000000 /* FinishScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 659E56480000000000000000 /* FinishScreenController.xib */; };
+		DA52871A0000000000000000 /* PopupAttributes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6174A0560000000000000000 /* PopupAttributes.xib */; };
+		8A2C5CC50000000000000000 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 114E76010000000000000000 /* Info.plist */; };
+		B2E419340000000000000000 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0632700000000000000000 /* Entitlements.plist */; };
+		62BDEEDF0000000000000000 /* images.csv in Resources */ = {isa = PBXBuildFile; fileRef = E9E0081B0000000000000000 /* images.csv */; };
+		2D0B4E810000000000000000 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B42D67BD0000000000000000 /* placeholder.jpg */; };
+		B78B913F0000000000000000 /* Add Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EADAA7B0000000000000000 /* Add Icon.png */; };
+		A3D45A4C0000000000000000 /* Apple-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF673880000000000000000 /* Apple-Icon.png */; };
+		6AC3906C0000000000000000 /* Categories Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E5A9A80000000000000000 /* Categories Icon.png */; };
+		96D9765D0000000000000000 /* Hand-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DFB8F990000000000000000 /* Hand-Icon.png */; };
+		83223F6A0000000000000000 /* Help-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4458A600000000000000000 /* Help-Icon.png */; };
+		DA2822800000000000000000 /* Images Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94C49B640000000000000000 /* Images Icon.png */; };
+		365A3E970000000000000000 /* Incorrect-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7C57D30000000000000000 /* Incorrect-Icon.png */; };
+		FD4974B70000000000000000 /* Individual-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 846B8DF30000000000000000 /* Individual-Icon.png */; };
+		C438AAD70000000000000000 /* Left-Arrow-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B5AC4130000000000000000 /* Left-Arrow-Icon.png */; };
+		ECF067460000000000000000 /* Profiles Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 741280820000000000000000 /* Profiles Icon.png */; };
+		BA9BF06A0000000000000000 /* Right-Arrow-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BE09A60000000000000000 /* Right-Arrow-Icon.png */; };
+		9F5CDA030000000000000000 /* Small Arrow Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 267EF33F0000000000000000 /* Small Arrow Icon.png */; };
+		8BA5A3100000000000000000 /* Star-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 12C7BC4C0000000000000000 /* Star-Icon.png */; };
+		B7BB89010000000000000000 /* PopupAttributes.h in Sources */ = {isa = PBXBuildFile; fileRef = 3EDDA23D0000000000000000 /* PopupAttributes.h */; };
+		B5A6AE080000000000000000 /* PopupAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8C7440000000000000000 /* PopupAttributes.m */; };
+		3AB3EC4B0000000000000000 /* FinishScreenController.h in Sources */ = {isa = PBXBuildFile; fileRef = C1D605870000000000000000 /* FinishScreenController.h */; };
+		552776420000000000000000 /* FinishScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC498F7E0000000000000000 /* FinishScreenController.m */; };
+		9DC5C1230000000000000000 /* ImageStackAddingCollectionView.h in Sources */ = {isa = PBXBuildFile; fileRef = 24E7DA5F0000000000000000 /* ImageStackAddingCollectionView.h */; };
+		5F41F2C80000000000000000 /* ImageStackAddingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6640C040000000000000000 /* ImageStackAddingCollectionView.m */; };
+		A7E03DA90000000000000000 /* CategoriesSplitViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 2F0256E50000000000000000 /* CategoriesSplitViewController.h */; };
+		FEC2BB020000000000000000 /* CategoriesSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E4D43E0000000000000000 /* CategoriesSplitViewController.m */; };
+		C03EECA70000000000000000 /* AttributesCollectionViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = A9298C320000000000000000 /* AttributesCollectionViewController.h */; };
+		186AB8890000000000000000 /* AttributesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F8CD1C50000000000000000 /* AttributesCollectionViewController.m */; };
+		3BAF707D0000000000000000 /* SessionHeaderView.h in Sources */ = {isa = PBXBuildFile; fileRef = C2D189B90000000000000000 /* SessionHeaderView.h */; };
+		B7EB80C30000000000000000 /* SessionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D99FF0000000000000000 /* SessionHeaderView.m */; };
+		E9746B2F0000000000000000 /* SettingsAlertController.h in Sources */ = {isa = PBXBuildFile; fileRef = 7096846B0000000000000000 /* SettingsAlertController.h */; };
+		3E7F52600000000000000000 /* SettingsAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A0E620000000000000000 /* SettingsAlertController.m */; };
+		BC92F8CE0000000000000000 /* SessionController.h in Sources */ = {isa = PBXBuildFile; fileRef = 43B5120A0000000000000000 /* SessionController.h */; };
+		38CF09140000000000000000 /* SessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF122500000000000000000 /* SessionController.m */; };
+		88F6D3100000000000000000 /* CollectionViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1866D0000000000000000 /* CollectionViewController.h */; };
+		1078DBD00000000000000000 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8829A6F90000000000000000 /* CollectionViewController.m */; };
+		7C3E0C100000000000000000 /* ImageStackHeaderView.h in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5F9FD0000000000000000 /* ImageStackHeaderView.h */; };
+		22376AB80000000000000000 /* ImageStackHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A95983F40000000000000000 /* ImageStackHeaderView.m */; };
+		902F48860000000000000000 /* ImageCollectionHeaderView.h in Sources */ = {isa = PBXBuildFile; fileRef = 175161C20000000000000000 /* ImageCollectionHeaderView.h */; };
+		48DA4C2E0000000000000000 /* ImageCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC656A0000000000000000 /* ImageCollectionHeaderView.m */; };
+		3DF443380000000000000000 /* MainTabBarController.h in Sources */ = {isa = PBXBuildFile; fileRef = C5165C740000000000000000 /* MainTabBarController.h */; };
+		5867CD2F0000000000000000 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF89E66B0000000000000000 /* MainTabBarController.m */; };
+		F9FD70620000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 811F899E0000000000000000 /* AppDelegate.h */; };
+		39CA8D460000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ECA6820000000000000000 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E7AC4270000000000000000 /* Categories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Categories.app"; path = "Categories.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AD57550000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		25A535230000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		5CA1240A0000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		939D12F10000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		650E6F020000000000000000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Assets.xcassets"; path = "Assets.xcassets"; sourceTree = "<group>"; };
+		FCB98D710000000000000000 /* SessionController.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "SessionController.xcassets"; path = "SessionController.xcassets"; sourceTree = "<group>"; };
+		900AFE2C0000000000000000 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "LaunchScreen.storyboard"; path = "LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		1A8B40EA0000000000000000 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Main.storyboard"; path = "Main.storyboard"; sourceTree = "<group>"; };
+		427770E90000000000000000 /* ImageCollectionHeaderView.xib */ = {isa = PBXFileReference; name = "ImageCollectionHeaderView.xib"; path = "2ND TAB Categories/View/ImageCollectionHeaderView.xib"; sourceTree = "<group>"; };
+		DFE35E2A0000000000000000 /* ImageStackHeaderView.xib */ = {isa = PBXFileReference; name = "ImageStackHeaderView.xib"; path = "2ND TAB Categories/View/ImageStackHeaderView.xib"; sourceTree = "<group>"; };
+		6863FA000000000000000000 /* CollectionViewController.xib */ = {isa = PBXFileReference; name = "CollectionViewController.xib"; path = "CollectionView/CollectionViewController.xib"; sourceTree = "<group>"; };
+		C5ED964C0000000000000000 /* SessionController.xib */ = {isa = PBXFileReference; name = "SessionController.xib"; path = "5TH RunSession/SessionController.xib"; sourceTree = "<group>"; };
+		4C4423180000000000000000 /* SettingsAlertController.xib */ = {isa = PBXFileReference; name = "SettingsAlertController.xib"; path = "5TH RunSession/Settings/SettingsAlertController.xib"; sourceTree = "<group>"; };
+		C4567D6C0000000000000000 /* SessionHeaderView.xib */ = {isa = PBXFileReference; name = "SessionHeaderView.xib"; path = "1ST TAB Profiles/View/SessionHeaderView.xib"; sourceTree = "<group>"; };
+		7C35F4A40000000000000000 /* AttributesCollectionViewController.xib */ = {isa = PBXFileReference; name = "AttributesCollectionViewController.xib"; path = "3RD TAB Attributes/CollectionView/AttributesCollectionViewController.xib"; sourceTree = "<group>"; };
+		D9D4C5010000000000000000 /* ImageStackAddingCollectionView.xib */ = {isa = PBXFileReference; name = "ImageStackAddingCollectionView.xib"; path = "6TH Image Stack Adding/ImageStackAddingCollectionView.xib"; sourceTree = "<group>"; };
+		659E56480000000000000000 /* FinishScreenController.xib */ = {isa = PBXFileReference; name = "FinishScreenController.xib"; path = "5TH RunSession/FinishScreenController.xib"; sourceTree = "<group>"; };
+		6174A0560000000000000000 /* PopupAttributes.xib */ = {isa = PBXFileReference; name = "PopupAttributes.xib"; path = "3RD TAB Attributes/PopupAttributes.xib"; sourceTree = "<group>"; };
+		114E76010000000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "Info.plist"; sourceTree = "<group>"; };
+		3A0632700000000000000000 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Entitlements.plist"; path = "Entitlements.plist"; sourceTree = "<group>"; };
+		E9E0081B0000000000000000 /* images.csv */ = {isa = PBXFileReference; name = "images.csv"; path = "images.csv"; sourceTree = "<group>"; };
+		B42D67BD0000000000000000 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "placeholder.jpg"; path = "placeholder.jpg"; sourceTree = "<group>"; };
+		3EADAA7B0000000000000000 /* Add Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Add Icon.png"; path = "Add Icon.png"; sourceTree = "<group>"; };
+		2AF673880000000000000000 /* Apple-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Apple-Icon.png"; path = "Apple-Icon.png"; sourceTree = "<group>"; };
+		F1E5A9A80000000000000000 /* Categories Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Categories Icon.png"; path = "Categories Icon.png"; sourceTree = "<group>"; };
+		1DFB8F990000000000000000 /* Hand-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hand-Icon.png"; path = "Hand-Icon.png"; sourceTree = "<group>"; };
+		A4458A600000000000000000 /* Help-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Help-Icon.png"; path = "Help-Icon.png"; sourceTree = "<group>"; };
+		94C49B640000000000000000 /* Images Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Images Icon.png"; path = "Images Icon.png"; sourceTree = "<group>"; };
+		BD7C57D30000000000000000 /* Incorrect-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Incorrect-Icon.png"; path = "Incorrect-Icon.png"; sourceTree = "<group>"; };
+		846B8DF30000000000000000 /* Individual-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Individual-Icon.png"; path = "Individual-Icon.png"; sourceTree = "<group>"; };
+		4B5AC4130000000000000000 /* Left-Arrow-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Left-Arrow-Icon.png"; path = "Left-Arrow-Icon.png"; sourceTree = "<group>"; };
+		741280820000000000000000 /* Profiles Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Profiles Icon.png"; path = "Profiles Icon.png"; sourceTree = "<group>"; };
+		41BE09A60000000000000000 /* Right-Arrow-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Right-Arrow-Icon.png"; path = "Right-Arrow-Icon.png"; sourceTree = "<group>"; };
+		267EF33F0000000000000000 /* Small Arrow Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Small Arrow Icon.png"; path = "Small Arrow Icon.png"; sourceTree = "<group>"; };
+		12C7BC4C0000000000000000 /* Star-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Star-Icon.png"; path = "Star-Icon.png"; sourceTree = "<group>"; };
+		3EDDA23D0000000000000000 /* PopupAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PopupAttributes.h"; path = "PopupAttributes.h"; sourceTree = "<group>"; };
+		3CC8C7440000000000000000 /* PopupAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PopupAttributes.m"; path = "PopupAttributes.m"; sourceTree = "<group>"; };
+		C1D605870000000000000000 /* FinishScreenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FinishScreenController.h"; path = "FinishScreenController.h"; sourceTree = "<group>"; };
+		DC498F7E0000000000000000 /* FinishScreenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FinishScreenController.m"; path = "FinishScreenController.m"; sourceTree = "<group>"; };
+		24E7DA5F0000000000000000 /* ImageStackAddingCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ImageStackAddingCollectionView.h"; path = "ImageStackAddingCollectionView.h"; sourceTree = "<group>"; };
+		E6640C040000000000000000 /* ImageStackAddingCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ImageStackAddingCollectionView.m"; path = "ImageStackAddingCollectionView.m"; sourceTree = "<group>"; };
+		2F0256E50000000000000000 /* CategoriesSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CategoriesSplitViewController.h"; path = "CategoriesSplitViewController.h"; sourceTree = "<group>"; };
+		85E4D43E0000000000000000 /* CategoriesSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CategoriesSplitViewController.m"; path = "CategoriesSplitViewController.m"; sourceTree = "<group>"; };
+		A9298C320000000000000000 /* AttributesCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AttributesCollectionViewController.h"; path = "AttributesCollectionViewController.h"; sourceTree = "<group>"; };
+		9F8CD1C50000000000000000 /* AttributesCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AttributesCollectionViewController.m"; path = "AttributesCollectionViewController.m"; sourceTree = "<group>"; };
+		C2D189B90000000000000000 /* SessionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SessionHeaderView.h"; path = "SessionHeaderView.h"; sourceTree = "<group>"; };
+		3F0D99FF0000000000000000 /* SessionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SessionHeaderView.m"; path = "SessionHeaderView.m"; sourceTree = "<group>"; };
+		7096846B0000000000000000 /* SettingsAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SettingsAlertController.h"; path = "SettingsAlertController.h"; sourceTree = "<group>"; };
+		8B0A0E620000000000000000 /* SettingsAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SettingsAlertController.m"; path = "SettingsAlertController.m"; sourceTree = "<group>"; };
+		43B5120A0000000000000000 /* SessionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SessionController.h"; path = "SessionController.h"; sourceTree = "<group>"; };
+		BFF122500000000000000000 /* SessionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SessionController.m"; path = "SessionController.m"; sourceTree = "<group>"; };
+		8FB1866D0000000000000000 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CollectionViewController.h"; path = "CollectionViewController.h"; sourceTree = "<group>"; };
+		8829A6F90000000000000000 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CollectionViewController.m"; path = "CollectionViewController.m"; sourceTree = "<group>"; };
+		8EE5F9FD0000000000000000 /* ImageStackHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ImageStackHeaderView.h"; path = "ImageStackHeaderView.h"; sourceTree = "<group>"; };
+		A95983F40000000000000000 /* ImageStackHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ImageStackHeaderView.m"; path = "ImageStackHeaderView.m"; sourceTree = "<group>"; };
+		175161C20000000000000000 /* ImageCollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ImageCollectionHeaderView.h"; path = "ImageCollectionHeaderView.h"; sourceTree = "<group>"; };
+		CFFC656A0000000000000000 /* ImageCollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ImageCollectionHeaderView.m"; path = "ImageCollectionHeaderView.m"; sourceTree = "<group>"; };
+		C5165C740000000000000000 /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MainTabBarController.h"; path = "MainTabBarController.h"; sourceTree = "<group>"; };
+		DF89E66B0000000000000000 /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MainTabBarController.m"; path = "MainTabBarController.m"; sourceTree = "<group>"; };
+		811F899E0000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		C0ECA6820000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		927196FD0000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				308B3E190000000000000000 /* UIKit.framework in Frameworks */,
+				9E831BE70000000000000000 /* MapKit.framework in Frameworks */,
+				D57F0ACE0000000000000000 /* Foundation.framework in Frameworks */,
+				C7AF9B500000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F1543F00000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				6446D6130000000000000000 /* Categories */,
+				60E8AC910000000000000000 /* Frameworks */,
+				361C15290000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		361C15290000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E7AC4270000000000000000 /* Categories.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		60E8AC910000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7AD57550000000000000000 /* UIKit.framework */,
+				25A535230000000000000000 /* MapKit.framework */,
+				5CA1240A0000000000000000 /* Foundation.framework */,
+				939D12F10000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		6446D6130000000000000000 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3EADAA7B0000000000000000 /* Add Icon.png */,
+				811F899E0000000000000000 /* AppDelegate.h */,
+				2AF673880000000000000000 /* Apple-Icon.png */,
+				650E6F020000000000000000 /* Assets.xcassets */,
+				A9298C320000000000000000 /* AttributesCollectionViewController.h */,
+				F1E5A9A80000000000000000 /* Categories Icon.png */,
+				2F0256E50000000000000000 /* CategoriesSplitViewController.h */,
+				8FB1866D0000000000000000 /* CollectionViewController.h */,
+				3A0632700000000000000000 /* Entitlements.plist */,
+				C1D605870000000000000000 /* FinishScreenController.h */,
+				1DFB8F990000000000000000 /* Hand-Icon.png */,
+				A4458A600000000000000000 /* Help-Icon.png */,
+				175161C20000000000000000 /* ImageCollectionHeaderView.h */,
+				94C49B640000000000000000 /* Images Icon.png */,
+				E9E0081B0000000000000000 /* images.csv */,
+				24E7DA5F0000000000000000 /* ImageStackAddingCollectionView.h */,
+				8EE5F9FD0000000000000000 /* ImageStackHeaderView.h */,
+				BD7C57D30000000000000000 /* Incorrect-Icon.png */,
+				846B8DF30000000000000000 /* Individual-Icon.png */,
+				114E76010000000000000000 /* Info.plist */,
+				900AFE2C0000000000000000 /* LaunchScreen.storyboard */,
+				4B5AC4130000000000000000 /* Left-Arrow-Icon.png */,
+				1A8B40EA0000000000000000 /* Main.storyboard */,
+				C5165C740000000000000000 /* MainTabBarController.h */,
+				B42D67BD0000000000000000 /* placeholder.jpg */,
+				3EDDA23D0000000000000000 /* PopupAttributes.h */,
+				741280820000000000000000 /* Profiles Icon.png */,
+				41BE09A60000000000000000 /* Right-Arrow-Icon.png */,
+				43B5120A0000000000000000 /* SessionController.h */,
+				FCB98D710000000000000000 /* SessionController.xcassets */,
+				C2D189B90000000000000000 /* SessionHeaderView.h */,
+				7096846B0000000000000000 /* SettingsAlertController.h */,
+				267EF33F0000000000000000 /* Small Arrow Icon.png */,
+				12C7BC4C0000000000000000 /* Star-Icon.png */,
+				76452E100000000000000000 /* 1ST TAB Profiles */,
+				1F32B8F50000000000000000 /* 2ND TAB Categories */,
+				F728B6610000000000000000 /* 3RD TAB Attributes */,
+				97C2D5620000000000000000 /* 5TH RunSession */,
+				ABAA04170000000000000000 /* 6TH Image Stack Adding */,
+				D85B7EB60000000000000000 /* CollectionView */,
+				BB19B2830000000000000000 /* Supporting Files */,
+			);
+			name = "Categories";
+			sourceTree = "<group>";
+		};
+		1F32B8F50000000000000000 /* 2ND TAB Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2290E2770000000000000000 /* View */,
+			);
+			name = "2ND TAB Categories";
+			sourceTree = "<group>";
+		};
+		2290E2770000000000000000 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				427770E90000000000000000 /* ImageCollectionHeaderView.xib */,
+				DFE35E2A0000000000000000 /* ImageStackHeaderView.xib */,
+			);
+			name = "View";
+			sourceTree = "<group>";
+		};
+		D85B7EB60000000000000000 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				6863FA000000000000000000 /* CollectionViewController.xib */,
+			);
+			name = "CollectionView";
+			sourceTree = "<group>";
+		};
+		97C2D5620000000000000000 /* 5TH RunSession */ = {
+			isa = PBXGroup;
+			children = (
+				659E56480000000000000000 /* FinishScreenController.xib */,
+				C5ED964C0000000000000000 /* SessionController.xib */,
+				C1C3E05A0000000000000000 /* Settings */,
+			);
+			name = "5TH RunSession";
+			sourceTree = "<group>";
+		};
+		C1C3E05A0000000000000000 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4C4423180000000000000000 /* SettingsAlertController.xib */,
+			);
+			name = "Settings";
+			sourceTree = "<group>";
+		};
+		76452E100000000000000000 /* 1ST TAB Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				A46FEEFA0000000000000000 /* View */,
+			);
+			name = "1ST TAB Profiles";
+			sourceTree = "<group>";
+		};
+		A46FEEFA0000000000000000 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4567D6C0000000000000000 /* SessionHeaderView.xib */,
+			);
+			name = "View";
+			sourceTree = "<group>";
+		};
+		F728B6610000000000000000 /* 3RD TAB Attributes */ = {
+			isa = PBXGroup;
+			children = (
+				6174A0560000000000000000 /* PopupAttributes.xib */,
+				81A8F91F0000000000000000 /* CollectionView */,
+			);
+			name = "3RD TAB Attributes";
+			sourceTree = "<group>";
+		};
+		81A8F91F0000000000000000 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7C35F4A40000000000000000 /* AttributesCollectionViewController.xib */,
+			);
+			name = "CollectionView";
+			sourceTree = "<group>";
+		};
+		ABAA04170000000000000000 /* 6TH Image Stack Adding */ = {
+			isa = PBXGroup;
+			children = (
+				D9D4C5010000000000000000 /* ImageStackAddingCollectionView.xib */,
+			);
+			name = "6TH Image Stack Adding";
+			sourceTree = "<group>";
+		};
+		BB19B2830000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0ECA6820000000000000000 /* AppDelegate.m */,
+				9F8CD1C50000000000000000 /* AttributesCollectionViewController.m */,
+				85E4D43E0000000000000000 /* CategoriesSplitViewController.m */,
+				8829A6F90000000000000000 /* CollectionViewController.m */,
+				DC498F7E0000000000000000 /* FinishScreenController.m */,
+				CFFC656A0000000000000000 /* ImageCollectionHeaderView.m */,
+				E6640C040000000000000000 /* ImageStackAddingCollectionView.m */,
+				A95983F40000000000000000 /* ImageStackHeaderView.m */,
+				DF89E66B0000000000000000 /* MainTabBarController.m */,
+				3CC8C7440000000000000000 /* PopupAttributes.m */,
+				BFF122500000000000000000 /* SessionController.m */,
+				3F0D99FF0000000000000000 /* SessionHeaderView.m */,
+				8B0A0E620000000000000000 /* SettingsAlertController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC5930670000000000000000 /* Categories */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B91478730000000000000000 /* Build configuration list for PBXNativeTarget "Categories" */;
+			buildPhases = (
+				EEC718D10000000000000000 /* Sources */,
+				927196FD0000000000000000 /* Frameworks */,
+				FD0B4B490000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Categories";
+			productName = "Categories";
+			productReference = 4E7AC4270000000000000000 /* Categories.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8BB6B020000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 601D20210000000000000000 /* Build configuration list for PBXProject "Categories" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7F1543F00000000000000000;
+			productRefGroup = 361C15290000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC5930670000000000000000 /* Categories */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD0B4B490000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDEC55C60000000000000000 /* Assets.xcassets in Resources */,
+				759774350000000000000000 /* SessionController.xcassets in Resources */,
+				8E8E4F000000000000000000 /* LaunchScreen.storyboard in Resources */,
+				936927AE0000000000000000 /* Main.storyboard in Resources */,
+				BB5557AD0000000000000000 /* ImageCollectionHeaderView.xib in Resources */,
+				58C144EE0000000000000000 /* ImageStackHeaderView.xib in Resources */,
+				7F6426640000000000000000 /* CollectionViewController.xib in Resources */,
+				3ECB7D100000000000000000 /* SessionController.xib in Resources */,
+				C52209DC0000000000000000 /* SettingsAlertController.xib in Resources */,
+				3D3464300000000000000000 /* SessionHeaderView.xib in Resources */,
+				F513DB680000000000000000 /* AttributesCollectionViewController.xib in Resources */,
+				52B2ABC50000000000000000 /* ImageStackAddingCollectionView.xib in Resources */,
+				DE7C3D0C0000000000000000 /* FinishScreenController.xib in Resources */,
+				DA52871A0000000000000000 /* PopupAttributes.xib in Resources */,
+				8A2C5CC50000000000000000 /* Info.plist in Resources */,
+				B2E419340000000000000000 /* Entitlements.plist in Resources */,
+				62BDEEDF0000000000000000 /* images.csv in Resources */,
+				2D0B4E810000000000000000 /* placeholder.jpg in Resources */,
+				B78B913F0000000000000000 /* Add Icon.png in Resources */,
+				A3D45A4C0000000000000000 /* Apple-Icon.png in Resources */,
+				6AC3906C0000000000000000 /* Categories Icon.png in Resources */,
+				96D9765D0000000000000000 /* Hand-Icon.png in Resources */,
+				83223F6A0000000000000000 /* Help-Icon.png in Resources */,
+				DA2822800000000000000000 /* Images Icon.png in Resources */,
+				365A3E970000000000000000 /* Incorrect-Icon.png in Resources */,
+				FD4974B70000000000000000 /* Individual-Icon.png in Resources */,
+				C438AAD70000000000000000 /* Left-Arrow-Icon.png in Resources */,
+				ECF067460000000000000000 /* Profiles Icon.png in Resources */,
+				BA9BF06A0000000000000000 /* Right-Arrow-Icon.png in Resources */,
+				9F5CDA030000000000000000 /* Small Arrow Icon.png in Resources */,
+				8BA5A3100000000000000000 /* Star-Icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEC718D10000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7BB89010000000000000000 /* PopupAttributes.h in Sources */,
+				B5A6AE080000000000000000 /* PopupAttributes.m in Sources */,
+				3AB3EC4B0000000000000000 /* FinishScreenController.h in Sources */,
+				552776420000000000000000 /* FinishScreenController.m in Sources */,
+				9DC5C1230000000000000000 /* ImageStackAddingCollectionView.h in Sources */,
+				5F41F2C80000000000000000 /* ImageStackAddingCollectionView.m in Sources */,
+				A7E03DA90000000000000000 /* CategoriesSplitViewController.h in Sources */,
+				FEC2BB020000000000000000 /* CategoriesSplitViewController.m in Sources */,
+				C03EECA70000000000000000 /* AttributesCollectionViewController.h in Sources */,
+				186AB8890000000000000000 /* AttributesCollectionViewController.m in Sources */,
+				3BAF707D0000000000000000 /* SessionHeaderView.h in Sources */,
+				B7EB80C30000000000000000 /* SessionHeaderView.m in Sources */,
+				E9746B2F0000000000000000 /* SettingsAlertController.h in Sources */,
+				3E7F52600000000000000000 /* SettingsAlertController.m in Sources */,
+				BC92F8CE0000000000000000 /* SessionController.h in Sources */,
+				38CF09140000000000000000 /* SessionController.m in Sources */,
+				88F6D3100000000000000000 /* CollectionViewController.h in Sources */,
+				1078DBD00000000000000000 /* CollectionViewController.m in Sources */,
+				7C3E0C100000000000000000 /* ImageStackHeaderView.h in Sources */,
+				22376AB80000000000000000 /* ImageStackHeaderView.m in Sources */,
+				902F48860000000000000000 /* ImageCollectionHeaderView.h in Sources */,
+				48DA4C2E0000000000000000 /* ImageCollectionHeaderView.m in Sources */,
+				3DF443380000000000000000 /* MainTabBarController.h in Sources */,
+				5867CD2F0000000000000000 /* MainTabBarController.m in Sources */,
+				F9FD70620000000000000000 /* AppDelegate.h in Sources */,
+				39CA8D460000000000000000 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		355088B90000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		8E47E10B0000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "Categories";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		601D20210000000000000000 /* Build configuration list for PBXProject "Categories" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				355088B90000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		B91478730000000000000000 /* Build configuration list for PBXNativeTarget "Categories" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E47E10B0000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8BB6B020000000000000000 /* Project object */;
+}

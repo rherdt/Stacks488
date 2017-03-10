@@ -24,6 +24,10 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel ImageLabel { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel imageStackLabel { get; set; }
 
         [Outlet]
@@ -56,6 +60,11 @@ namespace Categories
             if (ImageCountLabel != null) {
                 ImageCountLabel.Dispose ();
                 ImageCountLabel = null;
+            }
+
+            if (ImageLabel != null) {
+                ImageLabel.Dispose ();
+                ImageLabel = null;
             }
 
             if (imageStackLabel != null) {
