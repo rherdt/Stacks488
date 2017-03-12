@@ -19,12 +19,17 @@ namespace Categories
 
 		public ImageStackAddingSplitViewController() : base()
 		{
-			
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 			AttributesTableSource = new TableSourceAttributes();
 
 			//master
 			attributesTableViewController = new AttributesTableViewController(AttributesTableSource);
+			attributesTableViewController.View.BackgroundColor = AppColors.LIGHT_TEAL;
+			
+
 			navController = new MasterImageAddingTableNavigationController(attributesTableViewController);
+			navController.NavigationBar.BackgroundColor = AppColors.DARK_GRAY;
+
 			AttributesTableSource.AttributeRowToController += GetAttributeRowSelected;
 			AttributesTableSource.ReloadCollectionView += ReloadCollectionViewAll;
 
@@ -38,6 +43,7 @@ namespace Categories
 
 			//delegate for finish button
 			navController.getFinishButton().Clicked += BtnFinishedClicked_TouchUpInside;
+			navController.getFinishButton().TintColor = AppColors.LIGHT_TEAL;
 		}
 
 		public override void ViewWillAppear(bool animated)

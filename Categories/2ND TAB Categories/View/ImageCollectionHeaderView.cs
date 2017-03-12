@@ -28,14 +28,11 @@ namespace Categories
 		{
 			return btnSelect;
 		}
-		public UIButton getRandomizeButton()
+		public UISegmentedControl getRandomOrderSegmentControl()
 		{
-			return btnRandom;
+			return ViewSegmentControl;
 		}
-		public UIButton getInOrderButton()
-		{
-			return btnInOrder;
-		}
+
 
 		public UITextField getImageStackTextbox()
 		{
@@ -47,17 +44,10 @@ namespace Categories
         public override void AwakeFromNib()
         {
             base.AwakeFromNib();
-
-            btnRandom.BackgroundColor = UIColor.FromRGB(63, 133, 244);
-            btnRandom.SetTitleColor(UIColor.White, UIControlState.Normal);
-            btnRandom.Layer.CornerRadius = 2;
-            btnRandom.Layer.BorderWidth = 1;
-            btnRandom.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
-
-            btnInOrder.SetTitleColor(UIColor.FromRGB(63, 133, 244), UIControlState.Normal);
-            btnInOrder.Layer.CornerRadius = 2;
-            btnInOrder.Layer.BorderWidth = 1;
-            btnInOrder.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
-        }
+			ViewSegmentControl.TintColor = AppColors.PEACH;
+			UITextAttributes text = new UITextAttributes();
+			text.TextColor = AppColors.DARK_GRAY;
+			ViewSegmentControl.SetTitleTextAttributes(text, UIControlState.Normal);
+		}
     }
 }

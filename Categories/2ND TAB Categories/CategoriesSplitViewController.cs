@@ -86,10 +86,12 @@ namespace Categories
 			selectCollectionViewButton.TouchUpInside += CollectionViewSelectButton_TouchUpInside;
 			UIButton AddCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackAddButton();
 			AddCollectionViewButton.TouchUpInside += CollectionViewAddButton_TouchUpInside;
-			UIButton RandomizeCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackRandomButton();
-			RandomizeCollectionViewButton.TouchUpInside += CollectionViewRandomizeButton_TouchUpInside;
-			UIButton InOrderCollectionViewButton = imageStackSplitViewController.returnCollectionViewStackInOrderButton();
-			InOrderCollectionViewButton.TouchUpInside += CollectionViewInOrderButton_TouchUpInside;
+
+			UISegmentedControl RandomizeCollectionSegmentControl = imageStackSplitViewController.returnCollectionViewStackInOrderButton();
+			if (RandomizeCollectionSegmentControl != null)
+			{
+				RandomizeCollectionSegmentControl.ValueChanged += RandomizeCollectionSegmentControl_ValueChanged;
+			}
 		}
 
 		public override void ViewDidDisappear(bool animated)
@@ -136,11 +138,24 @@ namespace Categories
 			 */
 			switch (imageStackSelected.RandomizeImageStack)
 			{
-				case false: imageStackSplitViewController.SetImageStackInOrderButtonSelected();
+				case false:
+					imageStackSplitViewController.returnCollectionViewStackInOrderButton().SelectedSegment = 1;
 					break;
-				case true: imageStackSplitViewController.SetImageStackRandomizeButtonSelected();
+				case true:
+					imageStackSplitViewController.returnCollectionViewStackInOrderButton().SelectedSegment = 0;
 					break;
-				default:  imageStackSplitViewController.SetImageStackInOrderButtonSelected();
+				default:
+					/*
+					 * No Value Stored for this image stack.
+					 * Update the DB to account for this.
+					 */ 
+					if (SelectedImageStack != null)
+					{
+						SelectedImageStack.RandomizeImageStack = false;
+						var result = new DatabaseContext<ImageStackCategory>().Update(SelectedImageStack);
+
+					}
+					imageStackSplitViewController.returnCollectionViewStackInOrderButton().SelectedSegment = 0;
 					break;
 			}
 
@@ -232,39 +247,33 @@ namespace Categories
 
 
 		}
-		void CollectionViewRandomizeButton_TouchUpInside(object sender, EventArgs e)
-		{
-			/* 
-			 * Update the Database result for the randomization of 
-			 * image stacks.
-			 */
-			if (SelectedImageStack != null)
-			{
-				SelectedImageStack.RandomizeImageStack = true;
-				var result = new DatabaseContext<ImageStackCategory>().Update(SelectedImageStack);
-				/*
-				 * Update the Button selection
-				 */
-				imageStackSplitViewController.SetImageStackRandomizeButtonSelected();
-			}
 
-		}
-		void CollectionViewInOrderButton_TouchUpInside(object sender, EventArgs e)
+		void RandomizeCollectionSegmentControl_ValueChanged(object sender, EventArgs e)
 		{
-			/* 
-			 * Update the Database result for the un randomization of 
-			 * image stacks.
-			 */
-			if (SelectedImageStack != null)
+			var selectedSegmentId = (sender as UISegmentedControl).SelectedSegment;
+			switch (selectedSegmentId)
 			{
-				SelectedImageStack.RandomizeImageStack = false;
-				var result = new DatabaseContext<ImageStackCategory>().Update(SelectedImageStack);
-				/*
-				 * Update the Button selection
-				 */
-				imageStackSplitViewController.SetImageStackInOrderButtonSelected();
+				case 0:
+					if (SelectedImageStack != null)
+					{
+						SelectedImageStack.RandomizeImageStack = true;
+						var result = new DatabaseContext<ImageStackCategory>().Update(SelectedImageStack);
+	
+					}					
+					break;
+				case 1:
+					if (SelectedImageStack != null)
+					{
+						SelectedImageStack.RandomizeImageStack = false;
+						var result = new DatabaseContext<ImageStackCategory>().Update(SelectedImageStack);
+
+					}					
+					break;
 			}
 		}
+		 
+
+	
 
 		public void ShowCollectionViewImageStack(bool hidden)
 		{

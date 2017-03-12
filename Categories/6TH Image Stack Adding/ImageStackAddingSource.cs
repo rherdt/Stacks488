@@ -33,6 +33,7 @@ namespace Categories
 			//create the list only if it is for the image stacks
 			SelectedImagesToImageStack = new List<Image>();
 
+
 			//}
 		}
 		public override nint NumberOfSections(UICollectionView collectionView)

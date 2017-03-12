@@ -167,64 +167,16 @@ namespace Categories
 			}
 			return null;
 		}
-		public UIButton returnCollectionViewStackRandomButton()
+
+		public UISegmentedControl returnCollectionViewStackInOrderButton()
 		{
 			if (imageCollectionHeaderView != null)
 			{
-				return imageCollectionHeaderView.getRandomizeButton();
+				return imageCollectionHeaderView.getRandomOrderSegmentControl();
 			}
 			return null;
 		}
-		public UIButton returnCollectionViewStackInOrderButton()
-		{
-			if (imageCollectionHeaderView != null)
-			{
-				return imageCollectionHeaderView.getInOrderButton();
-			}
-			return null;
-		}
-		public void SetImageStackRandomizeButtonSelected()
-		{
-			/*
-			 * Set the ImageStackRandomize Button to Blue
-			 */
 
-			UIButton random = imageCollectionHeaderView.getRandomizeButton();
-			UIButton inOrder = imageCollectionHeaderView.getInOrderButton();
-
-			random.BackgroundColor = AppColors.PEACH;
-			random.SetTitleColor(AppColors.DARK_GRAY,UIControlState.Normal);
-			random.Layer.CornerRadius = 2;
-			random.Layer.BorderWidth = 0;
-			random.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
-
-			inOrder.SetTitleColor(AppColors.DARK_GRAY, UIControlState.Normal);
-			inOrder.Layer.CornerRadius = 2;
-			inOrder.BackgroundColor = UIColor.White;
-			inOrder.Layer.BorderWidth = 0;
-			inOrder.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
-
-		}
-		public void SetImageStackInOrderButtonSelected()
-		{
-			/*
-			 * Set the ImageStackInOrder Button to Blue
-			 */
-			UIButton random = imageCollectionHeaderView.getRandomizeButton();
-			UIButton inOrder = imageCollectionHeaderView.getInOrderButton();
-			inOrder.BackgroundColor = AppColors.PEACH;
-			inOrder.SetTitleColor(AppColors.DARK_GRAY, UIControlState.Normal);
-			inOrder.Layer.CornerRadius = 2;
-			inOrder.Layer.BorderWidth = 0;
-			inOrder.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
-
-			random.SetTitleColor(AppColors.DARK_GRAY, UIControlState.Normal);
-			random.Layer.CornerRadius = 2;
-			random.Layer.BorderWidth = 0;
-			random.BackgroundColor = UIColor.White;
-			random.Layer.BorderColor = new CGColor((nfloat)(63.0 / 255.0), (nfloat)(133.0 / 255.0), (nfloat)(244.0 / 255.0));
-
-		}
 			
 		#endregion
 

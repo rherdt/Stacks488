@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="2ND TAB Categories/ImageStackSplitViewController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppColors.cs">
     <Files>
-      <File FileName="CollectionView/CollectionViewAttributes.cs" Line="20" Column="3" />
-      <File FileName="CollectionView/CollectionViewController.cs" Line="21" Column="32" />
-      <File FileName="2ND TAB Categories/CollectionViewImageStack.cs" Line="46" Column="55" />
-      <File FileName="CollectionView/CollectionViewImageStackSource.cs" Line="51" Column="5" />
-      <File FileName="2ND TAB Categories/ImageStackSplitViewController.cs" Line="215" Column="46" />
-      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="248" Column="1" />
+      <File FileName="2ND TAB Categories/ImageStackSplitViewController.cs" Line="179" Column="1" />
+      <File FileName="2ND TAB Categories/View/ImageCollectionHeaderView.cs" Line="48" Column="1" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="139" Column="1" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingCollectionView.cs" Line="67" Column="1" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingSource.cs" Line="35" Column="4" />
+      <File FileName="6TH Image Stack Adding/ImageStackAddingSplitViewController.cs" Line="18" Column="35" />
+      <File FileName="3RD TAB Attributes/PopupAttributes.cs" Line="62" Column="1" />
+      <File FileName="AppColors.cs" Line="15" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />

@@ -57,14 +57,13 @@ namespace Categories
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 			CollectionView.CollectionViewLayout = layout;
 
-			CollectionView.BackgroundColor = UIColor.White;
+			CollectionView.BackgroundColor = AppColors.LIGHT_TEAL;
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 
 
 			CollectionView.RegisterClassForCell(typeof(UserCellAttribute2), UserCellAttribute2.CellID);
 			CollectionView.ShowsHorizontalScrollIndicator = true;
 			CollectionView.Source = CollectionViewSource;
-			//UpdateImages(new DatabaseContext<Image>().GetQuery("SELECT * FROM Image"));
 		}
 
 		public override void ViewWillAppear(bool animated)

@@ -9,10 +9,6 @@
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.csprojResolveAssemblyReference.cache
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Add Icon.png
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Apple-Icon.png
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Categories Icon.png
@@ -26,3 +22,6 @@
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Right-Arrow-Icon.png
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Small Arrow Icon.png
 /Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Star-Icon.png
+/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
+/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
+/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb

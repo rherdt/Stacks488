@@ -20,14 +20,6 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnInOrder { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnRandom { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnSelect { get; set; }
 
         [Outlet]
@@ -38,21 +30,15 @@ namespace Categories
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField txtImageStack { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISegmentedControl ViewSegmentControl { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (btnAdd != null) {
                 btnAdd.Dispose ();
                 btnAdd = null;
-            }
-
-            if (btnInOrder != null) {
-                btnInOrder.Dispose ();
-                btnInOrder = null;
-            }
-
-            if (btnRandom != null) {
-                btnRandom.Dispose ();
-                btnRandom = null;
             }
 
             if (btnSelect != null) {
@@ -68,6 +54,11 @@ namespace Categories
             if (txtImageStack != null) {
                 txtImageStack.Dispose ();
                 txtImageStack = null;
+            }
+
+            if (ViewSegmentControl != null) {
+                ViewSegmentControl.Dispose ();
+                ViewSegmentControl = null;
             }
         }
     }
