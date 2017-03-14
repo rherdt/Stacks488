@@ -48,7 +48,7 @@ namespace Categories
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 			CollectionView.Frame = new CGRect(0, 30, View.Bounds.Width / 1.6, View.Bounds.Height);
-			CollectionView.BackgroundColor = AppColors.TableBackgroundColor;
+			CollectionView.BackgroundColor = AppColors.LIGHT_TEAL;
 			var longPressGesture = new UILongPressGestureRecognizer(gesture =>
 			{
 

@@ -12,7 +12,7 @@ namespace Categories
 		public ImagesTableViewController(TableSourceRanImages ranImagesSource)
 		{
 			table = new UITableView();
-			table.BackgroundColor = AppColors.TableBackgroundColor;
+			table.BackgroundColor = AppColors.LIGHT_TEAL;
 			source = ranImagesSource;
 			View = table;
 			table.Source = source;

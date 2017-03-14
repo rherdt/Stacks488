@@ -8,7 +8,6 @@ namespace Categories
 {
 	public partial class SessionController : UIViewController
 	{
-		static UIColor BGColor = AppColors.TableBackgroundColor;
 
 		int CurrentImageIndex = 0;
 		int CurrentImageStack = 0;

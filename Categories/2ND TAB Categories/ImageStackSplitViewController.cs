@@ -30,7 +30,7 @@ namespace Categories
 			ImageStackNavigationController = imageStackNavigationController;
 			collectionsNavigationController = collectionsNav;
 			ViewControllers = new UIViewController[] { ImageStackNavigationController, collectionsNavigationController };
-			View.BackgroundColor = AppColors.TableBackgroundColor;
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 		}
 
 		#region View Methods

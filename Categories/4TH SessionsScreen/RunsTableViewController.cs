@@ -13,7 +13,7 @@ namespace Categories
         public RunsTableViewController(Profiles profileRow)
         {
             table = new UITableView();
-			table.BackgroundColor = AppColors.TableBackgroundColor;
+			table.BackgroundColor = AppColors.LIGHT_TEAL;
 			List<Session> sessionsByID = new DatabaseContext<Session>().GetQuery("SELECT * FROM Session WHERE ParentProfileID = ?", profileRow.ID.ToString());
 			source = new TableSourceSessions(sessionsByID);
 			Title = "";

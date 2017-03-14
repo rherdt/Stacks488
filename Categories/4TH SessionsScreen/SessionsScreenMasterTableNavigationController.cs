@@ -17,7 +17,7 @@ namespace Categories
             tableViewController.tableController.NavigationItem.RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, e) => HandleTouchUpInside(sender, e));
         
 			NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
-			NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
+			NavigationBar.BarTintColor = AppColors.DARK_GRAY;
 			NavigationBar.TintColor = UIColor.White;
 		}
 

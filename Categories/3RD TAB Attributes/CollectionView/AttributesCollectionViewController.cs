@@ -42,7 +42,7 @@ namespace Categories
 			 */
 		
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
-			CollectionView.BackgroundColor = AppColors.TableBackgroundColor;
+			CollectionView.BackgroundColor = AppColors.LIGHT_TEAL;
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
 
 			CollectionView.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);

@@ -1,27 +1,28 @@
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll.mdb
-/Users/DQ/Github/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.xml
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Add Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Apple-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Categories Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Hand-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Help-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Images Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Incorrect-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Individual-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Left-Arrow-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Profiles Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Right-Arrow-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Small Arrow Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Star-Icon.png
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
-/Users/DQ/Github/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.batteries_green.dll
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.core.dll
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLitePCLRaw.provider.sqlite3.dll
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.dll.mdb
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/bin/iPhoneSimulator/Debug/SQLite-net.xml
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Add Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Apple-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Categories Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Hand-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Help-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Images Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Incorrect-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Individual-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Left-Arrow-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Profiles Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Right-Arrow-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Small Arrow Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/Star-Icon.png
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/optimized/
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.exe.mdb
+/Users/jesussaldana/Dropbox/EWU/Senior_Project/Stacks488/Categories/obj/iPhoneSimulator/Debug/Categories.csprojResolveAssemblyReference.cache

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="splitview2_3"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -7,10 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinishScreenController">
             <connections>
-                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
                 <outlet property="btnNo" destination="9" id="name-outlet-9"/>
                 <outlet property="btnTemp" destination="168" id="name-outlet-168"/>
                 <outlet property="btnYes" destination="257" id="name-outlet-257"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+                <outlet property="lblPercentage" destination="313" id="name-outlet-313"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,111 +22,106 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="357" y="487" width="95" height="45"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <state key="normal" title="NO">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleColor" colorSpace="calibratedRGB" red="1" green="0" blue="0" alpha="1"/>
-                    </state>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="210" misplaced="YES">
+                    <rect key="frame" x="117" y="281" width="466" height="85"/>
                     <constraints>
-                        <constraint id="334" firstAttribute="width" constant="95"/>
-                        <constraint id="335" firstAttribute="height" constant="45"/>
+                        <constraint firstAttribute="width" constant="466" id="1Jw-Hi-D3y"/>
+                        <constraint firstAttribute="height" constant="85" id="5ON-Eb-dID"/>
                     </constraints>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="168" translatesAutoresizingMaskIntoConstraints="NO" enabled="NO">
-                    <rect key="frame" x="20" y="42" width="560" height="162"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="85"/>
-                    <state key="normal" title="You Did It!">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
-                    </state>
-                    <connections>
-                        <action selector="BtnTemp_TouchUpInside:" destination="-1" id="261" eventType="touchUpInside"/>
-                    </connections>
-                    <constraints>
-                        <constraint id="322" firstAttribute="width" constant="560"/>
-                        <constraint id="323" firstAttribute="height" constant="162"/>
-                    </constraints>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="210" translatesAutoresizingMaskIntoConstraints="NO" enabled="NO">
-                    <rect key="frame" x="169" y="383" width="251" height="85"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Save Run Data?">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
                     </state>
-                    <connections>
-                        <action selector="UIButton168_TouchUpInside:" destination="212" id="211" eventType="touchUpInside"/>
-                    </connections>
-                    <constraints>
-                        <constraint id="330" firstAttribute="width" constant="251"/>
-                        <constraint id="331" firstAttribute="height" constant="85"/>
-                    </constraints>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="257" translatesAutoresizingMaskIntoConstraints="NO">
-                    <rect key="frame" x="155" y="487" width="95" height="45"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="257">
+                    <rect key="frame" x="88" y="380" width="215" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="C7w-6h-QxA"/>
+                        <constraint firstAttribute="width" constant="215" id="DdH-lA-IeE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="YES">
+                        <color key="titleColor" red="0.047058823529411764" green="0.37647058823529411" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleColor" colorSpace="calibratedRGB" red="0" green="1" blue="0" alpha="1"/>
                     </state>
-                    <constraints>
-                        <constraint id="338" firstAttribute="width" constant="95"/>
-                        <constraint id="339" firstAttribute="height" constant="45"/>
-                    </constraints>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="313" translatesAutoresizingMaskIntoConstraints="NO" enabled="NO">
-                    <rect key="frame" x="200" y="229" width="206" height="134"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                    <state key="normal" title="100%">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleColor" colorSpace="calibratedWhite" white="0.333333333333333" alpha="1"/>
-                    </state>
-                    <connections>
-                        <action selector="UIButton168_TouchUpInside:" destination="315" id="314" eventType="touchUpInside"/>
-                        <action selector="UIButton313_TouchUpInside:" destination="-1" id="356" eventType="touchUpInside"/>
-                    </connections>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="313" misplaced="YES">
+                    <rect key="frame" x="117" y="174" width="466" height="99"/>
                     <constraints>
-                        <constraint id="354" firstAttribute="width" constant="206"/>
-                        <constraint id="355" firstAttribute="height" constant="134"/>
+                        <constraint firstAttribute="width" constant="466" id="7nh-Hs-9jJ"/>
+                        <constraint firstAttribute="height" constant="99" id="SbO-0A-HdV"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                    <state key="normal" title="100%">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="168" misplaced="YES">
+                    <rect key="frame" x="112" y="39" width="471" height="127"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="471" id="7Cb-bd-3BS"/>
+                        <constraint firstAttribute="height" constant="127" id="d8e-5z-0D0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                    <state key="normal" title="You Did It!">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                    <rect key="frame" x="390" y="380" width="198" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="W11-Xa-ewm"/>
+                        <constraint firstAttribute="width" constant="198" id="jO1-LJ-MJ0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="NO">
+                        <color key="titleColor" red="0.792156862745098" green="0.098039215686274508" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="4" y="-5"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="168" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="112" id="3bt-iu-IYT"/>
+                <constraint firstItem="210" firstAttribute="top" secondItem="313" secondAttribute="bottom" constant="8" id="CQy-bs-w9M"/>
+                <constraint firstItem="313" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="117" id="EH7-hK-n8V"/>
+                <constraint firstItem="313" firstAttribute="top" secondItem="168" secondAttribute="bottom" constant="8" id="HNI-JJ-IXy"/>
+                <constraint firstAttribute="trailing" secondItem="210" secondAttribute="trailing" constant="111" id="LOI-YC-2ni"/>
+                <constraint firstItem="210" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="117" id="Mxl-bF-ErL"/>
+                <constraint firstItem="257" firstAttribute="top" secondItem="210" secondAttribute="bottom" constant="14" id="RdF-Ub-LEh"/>
+                <constraint firstAttribute="trailing" secondItem="168" secondAttribute="trailing" constant="111" id="Uvm-YU-A2A"/>
+                <constraint firstItem="168" firstAttribute="top" secondItem="2" secondAttribute="top" constant="39" id="bnF-a4-9rB"/>
+                <constraint firstItem="9" firstAttribute="leading" secondItem="257" secondAttribute="trailing" constant="87" id="mdv-Bx-DZZ"/>
+                <constraint firstItem="9" firstAttribute="top" secondItem="210" secondAttribute="bottom" constant="14" id="s5T-on-GON"/>
+                <constraint firstAttribute="trailing" secondItem="313" secondAttribute="trailing" constant="111" id="wxW-T6-cw4"/>
+            </constraints>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
-                    <real key="value" value="10"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <real key="value" value="25"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
-            <constraints>
-                <constraint id="320" firstItem="2" firstAttribute="trailing" secondItem="168" secondAttribute="trailing" constant="20"/>
-                <constraint id="321" firstItem="168" firstAttribute="top" secondItem="2" secondAttribute="top" constant="42"/>
-                <constraint id="328" firstItem="210" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="169"/>
-                <constraint id="329" firstItem="2" firstAttribute="bottom" secondItem="210" secondAttribute="bottom" constant="132"/>
-                <constraint id="332" firstItem="2" firstAttribute="trailing" secondItem="9" secondAttribute="trailing" constant="148"/>
-                <constraint id="333" firstItem="2" firstAttribute="bottom" secondItem="9" secondAttribute="bottom" constant="68"/>
-                <constraint id="336" firstItem="257" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="155"/>
-                <constraint id="337" firstItem="2" firstAttribute="bottom" secondItem="257" secondAttribute="bottom" constant="68"/>
-                <constraint id="344" firstItem="257" firstAttribute="top" secondItem="210" secondAttribute="bottom" constant="19"/>
-                <constraint id="345" firstItem="9" firstAttribute="top" secondItem="210" secondAttribute="bottom" constant="19"/>
-                <constraint id="348" firstItem="168" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20"/>
-                <constraint id="352" firstItem="2" firstAttribute="trailing" secondItem="313" secondAttribute="trailing" constant="194"/>
-                <constraint id="357" firstItem="313" firstAttribute="top" secondItem="168" secondAttribute="bottom" constant="25"/>
-                <constraint id="358" firstItem="313" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="200"/>
-                <constraint id="365" firstItem="210" firstAttribute="top" secondItem="313" secondAttribute="bottom" constant="20"/>
-                <constraint id="368" firstItem="2" firstAttribute="trailing" secondItem="210" secondAttribute="trailing" constant="180"/>
-            </constraints>
+            <point key="canvasLocation" x="4" y="-5"/>
         </view>
     </objects>
     <resources>
         <image name="placeholder.jpg" width="1809" height="1920"/>
-        <image name="categories.png" width="30" height="30"/>
-        <image name="images.png" width="30" height="30"/>
-        <image name="profiles.png" width="30" height="30"/>
-        <image name="minus.png" width="600" height="600"/>
-        <image name="neutral.png" width="200" height="200"/>
-        <image name="plus.png" width="256" height="256"/>
+        <image name="Add Icon.png" width="34" height="33"/>
+        <image name="Apple-Icon.png" width="46" height="42"/>
+        <image name="Categories Icon.png" width="74" height="66"/>
+        <image name="Hand-Icon.png" width="43" height="52"/>
+        <image name="Help-Icon.png" width="127" height="104"/>
+        <image name="Images Icon.png" width="53" height="61"/>
+        <image name="Incorrect-Icon.png" width="89" height="88"/>
+        <image name="Individual-Icon.png" width="94" height="95"/>
+        <image name="Left-Arrow-Icon.png" width="102" height="182"/>
+        <image name="Profiles Icon.png" width="64" height="63"/>
+        <image name="Right-Arrow-Icon.png" width="101" height="163"/>
+        <image name="Small Arrow Icon.png" width="23" height="33"/>
+        <image name="Star-Icon.png" width="41" height="37"/>
     </resources>
 </document>

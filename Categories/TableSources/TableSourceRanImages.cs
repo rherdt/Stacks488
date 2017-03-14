@@ -20,7 +20,7 @@ namespace Categories
 		{
 			TableItems = list;
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
+			cellBackgroundColor.BackgroundColor = AppColors.PEACH;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -31,14 +31,14 @@ namespace Categories
 		public override UIView GetViewForHeader(UITableView tableView, nint section)
 		{
 			UIView headerView = new UIView();
-			headerView.BackgroundColor = AppColors.TableBackgroundColor;
+			headerView.BackgroundColor = AppColors.LIGHT_TEAL;
 			return headerView;
 		}
 
 		public override UIView GetViewForFooter(UITableView tableView, nint section)
 		{
 			UIView footerView = new UIView();
-			footerView.BackgroundColor = AppColors.TableBackgroundColor;
+			footerView.BackgroundColor = AppColors.LIGHT_TEAL;
 			return footerView;
 		}
 
@@ -61,11 +61,7 @@ namespace Categories
 			return TableItems.Count;
 		}
 
-		public override void RowSelected(UITableView tableView, Foundation.NSIndexPath indexPath)
-		{
-			//tableView.DeselectRow(indexPath, true);
-			//tableView.ReloadData();
-		}
+
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
@@ -82,6 +78,8 @@ namespace Categories
 			var imageName = new DatabaseContext<Image>().GetQuery("SELECT Title FROM Image WHERE ID = ?", TableItems[count].SessionImageID.ToString());
 			var image = Utilities.GetUIImageFromFileNameThumbnail(Resultfilename[0].FileName);
 			cell.SelectedBackgroundView = cellBackgroundColor;
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
 			cell.UpdateCell(imageName[0].Title, image, TableItems[count].ResultString);
 			count++;
 			//tableView.ReloadData();

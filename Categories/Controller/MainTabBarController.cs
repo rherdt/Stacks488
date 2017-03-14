@@ -21,15 +21,16 @@ namespace Categories
 
 			ProfilesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Profiles Icon.png"), 0);
 			ProfilesTab.Title = "Profiles";
-			ProfilesTab.View.BackgroundColor = AppColors.TableBackgroundColor;
-			TabBar.TintColor = AppColors.DARK_GRAY;
+			ProfilesTab.View.BackgroundColor = AppColors.LIGHT_TEAL;
+			//TabBar.TintColor = AppColors.DARK_GRAY;
+
 
 			CategoriesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Categories Icon.png"), 0);
 			CategoriesTab.Title = "Categories";
 
 			ImagesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Images Icon.png"), 0);
 			ImagesTab.Title = "Images";
-			ImagesTab.View.BackgroundColor = AppColors.TableBackgroundColor;
+			ImagesTab.View.BackgroundColor = AppColors.LIGHT_TEAL;
 
 			SessionScreen.TabBarItem.Enabled = false;
 			ImageStackAddingScreen.TabBarItem.Enabled = false;
@@ -43,7 +44,7 @@ namespace Categories
 			ViewControllers = tabs;
 
 			SelectedViewController = ProfilesTab;
-			this.TabBar.BarTintColor = UIColor.FromRGB(186, 186, 186);
+			this.TabBar.BarTintColor = AppColors.DARK_GRAY;
 			this.TabBar.SelectedImageTintColor = UIColor.White;
 			UITextAttributes attr = new UITextAttributes();
 			attr.TextColor = UIColor.White;
@@ -53,9 +54,8 @@ namespace Categories
 			ImagesTab.TabBarItem.SetTitleTextAttributes(attr, UIControlState.Normal);
 		}
 
-		public MainTabBarController (IntPtr handle) : base (handle)
-        {
-        }
+		public MainTabBarController (IntPtr handle) : base (handle) { }
+
 		public override bool ShouldAutorotate()
 		{
 			return true;

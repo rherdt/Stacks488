@@ -28,6 +28,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48">
                     <rect key="frame" x="-5" y="75" width="88" height="30"/>
@@ -81,11 +82,23 @@
     </objects>
     <resources>
         <image name="placeholder.jpg" width="1809" height="1920"/>
-        <image name="categories.png" width="30" height="30"/>
         <image name="images.png" width="30" height="30"/>
         <image name="profiles.png" width="30" height="30"/>
         <image name="minus.png" width="600" height="600"/>
         <image name="neutral.png" width="200" height="200"/>
         <image name="plus.png" width="256" height="256"/>
+        <image name="Add Icon.png" width="34" height="33"/>
+        <image name="Apple-Icon.png" width="46" height="42"/>
+        <image name="Categories Icon.png" width="74" height="66"/>
+        <image name="Hand-Icon.png" width="43" height="52"/>
+        <image name="Help-Icon.png" width="127" height="104"/>
+        <image name="Images Icon.png" width="53" height="61"/>
+        <image name="Incorrect-Icon.png" width="89" height="88"/>
+        <image name="Individual-Icon.png" width="94" height="95"/>
+        <image name="Left-Arrow-Icon.png" width="102" height="182"/>
+        <image name="Profiles Icon.png" width="64" height="63"/>
+        <image name="Right-Arrow-Icon.png" width="101" height="163"/>
+        <image name="Small Arrow Icon.png" width="23" height="33"/>
+        <image name="Star-Icon.png" width="41" height="37"/>
     </resources>
 </document>

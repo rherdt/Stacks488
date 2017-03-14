@@ -32,7 +32,7 @@ namespace Categories
 
 		public NewSessionSplitViewController()
 		{
-			View.BackgroundColor = AppColors.TableBackgroundColor;
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 		}
 
 		public void InitializeRunsControllerFields(UITableViewSource sessionSource, Profiles profileRow)
@@ -47,9 +47,9 @@ namespace Categories
 			imageTableViewController = new ImagesTableViewController(RanImagesSource);
 			imageTableViewController.View.Hidden = true;
 			imagesTableviewNavController = new UINavigationController(imageTableViewController);
-			imagesTableviewNavController.View.BackgroundColor = AppColors.TableBackgroundColor;
+			imagesTableviewNavController.View.BackgroundColor = AppColors.LIGHT_TEAL;
 			imagesTableviewNavController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
-			imagesTableviewNavController.NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
+			imagesTableviewNavController.NavigationBar.BarTintColor = AppColors.DARK_GRAY;
 
 			//source assignments
 			SessionSource = (TableSourceSessions)sessionSource;
@@ -60,7 +60,7 @@ namespace Categories
 			SessionSource.HideTable += ShowImagesTableHandler;
 
 			navigationController = new UINavigationController(ranSessions);
-			navigationController.NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
+			navigationController.NavigationBar.BarTintColor = AppColors.DARK_GRAY;
 			//navigationController.NavigationBar.TitleTextAttributes = new UIStringAttributes() { Font = UIFont.FromName("Arial", 12f)};
 			runsSplitViewController = new RunsSplitViewController(ranSessions, navigationController, imagesTableviewNavController);
 			runsSplitViewController.View.Hidden = true;
@@ -150,7 +150,7 @@ namespace Categories
 			if (hidden)
 			{
 				runsSplitViewController.View.Hidden = false;
-				runsSplitViewController.View.BackgroundColor = AppColors.TableBackgroundColor;
+				runsSplitViewController.View.BackgroundColor = AppColors.LIGHT_TEAL;
 			}
 		}
 		#endregion
@@ -180,7 +180,7 @@ namespace Categories
 			if (hidden)
 			{
 				imageTableViewController.View.Hidden = false;
-				imageTableViewController.View.BackgroundColor = AppColors.TableBackgroundColor;
+				imageTableViewController.View.BackgroundColor = AppColors.LIGHT_TEAL;
 			}
 		}
 	}

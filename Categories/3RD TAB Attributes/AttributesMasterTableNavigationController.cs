@@ -30,7 +30,7 @@ namespace Categories
 			tableViewController.tableController.NavigationItem.RightBarButtonItem.TintColor = UIColor.White;
 
 			NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
-			NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
+			NavigationBar.BarTintColor = AppColors.DARK_GRAY;
 
 		}
 

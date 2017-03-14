@@ -13,7 +13,7 @@ namespace Categories
         {
             var arr = NSBundle.MainBundle.LoadNib("ImageStackHeaderView", null, null);
             var v = Runtime.GetNSObject<ImageStackHeaderView>(arr.ValueAt(0));
-			v.BackgroundColor = AppColors.NavigationBarBackgroundColor;
+			v.BackgroundColor = AppColors.DARK_GRAY;
 			v.AddButton.TintColor = UIColor.White;
 			v.lblCategory.TextColor = UIColor.White;
 			v.lblImageStack.TextColor = UIColor.White;

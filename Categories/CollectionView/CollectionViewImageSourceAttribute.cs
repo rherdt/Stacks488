@@ -62,28 +62,24 @@ namespace Categories
 			 */
 			if (isAttributesTab)
 			{
-				//unlick the previous image
-
+				//unclick the previous image
 				if (prevImageSelected != null && prevImageSelected != indexPath)
 				{
-					var pCell = (UserCellAttribute)collectionView.CellForItem(prevImageSelected);
 					Cells[prevImageSelected.Row].isSelected = false;
-					prevCell.ImageView.Alpha = 1.0f;
-					prevCell.Layer.BorderColor = UIColor.Clear.CGColor;
-					/*
-					if (pCell != null)
-					{
-						
-					}
-					Cells[prevImageSelected.Row].isSelected = false;*/
+					prevCell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
+					prevCell.ImageView.Layer.BorderWidth = 1f;
+					prevCell.ImageView.Layer.CornerRadius = 1f;
+					prevCell.ImageView.Layer.MasksToBounds = true;
+					//prevCell.ImageView.Alpha = 1.0f;
 				}
 
 
 				//always highlight the currently selected image
 				//cell.ImageView.Alpha = 0.5f;
-				cell.Layer.BorderWidth = 10;
-				cell.Layer.CornerRadius = 10;
-				cell.Layer.BorderColor = AppColors.PEACH.CGColor;
+				cell.ImageView.Layer.BorderColor = AppColors.PEACH.CGColor;
+				cell.ImageView.Layer.BorderWidth = 10f;
+				cell.ImageView.Layer.CornerRadius = 1f;
+				cell.ImageView.Layer.MasksToBounds = true;
 				Cells[indexPath.Row].isSelected = true;
 				prevCell = (UserCellAttribute)collectionView.CellForItem(indexPath);
 			}
@@ -95,19 +91,23 @@ namespace Categories
 			{
 				if (Clicked.isSelected)
 				{
+					cell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
+					cell.ImageView.Layer.BorderWidth = 1f;
+					cell.ImageView.Layer.CornerRadius = 1f;
+					cell.ImageView.Layer.MasksToBounds = true;
 					//cell.ImageView.Alpha = 1.0f;
-					cell.Layer.BorderWidth = 10;
-					cell.Layer.CornerRadius = 10;
-					cell.Layer.BorderColor = AppColors.PEACH.CGColor;
 					Clicked.isSelected = false;
 					//remove the object from the list
 					SelectedImagesToImageStack.Remove(Clicked.ImgOBJ);
 				}
 				else
 				{
+					cell.ImageView.Layer.BorderColor = AppColors.PEACH.CGColor;
+					cell.ImageView.Layer.BorderWidth = 10f;
+					cell.ImageView.Layer.CornerRadius = 1f;
+					cell.ImageView.Layer.MasksToBounds = true;
 					//cell.ImageView.Alpha = 0.5f;
 					Clicked.isSelected = true;
-					cell.Layer.BorderColor = UIColor.Clear.CGColor;
 					//add the image object to the list
 					SelectedImagesToImageStack.Add(Clicked.ImgOBJ);
 				}
@@ -148,7 +148,10 @@ namespace Categories
 					var cell = (UserCellAttribute)mainCollectionView.CellForItem(path);
 					if (cell != null)
 					{
-						cell.ImageView.Alpha = 1.0f;
+						cell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
+						cell.ImageView.Layer.BorderWidth = 1f;
+						cell.ImageView.Layer.CornerRadius = 1f;
+						cell.ImageView.Layer.MasksToBounds = true;
 					}
 				}
 			}
@@ -162,22 +165,7 @@ namespace Categories
 
 			ImageCellAttribute row = Cells[indexPath.Row];
 
-
 			cell.UpdateRow(row, ImageViewSize);
-			/*
-			if (Cells[indexPath.Row].isSelected == false)
-			{
-				cell.ImageView.Alpha = 1.0f;
-			}
-			else
-			{
-				cell.ImageView.Alpha = 0.5f;
-			}
-
-
-			cell.ImageView.Alpha = 1.0f;*/
-
-
 			return cell;
 		}
 		public override bool CanMoveItem(UICollectionView collectionView, NSIndexPath indexPath)
@@ -227,7 +215,7 @@ namespace Categories
 			ImageView = new UIImageView();
 			ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
 			ImageView.Layer.BorderWidth = 1f;
-			ImageView.Layer.CornerRadius = 3f;
+			ImageView.Layer.CornerRadius = 1f;
 			ImageView.Layer.MasksToBounds = true;
 			ImageView.ContentMode = UIViewContentMode.ScaleToFill;
 
@@ -242,7 +230,7 @@ namespace Categories
 		{
 
 			ImageView.Image = Utilities.GetUIImageFromFileNameThumbnail(element.ImgOBJ.FileName);
-			ImageView.Layer.CornerRadius = 20f;
+			//ImageView.Layer.CornerRadius = 20f;
 			ImageView.Frame = new RectangleF(0, 0, imageViewSize.Width, imageViewSize.Height);
 
 		}

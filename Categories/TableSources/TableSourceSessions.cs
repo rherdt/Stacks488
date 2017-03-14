@@ -24,14 +24,14 @@ namespace Categories
 		public TableSourceSessions()
 		{
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
+			cellBackgroundColor.BackgroundColor = AppColors.PEACH;
 		}
 
 		public TableSourceSessions(List<Session> list)
 		{
 			TableItems = list;
 			cellBackgroundColor = new UIView();
-			cellBackgroundColor.BackgroundColor = AppColors.CellBackgroundColor;
+			cellBackgroundColor.BackgroundColor = AppColors.PEACH;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
@@ -42,14 +42,14 @@ namespace Categories
 		public override UIView GetViewForHeader(UITableView tableView, nint section)
 		{
 			UIView headerView = new UIView();
-			headerView.BackgroundColor = AppColors.TableBackgroundColor;
+			headerView.BackgroundColor = AppColors.LIGHT_TEAL;
 			return headerView;
 		}
 
 		public override UIView GetViewForFooter(UITableView tableView, nint section)
 		{
 			UIView footerView = new UIView();
-			footerView.BackgroundColor = AppColors.TableBackgroundColor;
+			footerView.BackgroundColor = AppColors.LIGHT_TEAL;
 			return footerView;
 		}
 

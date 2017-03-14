@@ -19,7 +19,7 @@ namespace Categories
             tableController = new UITableViewController();
             //tableController.Title = "Categories";
             table = new UITableView();
-			table.BackgroundColor = AppColors.TableBackgroundColor;
+			table.BackgroundColor = AppColors.LIGHT_TEAL;
 			source = tableCategories;
             table.Source = (UITableViewSource)source;
             tableController.View = table;

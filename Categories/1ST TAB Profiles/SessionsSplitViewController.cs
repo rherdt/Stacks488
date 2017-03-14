@@ -41,12 +41,12 @@ namespace Categories
 
 			sessionsTableViewController = sessions;
 			blankView = new UIViewController();
-			blankView.View.BackgroundColor = AppColors.TableBackgroundColor;
+			blankView.View.BackgroundColor = AppColors.LIGHT_TEAL;
 			//CollectionView = collection;
 			//CollectionView.View.BackgroundColor = UIColor.White;
 			navigationController = navcontroller;
 			ViewControllers = new UIViewController[] { navigationController, blankView };
-			View.BackgroundColor = AppColors.TableBackgroundColor;
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 		}
 
 		#region View Methods

@@ -11,7 +11,7 @@ namespace Categories
         public SessionsTableViewController(TableSourceSessions sessionSource) : base()
         {
             table = new UITableView();
-			table.BackgroundColor = AppColors.TableBackgroundColor;
+			table.BackgroundColor = AppColors.LIGHT_TEAL;
             source = sessionSource;
             View = table;
             table.Source = source;

@@ -43,7 +43,7 @@ namespace Categories
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-
+			setPercentageLabel();
 			btnYes.TouchUpInside += (sender, e) =>
 			{
 
@@ -89,9 +89,22 @@ namespace Categories
 			base.ViewWillLayoutSubviews();
 			float _WSpacing = (float)this.View.Bounds.Width / 6.0f;
 			float _HSpacing = (float)this.View.Bounds.Height / 6.0f;
-			RectangleF size = new RectangleF(_WSpacing, _HSpacing, (float)this.View.Bounds.Width - _WSpacing, (float)this.View.Bounds.Height - _HSpacing);
+			RectangleF size = new RectangleF(_WSpacing + 160, _HSpacing + 50, 500, 500);
 			this.View.Frame = size;
 
+		}
+
+		void setPercentageLabel()
+		{
+			if (_Attempted == 0)
+			{
+				lblPercentage.SetTitle("0%", UIControlState.Disabled);
+			}
+			else
+			{
+				int p = (int)Math.Round((double)(100 * _Correct) / _Attempted);
+				lblPercentage.SetTitle(p.ToString() + "%", UIControlState.Disabled);
+			}
 		}
 
 		#region Set Methods

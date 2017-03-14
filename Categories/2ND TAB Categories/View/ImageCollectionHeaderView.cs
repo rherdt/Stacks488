@@ -15,7 +15,7 @@ namespace Categories
         {
             var arr = NSBundle.MainBundle.LoadNib("ImageCollectionHeaderView", null, null);
             var v = Runtime.GetNSObject<ImageCollectionHeaderView>(arr.ValueAt(0));
-			v.BackgroundColor = AppColors.NavigationBarBackgroundColor;
+			v.BackgroundColor = AppColors.DARK_GRAY;
 			v.btnAdd.TintColor = UIColor.White;
 			v.btnSelect.TintColor = UIColor.White;
 			v.lblStackName.TextColor = UIColor.White;

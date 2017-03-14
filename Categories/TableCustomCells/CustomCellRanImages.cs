@@ -8,7 +8,6 @@ public class CustomCellRanImages : UITableViewCell
 {
 	UILabel nameLabel;
 	UIImageView img, result;
-	int additionModifier = 40;
 
 	public CustomCellRanImages(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
 	{
@@ -39,9 +38,9 @@ public class CustomCellRanImages : UITableViewCell
 
  	void chooseOutcomeImage(string outcome)
 	{
-		if (outcome.Equals("I")) { result.Image = UIImage.FromFile("plus.png"); }
-		else if (outcome.Equals("P")) { result.Image = UIImage.FromFile("neutral.png"); }
-		else if (outcome.Equals("M")) { result.Image = UIImage.FromFile("minus.png"); }
+		if (outcome.Equals("I")) { result.Image = UIImage.FromFile("Individual-Icon.png"); }
+		else if (outcome.Equals("P")) { result.Image = UIImage.FromFile("Help-Icon.png"); }
+		else if (outcome.Equals("M")) { result.Image = UIImage.FromFile("Incorrect-Icon.png"); }
 		LayoutSubviews();
 	}
 
@@ -54,8 +53,8 @@ public class CustomCellRanImages : UITableViewCell
 	{
 		base.LayoutSubviews();
 
-		img.Frame = new CGRect(3, 3, ContentView.Bounds.Width / 6, ContentView.Bounds.Height - 5);
+		img.Frame = new CGRect(3, 3, 35, 35);
 		nameLabel.Frame = new CGRect(ContentView.Bounds.Width / 6 + 10, 3, ContentView.Bounds.Width / 3, ContentView.Bounds.Height - 5);
-		result.Frame = new CGRect((ContentView.Bounds.Width / 6) + (ContentView.Bounds.Width / 3) + 140, 15, 25, 25);
+		result.Frame = new CGRect((ContentView.Bounds.Width / 6) + (ContentView.Bounds.Width / 3) + 140, 10, 25, 25);
 	}
 }

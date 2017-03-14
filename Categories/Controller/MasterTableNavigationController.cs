@@ -27,7 +27,7 @@ namespace Categories
 			tableViewController.tableController.NavigationItem.LeftBarButtonItem = leftItem;
 
 			NavigationBar.TitleTextAttributes = new UIStringAttributes() { ForegroundColor = UIColor.White };
-			NavigationBar.BarTintColor = AppColors.NavigationBarBackgroundColor;
+			NavigationBar.BarTintColor = AppColors.DARK_GRAY;
 			NavigationBar.TintColor = UIColor.White;
 
 			this.TableViewController = tableViewController;

@@ -11,7 +11,7 @@ namespace Categories
 		public ImageStackTableViewController(TableSourceImageStack imageStackTable)
         {
             table = new UITableView();
-			table.BackgroundColor = AppColors.TableBackgroundColor;
+			table.BackgroundColor = AppColors.LIGHT_TEAL;
 			source = imageStackTable;
             View = table;
             table.Source = source;

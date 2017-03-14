@@ -40,7 +40,7 @@ namespace Categories
 			//imageStackSplitViewController.View.Hidden = true;
 
 			ViewControllers = new UIViewController[] { categoriesNavigationController, imageStackSplitViewController };
-			View.BackgroundColor = AppColors.TableBackgroundColor;
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 		}
 
 		#region Initialization
@@ -277,12 +277,12 @@ namespace Categories
 
 		public void ShowCollectionViewImageStack(bool hidden)
 		{
-			if (hidden) { collectionsNavigationController.View.Hidden = false; collectionViewController.View.BackgroundColor = AppColors.TableBackgroundColor; }
+			if (hidden) { collectionsNavigationController.View.Hidden = false; collectionViewController.View.BackgroundColor = AppColors.LIGHT_TEAL; }
 		}
 
 		public void ShowImageStackView(bool hidden)
 		{
-			if (hidden) { ImageStackNavigationController.View.Hidden = false; imageStackSplitViewController.View.BackgroundColor = AppColors.TableBackgroundColor; }
+			if (hidden) { ImageStackNavigationController.View.Hidden = false; imageStackSplitViewController.View.BackgroundColor = AppColors.LIGHT_TEAL; }
 		}
 
 		public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation) { return true; }
