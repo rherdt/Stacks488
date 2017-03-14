@@ -120,6 +120,30 @@ namespace Categories
 
         }
 
+		public override void CommitEditingStyle(UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
+		{
+			switch (editingStyle)
+			{
+				case UITableViewCellEditingStyle.Delete:
+					// remove the item from the underlying data source
+
+					int didDelete = new DatabaseContext<Session>().Delete(TableItems[indexPath.Section].ID);
+
+					if (didDelete > 0) //deleted
+					{
+						TableItems.RemoveAt(indexPath.Section);
+						tableView.DeleteSections(NSIndexSet.FromIndex(indexPath.Section), UITableViewRowAnimation.Fade);
+					}
+
+					// delete the row from the table
+					//tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
+					break;
+				case UITableViewCellEditingStyle.None:
+					Console.WriteLine("CommitEditingStyle:None called");
+					break;
+			}
+		}
+
 
     }
 }

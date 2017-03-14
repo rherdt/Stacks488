@@ -151,7 +151,7 @@ namespace Categories
 					if (didDelete > 0) //deleted
 					{
 						TableItems.RemoveAt(indexPath.Section);
-						tableView.DeleteRows(new NSIndexPath[] { indexPath }, UITableViewRowAnimation.Fade);
+						tableView.DeleteSections(NSIndexSet.FromIndex(indexPath.Section), UITableViewRowAnimation.Fade);
 					}
 
 					// delete the row from the table
