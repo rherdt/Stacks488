@@ -61,7 +61,7 @@ namespace Categories
 			{
 				return 0;
 			}
-			return tableItems.Count;
+			return 0;
 		}
 
 		public void SetTableSource(Guid imageID)

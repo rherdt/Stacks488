@@ -37,6 +37,7 @@ namespace Categories
 			//AttributeImageSource = new CollectionViewImageSourceAttribute(false);
 			AttributeImageSource = new ImageStackAddingSource();
 			attributesCollectionView = new ImageStackAddingCollectionView(AttributeImageSource);
+			attributesCollectionView.View.BackgroundColor = AppColors.LIGHT_TEAL;
 			PreferredPrimaryColumnWidthFraction = 0.2f;
 
 			ViewControllers = new UIViewController[] { navController, attributesCollectionView };

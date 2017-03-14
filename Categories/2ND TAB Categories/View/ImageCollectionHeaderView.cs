@@ -46,7 +46,7 @@ namespace Categories
             base.AwakeFromNib();
 			ViewSegmentControl.TintColor = AppColors.PEACH;
 			UITextAttributes text = new UITextAttributes();
-			text.TextColor = AppColors.DARK_GRAY;
+			text.TextColor = UIColor.White;
 			ViewSegmentControl.SetTitleTextAttributes(text, UIControlState.Normal);
 		}
     }

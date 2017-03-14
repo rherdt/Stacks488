@@ -1,23 +1,16 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CollectionView/CollectionViewImageSourceAttribute.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="5TH RunSession/SessionController.cs">
     <Files>
-      <File FileName="TableSources/TableSourceCategories.cs" Line="127" Column="48" />
-      <File FileName="Controller/MainTabBarController.cs" Line="47" Column="51" />
-      <File FileName="AppColors.cs" Line="10" Column="35" />
-      <File FileName="5TH RunSession/SessionController.cs" Line="10" Column="3" />
-      <File FileName="6TH Image Stack Adding/ImageStackAddingCollectionView.cs" Line="13" Column="14" />
-      <File FileName="6TH Image Stack Adding/ImageStackAddingSource.cs" Line="27" Column="4" />
-      <File FileName="TableCustomCells/CustomCellRanImages.cs" Line="54" Column="25" />
-      <File FileName="3RD TAB Attributes/AttributesMasterTableNavigationController.cs" Line="11" Column="27" />
-      <File FileName="CollectionView/CollectionViewAttributes.cs" Line="12" Column="37" />
-      <File FileName="CollectionView/CollectionViewImageSourceAttribute.cs" Line="154" Column="49" />
+      <File FileName="5TH RunSession/SessionController.cs" Line="136" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceImageAttributes.cs" relfile="TableSources/TableSourceImageAttributes.cs" line="145" column="57" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.82C20C84-6F04-481C-ABBC-AC390F91F8A9" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6AF740A9-1C74-4EB3-9651-A8533EDF835D" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -22,8 +22,6 @@ namespace Categories
 			ProfilesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Profiles Icon.png"), 0);
 			ProfilesTab.Title = "Profiles";
 			ProfilesTab.View.BackgroundColor = AppColors.LIGHT_TEAL;
-			//TabBar.TintColor = AppColors.DARK_GRAY;
-
 
 			CategoriesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Categories Icon.png"), 0);
 			CategoriesTab.Title = "Categories";
@@ -63,6 +61,12 @@ namespace Categories
 		public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
 		{
 			return UIInterfaceOrientationMask.Landscape;
+		}
+		public override void ViewDidLoad()
+		{
+			base.ViewDidLoad();
+
+			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.BlackOpaque, false);
 		}
     }
 }

@@ -25,11 +25,9 @@ namespace Categories
 		Category CurrentCategory;
 		Profiles CurrentProfile;
 		bool didChooseAnswer;
-
+	
 		List<List<ImageStackImages>> ImageStack2D;
 		List<String> ImageStackNames;
-
-		UIImageView imageView;
 
 		Random rand = new Random();
 
@@ -63,17 +61,22 @@ namespace Categories
 			UITapGestureRecognizer doubleTap = new UITapGestureRecognizer(HandleDoubleTap);
 			doubleTap.NumberOfTapsRequired = 2;
 
+			UITapGestureRecognizer singleTapRight = new UITapGestureRecognizer(HandleRightArrowClick);
+			singleTapRight.NumberOfTapsRequired = 1;
 
-			//Show image in ImageViewSessionView from ImageDatabase
-			//Images = ImageDatabase.GetAllImagesByOBJ();
-			//get all image stacks from the categoruy
+			UITapGestureRecognizer singleTapLeft = new UITapGestureRecognizer(HandleLeftArrowClick);
+			singleTapLeft.NumberOfTapsRequired = 1;
+
+
+			/*Show image in ImageViewSessionView from ImageDatabase
+			* get all image stacks from the category
+			*/
+
 			List<ImageStackCategory> ImageStacks = new DatabaseContext<ImageStackCategory>().GetQuery("SELECT * From ImageStackCategory WHERE ParentCategoryID = ?", CurrentCategory.ID.ToString());
 			//Get all images from that image stack
 			foreach (ImageStackCategory imageStack in ImageStacks)
 			{
-
 				ImageStackNames.Add(imageStack.ImageStackName.ToString());
-
 				List<ImageStackImages> ImageStackList = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID =? Order By ImageStackIndex ASC", imageStack.ID.ToString());
 
 				//randomize images if enabled
@@ -83,8 +86,6 @@ namespace Categories
 				}
 				ImageStack2D.Add(ImageStackList);
 			}
-
-
 			MissedButton.TouchUpInside += (sender, e) => Missed();
 			UIImage missedImageBtn = UIImage.FromFile("Incorrect-Icon.png");
 			MissedButton.SetImage(missedImageBtn, UIControlState.Normal);
@@ -103,24 +104,35 @@ namespace Categories
 				 * Finished Button Handler
 				 * Return to the homescreen.
 				 */
-
 				finishedScreen.setSession(_Session);
 				finishedScreen.setAttempted(_Attempted);
 				finishedScreen.setCorrect(_Correct);
 				Parent.DismissViewController(true, null);
 				Parent.PresentViewController(finishedScreen, true, null);
-
-
 			};
-
+			LeftArrow.AddGestureRecognizer(singleTapLeft);
+			LeftArrow.UserInteractionEnabled = true;
+			RightArrow.AddGestureRecognizer(singleTapRight);
+			RightArrow.UserInteractionEnabled = true;
 			/*
 			 * Add the Gesture Recognizers to the ImageViewSession Only.
 			*/
-			ImageViewSession.UserInteractionEnabled = true;
-			ImageViewSession.AddGestureRecognizer(doubleTap);
-			ImageViewSession.AddGestureRecognizer(SwipeRight);
-			ImageViewSession.AddGestureRecognizer(SwipeLeft);
+			View.UserInteractionEnabled = true;
+			View.AddGestureRecognizer(doubleTap);
+			View.AddGestureRecognizer(SwipeRight);
+			View.AddGestureRecognizer(SwipeLeft);
 
+			if (!CurrentProfile.showLabelSettings)
+			{
+				//hide the label
+				ImageLabel.Hidden = true;
+				imageStackLabel.Hidden = true;
+			}
+			if (!CurrentProfile.showImageSettings)
+			{
+				//hide the image
+				ImageViewSession.Alpha = 0.0f;
+			}
 			StartSession();
 		}
 
@@ -128,7 +140,6 @@ namespace Categories
 		{
 			base.DidReceiveMemoryWarning();
 			// Release any cached data, images, etc that aren't in use.
-
 		}
 		public void Prev()
 		{
@@ -137,7 +148,6 @@ namespace Categories
 				CurrentImageStack--;
 				CurrentImageIndex = 0;
 				ImageCountLabel.Text = "1/" + ImageStack2D[CurrentImageStack].Count;
-				//imageStackLabel.Text = ImageStackNames[CurrentImageStack];
 
 				UpdateImageView(0);
 				didChooseAnswer = false;
@@ -165,14 +175,12 @@ namespace Categories
 				new UIAlertView("Limit Reached", "No More image stacks", null, "Ok").Show();
 			}
 		}
-
 		/*
 		 * Handler for when the imageViewSession detects a right gesture swipe
 		 * 
 		*/
 		public void Missed()
-		{
-
+		{ 
 			if (CurrentImageIndex >= 0 && ImageStack2D != null && !didChooseAnswer)
 			{
 				/*
@@ -270,6 +278,17 @@ namespace Categories
 				didChooseAnswer = false;
 			}
 		}
+
+		void HandleLeftArrowClick()
+		{
+			Prev();
+		}
+
+		void HandleRightArrowClick()
+		{
+			Next();
+		}
+
 		/*
 		 * Updates the ImageViewSession with the frist image from the imageDatabase.
 		*/

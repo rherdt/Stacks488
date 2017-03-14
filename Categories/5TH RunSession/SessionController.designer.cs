@@ -40,11 +40,19 @@ namespace Categories
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView LeftArrow { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton MissedButton { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton PromptedButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIImageView RightArrow { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -82,6 +90,11 @@ namespace Categories
                 IndependentButton = null;
             }
 
+            if (LeftArrow != null) {
+                LeftArrow.Dispose ();
+                LeftArrow = null;
+            }
+
             if (MissedButton != null) {
                 MissedButton.Dispose ();
                 MissedButton = null;
@@ -90,6 +103,11 @@ namespace Categories
             if (PromptedButton != null) {
                 PromptedButton.Dispose ();
                 PromptedButton = null;
+            }
+
+            if (RightArrow != null) {
+                RightArrow.Dispose ();
+                RightArrow = null;
             }
 
             if (StatsLabel != null) {
