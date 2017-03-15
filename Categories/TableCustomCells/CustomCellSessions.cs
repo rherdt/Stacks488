@@ -21,28 +21,24 @@ public class CustomCellSessions : UITableViewCell
             Font = UIFont.FromName("AmericanTypewriter", 15f),
             TextColor = UIColor.FromRGB(0, 51, 0),
             TextAlignment = UITextAlignment.Left,
-            //BackgroundColor = UIColor.FromRGB(129, 169, 234)
         };
         dateLabel = new UILabel()
         {
             Font = UIFont.FromName("AmericanTypewriter", 15f),
             TextColor = UIColor.FromRGB(0, 51, 0),
             TextAlignment = UITextAlignment.Left,
-            //BackgroundColor = UIColor.FromRGB(234, 161, 203)
         };
-        correctRawLabel = new UILabel()
-        {
-            Font = UIFont.FromName("AmericanTypewriter", 12f),
-            TextColor = UIColor.FromRGB(0, 0, 51),
-            TextAlignment = UITextAlignment.Left,
-            //BackgroundColor = UIColor.FromRGB(182, 234, 161)
+		correctRawLabel = new UILabel()
+		{
+			Font = UIFont.FromName("AmericanTypewriter", 12f),
+			TextColor = UIColor.FromRGB(0, 0, 51),
+			TextAlignment = UITextAlignment.Left,
         };
         correctPercentageLabel = new UILabel()
         {
             Font = UIFont.FromName("AmericanTypewriter", 12f),
             TextColor = UIColor.FromRGB(0, 0, 51),
             TextAlignment = UITextAlignment.Left,
-            //BackgroundColor = UIColor.FromRGB(161, 234, 228)
         };
         #endregion
 

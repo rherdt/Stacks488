@@ -239,6 +239,7 @@
     <Compile Include="5TH RunSession\Settings\SettingsAlertController.cs" />
     <Compile Include="5TH RunSession\SessionController.cs" />
     <Compile Include="AppColors.cs" />
+    <Compile Include="TableCustomCells\CustomCellImageStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\images.csv" />

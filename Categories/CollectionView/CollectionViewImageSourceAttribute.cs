@@ -68,7 +68,7 @@ namespace Categories
 					Cells[prevImageSelected.Row].isSelected = false;
 					prevCell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
 					prevCell.ImageView.Layer.BorderWidth = 1f;
-					prevCell.ImageView.Layer.CornerRadius = 1f;
+					prevCell.ImageView.Layer.CornerRadius = 5f;
 					prevCell.ImageView.Layer.MasksToBounds = true;
 					//prevCell.ImageView.Alpha = 1.0f;
 				}
@@ -78,7 +78,7 @@ namespace Categories
 				//cell.ImageView.Alpha = 0.5f;
 				cell.ImageView.Layer.BorderColor = AppColors.PEACH.CGColor;
 				cell.ImageView.Layer.BorderWidth = 10f;
-				cell.ImageView.Layer.CornerRadius = 1f;
+				cell.ImageView.Layer.CornerRadius = 5f;
 				cell.ImageView.Layer.MasksToBounds = true;
 				Cells[indexPath.Row].isSelected = true;
 				prevCell = (UserCellAttribute)collectionView.CellForItem(indexPath);
@@ -93,7 +93,7 @@ namespace Categories
 				{
 					cell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
 					cell.ImageView.Layer.BorderWidth = 1f;
-					cell.ImageView.Layer.CornerRadius = 1f;
+					cell.ImageView.Layer.CornerRadius = 5f;
 					cell.ImageView.Layer.MasksToBounds = true;
 					//cell.ImageView.Alpha = 1.0f;
 					Clicked.isSelected = false;
@@ -104,7 +104,7 @@ namespace Categories
 				{
 					cell.ImageView.Layer.BorderColor = AppColors.PEACH.CGColor;
 					cell.ImageView.Layer.BorderWidth = 10f;
-					cell.ImageView.Layer.CornerRadius = 1f;
+					cell.ImageView.Layer.CornerRadius = 5f;
 					cell.ImageView.Layer.MasksToBounds = true;
 					//cell.ImageView.Alpha = 0.5f;
 					Clicked.isSelected = true;
@@ -143,6 +143,16 @@ namespace Categories
 			//clear all selected cells
 			if (mainCollectionView != null)
 			{
+				if (prevCell != null)
+				{
+					prevCell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
+					prevCell.ImageView.Layer.BorderWidth = 1f;
+					prevCell.ImageView.Layer.CornerRadius = 5f;
+					prevCell.ImageView.Layer.MasksToBounds = true;
+					prevCell = null;
+				}
+
+				/*
 				foreach (NSIndexPath path in SelectedImagesToClear)
 				{
 					var cell = (UserCellAttribute)mainCollectionView.CellForItem(path);
@@ -150,10 +160,10 @@ namespace Categories
 					{
 						cell.ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
 						cell.ImageView.Layer.BorderWidth = 1f;
-						cell.ImageView.Layer.CornerRadius = 1f;
+						cell.ImageView.Layer.CornerRadius = 5f;
 						cell.ImageView.Layer.MasksToBounds = true;
 					}
-				}
+				}*/
 			}
 		}
 
@@ -215,7 +225,7 @@ namespace Categories
 			ImageView = new UIImageView();
 			ImageView.Layer.BorderColor = UIColor.Gray.CGColor;
 			ImageView.Layer.BorderWidth = 1f;
-			ImageView.Layer.CornerRadius = 1f;
+			ImageView.Layer.CornerRadius = 5f;
 			ImageView.Layer.MasksToBounds = true;
 			ImageView.ContentMode = UIViewContentMode.ScaleToFill;
 

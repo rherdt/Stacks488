@@ -14,11 +14,11 @@ namespace Categories
 		List<ImageStackCategory> TableItems;
 		UITableView tableView;
 		NSString cellIdentifier = (NSString)"TableCell";
-		UIViewController newSessionSplitViewController;
-		bool isVisible;
 		Category CurrentlySelectedCategory;
 		bool TableHidden = true;
 		UIView cellBackgroundColor;
+		public List<ImageStackImages> Cells;
+		UIImage previewImageStack;
 		#endregion
 
 		public delegate void ImageStackDelegate(ImageStackCategory imageStack);
@@ -71,8 +71,10 @@ namespace Categories
 			return TableItems.Count;
 		}
 
+
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
+			
 			//send data to ProfilesSplitViewController
 			var SelectedItemName = this.TableItems[indexPath.Section];
 			if (ImageStackToController != null)
@@ -100,20 +102,36 @@ namespace Categories
 			CurrentlySelectedCategory = currentlySelected;
 		}
 
+
+
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellCategories;
+			var cell = tableView.DequeueReusableCell(cellIdentifier) as CustomCellImageStack;
 
 			if (cell == null)
 			{
-				cell = new CustomCellCategories(cellIdentifier, newSessionSplitViewController, isVisible);
+				cell = new CustomCellImageStack(cellIdentifier);
 			}
-			if (!isVisible)
+			//var Resultfilename = new DatabaseContext<Image>().GetQuery("SELECT FileName FROM Image WHERE ID = ?", TableItems[count].SessionImageID.ToString());
+			//var image = Utilities.GetUIImageFromFileNameThumbnail(Resultfilename[0].FileName);
+			Cells = new DatabaseContext<ImageStackImages>().GetQuery("SELECT * From ImageStackImages WHERE ParentImageStackID = ?", TableItems[indexPath.Section].ID.ToString());
+			if (Cells.Count == 0)
 			{
-				cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+				previewImageStack = UIImage.FromFile("Images Icon.png");
 			}
+			else
+			{
+				var Resultfilename = new DatabaseContext<Image>().GetQuery("SELECT FileName FROM Image WHERE ID = ?", Cells[0].ImageID.ToString());
+				previewImageStack = Utilities.GetUIImageFromFileNameThumbnail(Resultfilename[0].FileName);
+			}
+
+
+			cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+
 			cell.SelectedBackgroundView = cellBackgroundColor;
-			cell.UpdateCell(TableItems[indexPath.Section].ImageStackName, "Test");
+			cell.Layer.CornerRadius = 10;
+			cell.Layer.MasksToBounds = true;
+			cell.UpdateCell(TableItems[indexPath.Section].ImageStackName, previewImageStack);
 
 			return cell;
 

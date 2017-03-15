@@ -1,16 +1,20 @@
 ﻿<Properties StartupConfiguration="{BB8BF0C2-0DB4-4C2F-9B48-8D86BE6BBFFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="5TH RunSession/SessionController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="2ND TAB Categories/ImageStackSplitViewController.cs">
     <Files>
-      <File FileName="5TH RunSession/SessionController.cs" Line="136" Column="35" />
+      <File FileName="Objects/ImageStackCategory.cs" Line="12" Column="31" />
+      <File FileName="CollectionView/CollectionViewAttributes.cs" Line="49" Column="105" />
+      <File FileName="CollectionView/CollectionViewImageStackSource.cs" Line="13" Column="3" />
+      <File FileName="TableSources/TableSourceImageStack.cs" Line="118" Column="1" />
+      <File FileName="2ND TAB Categories/CategoriesSplitViewController.cs" Line="26" Column="57" />
+      <File FileName="2ND TAB Categories/CollectionViewImageStack.cs" Line="142" Column="3" />
+      <File FileName="2ND TAB Categories/ImageStackSplitViewController.cs" Line="21" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/DQ/Github/Stacks488/Categories/TableSources/TableSourceImageAttributes.cs" relfile="TableSources/TableSourceImageAttributes.cs" line="145" column="57" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6AF740A9-1C74-4EB3-9651-A8533EDF835D" />
+  <MonoDevelop.Ide.ItemProperties.Categories PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.82C20C84-6F04-481C-ABBC-AC390F91F8A9" />
   <MultiItemStartupConfigurations />
 </Properties>

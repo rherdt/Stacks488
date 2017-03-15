@@ -21,7 +21,6 @@ public class CustomCellRanImages : UITableViewCell
 			Font = UIFont.FromName("AmericanTypewriter", 13f),
 			TextColor = UIColor.FromRGB(0, 51, 0),
 			TextAlignment = UITextAlignment.Left,
-			//BackgroundColor = UIColor.Blue
 		};
 
 		result = new UIImageView();

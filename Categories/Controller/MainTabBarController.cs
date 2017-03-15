@@ -25,6 +25,7 @@ namespace Categories
 
 			CategoriesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Categories Icon.png"), 0);
 			CategoriesTab.Title = "Categories";
+			CategoriesTab.View.BackgroundColor = AppColors.LIGHT_TEAL;
 
 			ImagesTab.TabBarItem = new UITabBarItem("", UIImage.FromFile("Images Icon.png"), 0);
 			ImagesTab.Title = "Images";

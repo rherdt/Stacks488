@@ -46,13 +46,13 @@ namespace Categories
 
 			imageStackTableViewController.TableView.ContentInset = new UIEdgeInsets(ImageStackNavigationController.NavigationBar.Frame.Size.Height, 0, 0, 0);
 			collectionViewController.setInset(collectionsNavigationController.NavigationBar.Frame.Size.Height);
+
 		}
 
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
-			//imageStackTableViewController.View.Frame = new CGRect(0, 50, NavigationBarWidth, 768);
-			//imageStackTableViewController.TableView.ReloadInputViews();
+			imageStackTableViewController.ReloadTableData();
 		}
 
 		public override void ViewDidLoad()

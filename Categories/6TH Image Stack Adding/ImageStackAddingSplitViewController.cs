@@ -124,7 +124,7 @@ namespace Categories
 			//attributesCollectionView.clearCellSelection();
 			AttributeImageSource.clearSelectedImages(attributesCollectionView.getCollection());
 			MainTabBarController tab = (MainTabBarController)ParentViewController;
-			tab.SelectedIndex = 1;
+			tab.SelectedIndex = 2;
 			tab.DismissModalViewController(true);
 
 

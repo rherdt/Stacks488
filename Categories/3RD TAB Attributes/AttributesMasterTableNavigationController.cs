@@ -11,6 +11,8 @@ namespace Categories
 		CollectionViewAttributes attributesCollectionView;
 		TableSourceAttributes AttributesTableSource;
 		AttributesTableViewController attributesTableViewController;
+		ImageAttributesTableViewController RightImageAttributeTable;
+		TableSourceImageAttributes RightAttributesTableSource;
 
 		public AttributesMasterTableNavigationController(IUpdatableTable tableViewController) : base()
 		{
@@ -49,9 +51,22 @@ namespace Categories
 			this.AttributesTableSource = AttributesTableSource;
 		}
 
+		public void setRightAttributesTableSource(TableSourceImageAttributes RightAttributesTableSource)
+		{
+			this.RightAttributesTableSource = RightAttributesTableSource;
+		}
+
+		public void setRightImageAttributeTable(ImageAttributesTableViewController RightImageAttributeTable)
+		{
+			this.RightImageAttributeTable = RightImageAttributeTable;
+		}
+
 		void HandleTouchUpInsideLeft(object sender, EventArgs ee)
 		{
 			AttributesTableSource.RowDeselected(attributesTableViewController.getTable(), null);
+
+			RightAttributesTableSource.ClearTable();
+			RightImageAttributeTable.RefreshTableView();
 			attributesCollectionView.ClearImages();
 			attributesCollectionView.UpdateImages(new DatabaseContext<Image>().GetQuery("Select * FROM Image"));
 		}

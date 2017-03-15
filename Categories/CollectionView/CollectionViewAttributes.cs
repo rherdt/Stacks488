@@ -70,11 +70,9 @@ namespace Categories
 		}
 		public void ClearImages()
 		{
-			CollectionViewSource.Cells.Clear();
 			CollectionViewSource.ResetOnFilter();
+			CollectionViewSource.Cells.Clear();
 			CollectionView.ReloadData();
-
-
 		}
 
 		public override void DidReceiveMemoryWarning()

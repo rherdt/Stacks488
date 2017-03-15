@@ -13,7 +13,7 @@ namespace Categories
 
 		public CollectionViewImageStack() : base("CollectionViewController", null)
 		{
-			View.Frame = new CGRect(0,93,422, 600);
+			View.BackgroundColor = AppColors.LIGHT_TEAL;
 		}
 
 		public void setInset(nfloat y)
@@ -47,7 +47,6 @@ namespace Categories
 			CollectionViewSource.ImageViewSize = new SizeF((float)CellSize.Width, (float)CellSize.Height);
 
 			CollectionView = new UICollectionView(UIScreen.MainScreen.Bounds, layout);
-			CollectionView.Frame = new CGRect(0, 30, View.Bounds.Width / 1.6, View.Bounds.Height);
 			CollectionView.BackgroundColor = AppColors.LIGHT_TEAL;
 			var longPressGesture = new UILongPressGestureRecognizer(gesture =>
 			{
@@ -135,7 +134,11 @@ namespace Categories
 			return size;
 		}
 
-
+		public override void ViewDidLayoutSubviews()
+		{
+			base.ViewDidLayoutSubviews();
+			CollectionView.Frame = new CGRect(0, 30, View.Bounds.Width, View.Bounds.Height);
+		}
 
 		//enable delete view
 		public CollectionViewImageStackSource getCollectionViewSource()

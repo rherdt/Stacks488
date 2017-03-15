@@ -76,15 +76,7 @@ namespace Categories
 		#endregion
 
 		#region Delegates
-		public void GetRowClickedFromSessionSource(Session session)
-		{
-			
-			//List<SessionResult> imagesForSelectedSession = new DatabaseContext<SessionResult>().GetQuery("SELECT * FROM SessionResult WHERE ParentSessionID = ?", session.ID.ToString());
-			//CollectionViewTable.ClearCollectionView(); //give the source to the categories view
-			//CollectionViewTable.SetImageSource(imagesForSelectedSession);
-			//CollectionViewTable.ClearCollectionView(); //give the source to the categories view
-			//CollectionViewTable.SetImageSource(imagesForSelectedSession);
-		}
+		public void GetRowClickedFromSessionSource(Session session){ }
 
 		public void GetRowClickedFromProfilesSource(Profiles ProfileRow)
 		{

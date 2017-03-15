@@ -54,6 +54,8 @@ namespace Categories
 			navController.setCollectionViewController(attributesCollectionView);
 			navController.setAttributesSource(AttributesTableSource);
 			navController.setAttributesTableViewController(attributesTableViewController);
+			navController.setRightImageAttributeTable(RightImageAttributeTable);
+			navController.setRightAttributesTableSource(RightAttributesTableSource);
 			ViewControllers = new UIViewController[] {navController, imageAttributeSplitViewController };
 			this.View.BackgroundColor = AppColors.LIGHT_TEAL;
 		}
@@ -87,7 +89,6 @@ namespace Categories
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = btnAddImg;
 			//navControllerCollection.NavigationBar.Items[0].RightBarButtonItem = new UIBarButtonItem(UIBarButtonSystemItem.Camera, (sender, e) => AddPhotoButtonHandler(sender, e));
 			navControllerCollection.NavigationBar.Items[0].RightBarButtonItem.Enabled = true;
-			navControllerCollection.NavigationBar.Items[0].Title = "Images";
 
 			navControllerCollection.View.Frame = new CoreGraphics.CGRect(0, 20, this.View.Bounds.Width / 1.87, this.View.Bounds.Height);
 			navControllerCollection.View.Bounds = navControllerCollection.View.Frame;
